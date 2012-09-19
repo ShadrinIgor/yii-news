@@ -1,0 +1,86 @@
+#BMain
+{
+	background: url("center_bg.jpg") repeat;
+	padding: 0 15px;
+}
+
+h2
+{
+    background: none repeat scroll 0 0 #C3C4BF;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+}
+
+#MLeft
+{
+    float: left;
+    overflow: hidden;
+    width: 50%;
+}
+
+#MRight {
+    width: 47%;
+	margin-top: 0;
+}
+
+#bottomMenu
+{
+    margin: 30px 0 0;
+    position: inherit;
+    width:100%;;
+}
+
+#Main {min-width:0px;}
+
+#TNet {margin: 30px auto;}
+#MBottom{overflow: hidden;}
+
+.ML_block {
+    float: left;
+    margin-right: 10px;
+    width: 286px;
+}
+
+#MRight .cItem {
+    width: 286px;
+	padding: 5px;
+	width:286px;
+}
+
+#MRight .afishi {
+	width: 45%;
+}
+
+
+.newsBlock03 {
+    width: 90%;
+}
+
+.topListNews .oneNews {
+    min-width: 170px;
+    width: 170px;
+}
+
+.afishi{ height:93px;margin:0px; }
+
+.afishi font
+{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.af_little font {font-size: 13px;}
+
+.af_little{ height:56px; }
+
+.listItems .TN_img {
+    width: 115px;
+}
+
+.af_cheked{ background:rgba(196, 193, 185, 0.8);color: #FFFFFF; }
+
+.ML_block_big{ overflow:hidden;width: 100%; }
+
+.moreLink{font-size: 12px;font-style: italic;}
+

@@ -1,0 +1,10 @@
+#TNet{ background:url(  baners/t_bg.jpg ) no-repeat;width:958px;height:116px;margin:20px auto 10px;overflow:hidden; }
+#TLogo{ background:url( baners/t_logo.png ) no-repeat;width:144px;height:97px;float:left;margin:9px 20px 0 12px; }
+.TBan{ background:url( baners/baner_bg.png ) no-repeat;width:253px;height:112px;float:left;margin-top:1px }
+.TBan a{display:block;width:227px;height:97px;}
+
+.RB{margin: 0px 0 0 16px;  }
+.RBSmiles{ background:url( baners/smiles.uz.jpg) no-repeat; }
+.RBWorldTravel{ background:url( baners/world-travel.uz.jpg) no-repeat; }
+.RBWorldNews{ background:url( baners/world-news.uz.jpg) no-repeat; }
+.RBTrio{ background:url( baners/trio.uz.jpg) no-repeat; }

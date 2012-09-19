@@ -1,0 +1,419 @@
+2012/09/19 11:00:25 [error] [php] Undefined variable: Theme (C:\webProjects\yii-news\httpdocs\protected\views\layouts\main.php:8)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\widgets\CContentDecorator.php(77): SiteController->renderFile()
+#1 C:\webProjects\yii-news\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate()
+#2 C:\webProjects\yii-news\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput()
+#3 C:\webProjects\yii-news\framework\web\CBaseController.php(207): CContentDecorator->run()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(301): SiteController->endWidget()
+#5 C:\webProjects\yii-news\httpdocs\protected\views\layouts\column1.php(6): SiteController->endContent()
+#6 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#7 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#8 C:\webProjects\yii-news\framework\web\CController.php(785): SiteController->renderFile()
+#9 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): SiteController->render()
+#10 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#11 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#12 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#13 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#15 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#16 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\httpdocs\protected\views\layouts\main.php (8)
+in C:\webProjects\yii-news\httpdocs\protected\views\layouts\column1.php (6)
+in C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php (32)
+2012/09/19 11:06:49 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "index".' in C:\webProjects\yii-news\framework\web\CController.php:879
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(783): CController->renderPartial('index', NULL, true)
+#1 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): CController->render('index')
+#2 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#8 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=gii
+---
+2012/09/19 11:07:02 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "index".' in C:\webProjects\yii-news\framework\web\CController.php:879
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(783): CController->renderPartial('index', NULL, true)
+#1 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): CController->render('index')
+#2 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#8 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/09/19 11:09:27 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "login".' in C:\webProjects\yii-news\framework\web\CController.php:879
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(783): CController->renderPartial('login', NULL, true)
+#1 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): CController->render('login')
+#2 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#8 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/09/19 11:09:29 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "login".' in C:\webProjects\yii-news\framework\web\CController.php:879
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(783): CController->renderPartial('login', NULL, true)
+#1 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): CController->render('login')
+#2 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#8 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/09/19 11:09:29 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "login".' in C:\webProjects\yii-news\framework\web\CController.php:879
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(783): CController->renderPartial('login', NULL, true)
+#1 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): CController->render('login')
+#2 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#8 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/09/19 11:09:29 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "login".' in C:\webProjects\yii-news\framework\web\CController.php:879
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(783): CController->renderPartial('login', NULL, true)
+#1 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): CController->render('login')
+#2 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#8 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/09/19 11:09:29 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "login".' in C:\webProjects\yii-news\framework\web\CController.php:879
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(783): CController->renderPartial('login', NULL, true)
+#1 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): CController->render('login')
+#2 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#8 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/09/19 11:09:29 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "login".' in C:\webProjects\yii-news\framework\web\CController.php:879
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(783): CController->renderPartial('login', NULL, true)
+#1 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): CController->render('login')
+#2 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#8 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/09/19 11:09:30 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "login".' in C:\webProjects\yii-news\framework\web\CController.php:879
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(783): CController->renderPartial('login', NULL, true)
+#1 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): CController->render('login')
+#2 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#8 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/09/19 11:10:32 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "index".' in C:\webProjects\yii-news\framework\web\CController.php:879
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(783): CController->renderPartial('index', NULL, true)
+#1 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): CController->render('index')
+#2 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#8 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/09/19 11:12:47 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "contact".' in C:\webProjects\yii-news\framework\web\CController.php:879
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(783): CController->renderPartial('contact', NULL, true)
+#1 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): CController->render('contact')
+#2 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#8 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/09/19 11:12:47 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "contact".' in C:\webProjects\yii-news\framework\web\CController.php:879
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(783): CController->renderPartial('contact', NULL, true)
+#1 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): CController->render('contact')
+#2 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#8 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/09/19 11:12:47 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "contact".' in C:\webProjects\yii-news\framework\web\CController.php:879
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(783): CController->renderPartial('contact', NULL, true)
+#1 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): CController->render('contact')
+#2 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#8 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/09/19 11:12:48 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "contact".' in C:\webProjects\yii-news\framework\web\CController.php:879
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(783): CController->renderPartial('contact', NULL, true)
+#1 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): CController->render('contact')
+#2 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#8 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/09/19 11:12:48 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "contact".' in C:\webProjects\yii-news\framework\web\CController.php:879
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(783): CController->renderPartial('contact', NULL, true)
+#1 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): CController->render('contact')
+#2 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#8 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/09/19 11:14:37 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "contact".' in C:\webProjects\yii-news\framework\web\CController.php:879
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(783): CController->renderPartial('contact', NULL, true)
+#1 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): CController->render('contact')
+#2 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#8 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/09/19 11:14:38 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "contact".' in C:\webProjects\yii-news\framework\web\CController.php:879
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(783): CController->renderPartial('contact', NULL, true)
+#1 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): CController->render('contact')
+#2 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#8 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/09/19 11:14:38 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "contact".' in C:\webProjects\yii-news\framework\web\CController.php:879
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(783): CController->renderPartial('contact', NULL, true)
+#1 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): CController->render('contact')
+#2 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#8 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/09/19 11:14:38 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "contact".' in C:\webProjects\yii-news\framework\web\CController.php:879
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(783): CController->renderPartial('contact', NULL, true)
+#1 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): CController->render('contact')
+#2 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#8 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/09/19 11:14:39 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "contact".' in C:\webProjects\yii-news\framework\web\CController.php:879
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(783): CController->renderPartial('contact', NULL, true)
+#1 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): CController->render('contact')
+#2 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#8 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/09/19 11:14:39 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "contact".' in C:\webProjects\yii-news\framework\web\CController.php:879
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(783): CController->renderPartial('contact', NULL, true)
+#1 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): CController->render('contact')
+#2 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#8 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/09/19 11:14:39 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "contact".' in C:\webProjects\yii-news\framework\web\CController.php:879
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(783): CController->renderPartial('contact', NULL, true)
+#1 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): CController->render('contact')
+#2 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#3 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#8 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/09/19 11:17:23 [error] [php] Undefined variable: model (C:\webProjects\yii-news\httpdocs\protected\views\site\contact.php:38)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#1 C:\webProjects\yii-news\framework\web\CController.php(783): SiteController->renderPartial()
+#2 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): SiteController->render()
+#3 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#4 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#6 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#8 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\httpdocs\protected\views\site\contact.php (38)
+in C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php (32)
+in C:\webProjects\yii-news\httpdocs\index.php (13)
+2012/09/19 11:18:05 [error] [php] Undefined variable: Theme (C:\webProjects\yii-news\httpdocs\protected\views\layouts\main.php:8)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\widgets\CContentDecorator.php(77): SiteController->renderFile()
+#1 C:\webProjects\yii-news\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate()
+#2 C:\webProjects\yii-news\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput()
+#3 C:\webProjects\yii-news\framework\web\CBaseController.php(207): CContentDecorator->run()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(301): SiteController->endWidget()
+#5 C:\webProjects\yii-news\httpdocs\protected\views\layouts\column1.php(6): SiteController->endContent()
+#6 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#7 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#8 C:\webProjects\yii-news\framework\web\CController.php(785): SiteController->renderFile()
+#9 C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php(32): SiteController->render()
+#10 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#11 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#12 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#13 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#15 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#16 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\httpdocs\protected\views\layouts\main.php (8)
+in C:\webProjects\yii-news\httpdocs\protected\views\layouts\column1.php (6)
+in C:\webProjects\yii-news\httpdocs\protected\controllers\SiteController.php (32)
+2012/09/19 11:25:56 [error] [php] Undefined variable: Theme (C:\webProjects\yii-news\protected\views\layouts\main.php:8)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\widgets\CContentDecorator.php(77): SiteController->renderFile()
+#1 C:\webProjects\yii-news\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate()
+#2 C:\webProjects\yii-news\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput()
+#3 C:\webProjects\yii-news\framework\web\CBaseController.php(207): CContentDecorator->run()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(301): SiteController->endWidget()
+#5 C:\webProjects\yii-news\protected\views\layouts\column1.php(6): SiteController->endContent()
+#6 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#7 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#8 C:\webProjects\yii-news\framework\web\CController.php(785): SiteController->renderFile()
+#9 C:\webProjects\yii-news\protected\controllers\SiteController.php(32): SiteController->render()
+#10 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#11 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#12 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#13 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#15 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#16 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\layouts\main.php (8)
+in C:\webProjects\yii-news\protected\views\layouts\column1.php (6)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (32)
