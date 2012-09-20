@@ -28,8 +28,12 @@ class SiteController extends Controller
 	public function actionIndex()
 	{
         $n = new CatalogNews();
-//
 
+        $list = $n->fetchById( 84631 );
+        print_r( $list );
+//        $list = CatalogNews::model( "catalognews" );
+//
+        //$listNews = news
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->render('index');

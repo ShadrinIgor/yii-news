@@ -1719,3 +1719,191 @@ Stack trace:
 REQUEST_URI=/images/lightbox/close.gif
 HTTP_REFERER=http://yii-news/
 ---
+2012/09/20 14:05:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/find.png".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/find.png')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/find.png
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 14:05:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/close.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/close.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 14:05:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/loading.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/loading.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 14:15:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/find.png".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/find.png')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/find.png
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 14:15:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/loading.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/loading.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 14:15:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/close.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/close.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 14:15:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/find.png".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/find.png')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/find.png
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 14:15:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/loading.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/loading.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 14:15:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/close.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/close.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 14:16:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/find.png".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/find.png')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/find.png
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 14:16:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/loading.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/loading.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 14:16:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/close.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/close.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 14:18:46 [error] [php] Argument 1 passed to CCModel::fetchById() must be an instance of int, integer given, called in C:\webProjects\yii-news\protected\controllers\SiteController.php on line 31 and defined (C:\webProjects\yii-news\protected\models\CCModel.php:17)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#2 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#3 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#4 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#5 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\models\CCModel.php (17)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (31)
+in C:\webProjects\yii-news\httpdocs\index.php (13)
+2012/09/20 14:19:09 [error] [php] Argument 1 passed to CCModel::fetchById() must be an instance of integer, integer given, called in C:\webProjects\yii-news\protected\controllers\SiteController.php on line 31 and defined (C:\webProjects\yii-news\protected\models\CCModel.php:17)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#2 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#3 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#4 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#5 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\models\CCModel.php (17)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (31)
+in C:\webProjects\yii-news\httpdocs\index.php (13)
+2012/09/20 14:19:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/find.png".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/find.png')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/find.png
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 14:19:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/close.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/close.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 14:19:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/loading.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/loading.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 14:23:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/find.png".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/find.png')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/find.png
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 14:23:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/loading.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/loading.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 14:23:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/close.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/close.gif
+HTTP_REFERER=http://yii-news/
+---
