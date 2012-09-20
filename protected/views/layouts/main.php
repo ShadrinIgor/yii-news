@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Language" content="ru" />
-    <title>Новости Узбекистана, политика, экономика, шоубизнес - Мировые новости, новости Узбекистана</title>
+    <title>-Новости Узбекистана, политика, экономика, шоубизнес - Мировые новости, новости Узбекистана</title>
 
     <link rel="icon" href="<?php echo $Theme->getBaseUrl() ?>/images/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo $Theme->getBaseUrl() ?>/images/ico.ico" />
