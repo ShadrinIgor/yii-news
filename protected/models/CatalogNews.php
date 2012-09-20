@@ -36,7 +36,7 @@
  * @property integer $video
  * @property integer $tags_checked
  */
-class CatalogNews extends CFormModel
+class CatalogNews extends CCModel
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -88,6 +88,11 @@ class CatalogNews extends CFormModel
 		return array(
 		);
 	}
+
+    public function attributeNames()
+    {
+
+    }
 
 	/**
 	 * @return array customized attribute labels (name=>label)
