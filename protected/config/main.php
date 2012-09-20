@@ -89,4 +89,24 @@ return array(
 		'adminEmail'=>'webmaster@example.com',
         'baseUrl' => 'http://yii-news/',
 	),
+
+    /*
+    * для кэширования виджетов, все что вам надо, это добавить массив с названием виджета, без прифекса _Widget
+    * и указать параметры:
+    * duration: Время жизни кэша
+    * cacheID: ИД номер типа кэша
+    * в данный момент доступны следующие ID:
+    * CDummyCache - Пустышка, не производит кэширование данных (так же можно удалить массив с виджетом, тогда по дефолту ему выстовится CDummyCache)
+    * CFileCache - Кэширование по средством файлов
+    *
+    * что бы добавить свой тип кэширования, необходимо в компоненты добавить следующую строчку:
+    * 'CFileCache' => array('class' => 'CFileCache')  т.е. 'cacheID' => array('class' => 'ClassName'),
+
+    'widgetList' => array(
+        'newsWidget' => array(
+            'duration' => 720,
+            'cacheID' => 'CDummyCache',
+        ),
+    ),
+    */
 );

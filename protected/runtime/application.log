@@ -939,3 +939,783 @@ Stack trace:
 #26 {main}
 REQUEST_URI=/gii/default/login
 ---
+2012/09/20 11:10:50 [error] [php] include(newsWidget.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\webProjects\yii-news\framework\YiiBase.php:423)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWidgetFactory.php(147): import()
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(147): CWidgetFactory->createWidget()
+#2 C:\webProjects\yii-news\framework\web\CBaseController.php(173): SiteController->createWidget()
+#3 C:\webProjects\yii-news\protected\views\site\index.php(7): SiteController->widget()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#5 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#7 C:\webProjects\yii-news\protected\components\Controller.php(34): SiteController->renderPartial()
+#8 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): SiteController->render()
+#9 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#12 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\site\index.php (7)
+in C:\webProjects\yii-news\protected\components\Controller.php (34)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (35)
+2012/09/20 11:17:43 [error] [php] include(newsWidget.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\webProjects\yii-news\framework\YiiBase.php:423)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWidgetFactory.php(147): import()
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(147): CWidgetFactory->createWidget()
+#2 C:\webProjects\yii-news\framework\web\CBaseController.php(173): SiteController->createWidget()
+#3 C:\webProjects\yii-news\protected\views\site\index.php(7): SiteController->widget()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#5 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#7 C:\webProjects\yii-news\protected\components\Controller.php(34): SiteController->renderPartial()
+#8 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): SiteController->render()
+#9 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#12 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\site\index.php (7)
+in C:\webProjects\yii-news\protected\components\Controller.php (34)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (35)
+2012/09/20 11:17:44 [error] [php] include(newsWidget.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\webProjects\yii-news\framework\YiiBase.php:423)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWidgetFactory.php(147): import()
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(147): CWidgetFactory->createWidget()
+#2 C:\webProjects\yii-news\framework\web\CBaseController.php(173): SiteController->createWidget()
+#3 C:\webProjects\yii-news\protected\views\site\index.php(7): SiteController->widget()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#5 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#7 C:\webProjects\yii-news\protected\components\Controller.php(34): SiteController->renderPartial()
+#8 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): SiteController->render()
+#9 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#12 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\site\index.php (7)
+in C:\webProjects\yii-news\protected\components\Controller.php (34)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (35)
+2012/09/20 11:17:44 [error] [php] include(newsWidget.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\webProjects\yii-news\framework\YiiBase.php:423)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWidgetFactory.php(147): import()
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(147): CWidgetFactory->createWidget()
+#2 C:\webProjects\yii-news\framework\web\CBaseController.php(173): SiteController->createWidget()
+#3 C:\webProjects\yii-news\protected\views\site\index.php(7): SiteController->widget()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#5 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#7 C:\webProjects\yii-news\protected\components\Controller.php(34): SiteController->renderPartial()
+#8 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): SiteController->render()
+#9 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#12 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\site\index.php (7)
+in C:\webProjects\yii-news\protected\components\Controller.php (34)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (35)
+2012/09/20 11:17:44 [error] [php] include(newsWidget.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\webProjects\yii-news\framework\YiiBase.php:423)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWidgetFactory.php(147): import()
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(147): CWidgetFactory->createWidget()
+#2 C:\webProjects\yii-news\framework\web\CBaseController.php(173): SiteController->createWidget()
+#3 C:\webProjects\yii-news\protected\views\site\index.php(7): SiteController->widget()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#5 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#7 C:\webProjects\yii-news\protected\components\Controller.php(34): SiteController->renderPartial()
+#8 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): SiteController->render()
+#9 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#12 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\site\index.php (7)
+in C:\webProjects\yii-news\protected\components\Controller.php (34)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (35)
+2012/09/20 11:17:45 [error] [php] include(newsWidget.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\webProjects\yii-news\framework\YiiBase.php:423)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWidgetFactory.php(147): import()
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(147): CWidgetFactory->createWidget()
+#2 C:\webProjects\yii-news\framework\web\CBaseController.php(173): SiteController->createWidget()
+#3 C:\webProjects\yii-news\protected\views\site\index.php(7): SiteController->widget()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#5 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#7 C:\webProjects\yii-news\protected\components\Controller.php(34): SiteController->renderPartial()
+#8 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): SiteController->render()
+#9 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#12 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\site\index.php (7)
+in C:\webProjects\yii-news\protected\components\Controller.php (34)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (35)
+2012/09/20 11:17:45 [error] [php] include(newsWidget.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\webProjects\yii-news\framework\YiiBase.php:423)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWidgetFactory.php(147): import()
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(147): CWidgetFactory->createWidget()
+#2 C:\webProjects\yii-news\framework\web\CBaseController.php(173): SiteController->createWidget()
+#3 C:\webProjects\yii-news\protected\views\site\index.php(7): SiteController->widget()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#5 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#7 C:\webProjects\yii-news\protected\components\Controller.php(34): SiteController->renderPartial()
+#8 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): SiteController->render()
+#9 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#12 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\site\index.php (7)
+in C:\webProjects\yii-news\protected\components\Controller.php (34)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (35)
+2012/09/20 11:21:37 [error] [php] include(widgets/newsWidget.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\webProjects\yii-news\framework\YiiBase.php:423)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWidgetFactory.php(147): import()
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(147): CWidgetFactory->createWidget()
+#2 C:\webProjects\yii-news\framework\web\CBaseController.php(173): SiteController->createWidget()
+#3 C:\webProjects\yii-news\protected\views\site\index.php(7): SiteController->widget()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#5 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#7 C:\webProjects\yii-news\protected\components\Controller.php(34): SiteController->renderPartial()
+#8 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): SiteController->render()
+#9 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#12 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\site\index.php (7)
+in C:\webProjects\yii-news\protected\components\Controller.php (34)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (35)
+2012/09/20 11:21:38 [error] [php] include(widgets/newsWidget.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\webProjects\yii-news\framework\YiiBase.php:423)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWidgetFactory.php(147): import()
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(147): CWidgetFactory->createWidget()
+#2 C:\webProjects\yii-news\framework\web\CBaseController.php(173): SiteController->createWidget()
+#3 C:\webProjects\yii-news\protected\views\site\index.php(7): SiteController->widget()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#5 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#7 C:\webProjects\yii-news\protected\components\Controller.php(34): SiteController->renderPartial()
+#8 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): SiteController->render()
+#9 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#12 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\site\index.php (7)
+in C:\webProjects\yii-news\protected\components\Controller.php (34)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (35)
+2012/09/20 11:25:13 [error] [php] include(newsWidget.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\webProjects\yii-news\framework\YiiBase.php:423)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWidgetFactory.php(147): import()
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(147): CWidgetFactory->createWidget()
+#2 C:\webProjects\yii-news\framework\web\CBaseController.php(173): SiteController->createWidget()
+#3 C:\webProjects\yii-news\protected\views\site\index.php(7): SiteController->widget()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#5 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#7 C:\webProjects\yii-news\protected\components\Controller.php(34): SiteController->renderPartial()
+#8 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): SiteController->render()
+#9 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#12 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\site\index.php (7)
+in C:\webProjects\yii-news\protected\components\Controller.php (34)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (35)
+2012/09/20 11:25:14 [error] [php] include(newsWidget.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\webProjects\yii-news\framework\YiiBase.php:423)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWidgetFactory.php(147): import()
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(147): CWidgetFactory->createWidget()
+#2 C:\webProjects\yii-news\framework\web\CBaseController.php(173): SiteController->createWidget()
+#3 C:\webProjects\yii-news\protected\views\site\index.php(7): SiteController->widget()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#5 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#7 C:\webProjects\yii-news\protected\components\Controller.php(34): SiteController->renderPartial()
+#8 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): SiteController->render()
+#9 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#12 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\site\index.php (7)
+in C:\webProjects\yii-news\protected\components\Controller.php (34)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (35)
+2012/09/20 11:25:14 [error] [php] include(newsWidget.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\webProjects\yii-news\framework\YiiBase.php:423)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWidgetFactory.php(147): import()
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(147): CWidgetFactory->createWidget()
+#2 C:\webProjects\yii-news\framework\web\CBaseController.php(173): SiteController->createWidget()
+#3 C:\webProjects\yii-news\protected\views\site\index.php(7): SiteController->widget()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#5 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#7 C:\webProjects\yii-news\protected\components\Controller.php(34): SiteController->renderPartial()
+#8 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): SiteController->render()
+#9 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#12 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\site\index.php (7)
+in C:\webProjects\yii-news\protected\components\Controller.php (34)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (35)
+2012/09/20 11:25:15 [error] [php] include(newsWidget.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\webProjects\yii-news\framework\YiiBase.php:423)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWidgetFactory.php(147): import()
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(147): CWidgetFactory->createWidget()
+#2 C:\webProjects\yii-news\framework\web\CBaseController.php(173): SiteController->createWidget()
+#3 C:\webProjects\yii-news\protected\views\site\index.php(7): SiteController->widget()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#5 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#7 C:\webProjects\yii-news\protected\components\Controller.php(34): SiteController->renderPartial()
+#8 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): SiteController->render()
+#9 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#12 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\site\index.php (7)
+in C:\webProjects\yii-news\protected\components\Controller.php (34)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (35)
+2012/09/20 11:25:15 [error] [php] include(newsWidget.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\webProjects\yii-news\framework\YiiBase.php:423)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWidgetFactory.php(147): import()
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(147): CWidgetFactory->createWidget()
+#2 C:\webProjects\yii-news\framework\web\CBaseController.php(173): SiteController->createWidget()
+#3 C:\webProjects\yii-news\protected\views\site\index.php(7): SiteController->widget()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#5 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#7 C:\webProjects\yii-news\protected\components\Controller.php(34): SiteController->renderPartial()
+#8 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): SiteController->render()
+#9 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#12 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\site\index.php (7)
+in C:\webProjects\yii-news\protected\components\Controller.php (34)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (35)
+2012/09/20 11:25:15 [error] [php] include(newsWidget.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\webProjects\yii-news\framework\YiiBase.php:423)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWidgetFactory.php(147): import()
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(147): CWidgetFactory->createWidget()
+#2 C:\webProjects\yii-news\framework\web\CBaseController.php(173): SiteController->createWidget()
+#3 C:\webProjects\yii-news\protected\views\site\index.php(7): SiteController->widget()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#5 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#7 C:\webProjects\yii-news\protected\components\Controller.php(34): SiteController->renderPartial()
+#8 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): SiteController->render()
+#9 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#12 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\site\index.php (7)
+in C:\webProjects\yii-news\protected\components\Controller.php (34)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (35)
+2012/09/20 11:25:15 [error] [php] include(newsWidget.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\webProjects\yii-news\framework\YiiBase.php:423)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWidgetFactory.php(147): import()
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(147): CWidgetFactory->createWidget()
+#2 C:\webProjects\yii-news\framework\web\CBaseController.php(173): SiteController->createWidget()
+#3 C:\webProjects\yii-news\protected\views\site\index.php(7): SiteController->widget()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#5 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#7 C:\webProjects\yii-news\protected\components\Controller.php(34): SiteController->renderPartial()
+#8 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): SiteController->render()
+#9 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#12 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\site\index.php (7)
+in C:\webProjects\yii-news\protected\components\Controller.php (34)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (35)
+2012/09/20 11:25:15 [error] [php] include(newsWidget.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\webProjects\yii-news\framework\YiiBase.php:423)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWidgetFactory.php(147): import()
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(147): CWidgetFactory->createWidget()
+#2 C:\webProjects\yii-news\framework\web\CBaseController.php(173): SiteController->createWidget()
+#3 C:\webProjects\yii-news\protected\views\site\index.php(7): SiteController->widget()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#5 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#7 C:\webProjects\yii-news\protected\components\Controller.php(34): SiteController->renderPartial()
+#8 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): SiteController->render()
+#9 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#12 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\site\index.php (7)
+in C:\webProjects\yii-news\protected\components\Controller.php (34)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (35)
+2012/09/20 11:25:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/find.png".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/find.png')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/find.png
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 11:25:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/close.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/close.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 11:25:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/loading.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/loading.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 11:26:17 [error] [exception.CException] exception 'CException' with message 'Виджет newsWidget не может найти представление "index".' in C:\webProjects\yii-news\framework\web\widgets\CWidget.php:246
+Stack trace:
+#0 C:\webProjects\yii-news\protected\components\newsWidget.php(13): CWidget->render('index')
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(174): newsWidget->run()
+#2 C:\webProjects\yii-news\protected\views\site\index.php(7): CBaseController->widget('newsWidget')
+#3 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require('C:\webProjects\...')
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\webProjects\...', Array, true)
+#5 C:\webProjects\yii-news\framework\web\CController.php(870): CBaseController->renderFile('C:\webProjects\...', Array, true)
+#6 C:\webProjects\yii-news\protected\components\Controller.php(34): CController->renderPartial('index', Array, true)
+#7 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): Controller->render('index')
+#8 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#9 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#11 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#14 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/
+---
+2012/09/20 11:26:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/find.png".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/find.png')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/find.png
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 11:26:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/loading.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/loading.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 11:26:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/close.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/close.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 11:26:52 [error] [php] Object of class newsWidget could not be converted to string (C:\webProjects\yii-news\protected\views\site\index.php:7)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#1 C:\webProjects\yii-news\protected\components\Controller.php(34): SiteController->renderPartial()
+#2 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): SiteController->render()
+#3 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#4 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#6 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#7 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#8 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\site\index.php (7)
+in C:\webProjects\yii-news\protected\components\Controller.php (34)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (35)
+2012/09/20 11:26:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/find.png".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/find.png')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/find.png
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 11:27:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/loading.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/loading.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 11:27:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/close.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/close.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 11:27:58 [error] [exception.CException] exception 'CException' with message 'Виджет newsWidget не может найти представление "index".' in C:\webProjects\yii-news\framework\web\widgets\CWidget.php:246
+Stack trace:
+#0 C:\webProjects\yii-news\protected\components\newsWidget.php(13): CWidget->render('index')
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(174): newsWidget->run()
+#2 C:\webProjects\yii-news\protected\views\site\index.php(7): CBaseController->widget('newsWidget')
+#3 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require('C:\webProjects\...')
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\webProjects\...', Array, true)
+#5 C:\webProjects\yii-news\framework\web\CController.php(870): CBaseController->renderFile('C:\webProjects\...', Array, true)
+#6 C:\webProjects\yii-news\protected\components\Controller.php(34): CController->renderPartial('index', Array, true)
+#7 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): Controller->render('index')
+#8 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#9 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#11 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#14 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/
+---
+2012/09/20 11:29:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/find.png".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/find.png')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/find.png
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 11:29:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/close.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/close.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 11:29:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/loading.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/loading.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 11:30:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/find.png".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/find.png')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/find.png
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 11:30:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/close.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/close.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 11:30:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/loading.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/loading.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 11:30:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/find.png".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/find.png')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/find.png
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 11:30:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/loading.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/loading.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 11:30:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/close.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/close.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 11:31:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/find.png".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/find.png')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/find.png
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 11:31:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/close.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/close.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 11:31:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/loading.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/loading.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 12:00:32 [error] [php] include(newsWidget.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\webProjects\yii-news\framework\YiiBase.php:423)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWidgetFactory.php(147): import()
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(147): CWidgetFactory->createWidget()
+#2 C:\webProjects\yii-news\framework\web\CBaseController.php(173): SiteController->createWidget()
+#3 C:\webProjects\yii-news\protected\views\site\index.php(7): SiteController->widget()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#5 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#7 C:\webProjects\yii-news\protected\components\Controller.php(34): SiteController->renderPartial()
+#8 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): SiteController->render()
+#9 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#12 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\site\index.php (7)
+in C:\webProjects\yii-news\protected\components\Controller.php (34)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (35)
+2012/09/20 12:00:56 [error] [exception.CException] exception 'CException' with message 'Неправильный алиас "widgets.newsWidget". Убедитесь, что он указывает на существующую директорию или файл.' in C:\webProjects\yii-news\framework\YiiBase.php:343
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWidgetFactory.php(147): YiiBase::import('widgets.newsWid...', true)
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(147): CWidgetFactory->createWidget(Object(SiteController), 'widgets.newsWid...', Array)
+#2 C:\webProjects\yii-news\framework\web\CBaseController.php(173): CBaseController->createWidget('widgets.newsWid...', Array)
+#3 C:\webProjects\yii-news\protected\views\site\index.php(7): CBaseController->widget('widgets.newsWid...')
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require('C:\webProjects\...')
+#5 C:\webProjects\yii-news\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\webProjects\...', Array, true)
+#6 C:\webProjects\yii-news\framework\web\CController.php(870): CBaseController->renderFile('C:\webProjects\...', Array, true)
+#7 C:\webProjects\yii-news\protected\components\Controller.php(34): CController->renderPartial('index', Array, true)
+#8 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): Controller->render('index')
+#9 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('')
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#15 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/
+---
+2012/09/20 12:03:13 [error] [php] include(widgets/newsWidget.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\webProjects\yii-news\framework\YiiBase.php:423)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWidgetFactory.php(147): import()
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(147): CWidgetFactory->createWidget()
+#2 C:\webProjects\yii-news\framework\web\CBaseController.php(173): SiteController->createWidget()
+#3 C:\webProjects\yii-news\protected\views\site\index.php(7): SiteController->widget()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#5 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#7 C:\webProjects\yii-news\protected\components\Controller.php(34): SiteController->renderPartial()
+#8 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): SiteController->render()
+#9 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#12 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\site\index.php (7)
+in C:\webProjects\yii-news\protected\components\Controller.php (34)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (35)
+2012/09/20 12:05:21 [error] [php] include(widgets/news_Widget.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\webProjects\yii-news\framework\YiiBase.php:423)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWidgetFactory.php(147): import()
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(147): CWidgetFactory->createWidget()
+#2 C:\webProjects\yii-news\framework\web\CBaseController.php(173): SiteController->createWidget()
+#3 C:\webProjects\yii-news\protected\views\site\index.php(7): SiteController->widget()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#5 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#7 C:\webProjects\yii-news\protected\components\Controller.php(34): SiteController->renderPartial()
+#8 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): SiteController->render()
+#9 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#12 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\site\index.php (7)
+in C:\webProjects\yii-news\protected\components\Controller.php (34)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (35)
+2012/09/20 12:05:32 [error] [php] include(newsWidget.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\webProjects\yii-news\framework\YiiBase.php:423)
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWidgetFactory.php(147): import()
+#1 C:\webProjects\yii-news\framework\web\CBaseController.php(147): CWidgetFactory->createWidget()
+#2 C:\webProjects\yii-news\framework\web\CBaseController.php(173): SiteController->createWidget()
+#3 C:\webProjects\yii-news\protected\views\site\index.php(7): SiteController->widget()
+#4 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require()
+#5 C:\webProjects\yii-news\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 C:\webProjects\yii-news\framework\web\CController.php(870): SiteController->renderFile()
+#7 C:\webProjects\yii-news\protected\components\Controller.php(34): SiteController->renderPartial()
+#8 C:\webProjects\yii-news\protected\controllers\SiteController.php(35): SiteController->render()
+#9 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#10 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 C:\webProjects\yii-news\framework\web\CController.php(287): SiteController->runAction()
+#12 C:\webProjects\yii-news\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#13 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): SiteController->run()
+#14 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\webProjects\yii-news\httpdocs\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\webProjects\yii-news\protected\views\site\index.php (7)
+in C:\webProjects\yii-news\protected\components\Controller.php (34)
+in C:\webProjects\yii-news\protected\controllers\SiteController.php (35)
+2012/09/20 12:06:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/find.png".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/find.png')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/find.png
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 12:06:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/loading.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/loading.gif
+HTTP_REFERER=http://yii-news/
+---
+2012/09/20 12:06:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "images/lightbox/close.gif".' in C:\webProjects\yii-news\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('images/lightbox...')
+#1 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/lightbox/close.gif
+HTTP_REFERER=http://yii-news/
+---
