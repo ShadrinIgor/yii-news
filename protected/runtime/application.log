@@ -908,3 +908,34 @@ Stack trace:
 #14 {main}
 REQUEST_URI=/
 ---
+2012/09/20 09:57:12 [error] [exception.CException] exception 'CException' with message 'Путь CAssetManager.basePath "C:\webProjects\yii-news\httpdocs\assets" задан неверно. Удостоверьтесь, что директория существует и доступна для записи пользователю, под которым запущен веб-сервер.' in C:\webProjects\yii-news\framework\web\CAssetManager.php:128
+Stack trace:
+#0 C:\webProjects\yii-news\framework\web\CAssetManager.php(113): CAssetManager->setBasePath('C:\webProjects\...')
+#1 C:\webProjects\yii-news\framework\web\CAssetManager.php(235): CAssetManager->getBasePath()
+#2 C:\webProjects\yii-news\framework\gii\GiiModule.php(143): CAssetManager->publish('C:\webProjects\...')
+#3 C:\webProjects\yii-news\framework\base\CComponent.php(112): GiiModule->getAssetsUrl()
+#4 C:\webProjects\yii-news\framework\base\CModule.php(106): CComponent->__get('assetsUrl')
+#5 C:\webProjects\yii-news\framework\gii\views\layouts\main.php(5): CModule->__get('assetsUrl')
+#6 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require('C:\webProjects\...')
+#7 C:\webProjects\yii-news\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\webProjects\...', Array, true)
+#8 C:\webProjects\yii-news\framework\web\widgets\CContentDecorator.php(77): CBaseController->renderFile('C:\webProjects\...', Array, true)
+#9 C:\webProjects\yii-news\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate('<div class="con...')
+#10 C:\webProjects\yii-news\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput('<div class="con...')
+#11 C:\webProjects\yii-news\framework\web\CBaseController.php(207): COutputProcessor->run()
+#12 C:\webProjects\yii-news\framework\web\CBaseController.php(301): CBaseController->endWidget('CContentDecorat...')
+#13 C:\webProjects\yii-news\framework\gii\views\layouts\column1.php(7): CBaseController->endContent()
+#14 C:\webProjects\yii-news\framework\web\CBaseController.php(127): require('C:\webProjects\...')
+#15 C:\webProjects\yii-news\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\webProjects\...', Array, true)
+#16 C:\webProjects\yii-news\framework\web\CController.php(785): CBaseController->renderFile('C:\webProjects\...', Array, true)
+#17 C:\webProjects\yii-news\framework\gii\controllers\DefaultController.php(47): CController->render('login', Array)
+#18 C:\webProjects\yii-news\framework\web\actions\CInlineAction.php(50): DefaultController->actionLogin()
+#19 C:\webProjects\yii-news\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#20 C:\webProjects\yii-news\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#21 C:\webProjects\yii-news\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\webProjects\yii-news\framework\web\CWebApplication.php(283): CController->run('login')
+#23 C:\webProjects\yii-news\framework\web\CWebApplication.php(142): CWebApplication->runController('gii/default/log...')
+#24 C:\webProjects\yii-news\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#25 C:\webProjects\yii-news\httpdocs\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/gii/default/login
+---

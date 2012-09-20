@@ -3,6 +3,6 @@
 
 $this->pageTitle=Yii::app()->name;
 ?>
-<h1>Ура роботает</h1>
+<h1>Urra</h1>
 
 

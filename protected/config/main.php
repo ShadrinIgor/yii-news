@@ -90,6 +90,6 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
-        'bathUrl' => 'http://yii-news/',
+        'baseUrl' => 'http://yii-news/',
 	),
 );
