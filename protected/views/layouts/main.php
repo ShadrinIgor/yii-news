@@ -30,7 +30,7 @@
 </head>
 
 <body>
-<!-- facebook like -->
+<!-- facebook like -->w
 <div id="fb-root"></div>
 <!-- end of facebook like -->
 
