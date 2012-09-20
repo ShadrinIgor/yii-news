@@ -5,28 +5,28 @@
     <meta http-equiv="Content-Language" content="ru" />
     <title>Новости Узбекистана, политика, экономика, шоубизнес - Мировые новости, новости Узбекистана</title>
 
-    <link rel="icon" href="<?php $Theme->getBaseUrl() ?>images/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" type="image/x-icon" href="http://www.world-news.uz/images/ico.ico" />
+    <link rel="icon" href="<?php echo $Theme->getBaseUrl() ?>/images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo $Theme->getBaseUrl() ?>/images/ico.ico" />
 
     <meta name="Keywords" content="Новости Узбекистана, политика, экономика, шоубизнес - Мировые новости, новости Узбекистана.Новости Узбекистана, политика, экономика, шоубизнес, Политика
 Технологии, интернет, игры,Шоубиз, Экономика, Общество, Культура, Спорт, Авто/Мото, Разное, Происшествия, Здоровье, Туризм, Музыка, Кино
 Личные деньги, Курьезы" />
     <meta name="Description" content="Новости Узбекистана, политика, экономика, шоубизнес - Мировые новости, новости Узбекистана.Новости Узбекистана, политика, экономика, шоубизнес"/>
-    <base href="http://www.world-news.uz/" />
+    <base href="<?= Yii::app()->params["bathUrl"] ?>" />
 
-    <link href="http://www.world-news.uz/images/style.css" rel="stylesheet" type="text/css" />
-    <link href="http://www.world-news.uz/images/b_style.css" rel="stylesheet" type="text/css" />
-    <link href="http://www.world-news.uz/images/lightbox/lightbox.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $Theme->getBaseUrl() ?>/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $Theme->getBaseUrl() ?>/css/b_style.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $Theme->getBaseUrl() ?>/js/lightbox/lightbox.css" rel="stylesheet" type="text/css" />
 
-    <script type="text/javascript" src="http://www.world-news.uz/images/jquery/jquery.js"></script>
-    <script type="text/javascript" src="http://www.world-news.uz/images/jquery/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="http://www.world-news.uz/images/functions.js"></script>
-    <script type="text/javascript" src="http://www.world-news.uz/images/lightbox/lightbox.js"></script>
+    <script type="text/javascript" src="<?php echo $Theme->getBaseUrl() ?>/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="<?php echo $Theme->getBaseUrl() ?>/js/jquery/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="<?php echo $Theme->getBaseUrl() ?>/js/functions.js"></script>
+    <script type="text/javascript" src="<?php echo $Theme->getBaseUrl() ?>/js/lightbox/lightbox.js"></script>
 
     <meta http-equiv="Cache-Control" content="public"/>
     <meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate"/>
 
-    <link href="http://www.world-news.uz/images/style_new.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $Theme->getBaseUrl() ?>/css/style_new.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -43,11 +43,11 @@
                         <input type="text" name="find" value="поиск..." class="inputBorder" /><input type="image" class="inputImg" src="images/find.png" />
                     </form>
                 </div>
-                <!-- facebook like -->
-
+                <!-- facebook like
+                 коментриую пока facebook чтобы не грузил
                 <div class="fb-like-box"><script src="http://connect.facebook.net/ru_RU/all.js#xfbml=1"></script><fb:like href="http://www.facebook.com/pages/%D0%9C%D0%B8%D1%80%D0%BE%D0%B2%D1%8B%D0%B5-%D0%BD%D0%BE%D0%B2%D0%BE%D1%81%D1%82%D0%B8/291777874190780" width="99" layout="box_count" show_faces="false" font="lucida grande"></fb:like></div>
-                <!-- end of facebook like -->
-                <a href="http://www.world-news.uz/" title="мировые новости, новости узбекистана, последние новости политика, шоубиснес" ><img src="images/logo.jpg" title="мировые новости, новости узбекистана, последние новости политика, шоубиснес" alt="мировые новости, новости узбекистана, последние новости политика, шоубиснес" /></a>
+                 end of facebook like -->
+                <a href="http://www.world-news.uz/" title="мировые новости, новости узбекистана, последние новости политика, шоубиснес" ><img src="<?= $Theme->getBaseUrl() ?>/images/logo.jpg" title="мировые новости, новости узбекистана, последние новости политика, шоубиснес" alt="мировые новости, новости узбекистана, последние новости политика, шоубиснес" /></a>
                 <div id="TInfo">
                     <div id="TI01">ТАШКЕНТ</div>
 

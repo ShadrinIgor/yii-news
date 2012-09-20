@@ -6,7 +6,7 @@
 
 h2
 {
-    background: url( orange_bg.jpg ) repeat-x; /*none repeat scroll 0 0 #C3C4BF;*/
+    background: url( ../images/orange_bg.jpg ) repeat-x; /*none repeat scroll 0 0 #C3C4BF;*/
     font-size: 20px;
     font-weight: normal;
     text-align: center;
@@ -90,15 +90,15 @@ h2
 .BT_block{ float: left; width: 286px;}
 .ML_table .ML_block table { width: 100%;border: 1px dashed #AFAFAF; }
 .BTB_title{cursor: pointer;color: #FFFFFF;font-weight: bold;padding: 2px 0 4px 0px;text-align: center;background: url("table_bg.jpg") repeat-x;font-size: 13px; }
-.BTB_title div{ background: url( btb_open.png ) no-repeat 10px top;height: 18px; }
-.ML_blockClose .BTB_title div{ background: url( btb_close.png ) no-repeat 10px top;height: 18px; }
+.BTB_title div{ background: url( ../images/btb_open.png ) no-repeat 10px top;height: 18px; }
+.ML_blockClose .BTB_title div{ background: url( ../images/btb_close.png ) no-repeat 10px top;height: 18px; }
 .ML_blockClose .MLB_inner{ display: none; }
 .ML_table .ML_block table th{font-weight: normal;}
 .ML_table .ML_block table td{ border: 1px dotted #CFCFCF;padding: 2px;  }
 .BTB_small{ width:22px; }
 .BTB_right{ text-align: right; }
 .bigWord{ font-weight:bold; }
-#evroFootballBaner{ background: url( fifa_baner.jpg ) no-repeat;height:108px; }
+#evroFootballBaner{ background: url( ../images/fifa_baner.jpg ) no-repeat;height:108px; }
 #evroFootballBaner a{display: block;width:100%;height:108px;}
 .C_tableResult table{ width:100%;border-bottom: 3px solid #EA3D00;}
 .C_tableResult table th a{ cursor: pointer; }

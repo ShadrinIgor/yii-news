@@ -1,6 +1,6 @@
 #BMain
 {
-	background: url("center_bg.jpg") repeat;
+	background: url( ../images/center_bg.jpg ) repeat;
 	padding: 0 15px;
 }
 

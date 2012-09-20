@@ -31,54 +31,54 @@ img{	border:0px;}
 
 #MT01
 {
-	background:url( bg01.jpg ) no-repeat left;
+	background:url( ../images/bg01.jpg ) no-repeat left;
 	height:53px;
 	padding-left:694px;
 }
 
 #MT02
 {
-	background:url( bg03.jpg ) no-repeat right;
+	background:url( ../images/bg03.jpg ) no-repeat right;
 	height:53px;
 	padding-right:40px;
 }
 
 #MT03
 {
-	background:url( bg02.jpg ) repeat-x right;
+	background:url( ../images/bg02.jpg ) repeat-x right;
 	height:53px;
 }
 
 #MB01
 {
-	background:url( bg3_01.jpg ) no-repeat left;
+	background:url( ../images/bg3_01.jpg ) no-repeat left;
 	height:53px;
 	padding-left:694px;
 }
 
 #MB02
 {
-	background:url( bg3_03.jpg ) no-repeat right;
+	background:url( ../images/bg3_03.jpg ) no-repeat right;
 	height:62px;
 	padding-right:40px;
 }
 
 #MB03
 {
-	background:url( bg3_02.jpg ) repeat-x right top;
+	background:url( ../images/bg3_02.jpg ) repeat-x right top;
 	min-height:53px;
 }
 
 #CL01
 {
-	background:url( bg_01.jpg ) repeat-y right top;
+	background:url( ../images/bg_01.jpg ) repeat-y right top;
 	height:1042px;
 	width:30px;
 }
 
 #CL03
 {
-	background:url( bg_02.jpg ) repeat-y left top;
+	background:url( ../images/bg_02.jpg ) repeat-y left top;
 	height:1042px;
 	width:40px;
 }
@@ -90,7 +90,7 @@ img{	border:0px;}
 
 #CL02
 {
-	background:url( center_bg.jpg ) repeat 14px;
+	background:url( ../images/center_bg.jpg ) repeat 14px;
 	height:1042px;
 	padding: 0px 10px 80px 10px;
 	vertical-align:top;
@@ -105,22 +105,22 @@ img{	border:0px;}
 #Find .inputBorder{border:1px solid #afada8;background:transparent;color:#1e1d1b;padding-left:10px;height: 12px;width:142px;margin-top:3px;}
 .inputImg{ width:20px; }
 
-#TInfo{ text-transform:uppercase;font-family:Minion Pro;background:url(line_bg.png) repeat-x;height:27px;padding-top: 8px; }
+#TInfo{ text-transform:uppercase;font-family:Minion Pro;background:url(../images/line_bg.png) repeat-x;height:27px;padding-top: 8px; }
 #TI01{ float:left;width:100px; }
 #TI02{ text-align:center; }
 #TI03{ float:right;width: 67px;background:#bebcb9;height: 15px;margin-top: 1px;padding-top: 1px; }
 
-#TI_home{ background:url( home.jpg ) no-repeat; }
-#TI_contact{ background:url( contact.jpg ) no-repeat; }
-#TI_map{ background:url( map.jpg) no-repeat; }
+#TI_home{ background:url( ../images/home.jpg ) no-repeat; }
+#TI_contact{ background:url( ../images/contact.jpg ) no-repeat; }
+#TI_map{ background:url( ../images/map.jpg) no-repeat; }
 #TI03 a{background-size:auto 30px;display:block;width:16px;height:15px;float: left;margin-left: 5px; }
 #TI03 a:hover{ background-position:bottom left; }
 
 #Menu{background:#9ea097;overflow:hidden;}
 #Menu a {font-family:Tahoma;color:#1e1d1b;padding:2px 10px;display:block;}
-.selectCategory, #Menu a:hover { background:url(menu_sel.jpg) repeat-x;text-decoration:none; }
+.selectCategory, #Menu a:hover { background:url(../images/menu_sel.jpg) repeat-x;text-decoration:none; }
 #Menu div { float:left;margin:0px 5px;height: 25px;}
-.M_sep{ background:url( menu_sep.jpg ) no-repeat;width:1px; height:21px; }
+.M_sep{ background:url( ../images/menu_sep.jpg ) no-repeat;width:1px; height:21px; }
 
 .TopNews{ overflow:hidden;margin-top: 10px;margin-bottom: 15px;}
 .oneNews{ float:left;margin-right: 10px;text-align: left; }
@@ -181,8 +181,8 @@ img{	border:0px;}
 .topListNews .oneNews b{ font-size:14px; }
 
 .leftSlide , .rightSlide {width:24px;height:125px; cursor: pointer;}
-.leftSlide {  float:left;background:url( icons/list.png ) no-repeat left bottom; margin: 15px 5px 0px 0px;}
-.rightSlide{  float:right;background:url( icons/list.png ) no-repeat left top;margin: 15px 0px 0px 10px; }
+.leftSlide {  float:left;background:url( ../images/icons/list.png ) no-repeat left bottom; margin: 15px 5px 0px 0px;}
+.rightSlide{  float:right;background:url( ../images/icons/list.png ) no-repeat left top;margin: 15px 0px 0px 10px; }
 .leftSlide:hover{ background-position:right bottom; }
 .rightSlide:hover { background-position:right top; }
 
@@ -195,7 +195,7 @@ img{	border:0px;}
 .ON_block h4 { color:#95978f;border-bottom:1px solid #95978f;margin:15px 0px 5px 0px;width:60%; }
 .ON_block h4 a { color:#292927; }
 .ONB_item font{ color:#5f5f5a;font-size:11px;}
-#coffe{ margin-left: 25px;margin-top: -76px;background:url( coffe.jpg )no-repeat;width:323px;height:266px;position:absolute;left:0px; }
+#coffe{ margin-left: 25px;margin-top: -76px;background:url( ../images/coffe.jpg )no-repeat;width:323px;height:266px;position:absolute;left:0px; }
 #bottomMenu{ margin-top: 50px;right: 0;width: 650px;margin-right: 250px;position: absolute; }
 .BM_block{ float:left;margin-right: 20px; }
 .BML_title { text-align:right;background:#9ea097;color:#fff;font-weight:bold;padding:0px 3px 0px 10px; }
@@ -211,9 +211,9 @@ img{	border:0px;}
 
 .ON_block ul li { height:84px; }
 
-.prevStory01, .prevStory02{ margin-top:5px;background:url( icons/down_up.png ) no-repeat right top;}
+.prevStory01, .prevStory02{ margin-top:5px;background:url( ../images/icons/down_up.png ) no-repeat right top;}
 .prevStory01:hover, .prevStory02:hover { background-position:right bottom; }
-.nextStory01, .nextStory02{ background:url( icons/down_up.png ) no-repeat left top;margin-top:30px;}
+.nextStory01, .nextStory02{ background:url( ../images/icons/down_up.png ) no-repeat left top;margin-top:30px;}
 .nextStory01:hover, .nextStory02:hover { background-position:left bottom; }
 
 .prevStory01, .prevStory02, .nextStory01, .nextStory02{z-index: 1000;width:25px;height:25px;position: absolute;margin-left: 40%;cursor: pointer;background-size: 50px auto;}
@@ -267,7 +267,7 @@ h2{ margin-top: 10px; }
 #Address{ font-size: 12px;padding: 10px 0; }
 .RBloks
 {
-	background:url( rightBlock.png ) no-repeat;
+	background:url( ../images/rightBlock.png ) no-repeat;
 	background-size:248px 100%;
 	width:248px;
 	min-height:150px;
@@ -276,11 +276,11 @@ h2{ margin-top: 10px; }
 	padding-bottom: 25px;
 }
 .RBloks h4{ margin: 25px 0 0 35px; }
-.ckrepka{background:url( ckrebka.png ) no-repeat;width:76px;height:32px;position:absolute;margin-right: -18px;margin-top: 10px;margin-left: 180px;}
+.ckrepka{background:url( ../images/ckrebka.png ) no-repeat;width:76px;height:32px;position:absolute;margin-right: -18px;margin-top: 10px;margin-left: 180px;}
 .RBFirst{ position: static;margin-top:0px; }
-.RMoney{ min-height:180px;background:url( money.png ) no-repeat 110px 5px;overflow: hidden; }
-.RZnaks{ min-height:344px;background:url( znaks.png ) no-repeat 119px 15px ;overflow: hidden;}
-.weather{ min-height:226px;background:url( wheter.png ) no-repeat 119px 15px ;overflow: hidden;}
+.RMoney{ min-height:180px;background:url( ../images/money.png ) no-repeat 110px 5px;overflow: hidden; }
+.RZnaks{ min-height:344px;background:url( ../images/znaks.png ) no-repeat 119px 15px ;overflow: hidden;}
+.weather{ min-height:226px;background:url( ../images/wheter.png ) no-repeat 119px 15px ;overflow: hidden;}
 .znalItem
 {    border: 1px solid #DFDFDF;
     float: left;
@@ -313,7 +313,7 @@ h2{ margin-top: 10px; }
 
 }
 .closeDiv{ float:right;width:16px;height:16px; }
-.closeDiv a{display:block;width:16px;height:16px;background:url( icons/close.png ) no-repeat; background-size:12px 12px;}
+.closeDiv a{display:block;width:16px;height:16px;background:url( ../images/icons/close.png ) no-repeat; background-size:12px 12px;}
 .W_item{ border-bottom:1px dotted #afafaf; height: 20px;margin-left: 25px;margin-right: 25px;height: 20px;margin-bottom: 8px; }
 .BBP_item01{ float:right; }
 .BBP_item01 div {  float:right;width:50px; }
@@ -350,42 +350,42 @@ h2{ margin-top: 10px; }
 }
 
 #cosButtons #CB_01 {
-    background: url("icons/share_01.jpg") repeat scroll 0 0 transparent;
+    background: url( ../images/icons/share_01.jpg) repeat scroll 0 0 transparent;
     height: 31px;
     margin-right: 1px;
     width: 32px;
 }
 
 #cosButtons #CB_02 {
-    background: url("icons/share_02.jpg") repeat scroll 0 0 transparent;
+    background: url( ../images/icons/share_02.jpg) repeat scroll 0 0 transparent;
     height: 31px;
     margin-right: 1px;
     width: 32px;
 }
 
 #cosButtons #CB_03 {
-    background: url("icons/share_03.jpg") repeat scroll 0 0 transparent;
+    background: url( ../images/icons/share_03.jpg) repeat scroll 0 0 transparent;
     height: 31px;
     margin-right: 1px;
     width: 32px;
 }
 
 #cosButtons #CB_04 {
-    background: url("icons/share_04.jpg") repeat scroll 0 0 transparent;
+    background: url( ../images/icons/share_04.jpg ) repeat scroll 0 0 transparent;
     height: 31px;
     margin-right: 1px;
     width: 32px;
 }
 
 #cosButtons #CB_05 {
-    background: url("icons/share_05.jpg") repeat scroll 0 0 transparent;
+    background: url(../images/icons/share_05.jpg) repeat scroll 0 0 transparent;
     height: 31px;
     margin-right: 1px;
     width: 32px;
 }
 
 #cosButtons #CB_06 {
-    background: url("icons/share_06.jpg") repeat scroll 0 0 transparent;
+    background: url(../images/icons/share_06.jpg) repeat scroll 0 0 transparent;
     height: 31px;
     margin-right: 1px;
     width: 32px;
@@ -397,10 +397,10 @@ h2{ margin-top: 10px; }
     margin-top: 20px;
 }
 
-.autorItem{background: url("autor_bg.png") repeat-x top left;}
+.autorItem{background: url(../images/autor_bg.png) repeat-x top left;}
 
 .autorTitle
-{	background: url("autor.png") no-repeat top left;
+{	background: url(../images/autor.png) no-repeat top left;
     height: 36px;
     margin-right: 49px;
     margin-top: -19px;
@@ -514,8 +514,10 @@ h2{ margin-top: 10px; }
 }
 
 #MRight .count_shows, .afishi .count_shows
-{	font-size: 10px;
-	padding: 0 7px;}
+{
+	font-size: 10px;
+	padding: 0 7px;
+}
 
 .bwColor
 {
@@ -546,7 +548,7 @@ h2{ margin-top: 10px; }
 
 .cidListNews .newsBlock03 {width:90%;}
 
-/* Облако тегов */
+/* пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ */
 
 .listTags
 {
@@ -603,7 +605,7 @@ h2{ margin-top: 10px; }
     font-size: 18px;
 }
 
-/* end of Облако тегов */
+/* end of пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ */
 
 .week_news
 { 

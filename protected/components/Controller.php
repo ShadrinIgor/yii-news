@@ -9,7 +9,7 @@ class Controller extends CController
 	 * @var string the default layout for the controller view. Defaults to '//layouts/column1',
 	 * meaning using a single column layout. See 'protected/views/layouts/column1.php'.
 	 */
-	public $layout='//layouts/column1';
+	public $layout='//layouts/main';
 	/**
 	 * @var array context menu items. This property will be assigned to {@link CMenu::items}.
 	 */
@@ -21,4 +21,31 @@ class Controller extends CController
 	 */
 	public $breadcrumbs=array();
 
+    public function render($view,$data=array(),$return=false)
+    {
+        if($this->beforeRender($view))
+        {
+            $data = array_merge( $data,
+                array(
+                    "Theme" => Yii::app()->getTheme()
+                )
+            );
+
+            $output=$this->renderPartial($view,$data,true);
+            if( ($layoutFile=$this->getLayoutFile($this->layout))!==false)
+            {
+
+                $output=$this->renderFile($layoutFile, array_merge( $data, array( "content" => $output ) ),true);
+            }
+
+            $this->afterRender($view,$output);
+
+            $output=$this->processOutput($output);
+
+            if($return)
+                return $output;
+            else
+                echo $output;
+        }
+    }
 }
