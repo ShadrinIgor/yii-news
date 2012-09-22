@@ -53,8 +53,12 @@
 class <?php echo $modelClass; ?> extends <?php echo $this->baseClass."\n"; ?>
 {
 <?php foreach($columns as $column): ?>
-	 var <?php echo '$'.$column->name."; // ".$column->type." \n"; ?>
+    protected <?php echo '$'.$column->name."; // ".$column->type." \n"; ?>
 <?php endforeach; ?>
+
+    public function attributeNames()
+    {
+    }
 
 	/**
 	 * Returns the static model of the specified AR class.

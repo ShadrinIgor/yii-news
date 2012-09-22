@@ -5,39 +5,43 @@
  *
  * The followings are the available columns in table 'catalog_news':
  */
-class CatalogNews extends CActiveRecord
+class CatalogNews extends CCModel
 {
-	 var $id; // integer 
-	 var $col; // integer 
-	 var $cid; // integer 
-	 var $name; // string 
-	 var $path; // string 
-	 var $description; // string 
-	 var $active; // integer 
-	 var $select; // integer 
-	 var $dateadd; // string 
-	 var $dateedit; // string 
-	 var $pos; // integer 
-	 var $metaData; // string 
-	 var $user; // integer 
-	 var $del; // integer 
-	 var $lang_group; // integer 
-	 var $id_lang; // integer 
-	 var $key_word; // string 
-	 var $country; // integer 
-	 var $image; // string 
-	 var $cid_id; // string 
-	 var $date; // string 
-	 var $time; // string 
-	 var $tags; // string 
-	 var $archive; // integer 
-	 var $people; // integer 
-	 var $tags_; // string 
-	 var $image_2; // string 
-	 var $image_3; // string 
-	 var $source; // string 
-	 var $video; // integer 
-	 var $tags_checked; // integer 
+    protected $id; // integer 
+    protected $col; // integer 
+    protected $cid; // integer 
+    protected $name; // string 
+    protected $path; // string 
+    protected $description; // string 
+    protected $active; // integer 
+    protected $select; // integer 
+    protected $dateadd; // string 
+    protected $dateedit; // string 
+    protected $pos; // integer 
+    protected $metaData; // string 
+    protected $user; // integer 
+    protected $del; // integer 
+    protected $lang_group; // integer 
+    protected $id_lang; // integer 
+    protected $key_word; // string 
+    protected $country; // integer 
+    protected $image; // string 
+    protected $cid_id; // string 
+    protected $date; // string 
+    protected $time; // string 
+    protected $tags; // string 
+    protected $archive; // integer 
+    protected $people; // integer 
+    protected $tags_; // string 
+    protected $image_2; // string 
+    protected $image_3; // string 
+    protected $source; // string 
+    protected $video; // integer 
+    protected $tags_checked; // integer 
+
+    public function attributeNames()
+    {
+    }
 
 	/**
 	 * Returns the static model of the specified AR class.

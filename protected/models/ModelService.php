@@ -43,13 +43,16 @@ class ModelService
             ->from( $this->tableName )
             ->where( 'id=:id ', array( "id" => (int)$id ) )
 //            ->order( 'id' )
-            ->queryAll();
+            ->queryRow();
 
         $modelName = $this->modelName;
         $newObject = new $modelName();
+
         $n = new CatalogNews();
         $n->setAttributes( $offer );
-print_r( $n );
+        print_r( $n );
+//        $p = $n->getAttributes();
+//print_r( $p );
 
         return $offer;
     }
