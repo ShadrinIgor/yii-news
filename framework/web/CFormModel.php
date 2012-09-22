@@ -24,7 +24,7 @@
  * @package system.web
  * @since 1.0
  */
-class CFormModel extends CCModel
+class CFormModel extends CModel
 {
 	private static $_names=array();
 

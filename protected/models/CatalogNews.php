@@ -4,40 +4,41 @@
  * This is the model class for table "catalog_news".
  *
  * The followings are the available columns in table 'catalog_news':
- * @property integer $id
- * @property integer $col
- * @property integer $cid
- * @property string $name
- * @property string $path
- * @property string $description
- * @property integer $active
- * @property integer $select
- * @property string $dateadd
- * @property string $dateedit
- * @property integer $pos
- * @property string $metaData
- * @property integer $user
- * @property integer $del
- * @property integer $lang_group
- * @property integer $id_lang
- * @property string $key_word
- * @property integer $country
- * @property string $image
- * @property string $cid_id
- * @property string $date
- * @property string $time
- * @property string $tags
- * @property integer $archive
- * @property integer $people
- * @property string $tags_
- * @property string $image_2
- * @property string $image_3
- * @property string $source
- * @property integer $video
- * @property integer $tags_checked
  */
-class CatalogNews extends CCModel
+class CatalogNews extends CActiveRecord
 {
+	 var $id; // integer 
+	 var $col; // integer 
+	 var $cid; // integer 
+	 var $name; // string 
+	 var $path; // string 
+	 var $description; // string 
+	 var $active; // integer 
+	 var $select; // integer 
+	 var $dateadd; // string 
+	 var $dateedit; // string 
+	 var $pos; // integer 
+	 var $metaData; // string 
+	 var $user; // integer 
+	 var $del; // integer 
+	 var $lang_group; // integer 
+	 var $id_lang; // integer 
+	 var $key_word; // string 
+	 var $country; // integer 
+	 var $image; // string 
+	 var $cid_id; // string 
+	 var $date; // string 
+	 var $time; // string 
+	 var $tags; // string 
+	 var $archive; // integer 
+	 var $people; // integer 
+	 var $tags_; // string 
+	 var $image_2; // string 
+	 var $image_3; // string 
+	 var $source; // string 
+	 var $video; // integer 
+	 var $tags_checked; // integer 
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -88,11 +89,6 @@ class CatalogNews extends CCModel
 		return array(
 		);
 	}
-
-    public function attributeNames()
-    {
-
-    }
 
 	/**
 	 * @return array customized attribute labels (name=>label)
