@@ -1,0 +1,1 @@
+ALTER TABLE catalog_news ADD FOREIGN KEY (cid_id) REFERENCES catalog_cid(id)
