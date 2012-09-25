@@ -27,8 +27,14 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-        $service = new ModelService( "CatalogNews" );
-        $list = $service->fetchById( 84631 );
+        $list = CatalogNews::fetch( 84631 );
+//        $list->id = 5;
+
+        echo $list->cid_id."*";
+        $n = $list->getCidId();
+        print_r( $n ) ;
+
+
 //        print_r( $list );
 //        $list = CatalogNews::model( "catalognews" );
 //

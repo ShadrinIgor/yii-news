@@ -53,7 +53,40 @@
 class <?php echo $modelClass; ?> extends <?php echo $this->baseClass."\n"; ?>
 {
 <?php foreach($columns as $column): ?>
-    protected <?php echo '$'.$column->name."; // ".$column->type." \n"; ?>
+    private <?php echo '$'.$column->name."; // ".$column->type." \n"; ?>
+<?php endforeach; ?>
+
+    public function __get( $field )
+    {
+        if( !empty( $this->$field ) )return $this->$field;
+    }
+
+    public function __set( $field, $value )
+    {
+        $this->$field = $value;
+    }
+
+<?php
+    function getNewName( $valueText )
+    {
+        $name = substr( $valueText, strrpos( $valueText, "," )+3, -2);
+        $ar = explode( "_", $name );
+        $newName = "";
+        foreach( $ar as $value )$newName .= ucfirst( $value );
+        return $newName;
+    }
+
+    foreach($relations as $name=>$relation): ?>
+    public function get<?= getNewName( $relation ) ?>()
+    {
+    <?php
+        $lisrParm = explode( ",", $relation );
+        $relationClass = substr( trim( $lisrParm[1] ), 1, -1 );
+        $relationField = substr( trim( $lisrParm[2] ), 1, -2 );
+// 			'cid0' => array(self::BELONGS_TO, 'CatalogCid', 'cid_id'),
+    ?>
+    return <?= $relationClass ?>::fetch( $this-><?=$relationField ?> );
+    }
 <?php endforeach; ?>
 
     public function attributeNames()
