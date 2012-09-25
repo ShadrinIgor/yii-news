@@ -28,9 +28,6 @@ class SiteController extends Controller
 	public function actionIndex()
 	{
         $list = CatalogNews::fetch( 84631 );
-//        $list->id = 5;
-
-        echo $list->cid_id."*";
         $n = $list->getCidId();
         print_r( $n ) ;
 
