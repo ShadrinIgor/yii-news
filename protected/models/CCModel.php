@@ -11,14 +11,24 @@
      static function fetchAll()
      {
          $nameCLass = get_called_class();
-         $object =  new $nameCLass;
-         $offer = Yii::app()->db->createCommand()
+         $newObject = new $nameCLass;
+         $arrayOffer = Yii::app()->db->createCommand()
              ->select('*')
-             ->from( $object->tableName() )
+             ->from( $newObject->tableName() )
 //            ->where( 'offer_id=:tour_id AND place_id=:place_id', array( "tour_id" => $this->tourId, "place_id"=> $place[$i]["id"] ) )
 //            ->order( 'id' )
              ->queryAll();
-         return $offer;
+
+         $listOffer = array();
+         for( $i=0;$i<sizeof( $arrayOffer );$i++ )
+         {
+            $newObject = new $nameCLass;
+            $newObject_  = $newObject->setAttributesFromArray( $arrayOffer[$i] );
+            $newObject_->getCidId();
+            $listOffer[] = $newObject_;
+         }
+
+         return $listOffer;
      }
 
     static function fetch( $id=0 )
@@ -32,7 +42,7 @@
             ->queryRow();
 
         $object->setAttributesFromArray( $offer );
-        //print_r( $object );
+
         return $object;
     }
 

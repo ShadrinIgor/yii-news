@@ -54,7 +54,8 @@ class CatalogNews extends CCModel
 
     public function getCidId()
     {
-        return CatalogCid::fetch( $this->cid_id );
+        $this->cid_id = CatalogCid::fetch( $this->cid_id );
+        return $this->cid_id;
     }
 
     public function attributeNames()
