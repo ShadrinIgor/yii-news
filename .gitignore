@@ -2,3 +2,6 @@
 /.idea
 /assets
 /protected/runtime/application.log
+/protected/data/cms_world_news_db-struct.sql
+/protected/data/cms_world_news_db-data.sql
+/protected/data/cms_world_news_db-newsdata_.sql

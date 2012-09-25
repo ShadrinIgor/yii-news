@@ -45,12 +45,13 @@ class ModelService
 //            ->order( 'id' )
             ->queryRow();
 
-        $modelName = $this->modelName;
-        $newObject = new $modelName();
+/*        $modelName = $this->modelName;
+        $newObject = new $modelName();*/
 
-        $n = new CatalogNews();
-        $n->setAttributes( $offer );
-        print_r( $n );
+/*        $n = new CatalogNews();
+        $n->setAttributes( $offer );*/
+        //$n = CatalogNews::model()->findAll();
+        //print_r( $n );
 //        $p = $n->getAttributes();
 //print_r( $p );
 
