@@ -1,0 +1,9 @@
+CREATE TABLE cat_relations
+(
+  id int(15) auto_increment,
+  left_id int(15) not null default 0,
+  right_id int(15) not null default 0,
+  left_table varchar(25) not null default 0,
+  right_table varchar(25) not null default 0,
+  primary key(id)
+)
