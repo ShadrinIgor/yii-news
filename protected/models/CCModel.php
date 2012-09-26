@@ -14,24 +14,24 @@
      /*
      * @desc Вытаскивает из базы список значений по параметрам
      * @param
-     * @return $arrayItemObect
+     * @return array $arrayItemObect Возвращает массив объетов взятых из базе на основе переданных параметров
      */
-     static function fetchAll()
+     static function fetchAll( $conditions=null, array $params=array(), $orderBy='id', $orderType='ASC', $page=null, $perpage=null )
      {
          $nameCLass = get_called_class();
          $newObject = new $nameCLass;
          $arrayOffer = Yii::app()->db->createCommand()
-             ->select('*')
-             ->from( $newObject->tableName() )
-//            ->where( 'offer_id=:tour_id AND place_id=:place_id', array( "tour_id" => $this->tourId, "place_id"=> $place[$i]["id"] ) )
-//            ->order( 'id' )
-             ->queryAll();
+            ->select('*')
+            ->from( $newObject->tableName() )
+            ->where( $conditions, $params )
+            ->order( $orderBy.' '.$orderType )
+            ->queryAll();
 
          $listOffer = array();
          for( $i=0;$i<sizeof( $arrayOffer );$i++ )
          {
             $newObject = new $nameCLass;
-             $newObject  = $newObject->setAttributesFromArray( $arrayOffer[$i] );
+            $newObject  = $newObject->setAttributesFromArray( $arrayOffer[$i] );
             $listOffer[] = $newObject;
          }
 
@@ -40,8 +40,8 @@
 
     /*
     * @desc Вытаскивает из базы значение по ID
-    * @param $itemID
-    * @return $itemObect
+    * @param int $itemID Идентификатор записи в базе
+    * @return object $itemObect объет созданный на основе давнных полученных с базы
     */
     static function fetch( $id=0 )
     {
@@ -59,9 +59,9 @@
     }
 
     /*
-    * @desc Устанавливаем значение с масива
-    * @param $arrayValue
-    * @return $this
+    * @desc Устанавливаем значение из масива
+    * @param array $arrayValue Масив присваеваемых значений
+    * @return object $this Возвращает текущий объект
     */
     public function setAttributesFromArray( array $values )
     {
@@ -76,8 +76,8 @@
 
     /*
     * @desc Общий метод SET, а также подгрузка связе при обращении
-    * @param $field
-    * @return $fieldValue
+    * @param string $field Название свойства
+    * @return mixed $fieldValue Значение свойства
     */
     public function __get( $field )
     {
@@ -87,15 +87,16 @@
             $relation = $this->getRelationByField( $field );
             if( !empty( $relation ) )
             {
-                if( $relation[0] == self::HAS_ONE || $relation[0] == self::BELONGS_TO )
+                if( ( $relation[0] == self::HAS_ONE || $relation[0] == self::BELONGS_TO ) && !is_object( $this->$field ) ) //
                 {
-                    $relationClass = $relation[1];
                     $this->$field = $relation[1]::fetch( $this->$field );
                 }
 
-                if( $relation[0] == self::HAS_MANY || $relation[0] == self::MANY_MANY )
+                if( ( $relation[0] == self::HAS_MANY || $relation[0] == self::MANY_MANY ) && !is_object( $this->$field ) )
                 {
-                    $relationClass = $relation[1];
+                        // cat_relations
+                    // Проверить существование связи
+                    // Если существует то сформировать масив объетов
                     $this->$field = $relation[1]::fetch( $this->$field );
                 }
 
@@ -106,7 +107,8 @@
 
     /*
     * @desc Общий метод GET
-    * @param $field, $value
+    * @param string $field Название поля
+    * @param string $value Значение которое надо положить в поле
     * @return
     */
     public function __set( $field, $value )
@@ -130,8 +132,8 @@
 
     /*
     * @desc Возврощает описание одной связи по полю
-    * @param $fieldName
-    * @return array $relationArray
+    * @param string $fieldName Название поля которое имеет связь
+    * @return array $relationArray Масив - описание одной связи
     */
     public function getRelationByField( $fieldName )
     {

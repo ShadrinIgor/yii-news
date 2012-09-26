@@ -31,7 +31,8 @@ class SiteController extends Controller
         $list = CatalogNews::fetch( 84631 );
 
         echo $list->country->name."*";
-        print_r( $list );
+        echo $list->country->name."*";
+//        print_r( $list );
 
 //        print_r( $list );
 //        $list = CatalogNews::model( "catalognews" );
