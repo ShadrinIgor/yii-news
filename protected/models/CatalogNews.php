@@ -2,75 +2,45 @@
 
 /**
  * This is the model class for table "catalog_news".
- *
- * The followings are the available columns in table 'catalog_news':
- *
- * The followings are the available model relations:
- * @property CatalogCid $cid0
- */
-class CatalogNews extends CCModel
+   */
+class CatalogNews extends CCmodel
 {
-    private $id; // integer 
-    private $col; // integer 
-    private $cid; // integer 
-    private $name; // string 
-    private $path; // string 
-    private $description; // string 
-    private $active; // integer 
-    private $select; // integer 
-    private $dateadd; // string 
-    private $dateedit; // string 
-    private $pos; // integer 
-    private $metaData; // string 
-    private $user; // integer 
-    private $del; // integer 
-    private $lang_group; // integer 
-    private $id_lang; // integer 
-    private $key_word; // string 
-    private $country; // integer 
-    private $image; // string 
-    private $cid_id; // integer 
-    private $date; // string 
-    private $time; // string 
-    private $tags; // string 
-    private $archive; // integer 
-    private $people; // integer 
-    private $tags_; // string 
-    private $image_2; // string 
-    private $image_3; // string 
-    private $source; // string 
-    private $video; // integer 
-    private $tags_checked; // integer 
-
-    public function __get( $field )
-    {
-        if( !empty( $this->$field ) )return $this->$field;
-    }
-
-    public function __set( $field, $value )
-    {
-        $this->$field = $value;
-    }
-
-    public function getCidId()
-    {
-        $this->cid_id = CatalogCid::fetch( $this->cid_id );
-        return $this->cid_id;
-    }
+    protected $id; // integer 
+    protected $col; // integer 
+    protected $cid; // integer 
+    protected $name; // string 
+    protected $path; // string 
+    protected $description; // string 
+    protected $active; // integer 
+    protected $select; // integer 
+    protected $dateadd; // string 
+    protected $dateedit; // string 
+    protected $pos; // integer 
+    protected $metaData; // string 
+    protected $user; // integer 
+    protected $del; // integer 
+    protected $lang_group; // integer 
+    protected $id_lang; // integer 
+    protected $key_word; // string 
+    protected $country; // integer 
+    protected $image; // string 
+    protected $cid_id; // integer 
+    protected $date; // string 
+    protected $time; // string 
+    protected $tags; // string 
+    protected $archive; // integer 
+    protected $people; // integer 
+    protected $tags_; // string 
+    protected $image_2; // string 
+    protected $image_3; // string 
+    protected $source; // string 
+    protected $video; // integer 
+    protected $tags_checked; // integer 
 
     public function attributeNames()
     {
     }
 
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @param string $className active record class name.
-	 * @return CatalogNews the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
 
 	/**
 	 * @return string the associated database table name
@@ -110,6 +80,7 @@ class CatalogNews extends CCModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'country0' => array(self::HAS_MANY, 'CatalogCountry', 'country'),
 			'cid0' => array(self::BELONGS_TO, 'CatalogCid', 'cid_id'),
 		);
 	}

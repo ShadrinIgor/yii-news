@@ -2,62 +2,33 @@
 
 /**
  * This is the model class for table "catalog_cid".
- *
- * The followings are the available columns in table 'catalog_cid':
- *
- * The followings are the available model relations:
- * @property CatalogNews[] $catalogNews
- */
-class CatalogCid extends CCModel
+   */
+class CatalogCid extends CCmodel
 {
-    private $id; // integer 
-    private $col; // integer 
-    private $cid; // integer 
-    private $name; // string 
-    private $path; // string 
-    private $active; // integer 
-    private $select; // integer 
-    private $dateadd; // string 
-    private $dateedit; // string 
-    private $pos; // integer 
-    private $metaData; // string 
-    private $user; // integer 
-    private $del; // integer 
-    private $lang_group; // integer 
-    private $id_lang; // integer 
-    private $owner; // string 
-    private $key_word; // string 
-    private $link; // string 
-    private $show_in_menu; // string 
-
-    public function __get( $field )
-    {
-        if( !empty( $this->$field ) )return $this->$field;
-    }
-
-    public function __set( $field, $value )
-    {
-        $this->$field = $value;
-    }
-
-    public function getCidId()
-    {
-        return CatalogNews::fetch( $this->cid_id );
-    }
+    protected $id; // integer 
+    protected $col; // integer 
+    protected $cid; // integer 
+    protected $name; // string 
+    protected $path; // string 
+    protected $active; // integer 
+    protected $select; // integer 
+    protected $dateadd; // string 
+    protected $dateedit; // string 
+    protected $pos; // integer 
+    protected $metaData; // string 
+    protected $user; // integer 
+    protected $del; // integer 
+    protected $lang_group; // integer 
+    protected $id_lang; // integer 
+    protected $owner; // string 
+    protected $key_word; // string 
+    protected $link; // string 
+    protected $show_in_menu; // string 
 
     public function attributeNames()
     {
     }
 
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @param string $className active record class name.
-	 * @return CatalogCid the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
 
 	/**
 	 * @return string the associated database table name

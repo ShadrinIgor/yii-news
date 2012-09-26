@@ -28,10 +28,10 @@ class SiteController extends Controller
 	public function actionIndex()
 	{
 //        $list = CatalogNews::fetch( 84631 );
-        $list = CatalogNews::fetchAll( );
+        $list = CatalogNews::fetch( 84631 );
 
-        print_r( $list ) ;
-
+        echo $list->country->name."*";
+        print_r( $list );
 
 //        print_r( $list );
 //        $list = CatalogNews::model( "catalognews" );
