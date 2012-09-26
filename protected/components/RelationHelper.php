@@ -8,8 +8,13 @@
  */
 class RelationHelper
 {
-    static function getRelation( $relationArray )
+    static function getRelation( $leftClass, $rightClass, $leftField, $rightField="id", $leftId=0, $rightId=0 )
     {
+        $relationObj = new $rightClass;
+        $relationTable = $relationObj->tableName();
+
+        echo $sql = "SELECT a.* FROM ".$relationTable." a, cat_relations b WHERE b.leftClass='".$leftClass."' AND b.rightClass='".$rightClass."' AND b.leftId='".$leftId."' AND a.".$leftField." = b.id";
+//        Yii::app()->db->creatCommand( "SELECT * FROM ".$relationArray." a cat_relations" );
 
     }
 }

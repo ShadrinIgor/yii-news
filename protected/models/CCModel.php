@@ -97,6 +97,8 @@
                         // cat_relations
                     // Проверить существование связи
                     // Если существует то сформировать масив объетов
+                    $leftCLass = get_called_class();
+                    RelationHelper::getRelation( $leftCLass, $relation[1], "id", $this->$field );
                     $this->$field = $relation[1]::fetch( $this->$field );
                 }
 
