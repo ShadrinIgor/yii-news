@@ -10,6 +10,8 @@ class newsWidget extends CWidget
 {
     public function run()
     {
-        $this->render("news");
+        $this->render("news", array(
+                    'values'=>$values
+            ));
     }
 }

@@ -4,5 +4,11 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 <h1>Urra</h1>
-<?php $this->widget("newsWidget"); ?>
 
+<?php
+foreach( CatalogNews::fetchAll() as $values )
+{
+    $this->widget('newsWidget', array(
+//    'val'=>$values->name
+    ));
+}
