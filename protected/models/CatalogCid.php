@@ -3,7 +3,7 @@
 /**
  * This is the model class for table "catalog_cid".
    */
-class CatalogCid extends CCmodel
+class CatalogCid extends CCModel
 {
     protected $id; // integer 
     protected $col; // integer 
@@ -24,6 +24,7 @@ class CatalogCid extends CCmodel
     protected $key_word; // string 
     protected $link; // string 
     protected $show_in_menu; // string 
+    protected $news; // integer 
 
     public function attributeNames()
     {
@@ -46,8 +47,8 @@ class CatalogCid extends CCmodel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, owner, key_word, link, show_in_menu', 'required'),
-			array('col, cid, active, select, pos, user, del, lang_group, id_lang', 'numerical', 'integerOnly'=>true),
+			array('name, owner, key_word, link, show_in_menu, news', 'required'),
+			array('col, cid, active, select, pos, user, del, lang_group, id_lang, news', 'numerical', 'integerOnly'=>true),
 			array('name, key_word', 'length', 'max'=>50),
 			array('path, owner', 'length', 'max'=>25),
 			array('link', 'length', 'max'=>255),
@@ -55,7 +56,7 @@ class CatalogCid extends CCmodel
 			array('dateadd, dateedit, metaData', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, col, cid, name, path, active, select, dateadd, dateedit, pos, metaData, user, del, lang_group, id_lang, owner, key_word, link, show_in_menu', 'safe', 'on'=>'search'),
+			array('id, col, cid, name, path, active, select, dateadd, dateedit, pos, metaData, user, del, lang_group, id_lang, owner, key_word, link, show_in_menu, news', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,7 +68,7 @@ class CatalogCid extends CCmodel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'catalogNews' => array(self::HAS_MANY, 'CatalogNews', 'cid_id'),
+			'news0' => array(self::HAS_MANY, 'CatalogNews', 'news'),
 		);
 	}
 
@@ -96,6 +97,7 @@ class CatalogCid extends CCmodel
 			'key_word' => 'Key Word',
 			'link' => 'Link',
 			'show_in_menu' => 'Show In Menu',
+			'news' => 'News',
 		);
 	}
 
@@ -129,6 +131,7 @@ class CatalogCid extends CCmodel
 		$criteria->compare('key_word',$this->key_word,true);
 		$criteria->compare('link',$this->link,true);
 		$criteria->compare('show_in_menu',$this->show_in_menu,true);
+		$criteria->compare('news',$this->news);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -20,6 +20,7 @@ class CatalogCountry extends CCModel
     protected $del; // integer 
     protected $lang_group; // integer 
     protected $id_lang; // integer 
+    protected $news; // integer 
 
     public function attributeNames()
     {
@@ -42,12 +43,13 @@ class CatalogCountry extends CCModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('col, cid, active, select, pos, user, del, lang_group, id_lang', 'numerical', 'integerOnly'=>true),
+			array('news', 'required'),
+			array('col, cid, active, select, pos, user, del, lang_group, id_lang, news', 'numerical', 'integerOnly'=>true),
 			array('name, path', 'length', 'max'=>25),
 			array('dateadd, dateedit, metaData', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, col, cid, name, path, active, select, dateadd, dateedit, pos, metaData, user, del, lang_group, id_lang', 'safe', 'on'=>'search'),
+			array('id, col, cid, name, path, active, select, dateadd, dateedit, pos, metaData, user, del, lang_group, id_lang, news', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,7 +61,7 @@ class CatalogCountry extends CCModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'catalogNews' => array(self::HAS_MANY, 'CatalogNews', 'country'),
+			'news0' => array(self::HAS_MANY, 'CatalogNews', 'news'),
 		);
 	}
 
@@ -84,6 +86,7 @@ class CatalogCountry extends CCModel
 			'del' => 'Del',
 			'lang_group' => 'Lang Group',
 			'id_lang' => 'Id Lang',
+			'news' => 'News',
 		);
 	}
 
@@ -113,6 +116,7 @@ class CatalogCountry extends CCModel
 		$criteria->compare('del',$this->del);
 		$criteria->compare('lang_group',$this->lang_group);
 		$criteria->compare('id_lang',$this->id_lang);
+		$criteria->compare('news',$this->news);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

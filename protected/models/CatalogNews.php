@@ -80,7 +80,7 @@ class CatalogNews extends CCmodel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'country0' => array(self::HAS_MANY, 'CatalogCountry', 'country'),
+			'country0' => array(self::MANY_MANY, 'CatalogCountry', 'country'),
 			'cid0' => array(self::BELONGS_TO, 'CatalogCid', 'cid_id'),
 		);
 	}

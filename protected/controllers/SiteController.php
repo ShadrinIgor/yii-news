@@ -28,18 +28,36 @@ class SiteController extends Controller
 	public function actionIndex()
 	{
 //        $list = CatalogNews::fetch( 84631 );
-        $list = CatalogNews::fetch( 84631 );
+  /*      $QueryParams = DBQueryParamsClass::CreateParams()
+                        ->setConditions("date<:date")
+                        ->setParams( array( ":date" => "2012-09-27" ) )
+                        ->setOrderBy( "date" )
+                        ->setOrderType( "ASC" )
+                        ->setLimit( 10 );*/
 
-        echo $list->country->name."*";
-        echo $list->country->name."*";
+        $list = CatalogCountry::fetchAll( );
+        foreach( $list as $values )
+        {
+            echo "<h2>".$values->name."</h2>";
+            foreach( $values->news as $newsValues )
+            {
+                echo $newsValues->name."<br/>";
+            }
+        }
 //        print_r( $list );
+/*        echo "<h1>".$list->name."</h1>";
+        foreach( $list->news as $values )
+        {
+            echo $values->name." - ".$values->date."<br/>";
+        }
 
-//        print_r( $list );
-//        $list = CatalogNews::model( "catalognews" );
-//
-        //$listNews = news
-		// renders the view file 'protected/views/site/index.php'
-		// using the default layout 'protected/views/layouts/main.php'
+        $list = CatalogCid::fetch( 6 );
+        echo "<h1>".$list->name."</h1>";
+        foreach( $list->news as $values )
+        {
+            echo $values->name." - ".$values->date."<br/>";
+        }*/
+
 		$this->render('index');
 	}
 

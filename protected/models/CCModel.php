@@ -16,20 +16,25 @@
      * @param
      * @return array $arrayItemObect Возвращает массив объетов взятых из базе на основе переданных параметров
      */
-     static function fetchAll( $conditions=null, array $params=array(), $orderBy='id', $orderType='ASC', $page=null, $perpage=null )
+     static function fetchAll( DBQueryParamsClass $QueryParams = null )
      {
+         if( empty( $QueryParams ) )$QueryParams = new DBQueryParamsClass();
+
          $nameCLass = get_called_class();
          $newObject = new $nameCLass;
+
          $arrayOffer = Yii::app()->db->createCommand()
-            ->select('*')
+            ->select( $QueryParams->getFields() )
             ->from( $newObject->tableName() )
-            ->where( $conditions, $params )
-            ->order( $orderBy.' '.$orderType )
+            ->where( $QueryParams->getConditions(), $QueryParams->getParams() )
+            ->order( $QueryParams->getOrderBy().' '.$QueryParams->getOrderType() )
+            ->limit( $QueryParams->getLimit() )
             ->queryAll();
 
          $listOffer = array();
          for( $i=0;$i<sizeof( $arrayOffer );$i++ )
          {
+            if( $arrayOffer[$i]["id"] == 0 )continue;
             $newObject = new $nameCLass;
             $newObject  = $newObject->setAttributesFromArray( $arrayOffer[$i] );
             $listOffer[] = $newObject;
@@ -92,14 +97,20 @@
                     $this->$field = $relation[1]::fetch( $this->$field );
                 }
 
-                if( ( $relation[0] == self::HAS_MANY || $relation[0] == self::MANY_MANY ) && !is_object( $this->$field ) )
+                if( ( $relation[0] == self::HAS_MANY || $relation[0] == self::MANY_MANY ) && !is_array( $this->$field ) )
                 {
-                        // cat_relations
-                    // Проверить существование связи
-                    // Если существует то сформировать масив объетов
                     $leftCLass = get_called_class();
-                    RelationHelper::getRelation( $leftCLass, $relation[1], "id", $this->$field );
-                    $this->$field = $relation[1]::fetch( $this->$field );
+                    $relateionParams = RelationParamsClass::CreateParams()
+                                            ->setLeftClass( $leftCLass )
+                                            ->setRightClass( $relation[1] )
+                                            ->setLeftField( $field )
+                                            ->setLeftId( $this->id );
+
+                    $DBQueryParams = DBQueryParamsClass::CreateParams()
+                                            ->setOrderBy( "a.name" )
+                                            ->setOrderType( "ASC" );
+
+                    $this->$field = RelationHelper::getRelation( $relateionParams, $DBQueryParams );
                 }
 
                 return $this->$field;
