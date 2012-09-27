@@ -49,8 +49,8 @@ return array(
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 
-                '<action:(category)>'=> '<controller>',
-                '<action:(category)>/<id:\d+>'=> '<controller>',
+                '<controller:(category)>/<id:\d+>_<country:\w+>_<slug:\w+>.html'=> '<controller>',
+                '<controller:(category)>/<action:\w+>/<id:\d+>'=> '<controller>/<action:\w+>',
 			),
 		),
 
