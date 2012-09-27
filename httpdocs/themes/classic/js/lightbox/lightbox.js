@@ -35,8 +35,8 @@
 //
 
 // If you would like to use a custom loading image or close button reference them in the next two lines.
-var loadingImage = 'images/lightbox/loading.gif';		
-var closeButton = 'images/lightbox/close.gif';		
+var loadingImage = 'themes/classic/js/lightbox/loading.gif';		
+var closeButton = 'themes/classic/js/lightbox/close.gif';		
 
 
 

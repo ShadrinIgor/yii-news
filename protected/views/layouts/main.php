@@ -30,7 +30,7 @@
 </head>
 
 <body>
-<!-- facebook like -->w
+<!-- facebook like -->
 <div id="fb-root"></div>
 <!-- end of facebook like -->
 
@@ -40,7 +40,7 @@
             <div id="Top">
                 <div id="Find">
                     <form method="post" action="http://www.world-news.uz/find/">
-                        <input type="text" name="find" value="поиск..." class="inputBorder" /><input type="image" class="inputImg" src="images/find.png" />
+                        <input type="text" name="find" value="поиск..." class="inputBorder" /><input type="image" class="inputImg" src="<?= $Theme->getBaseUrl() ?>/images/find.png" />
                     </form>
                 </div>
                 <!-- facebook like
@@ -64,7 +64,11 @@
                     <a title="мировые Новости недели, последние новости" href="http://world-news.uz/news_week/">Новости недели</a>
                 </div>
 
-
+<?php foreach( CatalogCid::fetchAll() as $values ) : ?>
+                <div><a href="<?= $this->createUrl("category", array( "id"=>$values->id )) ?>" title="<?= $values->name; ?> : Мировые новости, новости Узбекистана"><?= $values->name; ?></a></div>
+                <div class="M_sep"></div>
+<?php endforeach; ?>
+<!--
                 <div><a  href="http://www.world-news.uz/category/6/0/politika" title="Политика : Мировые новости, новости Узбекистана">Политика</a></div>
                 <div class="M_sep"></div>
 
@@ -121,6 +125,7 @@
 
                 <div><a  href="http://www.world-news.uz/category/49/0/" title="Калейдоскоп : Мировые новости, новости Узбекистана">Калейдоскоп</a></div>
                 <div class="M_sep"></div>
+-->
             </div>
 
         </div>

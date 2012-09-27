@@ -12,7 +12,7 @@ class DBQueryParamsClass
     private $orderBy = 'id';
     private $orderType = 'ASC';
     private $page = null;
-    private $limit = 10;
+    private $limit = "-1";
 
     static function CreateParams()
     {

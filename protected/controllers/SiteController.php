@@ -35,28 +35,7 @@ class SiteController extends Controller
                         ->setOrderType( "ASC" )
                         ->setLimit( 10 );*/
 
-        $list = CatalogCountry::fetchAll( );
-        foreach( $list as $values )
-        {
-            echo "<h2>".$values->name."</h2>";
-            foreach( $values->news as $newsValues )
-            {
-                echo $newsValues->name."<br/>";
-            }
-        }
-//        print_r( $list );
-/*        echo "<h1>".$list->name."</h1>";
-        foreach( $list->news as $values )
-        {
-            echo $values->name." - ".$values->date."<br/>";
-        }
-
-        $list = CatalogCid::fetch( 6 );
-        echo "<h1>".$list->name."</h1>";
-        foreach( $list->news as $values )
-        {
-            echo $values->name." - ".$values->date."<br/>";
-        }*/
+//        $list = CatalogCountry::fetchAll( );
 
 		$this->render('index');
 	}

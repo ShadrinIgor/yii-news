@@ -18,7 +18,7 @@
      */
      static function fetchAll( DBQueryParamsClass $QueryParams = null )
      {
-         if( empty( $QueryParams ) )$QueryParams = new DBQueryParamsClass();
+         if( empty( $QueryParams ) )$QueryParams = DBQueryParamsClass::CreateParams()->setConditions( "del=0" );
 
          $nameCLass = get_called_class();
          $newObject = new $nameCLass;
@@ -110,7 +110,7 @@
                                             ->setOrderBy( "a.name" )
                                             ->setOrderType( "ASC" );
 
-                    $this->$field = RelationHelper::getRelation( $relateionParams, $DBQueryParams );
+                    $this->$field = SiteHelper::getRelation( $relateionParams, $DBQueryParams );
                 }
 
                 return $this->$field;
