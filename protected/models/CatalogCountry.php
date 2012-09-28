@@ -20,7 +20,8 @@ class CatalogCountry extends CCModel
     protected $del; // integer 
     protected $lang_group; // integer 
     protected $id_lang; // integer 
-    protected $news; // integer 
+    protected $news; // integer
+    protected $key_word; // string
 
     public function attributeNames()
     {

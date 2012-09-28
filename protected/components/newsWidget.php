@@ -9,12 +9,16 @@
 class newsWidget extends CWidget
 {
     public $values;
-    public $url;
+    public $controller;
     public function run()
     {
+        $curlManager = new CUrlManager();
+
+        $url = $this->controller->createurl( "news/", array( "id"=>$this->values->id, "slug"=>$this->values->key_word ) );
         $this->render("news", array(
-                    'values'=>$this->values,
-                    'url'   =>$this->url
+                    'values'      => $this->values,
+                    'url'         => $url,
+                    'controller'  => $this->controller
             ));
     }
 }

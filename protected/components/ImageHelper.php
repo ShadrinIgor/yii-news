@@ -16,6 +16,7 @@ class ImageHelper
      */
     static function getImageResize( $imageUrl, $size = null, $itemObject = null )
     {
+        if( empty( $imageUrl ) )return false;
         if( !empty( $size ) )$size .= "_";
 
         if( !empty( $itemObject ) && is_object( $itemObject ) )
@@ -32,12 +33,12 @@ class ImageHelper
 
         $fileName = basename( $imageUrl );
         $dirPath = dirname( $imageUrl );
-        if( !empty( $size ) )$outFile = $dirPath ."/".$size."_".$fileName;
-        else $outFile = $dirPath ."/".$fileName;
+        if( $size != "_"  )$outFile = $dirPath ."/".$size.$fileName;
+                      else $outFile = $dirPath ."/".$fileName;
 
-        if( !empty( $imageUrl ) && file_exists( $imageUrl ) )
+        if( file_exists( $imageUrl ) )
         {
-            if( !empty( $className ) && $className=="CatalogNews" )
+            if( !empty( $className )  )
             {
 
             }

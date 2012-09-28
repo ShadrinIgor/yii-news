@@ -10,6 +10,6 @@ foreach( CatalogNews::fetchAll() as $values )
 {
     $this->widget('newsWidget', array(
         'values'=>$values,
-        'url'=> $controller->createurl( "news/", array( "id"=>$values->id, "slug"=>$values->key_word ) )
+        'controller'=> $controller
     ));
 }

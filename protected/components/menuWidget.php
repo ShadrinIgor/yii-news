@@ -16,7 +16,8 @@ class menuWidget extends CWidget
         $curlManager = new CUrlManager();
         $this->render("menu", array(
                     'curlManager' => $curlManager,
-                    'listNews'    => $listNews
-            ));
+                    'listNews'    => $listNews,
+                    'controller'  => $this->controller
+        ));
     }
 }

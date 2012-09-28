@@ -27,14 +27,14 @@ class Controller extends CController
         {
             $data = array_merge( $data,
                 array(
-                    "Theme" => Yii::app()->getTheme()
+                    "Theme"     => Yii::app()->getTheme(),
+                    "controller" => $this
                 )
             );
 
             $output=$this->renderPartial($view,$data,true);
             if( ($layoutFile=$this->getLayoutFile($this->layout))!==false)
             {
-
                 $output=$this->renderFile($layoutFile, array_merge( $data, array( "content" => $output ) ),true);
             }
 

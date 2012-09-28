@@ -82,6 +82,4 @@ class SiteHelper
 
          return false;
     }
-
-
 }

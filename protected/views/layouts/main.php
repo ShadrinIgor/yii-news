@@ -63,7 +63,7 @@
                 <div class="MSel">
                     <a title="мировые Новости недели, последние новости" href="http://world-news.uz/news_week/">Новости недели</a>
                 </div>
-                <?php $this->widget ( 'menuWidget' ); ?>
+                <?php $this->widget ( 'menuWidget', array( "controller"=>$controller ) ); ?>
             </div>
 
         </div>
