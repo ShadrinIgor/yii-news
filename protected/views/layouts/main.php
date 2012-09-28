@@ -63,69 +63,7 @@
                 <div class="MSel">
                     <a title="мировые Новости недели, последние новости" href="http://world-news.uz/news_week/">Новости недели</a>
                 </div>
-
-<?php foreach( CatalogCid::fetchAll() as $values ) : ?>
-                <div><a href="<?= $this->createUrl("category/", array( "id"=>$values->id, "country"=>0, "slug"=>$values->key_word )) ?>" title="<?= $values->name; ?> : Мировые новости, новости Узбекистана"><?= $values->name; ?></a></div>
-                <div class="M_sep"></div>
-<?php endforeach; ?>
-<!--
-                <div><a  href="http://www.world-news.uz/category/6/0/politika" title="Политика : Мировые новости, новости Узбекистана">Политика</a></div>
-                <div class="M_sep"></div>
-
-                <div><a  href="http://www.world-news.uz/category/8/0/tehnology_science_games" title="Наука, технологии, образование : Мировые новости, новости Узбекистана">Наука, технологии, образование</a></div>
-                <div class="M_sep"></div>
-
-                <div><a  href="http://www.world-news.uz/category/9/0/shoubiz" title="Шоубиз : Мировые новости, новости Узбекистана">Шоубиз</a></div>
-                <div class="M_sep"></div>
-
-                <div><a  href="http://www.world-news.uz/category/14/0/ekonomika" title="Экономика : Мировые новости, новости Узбекистана">Экономика</a></div>
-                <div class="M_sep"></div>
-
-                <div><a  href="http://www.world-news.uz/category/15/0/obshestvo" title="Общество : Мировые новости, новости Узбекистана">Общество</a></div>
-                <div class="M_sep"></div>
-
-                <div><a  href="http://www.world-news.uz/category/18/0/kultura" title="Культура : Мировые новости, новости Узбекистана">Культура</a></div>
-                <div class="M_sep"></div>
-
-                <div><a  href="http://www.world-news.uz/category/19/0/sport" title="Спорт : Мировые новости, новости Узбекистана">Спорт</a></div>
-                <div class="M_sep"></div>
-
-                <div><a  href="http://www.world-news.uz/category/21/0/avto_moto" title="Авто/Мото : Мировые новости, новости Узбекистана">Авто/Мото</a></div>
-                <div class="M_sep"></div>
-
-                <div><a  href="http://www.world-news.uz/category/33/0/proizshestvie" title="Происшествия : Мировые новости, новости Узбекистана">Происшествия</a></div>
-                <div class="M_sep"></div>
-
-                <div><a  href="http://www.world-news.uz/category/34/0/zdorove" title="Здоровье : Мировые новости, новости Узбекистана">Здоровье</a></div>
-                <div class="M_sep"></div>
-
-                <div><a  href="http://www.world-news.uz/category/36/0/tourizm" title="Туризм : Мировые новости, новости Узбекистана">Туризм</a></div>
-                <div class="M_sep"></div>
-
-                <div><a  href="http://www.world-news.uz/category/39/0/muzika" title="Музыка : Мировые новости, новости Узбекистана">Музыка</a></div>
-                <div class="M_sep"></div>
-
-                <div><a  href="http://www.world-news.uz/category/40/0/kino" title="Кино : Мировые новости, новости Узбекистана">Кино</a></div>
-                <div class="M_sep"></div>
-
-                <div><a  href="http://www.world-news.uz/category/41/0/lichnie_dengi" title="Личные деньги : Мировые новости, новости Узбекистана">Личные деньги</a></div>
-                <div class="M_sep"></div>
-
-                <div><a  href="http://www.world-news.uz/category/43/0/kurezi" title="Курьезы : Мировые новости, новости Узбекистана">Курьезы</a></div>
-                <div class="M_sep"></div>
-
-                <div><a  href="http://www.world-news.uz/category/44/0/" title="Выставки, показы : Мировые новости, новости Узбекистана">Выставки, показы</a></div>
-                <div class="M_sep"></div>
-
-                <div><a  href="http://www.world-news.uz/category/45/0/" title="Тусовка : Мировые новости, новости Узбекистана">Тусовка</a></div>
-                <div class="M_sep"></div>
-
-                <div><a  href="http://www.world-news.uz/category/48/0/" title="Фотогалерея : Мировые новости, новости Узбекистана">Фотогалерея</a></div>
-                <div class="M_sep"></div>
-
-                <div><a  href="http://www.world-news.uz/category/49/0/" title="Калейдоскоп : Мировые новости, новости Узбекистана">Калейдоскоп</a></div>
-                <div class="M_sep"></div>
--->
+                <?php $this->widget ( 'menuWidget' ); ?>
             </div>
 
         </div>

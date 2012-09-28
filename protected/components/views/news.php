@@ -1,13 +1,12 @@
 <div class="cItem listItems">
-    <a title="В Ташкенте пройдет концерт «Музыка и песни из кинофильмов» - Узбекистан Шоубиз " href="http://www.world-news.uz/news/84034/V_Tashkente_proydet_koncert_Muzyka_i_pesni_iz_kinofilmov"><?= //$values->name ?></a>
-    <div class="TN_img"><div class="count_shows">Просмотров 68</div><img alt="В Ташкенте пройдет концерт «Музыка и песни из кинофильмов» - Шоубиз Узбекистан" title="В Ташкенте пройдет концерт «Музыка и песни из кинофильмов» - Шоубиз Узбекистан" src="f/catalog_news/2012/9/3_17923koncert.jpg"></div>
+    <a title="<?= $values->name ?> - Узбекистан Шоубиз" href="<?= $url ?>"><?= $values->name ?></a>
+    <div class="TN_img"><div class="count_shows">Просмотров <?= $values->col ?></div><img alt="<?= $values->name ?> - Шоубиз Узбекистан" title="<?= $values->name ?> - Шоубиз Узбекистан" src="f/catalog_news/2012/9/3_17923koncert.jpg"></div>
 
-    <font>28.09.2012</font><br>
-    <a class="newsCid" title="Узбекистан, Шоубиз" href="http://www.world-news.uz/category/9/1/">Узбекистан</a>,
-    <a class="newsCid" title="Шоубиз,Узбекистан" href="http://www.world-news.uz/category/9/">Шоубиз</a><br>
+    <font><?= SiteHelper::getDateOnFormat( $values->date, "d.m.Y", "news ID: ".$values->id ) ?></font><br>
+    <a class="newsCid" title="<?= $values->country->name ?>, <?= $values->cid_id->name ?>" href="http://www.world-news.uz/category/9/1/"><?= $values->country->name ?></a>,
+    <a class="newsCid" title="<?= $values->cid_id->name ?>,<?= $values->country->name ?>" href="http://www.world-news.uz/category/9/"><?= $values->cid_id->name ?></a><br>
 
+    <?= SiteHelper::getSubTextOnWorld( $values->description, 200 ) ?>
 
-    28 сентября в 19.00 национальный эстрадно-симфонический оркестр под управлением художественного  ...
-
-    <div class="moreLink"><a title="подробнее" href="http://www.world-news.uz/news/84034/V_Tashkente_proydet_koncert_Muzyka_i_pesni_iz_kinofilmov">подробнее ...</a></div>
+    <div class="moreLink"><a title="подробнее" href="<?= $url ?>">подробнее ...</a></div>
 </div>

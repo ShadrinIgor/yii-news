@@ -9,6 +9,7 @@ $this->pageTitle=Yii::app()->name;
 foreach( CatalogNews::fetchAll() as $values )
 {
     $this->widget('newsWidget', array(
-//    'val'=>$values->name
+        'values'=>$values,
+        'url'=> $controller->createurl( "news/", array( "id"=>$values->id, "slug"=>$values->key_word ) )
     ));
 }

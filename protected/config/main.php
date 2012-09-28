@@ -50,7 +50,7 @@ return array(
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 
                 '<controller:(category)>/<id:\d+>_<country:\w+>_<slug:\w+>.html'=> '<controller>',
-                '<controller:(category)>/<action:\w+>/<id:\d+>'=> '<controller>/<action:\w+>',
+                '<controller:(news)>/<id:\d+>_<slug:\w+>.html'=> '<controller>',
 			),
 		),
 
@@ -72,15 +72,15 @@ return array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
 				array(
-					'class'=>'CFileLogRoute',
-					'levels'=>'error, warning',
+                    'class'=>'CProfileLogRoute',
+                    'levels'=>'profile',
+                    'enabled'=>true,
 				),
 				// uncomment the following to show log messages on web pages
 
 				array(
 					'class'=>'CWebLogRoute',
 				),
-
 			),
 		),
 	),
@@ -106,10 +106,10 @@ return array(
     * 'CFileCache' => array('class' => 'CFileCache')  т.е. 'cacheID' => array('class' => 'ClassName'),
 
     'widgetList' => array(
-        'newsWidget' => array(
+        'menuWidget' => array(
             'duration' => 720,
             'cacheID' => 'CDummyCache',
         ),
     ),
-    */
+*/
 );

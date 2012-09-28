@@ -52,14 +52,17 @@
     {
         $nameCLass = get_called_class();
         $object =  new $nameCLass;
-        $offer = Yii::app()->db->createCommand()
-            ->select('*')
-            ->from( $object->tableName() )
-            ->where( 'id=:id ', array( "id" => (int)$id ) )
-            ->queryRow();
+        if( $nameCLass=="CatalogCid" )echo $id." || <br/>";
+        if( (int)$id>0 )
+        {
+            $offer = Yii::app()->db->createCommand()
+                ->select('*')
+                ->from( $object->tableName() )
+                ->where( 'id=:id ', array( "id" => (int)$id ) )
+                ->queryRow();
 
-        $object->setAttributesFromArray( $offer );
-
+            $object->setAttributesFromArray( $offer );
+        }
         return $object;
     }
 
@@ -86,6 +89,8 @@
     */
     public function __get( $field )
     {
+        static $arrayHasOneRalation;
+
         if( !in_array( $field, $this->getRelationFields() ) )
             return $this->$field;
         {
@@ -94,7 +99,14 @@
             {
                 if( ( $relation[0] == self::HAS_ONE || $relation[0] == self::BELONGS_TO ) && !is_object( $this->$field ) ) //
                 {
-                    $this->$field = $relation[1]::fetch( $this->$field );
+                    $key = $field."_".$this->$field;
+                    if( empty( $arrayHasOneRalation[ $key ] ) )
+                    {
+                        $this->$field = $relation[1]::fetch( $this->$field );
+                        $arrayHasOneRalation[ $key ] = $this->$field;
+                    }
+                        else
+                            $this->$field = $arrayHasOneRalation[ $key ];
                 }
 
                 if( ( $relation[0] == self::HAS_MANY || $relation[0] == self::MANY_MANY ) && !is_array( $this->$field ) )

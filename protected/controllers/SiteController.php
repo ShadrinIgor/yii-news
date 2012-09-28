@@ -37,7 +37,7 @@ class SiteController extends Controller
 
 //        $list = CatalogCountry::fetchAll( );
 
-		$this->render('index');
+		$this->render('index', array( "controller"=>$this ) );
 	}
 
 	/**
