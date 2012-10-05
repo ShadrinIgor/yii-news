@@ -8,7 +8,7 @@ class SiteController extends Controller
 	public function actions()
 	{
 		return array(
-			// captcha action renders the CAPTCHA image displayed on the contact page
+			//  captcha action renders the CAPTCHA image displayed on the contact page
 			'captcha'=>array(
 				'class'=>'CCaptchaAction',
 				'backColor'=>0xFFFFFF,
@@ -27,7 +27,12 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-//        $list = CatalogNews::fetch( 84631 );
+        $list = CatalogNews::fetch( 84631 );
+        print_r( $list );
+
+        $list->save();
+        //print_r( $list->attributeLabels() );
+
   /*      $QueryParams = DBQueryParamsClass::CreateParams()
                         ->setConditions("date<:date")
                         ->setParams( array( ":date" => "2012-09-27" ) )

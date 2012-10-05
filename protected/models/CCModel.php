@@ -156,6 +156,29 @@
     }
 
     /*
+    * @desc Делает сохранение в базу текущей модели
+    * @paeam
+    * @return bool $result возвражает результат операции TRUE или FALSE
+    */
+    public function save()
+    {
+        // TODO Здесь необходимо реализовать валидацию объекта
+        if( $this->validate() == false )
+            throw new CDbException( Yii::t('yii','Your request is invalid.') );
+
+        foreach( $this->attributeLabels() as $key => $value )
+        {
+            if( $key=="id" )continue;
+            if( !empty( $sqlField ) )$sqlField.=",";
+            $sqlField .= "`".$key."`='".$this->$key."'";
+        }
+
+        $sql = "UPDATE ".$this->tableName()." SET ".$sqlField." WHERE id='".$this->id."'";
+        Yii::app()->db->createCommand( $sql )->execute();
+        echo $sql;
+    }
+
+    /*
     * @desc Возврощает описание одной связи по полю
     * @param string $fieldName Название поля которое имеет связь
     * @return array $relationArray Масив - описание одной связи
