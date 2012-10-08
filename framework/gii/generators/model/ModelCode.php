@@ -223,7 +223,10 @@ class ModelCode extends CCodeModel
 			if($r)
 				$required[]=$column->name;
 			if($column->type==='integer')
-				$integers[]=$column->name;
+            {
+                // TODO тут надо првоерить чтобы он не добавлял поля которые имет связь
+			    $integers[]=$column->name;
+            }
 			else if($column->type==='double')
 				$numerical[]=$column->name;
 			else if($column->type==='string' && $column->size>0)

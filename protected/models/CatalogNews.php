@@ -59,7 +59,7 @@ class CatalogNews extends CCmodel
 		// will receive user inputs.
 		return array(
 			array('name, description, key_word, country, image, cid_id, date, time, tags, archive, people, tags_, image_2, image_3, source, video, tags_checked', 'required'),
-			array('col, cid, active, select, pos, user, del, lang_group, id_lang, country, cid_id, archive, people, video, tags_checked', 'numerical', 'integerOnly'=>true),
+			array('col, cid, active, select, pos, user, del, lang_group, id_lang, archive, people, video, tags_checked', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>150),
 			array('path', 'length', 'max'=>25),
 			array('key_word', 'length', 'max'=>250),

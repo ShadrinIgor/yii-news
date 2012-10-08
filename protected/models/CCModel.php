@@ -162,9 +162,12 @@
     */
     public function save()
     {
-        // TODO Здесь необходимо реализовать валидацию объекта
+
         if( $this->validate() == false )
+        {
+            // TODO Ошибки не надо выводиьт в ексепшены а надо лобит в $this->error
             throw new CDbException( Yii::t('errors','Ошибка валидации') );
+        }
 
         foreach( $this->attributeLabels() as $key => $value )
         {
