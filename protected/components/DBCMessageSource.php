@@ -15,7 +15,13 @@ class DBCMessageSource extends CMessageSource
 
     public function translateMessage( $category, $message, $language )
     {
-        $result = Yii::app()->db->createCommand( "SELECT b.translation FROM i18n a, i18n_translate b WHERE a.category='".$category."' AND a.message='".$message."' AND b.language='".$language."'" )->queryColumn();
-        return $result[0];
+        $result = Yii::app()->db->createCommand()
+                                ->select( "b.translation" )
+                                ->from( "i18n a, i18n_translate b" )
+                                ->where( "a.category=:category AND a.message=:message AND b.language=:language", array( ":category"=>$category, ":message"=>$message, ":language"=>$language ) )
+                                ->limit(1)->queryColumn();
+
+        if( !empty( $result[0] ) )return $result[0];
+                             else return false;
     }
 }

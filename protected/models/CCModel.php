@@ -164,7 +164,7 @@
     {
         // TODO Здесь необходимо реализовать валидацию объекта
         if( $this->validate() == false )
-            throw new CDbException( Yii::t('yii','Your request is invalid.') );
+            throw new CDbException( Yii::t('errors','Ошибка валидации') );
 
         foreach( $this->attributeLabels() as $key => $value )
         {

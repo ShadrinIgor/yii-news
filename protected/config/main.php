@@ -85,6 +85,11 @@ return array(
 				),
 			),
 		),
+
+        'messages'=>array(
+            'class'            => 'DBCMessageSource',
+            'forceTranslation' => true,
+        ),
 	),
 
 	// application-level parameters that can be accessed
