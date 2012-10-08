@@ -1,1 +1,1 @@
-DROP TABLE `message` ,`message_translate` ;
+DROP TABLE `i18n` ,`i18n_translate` ;
