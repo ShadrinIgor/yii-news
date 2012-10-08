@@ -5,6 +5,7 @@ CREATE TABLE i18n
     category VARCHAR(32),
     message TEXT
 );
+ALTER TABLE `i18n` CHANGE `id` `id` INT( 11 ) NOT NULL AUTO_INCREMENT;
 
 DROP TABLE IF EXISTS i18n_translate;
 CREATE TABLE i18n_translate
