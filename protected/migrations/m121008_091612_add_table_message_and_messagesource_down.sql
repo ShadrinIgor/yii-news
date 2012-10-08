@@ -1,1 +1,1 @@
-DROP TABLE `i18n` ,`i18n_translate` ;
+DROP TABLE IF EXISTS `i18n` ,`i18n_translate` ;
