@@ -1,0 +1,1 @@
+DROP TABLE `message` ,`message_translate` ;
