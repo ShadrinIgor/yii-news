@@ -58,14 +58,14 @@ class CatalogNews extends CCModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, description, key_word, country, image, cid_id, date, time, tags, archive, people, tags_, image_2, image_3, source, video, tags_checked', 'required'),
+			array('name, description, key_word, country, image, cid_id, date, archive', 'required'),
 			array('col, cid, active, select, pos, user, del, lang_group, id_lang, archive, people, video, tags_checked', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>150),
 			array('path', 'length', 'max'=>25),
 			array('key_word', 'length', 'max'=>250),
 			array('image, image_2, image_3, source', 'length', 'max'=>255),
 			array('time', 'length', 'max'=>10),
-			array('dateadd, dateedit, metaData', 'safe'),
+			array('dateadd, dateedit, metaData, tags, tags_', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, col, cid, name, path, description, active, select, dateadd, dateedit, pos, metaData, user, del, lang_group, id_lang, key_word, country, image, cid_id, date, time, tags, archive, people, tags_, image_2, image_3, source, video, tags_checked', 'safe', 'on'=>'search'),

@@ -161,18 +161,22 @@
     */
     public function save()
     {
+        // TODO надо будет еще сделать рекурсивыное сохранение т.е. чтобы он шол по всем связям проверял
+        // если значение нету то проверял валидацию связанной записи и сохранял
         if( $this->validate() == false )return false;
 
+        $sqlField = "";
         foreach( $this->attributeLabels() as $key => $value )
         {
             if( $key=="id" )continue;
             if( !empty( $sqlField ) )$sqlField.=",";
-            $sqlField .= "`".$key."`='".$this->$key."'";
+
+            if( !in_array( $key, $this->getRelationFields() ) )$sqlField .= "`".$key."`='".$this->$key."'";
+                else $sqlField .= "`".$key."`='".$this->$key->id."'";
         }
 
         $sql = "UPDATE ".$this->tableName()." SET ".$sqlField." WHERE id='".$this->id."'";
         Yii::app()->db->createCommand( $sql )->execute();
-        echo $sql;
     }
 
     /*
