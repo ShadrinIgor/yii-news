@@ -224,8 +224,8 @@ class ModelCode extends CCodeModel
 				$required[]=$column->name;
 			if($column->type==='integer')
             {
-                // TODO тут надо првоерить чтобы он не добавлял поля которые имет связь
-			    $integers[]=$column->name;
+                if( $this->isRelationField( $table, $column->name ) == false )
+                    $integers[]=$column->name;
             }
 			else if($column->type==='double')
 				$numerical[]=$column->name;
@@ -250,6 +250,14 @@ class ModelCode extends CCodeModel
 
 		return $rules;
 	}
+
+    public function isRelationField( $table, $field )
+    {
+        foreach ($table->foreignKeys as $fkName => $fkEntry)
+            if( $field == $fkName )return true;
+
+        return false;
+    }
 
 	public function getRelations($className)
 	{

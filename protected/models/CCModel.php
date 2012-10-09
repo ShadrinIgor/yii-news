@@ -52,7 +52,6 @@
     {
         $nameCLass = get_called_class();
         $object =  new $nameCLass;
-        if( $nameCLass=="CatalogCid" )echo $id." || <br/>";
         if( (int)$id>0 )
         {
             $offer = Yii::app()->db->createCommand()
@@ -162,12 +161,7 @@
     */
     public function save()
     {
-
-        if( $this->validate() == false )
-        {
-            // TODO Ошибки не надо выводиьт в ексепшены а надо лобит в $this->error
-            throw new CDbException( Yii::t('errors','Ошибка валидации') );
-        }
+        if( $this->validate() == false )return false;
 
         foreach( $this->attributeLabels() as $key => $value )
         {
