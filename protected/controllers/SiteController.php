@@ -27,7 +27,7 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-        $list = CatalogNews::fetch( 84631 );
+        //$list = CatalogNews::fetch( 84631 );
 
         //print_r( $list->attributeLabels() );
 
