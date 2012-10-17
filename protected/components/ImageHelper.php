@@ -13,46 +13,48 @@ class ImageHelper
      * @param int $size размер необходимой картинки ( варинаты : 1, 2, 3 )
      * @param CCmodel $itemObject объект текущей записи
      */
-    static function getImage( $imageFile = null, $size = 0, CCmodel $itemObject = null )
+    static function getImage( $imageFile = null, $size = 1, CCmodel $itemObject = null )
     {
+        $size = $size>0 ? (int)$size : 1;
         if( empty( $imageFile ) )return "";
 
         // 1. Проверяем указана ли в катологе уже отптимизированные капии картинки, если да то просто их отдаем
         // 2. Иначе: Проверяем существут ли в действительности файл если дл то
         // создаем 2 картинки меньшего размера и сохраняем их пути в базе для этой записи
-        if( $size>1 )
+
+        if( $size>1 )$propertyName = "image_".$size;
+                else $propertyName = "image";
+
+        // Проверяем проводилась ли проверка ранее
+        if( property_exists( $itemObject, $propertyName ) )
         {
-            $propertyName = "image_".$size;
-            // Проверяем проводилась ли проверка ранее
-            if( property_exists( $itemObject, $propertyName ) )
+            if( $itemObject->$propertyName != "" )return $itemObject->$propertyName;
+                else
             {
-                if( !empty( $itemObject->$propertyName ) )return $itemObject->$propertyName;
+                if( file_exists( $imageFile ) )
+                {
+                    $dirName = dirname( $imageFile );
+                    $fileName = basename( $imageFile );
+                    $tableName = $itemObject->tableName();
+                    $imageParams = Yii::app()->params["images"][ $tableName ][ $size ];
+
+                    if( $size>1 )$imageName = $size."_".$fileName;
+                            else $imageName = $fileName;
+
+                    Yii::app()->ih
+                        ->load( $_SERVER['DOCUMENT_ROOT'] . "/" . $itemObject->$propertyName )
+                        ->thumb( $imageParams[0], $imageParams[1] )
+                        ->save( $_SERVER['DOCUMENT_ROOT'] . "/" . $dirName."/".$imageName );
+                }
                     else
                 {
-                    if( file_exists( $imageFile ) )
-                    {
-                        $dirName = dirname( $imageFile );
-                        $fileName = basename( $imageFile );
-                        $tableName = $itemObject->tableName();
-                        $imageParams = Yii::app()->params["images"][ $tableName ];
-                        print_r( Yii::app()->params );
-
-                        Yii::app()->ih
-                            ->load( $_SERVER['DOCUMENT_ROOT'] . $itemObject->$propertyName )
-                            ->thumb( $imageParams[0], $imageParams[1] )
-                            ->save( $_SERVER['DOCUMENT_ROOT'] . $dirName."/".$size."_".$fileName );
-                    }
-                        else
-                    {
-                        $itemObject->image = "";
-                        $itemObject->save();
-                    }
+                    $itemObject->$propertyName = "";
+                    $itemObject->save();
                 }
             }
-
-
         }
 
+        return Yii::app()->getTheme()->getBaseUrl()."/images/no-image.png";
     }
     /*
      * Проверяем существование картинки если нет то выдает тефолтную картинку

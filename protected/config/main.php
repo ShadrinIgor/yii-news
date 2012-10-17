@@ -106,7 +106,7 @@ return array(
         'baseUrl' => 'http://yii-news/',
         'images' => array(
             "catalog_news" => array(
-                    "1" => array( 0, 0 ),
+                    "1" => array( 800, 800 ),
                     "2" => array( 200, 200 ),
                     "3" => array( 100, 100 )
                 )
