@@ -13,10 +13,12 @@
 
      /*
      * @desc Вытаскивает из базы список значений по параметрам
-     * @param
-     * @return array $arrayItemObect Возвращает массив объетов взятых из базе на основе переданных параметров
+     * @param DBQueryParamsClass $QueryParams
+     * @param array $relationsTable Список связанных таблиц которые необходимо подгрузить сразу
+     * @return array $arrayItemObject Возвращает массив объетов взятых из базе на основе переданных параметров
+     * @return mixed $indexNumber По кокому принципу выставлять порядковые номера, по умолчанию INDEX выставляет от 0,1,2. Если указать ID то в качестве индексов будут выставленны ID записей
      */
-     static function fetchAll( DBQueryParamsClass $QueryParams = null )
+     static function fetchAll( DBQueryParamsClass $QueryParams = null, array $relationsTable = array(), $indexNumber = "index" )
      {
          if( empty( $QueryParams ) )$QueryParams = DBQueryParamsClass::CreateParams()->setConditions( "del=0" );
 
@@ -31,13 +33,41 @@
             ->limit( $QueryParams->getLimit() )
             ->queryAll();
 
+         if( !empty( $relationsTable ) )
+         {
+            foreach( $relationsTable as $relationTable )
+            {
+                $relationClass = str_replace(array(' ','_'), '', ucwords( preg_replace('/[^a-z]/', ' ', strtolower($relationTable)) ));
+                $relationData = $newObject->getRelationByClass( $relationClass );
+                if( !empty( $relationData ) && class_exists( $relationData[1] ) )
+                {
+                    $listRelationItems[ $relationData[1] ] =  $relationData[1]::fetchAll( null, array(), "id");
+                }
+            }
+         }
+
          $listOffer = array();
          for( $i=0;$i<sizeof( $arrayOffer );$i++ )
          {
             if( $arrayOffer[$i]["id"] == 0 )continue;
             $newObject = new $nameCLass;
             $newObject  = $newObject->setAttributesFromArray( $arrayOffer[$i] );
-            $listOffer[] = $newObject;
+
+             // Подставляем связи если указан параметр $relationsTable ( работает только со связми ONE_TO_ONE )
+             foreach( $relationsTable as $relationTable )
+             {
+                 $relationClass = str_replace(array(' ','_'), '', ucwords( preg_replace('/[^a-z]/', ' ', strtolower($relationTable)) ));
+                 $relationData = $newObject->getRelationByClass( $relationClass );
+                 if( !empty( $relationData ) )
+                 {
+                     $relationId = $arrayOffer[$i][ $relationData[2] ];
+                     $newObject->$relationData[2] = $listRelationItems[ $relationData[1] ][ $relationId ];
+                 }
+             }
+
+            if( $indexNumber == "id" )$listOffer[ $newObject->id  ] = $newObject;
+                                 else $listOffer[ ] = $newObject;
+
          }
 
          return $listOffer;
@@ -88,7 +118,7 @@
     */
     public function __get( $field )
     {
-        static $arrayHasOneRalation;
+        static $arrayHasOneRelation;
 
         if( !in_array( $field, $this->getRelationFields() ) )
             return $this->$field;
@@ -99,19 +129,19 @@
                 if( ( $relation[0] == self::HAS_ONE || $relation[0] == self::BELONGS_TO ) && !is_object( $this->$field ) ) //
                 {
                     $key = $field."_".$this->$field;
-                    if( empty( $arrayHasOneRalation[ $key ] ) )
+                    if( empty( $arrayHasOneRelation[ $key ] ) )
                     {
                         $this->$field = $relation[1]::fetch( $this->$field );
-                        $arrayHasOneRalation[ $key ] = $this->$field;
+                        $arrayHasOneRelation[ $key ] = $this->$field;
                     }
                         else
-                            $this->$field = $arrayHasOneRalation[ $key ];
+                            $this->$field = $arrayHasOneRelation[ $key ];
                 }
 
                 if( ( $relation[0] == self::HAS_MANY || $relation[0] == self::MANY_MANY ) && !is_array( $this->$field ) )
                 {
                     $leftCLass = get_called_class();
-                    $relateionParams = RelationParamsClass::CreateParams()
+                    $relationParams = RelationParamsClass::CreateParams()
                                             ->setLeftClass( $leftCLass )
                                             ->setRightClass( $relation[1] )
                                             ->setLeftField( $field )
@@ -121,7 +151,7 @@
                                             ->setOrderBy( "a.name" )
                                             ->setOrderType( "ASC" );
 
-                    $this->$field = SiteHelper::getRelation( $relateionParams, $DBQueryParams );
+                    $this->$field = SiteHelper::getRelation( $relationParams, $DBQueryParams );
                 }
 
                 return $this->$field;
@@ -156,7 +186,7 @@
 
     /*
     * @desc Делает сохранение в базу текущей модели
-    * @paeam
+    * @param
     * @return bool $result возвражает результат операции TRUE или FALSE
     */
     public function save()
@@ -179,18 +209,31 @@
         Yii::app()->db->createCommand( $sql )->execute();
     }
 
-    /*
+     /*
+     * @desc Возврощает описание одной связи по полю
+     * @param string $fieldName Название поля которое имеет связь
+     * @return array $relationArray Масив - описание одной связи
+     */
+     public function getRelationByField( $fieldName )
+     {
+         foreach( $this->relations() as $value )
+             if( $value[2] == $fieldName )return $value;
+
+         return false;
+     }
+
+     /*
     * @desc Возврощает описание одной связи по полю
     * @param string $fieldName Название поля которое имеет связь
     * @return array $relationArray Масив - описание одной связи
     */
-    public function getRelationByField( $fieldName )
-    {
-        foreach( $this->relations() as $value )
-            if( $value[2] == $fieldName )return $value;
+     public function getRelationByClass( $className )
+     {
+         foreach( $this->relations() as $value )
+             if( $value[1] == $className )return $value;
 
-        return false;
-    }
+         return false;
+     }
 
     public function attributeNames()
     {}
