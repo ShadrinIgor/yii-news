@@ -13,7 +13,7 @@ class ImageHelper
      * @param int $size размер необходимой картинки ( варинаты : 1, 2, 3 )
      * @param CCmodel $itemObject объект текущей записи
      */
-    static function getImage( $imageFile = null, int $size = 0, CCmodel $itemObject = null )
+    static function getImage( $imageFile = null, $size = 0, CCmodel $itemObject = null )
     {
         if( empty( $imageFile ) )return "";
 
@@ -29,16 +29,24 @@ class ImageHelper
                 if( !empty( $itemObject->$propertyName ) )return $itemObject->$propertyName;
                     else
                 {
-                    $dirName = dirname( $itemObject->$propertyName );
-                    $fileName = basename( $itemObject->$propertyName );
-                    $tableName = $itemObject->tableName();
-                    $imageParams = Yii::app()->params["images"][ $tableName ];
-                    print_r( $imageParams );
-die();
-                    Yii::app()->ih
-                        ->load( $_SERVER['DOCUMENT_ROOT'] . $itemObject->$propertyName )
-                        ->thumb( $imageParams[0], $imageParams[1] )
-                        ->save( $_SERVER['DOCUMENT_ROOT'] . $dirName."/".$size."_".$fileName );
+                    if( file_exists( $imageFile ) )
+                    {
+                        $dirName = dirname( $imageFile );
+                        $fileName = basename( $imageFile );
+                        $tableName = $itemObject->tableName();
+                        $imageParams = Yii::app()->params["images"][ $tableName ];
+                        print_r( Yii::app()->params );
+
+                        Yii::app()->ih
+                            ->load( $_SERVER['DOCUMENT_ROOT'] . $itemObject->$propertyName )
+                            ->thumb( $imageParams[0], $imageParams[1] )
+                            ->save( $_SERVER['DOCUMENT_ROOT'] . $dirName."/".$size."_".$fileName );
+                    }
+                        else
+                    {
+                        $itemObject->image = "";
+                        $itemObject->save();
+                    }
                 }
             }
 

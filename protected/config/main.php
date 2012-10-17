@@ -19,6 +19,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+        'application.components.ImageHandler.CImageHandler',
 	),
 
 	'modules'=>array(
@@ -103,7 +104,7 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
         'baseUrl' => 'http://yii-news/',
-        'image' => array(
+        'images' => array(
             "catalog_news" => array(
                     "1" => array( 0, 0 ),
                     "2" => array( 200, 200 ),
