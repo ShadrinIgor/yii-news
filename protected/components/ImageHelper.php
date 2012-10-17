@@ -103,6 +103,7 @@ class ImageHelper
 
         $wprocent = ceil( ($height0*100)/ $width0 );
         $hprocent = ceil( ($width0*100)/ $height0 );
+        $cout = "";
 
         for($i=3;$i>0;$i--)
         {
