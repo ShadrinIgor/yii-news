@@ -35,6 +35,11 @@ return array(
 
 	// application components
 	'components'=>array(
+        // CImageHandler
+        'ih'=>array(
+            'class'=>'CImageHandler',
+        ),
+
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
