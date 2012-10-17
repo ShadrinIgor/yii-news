@@ -8,12 +8,51 @@
 class ImageHelper
 {
     /*
+     * Проверяет сушествование необходимой картинк в нужном размере, если нет то создает
+     * @param string $imageFile путь до файла
+     * @param int $size размер необходимой картинки ( варинаты : 1, 2, 3 )
+     * @param CCmodel $itemObject объект текущей записи
+     */
+    static function getImage( $imageFile = null, int $size = 0, CCmodel $itemObject = null )
+    {
+        if( empty( $imageFile ) )return "";
+
+        // 1. Проверяем указана ли в катологе уже отптимизированные капии картинки, если да то просто их отдаем
+        // 2. Иначе: Проверяем существут ли в действительности файл если дл то
+        // создаем 2 картинки меньшего размера и сохраняем их пути в базе для этой записи
+        if( $size>1 )
+        {
+            $propertyName = "image_".$size;
+            // Проверяем проводилась ли проверка ранее
+            if( property_exists( $itemObject, $propertyName ) )
+            {
+                if( !empty( $itemObject->$propertyName ) )return $itemObject->$propertyName;
+                    else
+                {
+                    $dirName = dirname( $itemObject->$propertyName );
+                    $fileName = basename( $itemObject->$propertyName );
+                    $tableName = $itemObject->tableName();
+                    $imageParams = Yii::app()->params["images"][ $tableName ];
+                    print_r( $imageParams );
+die();
+                    Yii::app()->ih
+                        ->load( $_SERVER['DOCUMENT_ROOT'] . $itemObject->$propertyName )
+                        ->thumb( $imageParams[0], $imageParams[1] )
+                        ->save( $_SERVER['DOCUMENT_ROOT'] . $dirName."/".$size."_".$fileName );
+                }
+            }
+
+
+        }
+
+    }
+    /*
      * Проверяем существование картинки если нет то выдает тефолтную картинку
      * @param string $imageUrl урл картинки
      * @param integer $size размер необходимой картинки
      * @pram string $className название класса, чтобы сохранять изменные варинаты в базе ( в талице обязательно должны быть свойства image_2 и image_3 )
      * @return bool $cout
-     */
+
     static function getImageResize( $imageUrl, $size = null, $itemObject = null )
     {
         if( empty( $imageUrl ) )return false;
@@ -252,5 +291,5 @@ class ImageHelper
         }
 
         ImageDestroy($srcImage);
-    }
+    }*/
 }
