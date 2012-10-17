@@ -1,2 +1,0 @@
-http://yiiframework.ru/forum/viewtopic.php?f=9&t=882
-https://github.com/tokolist/yii-components/blob/master/protected/extensions/yiicomp/components/ImageHandler/readme_ru.md
