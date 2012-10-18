@@ -20,10 +20,8 @@ class ImageHelper
         if( empty( $imageFile ) )$error = true;
         if( !file_exists( $imageFile ) )
         {
-            echo $itemObject->id."<br/>";
             $itemObject->image = "";
             $result = $itemObject->save();
-            if( !$result ) print_r( $itemObject->getErrors() );
             $error = true;
         }
 
@@ -49,14 +47,22 @@ class ImageHelper
 
                     // Надо проверить еслии вызаваентся не 1 картнки, а 2 или 3 и её нету
                     // то читаем то атоптации картинкок небыло и запускаем адоптация в цикле( количество равно количесвту свойств этого каталого в конфиге )
-                    for( $i=1;$i<sizeof( $imageParams );$i++ )
+                    foreach( $imageParams as $key=>$values )
                     {
-                        $imageName = $i."_".$fileName;
-                        $itemProperty =  "image_".$i;
+                        if( $key!=1 )
+                        {
+                            $imageName = $key."_".$fileName;
+                            $itemProperty =  "image_".$key;
+                        }
+                            else
+                        {
+                            $imageName = $fileName;
+                            $itemProperty =  "image";
+                        }
 
                         Yii::app()->ih
                             ->load( $_SERVER['DOCUMENT_ROOT'] . "/" . $itemObject->image )
-                            ->thumb( $imageParams[$i][0], $imageParams[$i][1] )
+                            ->thumb( $values[0], $values[1] )
                             ->save( $_SERVER['DOCUMENT_ROOT'] . "/" . $dirName."/".$imageName );
 
                         $itemObject->$itemProperty =  $dirName."/".$imageName;
