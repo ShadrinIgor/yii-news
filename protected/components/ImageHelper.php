@@ -15,40 +15,53 @@ class ImageHelper
      */
     static function getImage( $imageFile = null, $size = 1, CCmodel $itemObject = null )
     {
+        $error = false;
         $size = $size>0 ? (int)$size : 1;
-        if( empty( $imageFile ) )return "";
-
-        // 1. Проверяем указана ли в катологе уже отптимизированные капии картинки, если да то просто их отдаем
-        // 2. Иначе: Проверяем существут ли в действительности файл если дл то
-        // создаем 2 картинки меньшего размера и сохраняем их пути в базе для этой записи
-
-        if( $size>1 )$propertyName = "image_".$size;
-                else $propertyName = "image";
-
-        // Проверяем проводилась ли проверка ранее
-        if( property_exists( $itemObject, $propertyName ) )
+        if( empty( $imageFile ) )$error = true;
+        if( !file_exists( $imageFile ) )
         {
-            if( $itemObject->$propertyName != "" )return $itemObject->$propertyName;
-                else
+            echo $itemObject->id."<br/>";
+            $itemObject->image = "";
+            $result = $itemObject->save();
+            if( !$result ) print_r( $itemObject->getErrors() );
+            $error = true;
+        }
+
+        if( !$error )
+        {
+            // 1. Проверяем указана ли в катологе уже отптимизированные капии картинки, если да то просто их отдаем
+            // 2. Иначе: Проверяем существут ли в действительности файл если дл то
+            // создаем 2 картинки меньшего размера и сохраняем их пути в базе для этой записи
+
+            if( $size>1 )$propertyName = "image_".$size;
+                    else $propertyName = "image";
+
+            // Проверяем проводилась ли проверка ранее
+            if( property_exists( $itemObject, $propertyName ) )
             {
-                if( file_exists( $imageFile ) )
+                if( $itemObject->$propertyName != "" )return $itemObject->$propertyName;
+                    else
                 {
                     $dirName = dirname( $imageFile );
                     $fileName = basename( $imageFile );
                     $tableName = $itemObject->tableName();
-                    $imageParams = Yii::app()->params["images"][ $tableName ][ $size ];
+                    $imageParams = Yii::app()->params["images"][ $tableName ];
 
-                    if( $size>1 )$imageName = $size."_".$fileName;
-                            else $imageName = $fileName;
+                    // Надо проверить еслии вызаваентся не 1 картнки, а 2 или 3 и её нету
+                    // то читаем то атоптации картинкок небыло и запускаем адоптация в цикле( количество равно количесвту свойств этого каталого в конфиге )
+                    for( $i=1;$i<sizeof( $imageParams );$i++ )
+                    {
+                        $imageName = $i."_".$fileName;
+                        $itemProperty =  "image_".$i;
 
-                    Yii::app()->ih
-                        ->load( $_SERVER['DOCUMENT_ROOT'] . "/" . $itemObject->$propertyName )
-                        ->thumb( $imageParams[0], $imageParams[1] )
-                        ->save( $_SERVER['DOCUMENT_ROOT'] . "/" . $dirName."/".$imageName );
-                }
-                    else
-                {
-                    $itemObject->$propertyName = "";
+                        Yii::app()->ih
+                            ->load( $_SERVER['DOCUMENT_ROOT'] . "/" . $itemObject->image )
+                            ->thumb( $imageParams[$i][0], $imageParams[$i][1] )
+                            ->save( $_SERVER['DOCUMENT_ROOT'] . "/" . $dirName."/".$imageName );
+
+                        $itemObject->$itemProperty =  $dirName."/".$imageName;
+                    }
+
                     $itemObject->save();
                 }
             }

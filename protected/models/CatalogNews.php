@@ -58,7 +58,7 @@ class CatalogNews extends CCModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, description, key_word, country, image, cid_id, date, archive', 'required'),
+			array('name, description, key_word, country, cid_id, date, archive', 'required'),
 			array('col, cid, active, select, pos, user, del, lang_group, id_lang, archive, people, video, tags_checked', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>150),
 			array('path', 'length', 'max'=>25),
