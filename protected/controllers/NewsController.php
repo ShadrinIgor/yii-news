@@ -4,7 +4,18 @@ class NewsController extends Controller
 {
 	public function actionIndex()
 	{
-		$this->render('index');
+        $newsId = Yii::app()->getRequest()->getParam("id");
+        if( !empty( $newsId ) )$newsData = CatalogNews::fetch( $newsId );
+
+        if( $newsData->id>0 )
+        {
+            $newsData->setColView();
+            $this->render('index',
+                array(
+                    "newsData"=> $newsData,
+                ));
+        }
+            else $this->redirect("/");
 	}
 
 	// Uncomment the following methods and override them if needed

@@ -20,7 +20,8 @@
      */
      static function fetchAll( DBQueryParamsClass $QueryParams = null, array $relationsTable = array(), $indexNumber = "index" )
      {
-         if( empty( $QueryParams ) )$QueryParams = DBQueryParamsClass::CreateParams()->setConditions( "del=0" );
+         if( empty( $QueryParams ) || !$QueryParams->getConditions() )$QueryParams = DBQueryParamsClass::CreateParams()->setConditions( "del=0" );
+                               else $QueryParams->setConditions( $QueryParams->getConditions()." AND del=0 " );
 
          $nameCLass = get_called_class();
          $newObject = new $nameCLass;
@@ -87,7 +88,7 @@
             $offer = Yii::app()->db->createCommand()
                 ->select('*')
                 ->from( $object->tableName() )
-                ->where( 'id=:id ', array( "id" => (int)$id ) )
+                ->where( 'id=:id AND del=0', array( "id" => (int)$id ) )
                 ->queryRow();
 
             $object->setAttributesFromArray( $offer );
@@ -209,6 +210,14 @@
         Yii::app()->db->createCommand( $sql )->execute();
     }
 
+    public function update( array $fields = array() )
+    {
+        if( $this->validate() == false || !$this->id )return false;
+
+        if( Yii::app()->db->createCommand()->update( $this->tableName(), $fields, "id=:id", array( ":id"=>$this->id ) ) )return true;
+                    else return false;
+    }
+
      /*
      * @desc Возврощает описание одной связи по полю
      * @param string $fieldName Название поля которое имеет связь
@@ -234,6 +243,19 @@
 
          return false;
      }
+
+    /*
+    * @desc Увеличивает количество просмотров поле col
+    * @param
+    * @return bool $result статус действия
+    */
+    public function setColView()
+    {
+        if( property_exists( $this, "col" ) )
+            return $this->update( array( "col"=>$this->col+1 ) );
+
+        return false;
+    }
 
     public function attributeNames()
     {}

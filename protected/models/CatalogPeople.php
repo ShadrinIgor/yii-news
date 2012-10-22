@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "catalog_news".
+ * This is the model class for table "catalog_people".
    */
-class CatalogNews extends CCModel
+class CatalogPeople extends CCModel
 {
     protected $id; // integer 
     protected $col; // integer 
@@ -11,6 +11,7 @@ class CatalogNews extends CCModel
     protected $name; // string 
     protected $path; // string 
     protected $description; // string 
+    protected $image; // string 
     protected $active; // integer 
     protected $select; // integer 
     protected $dateadd; // string 
@@ -21,21 +22,10 @@ class CatalogNews extends CCModel
     protected $del; // integer 
     protected $lang_group; // integer 
     protected $id_lang; // integer 
+    protected $www; // string 
     protected $key_word; // string 
-    protected $country; // integer 
-    protected $image; // string 
-    protected $cid_id; // integer 
-    protected $date; // string 
-    protected $time; // string 
-    protected $tags; // string 
-    protected $archive; // integer 
-    protected $people; // integer 
-    protected $tags_; // string 
-    protected $image_2; // string 
-    protected $image_3; // string 
-    protected $source; // string 
-    protected $video; // integer 
-    protected $tags_checked; // integer 
+    protected $country; // string 
+    protected $cid_id; // string 
 
     public function attributeNames()
     {
@@ -47,7 +37,7 @@ class CatalogNews extends CCModel
 	 */
 	public function tableName()
 	{
-		return 'catalog_news';
+		return 'catalog_people';
 	}
 
 	/**
@@ -58,17 +48,16 @@ class CatalogNews extends CCModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, description, key_word, country, cid_id, date, archive', 'required'),
-			array('col, cid, active, select, pos, user, del, lang_group, id_lang, archive, video, tags_checked', 'numerical', 'integerOnly'=>true),
-			array('name', 'length', 'max'=>150),
-			array('path', 'length', 'max'=>25),
-			array('key_word', 'length', 'max'=>250),
-			array('image, image_2, image_3, source', 'length', 'max'=>255),
-			array('time', 'length', 'max'=>10),
-			array('dateadd, dateedit, metaData, tags, tags_', 'safe'),
+			array('name, www, key_word, country, cid_id', 'required'),
+			array('col, cid, active, select, pos, user, del, lang_group, id_lang', 'numerical', 'integerOnly'=>true),
+			array('name, image', 'length', 'max'=>255),
+			array('path, country, cid_id', 'length', 'max'=>25),
+			array('www', 'length', 'max'=>50),
+			array('key_word', 'length', 'max'=>150),
+			array('description, dateadd, dateedit, metaData', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, col, cid, name, path, description, active, select, dateadd, dateedit, pos, metaData, user, del, lang_group, id_lang, key_word, country, image, cid_id, date, time, tags, archive, people, tags_, image_2, image_3, source, video, tags_checked', 'safe', 'on'=>'search'),
+			array('id, col, cid, name, path, description, image, active, select, dateadd, dateedit, pos, metaData, user, del, lang_group, id_lang, www, key_word, country, cid_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -80,9 +69,7 @@ class CatalogNews extends CCModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'people0' => array(self::BELONGS_TO, 'CatalogPeople', 'people'),
-			'cid0' => array(self::BELONGS_TO, 'CatalogCid', 'cid_id'),
-			'country0' => array(self::BELONGS_TO, 'CatalogCountry', 'country'),
+			'catalogNews' => array(self::HAS_MANY, 'CatalogNews', 'people'),
 		);
 	}
 
@@ -98,6 +85,7 @@ class CatalogNews extends CCModel
 			'name' => 'Name',
 			'path' => 'Path',
 			'description' => 'Description',
+			'image' => 'Image',
 			'active' => 'Active',
 			'select' => 'Select',
 			'dateadd' => 'Dateadd',
@@ -108,21 +96,10 @@ class CatalogNews extends CCModel
 			'del' => 'Del',
 			'lang_group' => 'Lang Group',
 			'id_lang' => 'Id Lang',
+			'www' => 'Www',
 			'key_word' => 'Key Word',
 			'country' => 'Country',
-			'image' => 'Image',
 			'cid_id' => 'Cid',
-			'date' => 'Date',
-			'time' => 'Time',
-			'tags' => 'Tags',
-			'archive' => 'Archive',
-			'people' => 'People',
-			'tags_' => 'Tags',
-			'image_2' => 'Image 2',
-			'image_3' => 'Image 3',
-			'source' => 'Source',
-			'video' => 'Video',
-			'tags_checked' => 'Tags Checked',
 		);
 	}
 
@@ -143,6 +120,7 @@ class CatalogNews extends CCModel
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('path',$this->path,true);
 		$criteria->compare('description',$this->description,true);
+		$criteria->compare('image',$this->image,true);
 		$criteria->compare('active',$this->active);
 		$criteria->compare('select',$this->select);
 		$criteria->compare('dateadd',$this->dateadd,true);
@@ -153,21 +131,10 @@ class CatalogNews extends CCModel
 		$criteria->compare('del',$this->del);
 		$criteria->compare('lang_group',$this->lang_group);
 		$criteria->compare('id_lang',$this->id_lang);
+		$criteria->compare('www',$this->www,true);
 		$criteria->compare('key_word',$this->key_word,true);
-		$criteria->compare('country',$this->country);
-		$criteria->compare('image',$this->image,true);
-		$criteria->compare('cid_id',$this->cid_id);
-		$criteria->compare('date',$this->date,true);
-		$criteria->compare('time',$this->time,true);
-		$criteria->compare('tags',$this->tags,true);
-		$criteria->compare('archive',$this->archive);
-		$criteria->compare('people',$this->people);
-		$criteria->compare('tags_',$this->tags_,true);
-		$criteria->compare('image_2',$this->image_2,true);
-		$criteria->compare('image_3',$this->image_3,true);
-		$criteria->compare('source',$this->source,true);
-		$criteria->compare('video',$this->video);
-		$criteria->compare('tags_checked',$this->tags_checked);
+		$criteria->compare('country',$this->country,true);
+		$criteria->compare('cid_id',$this->cid_id,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

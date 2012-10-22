@@ -12,7 +12,7 @@
 Технологии, интернет, игры,Шоубиз, Экономика, Общество, Культура, Спорт, Авто/Мото, Разное, Происшествия, Здоровье, Туризм, Музыка, Кино
 Личные деньги, Курьезы" />
     <meta name="Description" content="Новости Узбекистана, политика, экономика, шоубизнес - Мировые новости, новости Узбекистана.Новости Узбекистана, политика, экономика, шоубизнес"/>
-    <base href="<?= Yii::app()->params["bathUrl"] ?>" />
+    <base href="<?= Yii::app()->params["baseUrl"] ?>1" />
 
     <link href="<?php echo $Theme->getBaseUrl() ?>/css/style.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo $Theme->getBaseUrl() ?>/css/b_style.css" rel="stylesheet" type="text/css" />
