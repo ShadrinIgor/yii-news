@@ -82,4 +82,9 @@ class SiteHelper
 
          return false;
     }
+
+    static function getTags( $tags )
+    {
+        return "<div class=\"newsTags\">".$tags."</div>";
+    }
 }

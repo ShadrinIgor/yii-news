@@ -11,13 +11,13 @@ class NewsController extends Controller
         {
             $newsData->setColView();
             $otherNewsParams = DBQueryParamsClass::CreateParams()
-                                    ->setConditions("country=:country AND cid_id=:cid")
-                                    ->setParams( array( ":country"=>$newsData->country->id, ":cid"=>$newsData->cid_id->id ) )
+                                    ->setConditions("country=:country AND cid_id=:cid AND id!=:id")
+                                    ->setParams( array( ":country"=>$newsData->country->id, ":cid"=>$newsData->cid_id->id, ":id"=>$newsData->id ) )
                                     ->setOrderBy( 'date desc, col desc' )
                                     ->setLimit( 5 );
             $this->render('index',
                 array(
-                    "otherNewsParams" => $otherNewsParams,
+                    "otherNews"       => CatalogNews::fetchAll( $otherNewsParams, array( "catalog_country", "catalog_cid" )),
                     "newsData"        => $newsData,
                 ));
         }

@@ -49,7 +49,7 @@ if( $newsData[cid] == 236 )$news_table = "catalog_items";
 
     <?php if( $newsData->image ) : ?><img src="<?= ImageHelper::getImage( $newsData->image, 2, $newsData ) ?>" style="float:left;margin:0px 3px 3px 0px" alt="<?= $newsData->name ?>" title="$cidName - <?= $newsData->name ?> :: Мировые новости" /><?php endif; ?>
     <?= $newsData->description; ?>
-    <?php if( $newsData->tags ) :?><?= $newsData->tags ?>{oth_getNewsTags( $newsData[tags], $newsData[tags_] )}</div><?php endif; ?>
+    <?php if( $newsData->tags ) :?><?= SiteHelper::getTags( $newsData->tags ); ?></div><?php endif; ?>
 
 <div class="listImg">
     <?php foreach( $newsData->getImages() as $value  ) : ?>
@@ -93,19 +93,21 @@ endif;
 */
 ?>
 
-<div class="centerBlock">
-    <h3>Смотрите также</h3>
-    <?php
-        foreach( CatalogNews::fetchAll( $otherNewsParams, array( "catalog_country", "catalog_cid" )) as $values )
-        {
-            $this->widget('newsWidget', array(
-            'values'=>$values,
-            'controller'=> $controller
-            ));
-        }
-    ?>
-</div>
-<br/>
+<?php if( sizeof( $otherNews )>0 ) : ?>
+    <div class="centerBlock">
+        <h3>Смотрите также</h3>
+        <?php
+            foreach( $otherNews as $values )
+            {
+                $this->widget('newsWidget', array(
+                'values'=>$values,
+                'controller'=> $controller
+                ));
+            }
+        ?>
+    </div>
+    <br/>
+<?php endif; ?>
 
 </div>
 
