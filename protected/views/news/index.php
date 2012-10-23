@@ -43,7 +43,7 @@ if( $newsData[cid] == 236 )$news_table = "catalog_items";
     [banner_top]
     <div class="CS_params">
         <?php if( $newsData->cid_id->id >0 ) : ?>Категория: <a href="http://world-news.uz/category/$newsData[cid_id]/"><b><?= $newsData->cid_id->name; ?></b></a>&nbsp;<?php endif; ?>
-        <?php if( $newsData->date ) : ?>Дата: <b><?= $newsData->date  ?></b><?php endif; ?>
+        <?php if( $newsData->date ) : ?>Дата: <b><?= SiteHelper::getDateOnFormat( $newsData->date, "d.m.Y" )  ?></b><?php endif; ?>
     </div>
     <div id="CS_news"><div>статью посмотрели: <b><?= $newsData->col+1 ?></b> человек(а)</div></div>
 
@@ -52,16 +52,19 @@ if( $newsData[cid] == 236 )$news_table = "catalog_items";
     <?php if( $newsData->tags ) :?><?= $newsData->tags ?>{oth_getNewsTags( $newsData[tags], $newsData[tags_] )}</div><?php endif; ?>
 
 <div class="listImg">
-    {com_getItemImages( $newsData, $newsData[cid], $nameTable ):template_list_img}
+    <?php foreach( $newsData->getImages() as $value  ) : ?>
+        <img src="<?= ImageHelper::getImage( $value->image, 2, $value ) ?>" />
+    <?php endforeach; ?>
 </div>
 
 <br/>
-[cos_buttons]
+<?php $this->widget( 'cosbuttonsWidget' ); ?>
 
 <?php if( $newsData->people->id >0 ) : ?>
 <div class="centerBlock peopleBlock">
     <h3>Подробнее о <?= $newsData->people->name ?>"</h3>
-    <?= $newsData->people->description ?> ?>
+    <?php if( $value->image ) : ?><img src="<?= ImageHelper::getImage( $value->image, 2, $value ) ?>" /><?php endif; ?>
+    <?= SiteHelper::getSubTextOnWorld( $newsData->people->description, 600 ) ?>
 </div>
 <?php endif; ?>
 
@@ -92,7 +95,15 @@ endif;
 
 <div class="centerBlock">
     <h3>Смотрите также</h3>
-    {com_getCidItems( $news_cid, "news", 5, $sqlWhere, $order ):news_category_template}
+    <?php
+        foreach( CatalogNews::fetchAll( $otherNewsParams, array( "catalog_country", "catalog_cid" )) as $values )
+        {
+            $this->widget('newsWidget', array(
+            'values'=>$values,
+            'controller'=> $controller
+            ));
+        }
+    ?>
 </div>
 <br/>
 

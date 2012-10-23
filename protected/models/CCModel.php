@@ -30,7 +30,7 @@
             ->select( $QueryParams->getFields() )
             ->from( $newObject->tableName() )
             ->where( $QueryParams->getConditions(), $QueryParams->getParams() )
-            ->order( $QueryParams->getOrderBy().' '.$QueryParams->getOrderType() )
+            ->order( $QueryParams->getOrderBy() )
             ->limit( $QueryParams->getLimit() )
             ->queryAll();
 
@@ -194,6 +194,8 @@
     {
         // TODO надо будет еще сделать рекурсивыное сохранение т.е. чтобы он шол по всем связям проверял
         // если значение нету то проверял валидацию связанной записи и сохранял
+
+        // TODO если есть сохранение сериазиваного масива в поле kesh у объекта, то обновлятять или ощищать kesh
         if( $this->validate() == false )return false;
 
         $sqlField = "";
@@ -214,6 +216,7 @@
     {
         if( $this->validate() == false || !$this->id )return false;
 
+        // TODO необходиммо подумать над сохранением сериазиваного масива в поле kesh у объекта, то обновлятять или ощищать kesh
         if( Yii::app()->db->createCommand()->update( $this->tableName(), $fields, "id=:id", array( ":id"=>$this->id ) ) )return true;
                     else return false;
     }
@@ -255,6 +258,11 @@
             return $this->update( array( "col"=>$this->col+1 ) );
 
         return false;
+    }
+
+    public function getImages()
+    {
+        return ImageHelper::getImages( $this );
     }
 
     public function attributeNames()

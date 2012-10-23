@@ -10,9 +10,15 @@ class NewsController extends Controller
         if( $newsData->id>0 )
         {
             $newsData->setColView();
+            $otherNewsParams = DBQueryParamsClass::CreateParams()
+                                    ->setConditions("country=:country AND cid_id=:cid")
+                                    ->setParams( array( ":country"=>$newsData->country->id, ":cid"=>$newsData->cid_id->id ) )
+                                    ->setOrderBy( 'date desc, col desc' )
+                                    ->setLimit( 5 );
             $this->render('index',
                 array(
-                    "newsData"=> $newsData,
+                    "otherNewsParams" => $otherNewsParams,
+                    "newsData"        => $newsData,
                 ));
         }
             else $this->redirect("/");

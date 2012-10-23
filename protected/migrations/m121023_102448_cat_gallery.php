@@ -1,6 +1,6 @@
 <?php
 
-class m121022_155136_catalognews_add_relation_country extends CDbMigration
+class m121023_102448_cat_gallery extends CDbMigration
 {
 	public function up()
 	{
@@ -10,7 +10,7 @@ class m121022_155136_catalognews_add_relation_country extends CDbMigration
 
 	public function down()
 	{
-		echo "m121022_155136_catalognews_add_relation_country does not support migration down.\n";
+		echo "m121023_102448_cat_gallery does not support migration down.\n";
 		return false;
 	}
 

@@ -52,7 +52,10 @@ class ImageHelper
             if( !$error )
             {
                 $tableName = $itemObject->tableName();
-                $imageParams = Yii::app()->params["images"][ $tableName ];
+                $imageParams = null;
+                if( isset( Yii::app()->params["images"][ $tableName ] ) )$imageParams = Yii::app()->params["images"][ $tableName ];
+                                                                    else $imageParams = Yii::app()->params["images"][ "default" ];
+
                 // Если параметры картинки для данной таблицы не созданно то не проводить оптимизацию
                 if( is_array( $imageParams ) && sizeof( $imageParams ) > 0 )
                 {
@@ -87,6 +90,21 @@ class ImageHelper
         }
 
         return Yii::app()->getTheme()->getBaseUrl()."/images/no-image.png";
+    }
+
+    static public function getImages( CCModel $itemObject )
+    {
+        if( $itemObject->id >0 )
+        {
+            $tableName = $itemObject->tableName();
+            $queryParams = DBQueryParamsClass::CreateParams()
+                                ->setConditions( "item_id=:id" )
+                                ->setParams( array( ":id"=>$itemObject->id ) );
+
+            return CatGallery::fetchAll( $queryParams );
+        }
+
+        return false;
     }
 
     public function checkFileName($text)
