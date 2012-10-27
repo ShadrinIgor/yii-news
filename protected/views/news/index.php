@@ -25,6 +25,15 @@ if( $newsData[cid] == 236 )$news_table = "catalog_items";
 
 <?php $this->widget( 'addressLineWidget' ); ?>
 [rightColum]
+<?php
+$this->widget('zii.widgets.CBreadcrumbs', array(
+    'links'=>array(
+        'Новости'=>array('news/'),
+        'Категория'=>array('category/'),
+        $newsData->name,
+    ),
+));
+?>
 <div id="PageText" class="newsPage">
 
     <h1><?= $newsData->name ?></h1>
@@ -35,7 +44,7 @@ if( $newsData[cid] == 236 )$news_table = "catalog_items";
     </div>
     <div id="CS_news"><div>статью посмотрели: <b><?= $newsData->col+1 ?></b> человек(а)</div></div>
 
-    <?php if( $newsData->image ) : ?><img src="<?= ImageHelper::getImage( $newsData->image, 2, $newsData ) ?>" style="float:left;margin:0px 3px 3px 0px" alt="<?= $newsData->name ?>" title="$cidName - <?= $newsData->name ?> :: Мировые новости" /><?php endif; ?>
+    <?php if( $newsData->image ) : ?><img src="<?= ImageHelper::getImage( $newsData->image, 2, $newsData ) ?>" style="float:left;margin:0px 3px 3px 0px" alt="<?= $newsData->name ?>" title="<?= $newsData->cid_id->name." - ". $newsData->name ?> :: Мировые новости" /><?php endif; ?>
     <?= $newsData->description; ?>
     <?php if( $newsData->tags ) :?><?= SiteHelper::getTags( $newsData->tags ); ?></div><?php endif; ?>
 
