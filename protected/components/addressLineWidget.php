@@ -11,7 +11,7 @@ class addressLineWidget extends CWidget
     public $position;
     public function run()
     {
-        $this->render("banners", array(
+        $this->render("address", array(
 
         ));
     }

@@ -1,24 +1,12 @@
 <?php
 
 /*
-if( !empty( $GLOBALS["class_page"] ) )
-$pageTemplateParams = $GLOBALS["class_page"]->getTemplateParametrs( "option" );
-if( !empty( $pageTemplateParams[cid] ) )$cid = $pageTemplateParams[cid];
-if( !$cid )$cid = 226;
-if( !empty( $pageTemplateParams[cid] ) )$news_cid = $pageTemplateParams[news_cid];
-if( !$news_cid )$news_cid= 230;
-if( !empty( $pageTemplateParams[cid] ) )$news_table = $pageTemplateParams[news_table];
-if( !$news_table )$news_table= "catalog_news";
-
 $cidName = com_getItemFieldValue( "", $cid, $newsData[cid_id], "name" );
 $pageKey = $_SESSION["page"]["key"];
 $order = "ORDER BY `date` DESC, `col` DESC";
 $sqlWhere = " archive=0 AND `date`<=now() ";
 $people = $newsData["people"];
 
-if( $pageKey=="news" && empty( $newsData[id] ) )return ;
-if( $newsData["cid_id"] )$sqlWhere.=" AND cid_id='".$newsData["cid_id"]."' AND id!='".$newsData["id"]."' ";
-if( $people )$peopleData = mysql_fetch_array( mysql_query( "SELECT * FROM catalog_people WHERE id='$people'" ) );
 if( $_POST[coment_add] )
 {
 $_POST[name] = $newsData[id];
@@ -35,14 +23,14 @@ if( $newsData[cid] == 236 )$news_table = "catalog_items";
 */
 ?>
 
-[address_line]
+<?php $this->widget( 'addressLineWidget' ); ?>
 [rightColum]
 <div id="PageText" class="newsPage">
 
     <h1><?= $newsData->name ?></h1>
-    [banner_top]
+    <?php $this->widget( 'bannersWidget' ); ?>
     <div class="CS_params">
-        <?php if( $newsData->cid_id->id >0 ) : ?>Категория: <a href="http://world-news.uz/category/$newsData[cid_id]/"><b><?= $newsData->cid_id->name; ?></b></a>&nbsp;<?php endif; ?>
+        <?php if( $newsData->cid_id->id >0 ) : ?>Категория: <a href="#"><b><?= $newsData->cid_id->name; ?></b></a>&nbsp;<?php endif; ?>
         <?php if( $newsData->date ) : ?>Дата: <b><?= SiteHelper::getDateOnFormat( $newsData->date, "d.m.Y" )  ?></b><?php endif; ?>
     </div>
     <div id="CS_news"><div>статью посмотрели: <b><?= $newsData->col+1 ?></b> человек(а)</div></div>
@@ -111,4 +99,4 @@ endif;
 
 </div>
 
-[foto_news]
+<?php $this->widget( 'fotoNewsWidget' ); ?>

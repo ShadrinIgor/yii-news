@@ -204,8 +204,9 @@
             if( $key=="id" )continue;
             if( !empty( $sqlField ) )$sqlField.=",";
 
-            if( !in_array( $key, $this->getRelationFields() ) )$sqlField .= "`".$key."`='".$this->$key."'";
-                else $sqlField .= "`".$key."`='".$this->$key->id."'";
+            if( in_array( $key, $this->getRelationFields() ) && is_object( $this->$key ) )
+                     $sqlField .= "`".$key."`='".$this->$key->id."'";
+                else $sqlField .= "`".$key."`='".$this->$key."'";
         }
 
         $sql = "UPDATE ".$this->tableName()." SET ".$sqlField." WHERE id='".$this->id."'";

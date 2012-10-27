@@ -8,6 +8,18 @@
  */
 class SiteHelper
 {
+
+    static function createUrl($route,$params=array(),$ampersand='&')
+    {
+        if($route==='')
+            $route=Yii::app()->controller->Id.'/'.Yii::app()->controller->action->Id;
+        else if(strpos($route,'/')===false)
+            $route=Yii::app()->controller->Id.'/'.$route;
+        if($route[0]!=='/' && ($module=Yii::app()->controller->module)!==null)
+            $route=$module->getId().'/'.$route;
+        return Yii::app()->createUrl(trim($route,'/'),$params,$ampersand);
+    }
+
     /*
      * Вывод связанный элементов таблицы, тим свящи HAS_MANY | MANY_MANY
      * @param RelationParamsClass $relationParams параметры связи
