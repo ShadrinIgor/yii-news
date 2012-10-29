@@ -23,13 +23,11 @@ if( $newsData[cid] == 236 )$news_table = "catalog_items";
 */
 ?>
 
-<?php $this->widget( 'addressLineWidget' ); ?>
 [rightColum]
 <?php
-$this->widget('zii.widgets.CBreadcrumbs', array(
+$this->widget('addressLineWidget', array(
     'links'=>array(
-        'Новости'=>array('news/'),
-        'Категория'=>array('category/'),
+        $newsData->cid_id->name=>array('category/', array( "slug"=>$newsData->cid_id->key_word) ),
         $newsData->name,
     ),
 ));

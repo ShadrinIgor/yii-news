@@ -8,11 +8,11 @@
  */
 class addressLineWidget extends CWidget
 {
-    public $position;
+    public $links;
     public function run()
     {
         $this->render("address", array(
-
+            "links" => $this->links
         ));
     }
 }
