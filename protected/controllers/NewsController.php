@@ -2,6 +2,8 @@
 
 class NewsController extends Controller
 {
+    public $catalog = 'catalog_news';
+    public $pageName = '';
 	public function actionIndex()
 	{
         $newsId = Yii::app()->getRequest()->getParam("id");
