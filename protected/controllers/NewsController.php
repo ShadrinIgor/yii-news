@@ -2,12 +2,14 @@
 
 class NewsController extends Controller
 {
-    public $catalog = 'catalog_news';
-    public $pageName = '';
+    public $pageName = 'Описание нововисти';
+    public $pageCatalogTable='catalog_news';
+
 	public function actionIndex()
 	{
         $newsId = Yii::app()->getRequest()->getParam("id");
         if( !empty( $newsId ) )$newsData = CatalogNews::fetch( $newsId );
+        $this->pageParent = array( "id"=>"category", "name"=>Yii::t( "page", "Новости" ), "link"=> SiteHelper::createUrl("category/", array( "slug"=>$newsData->cid_id->key_world )) );
 
         if( $newsData->id>0 )
         {

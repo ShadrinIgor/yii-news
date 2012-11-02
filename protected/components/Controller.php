@@ -15,8 +15,9 @@ class Controller extends CController
 	 */
 	public $menu=array();
 
-    public $catalog = '';
-    public $pageName;
+    public $pageName = '';
+    public $pageParent = array( "id"=> null, "name"=>null, "link"=>null );
+    public $pageCatalogTable='';
 
 	/**
 	 * @var array the breadcrumbs of the current page. The value of this property will
@@ -51,5 +52,15 @@ class Controller extends CController
             else
                 echo $output;
         }
+    }
+    public function getAddressLine()
+    {
+        $category
+        $this->widget('addressLineWidget', array(
+            'links'=>array(
+                $newsData->cid_id->name=>array('category/', array( "slug"=>$newsData->cid_id->key_word) ),
+                $newsData->name,
+            ),
+        ));
     }
 }
