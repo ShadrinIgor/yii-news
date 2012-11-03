@@ -17,9 +17,10 @@ class DBCMessageSource extends CMessageSource
     {
         $result = Yii::app()->db->createCommand()
                                 ->select( "b.translation" )
-                                ->from( "i18n a, i18n_translate b" )
+                                ->from( "i18n_translate b" )
+                                ->join( "i18n a", "b.id=a.id" )
                                 ->where( "a.category=:category AND a.message=:message AND b.language=:language", array( ":category"=>$category, ":message"=>$message, ":language"=>$language ) )
-                                ->limit(1)->queryColumn();
+                                ->queryColumn();
 
         if( !empty( $result[0] ) )return $result[0];
                              else return false;

@@ -4,10 +4,11 @@ class m121102_195256_add_i18n_item_page extends CDbMigration
 {
 	public function up()
 	{
-        $sql="INSERT INTO `yii-news`.`i18n` (`category` ,`message`)VALUES ('page', 'Новости')";
+        $sql="INSERT INTO `yii-news`.`i18n` (`id` ,`category` ,`message`)VALUES (NULL , 'page', 'Главная');";
         $this->getDbConnection()->createCommand($sql)->execute();
 
-        $sql="INSERT INTO `yii-news`.`i18n_translate` (`id` ,`language` ,`translation`)VALUES (NULL , 'page', 'Новости')";
+        $newId = $this->getDbConnection()->lastInsertID;
+        $sql="INSERT INTO `yii-news`.`i18n_translate` (`id` ,`language` ,`translation`)VALUES (".$newId." , 'ru', 'Главная')";
         $this->getDbConnection()->createCommand($sql)->execute();
 	}
 

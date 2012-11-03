@@ -1,9 +1,12 @@
-<?php foreach( $links as $key=>$link ) : ?>
-    <?php if( !empty( $link ) ) : ?>
-        <a href="<?= SiteHelper::createUrl( $link[0], array( $link[1]  ) ) ?>" title="<?= $key ?>"><?= $key." - ". $link[0]." - ".$link[1] ?></a>
+<?php foreach( $links as $key=>$value ) : ?>
+    <?php if( !empty( $key ) ) : ?>
+        <a href="
+            <?php
+                if( !is_array( $value ) ) echo SiteHelper::createUrl( $value );
+                    else echo SiteHelper::createUrl( $value[0], $value[1] );
+            ?>" title="<?= $key ?>"><?= $key ?></a>
         <span>... </span>
-    <?php endif; ?>
-    <?php if( empty( $link ) ) : ?>
-        <span><?= $key ?></span>
+    <?php else : ?>
+        <span><?= $value ?></span>
     <?php endif; ?>
 <?php endforeach; ?>

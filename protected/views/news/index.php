@@ -25,7 +25,13 @@ if( $newsData[cid] == 236 )$news_table = "catalog_items";
 
 [rightColum]
 <?php
-
+// , array( "slug"=>$newsData->cid_id->key_word)
+$this->widget('addressLineWidget', array(
+    'links'=>array(
+        $newsData->cid_id->name => array( 'category/', array("slug"=>$newsData->cid_id->key_word) ),
+        $newsData->name,
+    ),
+));
 ?>
 <div id="PageText" class="newsPage">
 
