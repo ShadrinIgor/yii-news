@@ -14,15 +14,15 @@ class BBaners extends CCModel
     protected $default; // integer 
     protected $page; // integer 
     protected $type; // integer 
-    protected $width; // string 
-    protected $height; // string 
+    protected $width; // integer 
+    protected $height; // integer 
     protected $through; // string 
-    protected $count_show; // string 
+    protected $count_show; // integer 
     protected $inner_page; // integer 
     protected $email; // string 
     protected $start_date; // string 
     protected $finish_date; // string 
-    protected $finish_count_show; // string 
+    protected $finish_count_show; // integer 
     protected $active; // integer 
 
     public function attributeNames()
@@ -46,10 +46,10 @@ class BBaners extends CCModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('key, default, page, width, height, through, count_show, inner_page, email, start_date, finish_date, finish_count_show, active', 'required'),
-			array('cid, default, page, type, inner_page, active', 'numerical', 'integerOnly'=>true),
+			array('key', 'required'),
+			array('default, page, width, height, count_show, inner_page, finish_count_show, active', 'numerical', 'integerOnly'=>true),
 			array('name, image, href, email', 'length', 'max'=>50),
-			array('key, width, height, through, count_show, finish_count_show', 'length', 'max'=>25),
+			array('key, through', 'length', 'max'=>25),
 			array('start_date, finish_date', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -65,6 +65,8 @@ class BBaners extends CCModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'c' => array(self::BELONGS_TO, 'BCategory', 'cid'),
+			'type0' => array(self::BELONGS_TO, 'BKeys', 'type'),
 		);
 	}
 
@@ -116,15 +118,15 @@ class BBaners extends CCModel
 		$criteria->compare('default',$this->default);
 		$criteria->compare('page',$this->page);
 		$criteria->compare('type',$this->type);
-		$criteria->compare('width',$this->width,true);
-		$criteria->compare('height',$this->height,true);
+		$criteria->compare('width',$this->width);
+		$criteria->compare('height',$this->height);
 		$criteria->compare('through',$this->through,true);
-		$criteria->compare('count_show',$this->count_show,true);
+		$criteria->compare('count_show',$this->count_show);
 		$criteria->compare('inner_page',$this->inner_page);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('start_date',$this->start_date,true);
 		$criteria->compare('finish_date',$this->finish_date,true);
-		$criteria->compare('finish_count_show',$this->finish_count_show,true);
+		$criteria->compare('finish_count_show',$this->finish_count_show);
 		$criteria->compare('active',$this->active);
 
 		return new CActiveDataProvider($this, array(
