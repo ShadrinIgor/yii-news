@@ -8,5 +8,16 @@
  */
 class BannerInit extends CApplicationComponent
 {
+    /*
+     * Инициализация
+     */
+    public function init( )
+    {
 
+    }
+
+    public function getBaner( $banerPosition )
+    {
+
+    }
 }
