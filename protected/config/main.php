@@ -20,6 +20,7 @@ return array(
 		'application.models.*',
 		'application.components.*',
         'application.components.ImageHandler.CImageHandler',
+        'application.components.CCApplicationComponent',
 	),
 
 	'modules'=>array(
@@ -64,6 +65,7 @@ return array(
 
 		// uncomment the following to use a MySQL database
 
+
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=yii-news',
 			'emulatePrepare' => true,
@@ -95,6 +97,10 @@ return array(
         'messages'=>array(
             'class'            => 'DBCMessageSource',
             'forceTranslation' => true,
+        ),
+
+        'banners'=>array(
+            'class'     => 'ext.banners.BannerInit'
         ),
 	),
 
