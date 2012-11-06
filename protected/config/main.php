@@ -59,7 +59,7 @@ return array(
                 '<controller:(category)>/<slug:\w+>-<country:\w+>.html'=> '<controller>',
                 '<controller:(category)>/<slug:\w+>.html'=> '<controller>',
 
-                '<controller:(news)>/<id:\d+>_<slug:\w+>.html'=> '<controller>',
+                '<controller:(news)>/<slug:\w+>_<id:\d+>.html'=> '<controller>',
 			),
 		),
 
