@@ -36,7 +36,7 @@ $this->widget('addressLineWidget', array(
 <div id="PageText" class="newsPage">
 
     <h1><?= $newsData->name ?></h1>
-    |<?php Yii::app()->banners->getBaner( 1, 1 ); ?>|
+    <?php Yii::app()->banners->getBaner( 2 ); ?>
     <div class="CS_params">
         <?php if( $newsData->cid_id->id >0 ) : ?>Категория: <a href="#"><b><?= $newsData->cid_id->name; ?></b></a>&nbsp;<?php endif; ?>
         <?php if( $newsData->date ) : ?>Дата: <b><?= SiteHelper::getDateOnFormat( $newsData->date, "d.m.Y" )  ?></b><?php endif; ?>

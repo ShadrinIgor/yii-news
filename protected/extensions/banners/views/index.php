@@ -6,7 +6,7 @@
 ?>
 <a href="<?= $banner->href ?>" title="">
     <object <?= $width ?> <?= $height ?> classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000">
-       <param value="<?= $banner->href ?>" name="movie"/>
-       <embed  <?= $width ?> <?= $height ?> src="<?= $banner->href ?>" type="application/x-shockwave-flash"/>
+       <param value="<?= $banner->image ?>" name="movie"/>
+       <embed  <?= $width ?> <?= $height ?> src="<?= $banner->image ?>" type="application/x-shockwave-flash"/>
     </object></a>
 <?php endif; ?>
