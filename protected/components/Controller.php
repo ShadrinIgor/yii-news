@@ -26,19 +26,22 @@ class Controller extends CController
     {
         if($this->beforeRender($view))
         {
+            $rightColumn = "";
+            $rightColumnView = $this->getLayoutFile("rightColumn");
+            if( !empty( $rightColumnView ) )$rightColumn = $output=$this->renderPartial( $rightColumnView,array(),true);
+
             $data = array_merge( $data,
                 array(
                     "Theme"     => Yii::app()->getTheme(),
-                    "controller" => $this
+                    "controller" => $this,
+                    "rightColumn"=>$rightColumn
                 )
             );
-
-            $rightColumn = $this->getLayoutFile("rightColumn");
 
             $output=$this->renderPartial($view,$data,true);
             if( ($layoutFile=$this->getLayoutFile($this->layout))!==false)
             {
-                $output=$this->renderFile($layoutFile, array_merge( $data, array( "content" => $output, "rightColumn"=>$rightColumn ) ),true);
+                $output=$this->renderFile($layoutFile, array_merge( $data, array( "content" => $output ) ),true);
             }
 
             $this->afterRender($view,$output);
