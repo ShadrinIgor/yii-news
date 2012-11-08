@@ -19,7 +19,7 @@ class BannerInit extends CApplicationComponent
         Yii::import("ext.banners.models.*");
     }
 
-    public function getBaner( $category )
+    public function getBannerByCategory( $category )
     {
         $banner = false;
         $DBParams = DBQueryParamsClass::CreateParams()

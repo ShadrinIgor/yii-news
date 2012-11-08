@@ -33,10 +33,12 @@ class Controller extends CController
                 )
             );
 
+            $rightColumn = $this->getLayoutFile("rightColumn");
+
             $output=$this->renderPartial($view,$data,true);
             if( ($layoutFile=$this->getLayoutFile($this->layout))!==false)
             {
-                $output=$this->renderFile($layoutFile, array_merge( $data, array( "content" => $output ) ),true);
+                $output=$this->renderFile($layoutFile, array_merge( $data, array( "content" => $output, "rightColumn"=>$rightColumn ) ),true);
             }
 
             $this->afterRender($view,$output);

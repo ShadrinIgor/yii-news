@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This is the model class for table "b_baners".
+ * This is the model class for table "b_banners".
    */
 class BBaners extends CCModel
 {
@@ -34,7 +34,7 @@ class BBaners extends CCModel
 	 */
 	public function tableName()
 	{
-		return 'b_baners';
+		return 'b_banners';
 	}
 
 	/**

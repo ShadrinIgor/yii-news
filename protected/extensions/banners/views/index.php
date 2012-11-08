@@ -1,8 +1,8 @@
 <?php if( $banner->type!=1 ) : ?>
-<a href="".$href."" title=""><img src="".$banner."" alt="" /></a>
+<a href="<?= $href ?> title=""><img src="<?= $banner ?>" alt="" /></a>
 <?php else :
- if( $banner->width )$width = " width=\"".$banner->width."\"";
- if( $banner->height )$height = "height=\"".$banner->height."\"";
+ $width = ( $banner->width ) ? ' width="'.$banner->width.'"' : ' width="400"';
+ $height = ( $banner->height ) ? ' height="'.$banner->height.'"' : ' height="90"';
 ?>
 <a href="<?= $banner->href ?>" title="">
     <object <?= $width ?> <?= $height ?> classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000">
