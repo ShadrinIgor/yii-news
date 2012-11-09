@@ -586,10 +586,17 @@ class CController extends CBaseController
 	{
 		if(($theme=Yii::app()->getTheme())!==null && ($viewFile=$theme->getViewFile($this,$viewName))!==false)
 			return $viewFile;
+
 		$moduleViewPath=$basePath=Yii::app()->getViewPath();
+
 		if(($module=$this->getModule())!==null)
 			$moduleViewPath=$module->getViewPath();
-		return $this->resolveViewFile($viewName,$this->getViewPath(),$basePath,$moduleViewPath);
+
+       // echo $moduleViewPath."*";
+        $file = $this->resolveViewFile($viewName,$this->getViewPath(),$basePath,$moduleViewPath);
+        echo "----: ".$file."<br/>";
+        if( $viewName == "rightColumn2" )die;
+		return $file;
 	}
 
 	/**
@@ -687,6 +694,7 @@ class CController extends CBaseController
 	 */
 	public function resolveViewFile($viewName,$viewPath,$basePath,$moduleViewPath=null)
 	{
+
 		if(empty($viewName))
 			return false;
 
@@ -709,12 +717,20 @@ class CController extends CBaseController
 		else
 			$viewFile=$viewPath.DIRECTORY_SEPARATOR.$viewName;
 
+        echo $viewFile.$extension."<br/>";
 		if(is_file($viewFile.$extension))
-			return Yii::app()->findLocalizedFile($viewFile.$extension);
+        {
+            $p = Yii::app()->findLocalizedFile($viewFile.$extension);
+            echo "Get out put - ".$p."<br/>";
+			return $p;
+        }
 		else if($extension!=='.php' && is_file($viewFile.'.php'))
 			return Yii::app()->findLocalizedFile($viewFile.'.php');
 		else
+        {
+            echo "no<br/>";
 			return false;
+        }
 	}
 
 	/**

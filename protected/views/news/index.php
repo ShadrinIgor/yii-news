@@ -22,8 +22,7 @@ $countShow = oth_getCountShows( "", $newsData[col], 1 ) + 1;
 if( $newsData[cid] == 236 )$news_table = "catalog_items";
 */
 ?>
-
-<?= $rightColumn ?>
+<?= SiteHelper::renderDynamicViews("rightColumn2") ?>
 <?php
 // , array( "slug"=>$newsData->cid_id->key_word)
 $this->widget('addressLineWidget', array(

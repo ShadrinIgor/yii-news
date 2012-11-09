@@ -99,4 +99,15 @@ class SiteHelper
     {
         return "<div class=\"newsTags\">".$tags."</div>";
     }
+
+    /*
+     * Рендерим динапичные блок сайта ( Например: rightColumn )
+     * @param string $view название вьющки
+     * @param array $data параметры для отображения
+     * @param bool $return определяет варинт возврата данных
+     */
+    static function renderDynamicViews( $view,$data=array(),$return=false )
+    {
+        return Yii::app()->controller->renderDynamicViews( $view, $data, $return );
+    }
 }

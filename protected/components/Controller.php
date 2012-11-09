@@ -26,15 +26,10 @@ class Controller extends CController
     {
         if($this->beforeRender($view))
         {
-            $rightColumn = "";
-            $rightColumnView = $this->getLayoutFile("rightColumn");
-            if( !empty( $rightColumnView ) )$rightColumn = $output=$this->renderPartial( $rightColumnView,array(),true);
-
             $data = array_merge( $data,
                 array(
                     "Theme"     => Yii::app()->getTheme(),
                     "controller" => $this,
-                    "rightColumn"=>$rightColumn
                 )
             );
 
@@ -53,5 +48,26 @@ class Controller extends CController
             else
                 echo $output;
         }
+    }
+
+    static function renderDynamicViews( $view, $data=array(),$return=false )
+    {
+        $rightColumn = "";
+        $controller = Yii::app()->controller;
+        $fileView = $controller->getLayoutFile( $view );
+
+        $data = array_merge( $data,
+            array(
+                "Theme"     => Yii::app()->getTheme(),
+                "controller" => $controller,
+            )
+        );
+
+        $output=$controller->renderPartial($view,$data,true);
+
+        if($return)
+            return $output;
+        else
+            echo $output;
     }
 }
