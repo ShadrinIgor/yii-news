@@ -23,7 +23,9 @@ if( $newsData[cid] == 236 )$news_table = "catalog_items";
 */
 ?>
 
-<?= $rightColumn ?>
+<?= SiteHelper::renderDinamicPartial("rightColumn"); ?>
+<hr/>
+<?= SiteHelper::renderDinamicPartial("rightColumn2"); ?>
 <?php
 // , array( "slug"=>$newsData->cid_id->key_word)
 $this->widget('addressLineWidget', array(
