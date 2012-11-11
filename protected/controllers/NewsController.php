@@ -4,6 +4,7 @@ class NewsController extends Controller
 {
 	public function actionIndex()
 	{
+
         $newsId = Yii::app()->getRequest()->getParam("id");
         if( !empty( $newsId ) )$newsData = CatalogNews::fetch( $newsId );
 
@@ -15,6 +16,8 @@ class NewsController extends Controller
                                     ->setParams( array( ":country"=>$newsData->country->id, ":cid"=>$newsData->cid_id->id, ":id"=>$newsData->id ) )
                                     ->setOrderBy( 'date desc, col desc' )
                                     ->setLimit( 5 );
+
+            $this->layout = "/layouts/inner";
             $this->render('index',
                 array(
                     "otherNews"       => CatalogNews::fetchAll( $otherNewsParams, array( "catalog_country", "catalog_cid" )),
