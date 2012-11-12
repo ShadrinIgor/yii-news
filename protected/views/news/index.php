@@ -1,5 +1,3 @@
-<?= SiteHelper::renderDinamicPartial("rightColumn"); ?>
-
 <?php
     $this->widget('addressLineWidget', array(
         'links'=>array(

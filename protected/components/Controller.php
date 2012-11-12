@@ -51,9 +51,9 @@ class Controller extends CController
     }
 
     /*
-     * Генирвация маленьких блоков, с добавлением своиз переменых
-     * @param strim $view название вьшки
-     * @param array data праметры для отображения
+     * Р“РµРЅРµСЂР°С†РёСЏ РґРёРЅР°РјРёС‡РµСЃРєРёС… Р±Р»РѕРєРѕРІ РЅР°РїСЂРёРјРµСЂ rightColumn
+     * @param strim $view РЅР°Р·РІР°РЅРёРµ РІСЊСЋС€РєРё
+     * @param array data РїР°СЂР°РјРµС‚СЂС‹ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ
      * @param bool $return
      * @param $processOutput
      */

@@ -13,6 +13,7 @@
         <div id="Mcenter">
             <?php $this->renderPartial('//layouts/header_2'); ?>
         </div>
+        <?= SiteHelper::renderDinamicPartial("rightColumn"); ?>
         <?php echo $content; ?>
     </div>
     <?php $this->renderPartial('//layouts/footer'); ?>
