@@ -12,7 +12,7 @@ class DBQueryParamsClass
     private $orderBy = 'id';
     private $orderType = 'ASC';
     private $page = null;
-    private $limit = "-1";  // Если надо будет вывести все записи то необходимо выставить -1
+    private $limit = -1;  // Если надо будет вывести все записи то необходимо выставить -1
 
     static function CreateParams()
     {
@@ -93,11 +93,13 @@ class DBQueryParamsClass
     public function setLimit( $value )
     {
         $this->limit = $value;
+        //echo "set:".$value." - ".$this->limit."<br/>";
         return $this;
     }
 
     public function getLimit( )
     {
+        //echo "get:".$this->limit."<br/>";
         return $this->limit;
     }
 }

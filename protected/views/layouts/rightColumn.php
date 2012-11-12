@@ -3,9 +3,9 @@
         <div class="BML_title">Популярные новости дня</div>
        <?php
             $listNews = CatalogNews::fetchAll(
-                            DBQueryParamsClass::CreateParams()
-                                ->setOrderBy("col DESC")
-                                ->setLimit("6")
+                DBQueryParamsClass::CreateParams()
+                    ->setOrderBy("col DESC")
+                    ->setLimit( 6 )
                         , array( "catalog_country", "catalog_cid" ));
 
             foreach( $listNews as $values )

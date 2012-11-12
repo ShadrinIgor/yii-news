@@ -20,8 +20,9 @@
      */
      static function fetchAll( DBQueryParamsClass $QueryParams = null, array $relationsTable = array(), $indexNumber = "index" )
      {
-         if( empty( $QueryParams ) || !$QueryParams->getConditions() )$QueryParams = DBQueryParamsClass::CreateParams()->setConditions( "del=0" );
-                               else $QueryParams->setConditions( $QueryParams->getConditions()." AND del=0 " );
+         if( empty( $QueryParams ) )$QueryParams = DBQueryParamsClass::CreateParams()->setConditions( "del=0" );
+            elseif( $QueryParams->getConditions()!="" ) $QueryParams->setConditions( $QueryParams->getConditions()." AND del=0 " );
+                else$QueryParams->setConditions( "del=0 " );
 
          $nameCLass = get_called_class();
          $newObject = new $nameCLass;
