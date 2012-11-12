@@ -8,6 +8,39 @@
  */
 class SiteHelper
 {
+    static function renderDinamicPartial( $view, $data=array(), $return=false )
+    {
+        $controller = Yii::app()->controller;
+        $viewPath = "";
+        $output = "";
+
+        if(($renderer=Yii::app()->getViewRenderer())!==null)
+            $extension=$renderer->fileExtension;
+        else
+            $extension='.php';
+
+        $countrollerVews = $controller->getViewPath().DIRECTORY_SEPARATOR.$view.$extension;
+        $layoutsFolder = Yii::getPathOfAlias("viewsLayouts").DIRECTORY_SEPARATOR.$view.$extension;
+
+        if( is_file( $countrollerVews ) )
+        {
+            $viewPath = $view;
+        }
+            elseif( is_file( $layoutsFolder ) )
+            {
+                $viewPath = "viewsLayouts.".$view;
+            }
+
+        if( !empty( $viewPath ) )
+        {
+            $output=$controller->renderPartial($viewPath,$data,true);
+
+            if($return)
+                return $output;
+            else
+                echo $output;
+        }
+    }
 
     static function createUrl($route,$params=array(),$ampersand='&')
     {

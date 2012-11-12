@@ -1,36 +1,12 @@
+<?= SiteHelper::renderDinamicPartial("rightColumn"); ?>
+
 <?php
-
-/*
-$cidName = com_getItemFieldValue( "", $cid, $newsData[cid_id], "name" );
-$pageKey = $_SESSION["page"]["key"];
-$order = "ORDER BY `date` DESC, `col` DESC";
-$sqlWhere = " archive=0 AND `date`<=now() ";
-$people = $newsData["people"];
-
-if( $_POST[coment_add] )
-{
-$_POST[name] = $newsData[id];
-$_POST[date_add] = date("Y-m-d");
-$_POST[time_add] = date("H:i");
-$_POST[u_name] = chek( $_POST[u_name] );
-$_POST[u_email] = chek( $_POST[u_email] );
-$_POST[description] = chek( $_POST[description] );
-}
-$image = oth_getItemImage( "", $newsData[image], 2, $newsData );
-$countShow = oth_getCountShows( "", $newsData[col], 1 ) + 1;
-
-if( $newsData[cid] == 236 )$news_table = "catalog_items";
-*/
-?>
-<?= SiteHelper::renderDynamicViews("rightColumn2") ?>
-<?php
-// , array( "slug"=>$newsData->cid_id->key_word)
-$this->widget('addressLineWidget', array(
-    'links'=>array(
-        $newsData->cid_id->name => array( 'category/', array("slug"=>$newsData->cid_id->key_word) ),
-        $newsData->name,
-    ),
-));
+    $this->widget('addressLineWidget', array(
+        'links'=>array(
+            $newsData->cid_id->name => array( 'category/', array("slug"=>$newsData->cid_id->key_word) ),
+            $newsData->name,
+        ),
+    ));
 ?>
 <div id="PageText" class="newsPage">
 

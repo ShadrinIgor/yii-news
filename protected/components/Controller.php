@@ -50,24 +50,34 @@ class Controller extends CController
         }
     }
 
-    static function renderDynamicViews( $view, $data=array(),$return=false )
+    /*
+     * Генирвация маленьких блоков, с добавлением своиз переменых
+     * @param strim $view название вьшки
+     * @param array data праметры для отображения
+     * @param bool $return
+     * @param $processOutput
+     */
+    public function renderPartial($view,$data=array(),$return=false,$processOutput=false)
     {
-        $rightColumn = "";
-        $controller = Yii::app()->controller;
-        $fileView = $controller->getLayoutFile( $view );
-
         $data = array_merge( $data,
             array(
                 "Theme"     => Yii::app()->getTheme(),
-                "controller" => $controller,
+                "controller" => $this,
             )
         );
 
-        $output=$controller->renderPartial($view,$data,true);
-
-        if($return)
-            return $output;
+        if(($viewFile=$this->getViewFile($view))!==false)
+        {
+            $output=$this->renderFile($viewFile,$data,true);
+            if($processOutput)
+                $output=$this->processOutput($output);
+            if($return)
+                return $output;
+            else
+                echo $output;
+        }
         else
-            echo $output;
+            throw new CException(Yii::t('yii','{controller} cannot find the requested view "{view}".',
+                array('{controller}'=>get_class($this), '{view}'=>$view)));
     }
 }
