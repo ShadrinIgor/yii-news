@@ -22,7 +22,7 @@ class fotoNewsWidget extends CWidget
                         ->setOrderBy( "date DESC, pos DESC" )
                         ->setLimit( 10 );
 
-        $listFoto = CatalogNews::fetchAll( $queryParams );
+        $listFoto = CatalogNews::fetchAll( $queryParams, array("catalog_cid", "catalog_country" ) );
         $this->render("fotoNews", array(
             "listFoto"     => $listFoto,
             "listNewsFoto" => $listNewsFoto,

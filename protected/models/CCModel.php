@@ -42,7 +42,7 @@
                 $relationData = $newObject->getRelationByClass( $relationClass );
                 if( !empty( $relationData ) && class_exists( $relationData[1] ) )
                 {
-                    $listRelationItems[ $relationData[1] ] =  $relationData[1]::fetchAll( null, array(), "id");
+                    $listRelationItems[ $relationData[1] ] =  $relationData[1]::fetchAll( DBQueryParamsClass::CreateParams()->setLimit("-1"), array(), "id");
                 }
             }
          }
@@ -62,7 +62,7 @@
                  if( !empty( $relationData ) )
                  {
                      $relationId = $arrayOffer[$i][ $relationData[2] ];
-                     $newObject->$relationData[2] = $listRelationItems[ $relationData[1] ][ $relationId ];
+                     if( !empty($listRelationItems[ $relationData[1] ][ $relationId ]  ) )$newObject->$relationData[2] = $listRelationItems[ $relationData[1] ][ $relationId ];
                  }
              }
 
