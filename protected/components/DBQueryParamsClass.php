@@ -12,6 +12,7 @@ class DBQueryParamsClass
     private $orderBy = 'id';
     private $orderType = 'ASC';
     private $page = null;
+    private $cache = 1000; //
     private $limit = -1;  // Если надо будет вывести все записи то необходимо выставить -1
 
     static function CreateParams()
@@ -32,6 +33,17 @@ class DBQueryParamsClass
     }
 
     public function getConditions( )
+    {
+        return $this->cache;
+    }
+
+    public function setCache( $value )
+    {
+        $this->cache = $value;
+        return $this;
+    }
+
+    public function getCache( )
     {
         return $this->conditions;
     }

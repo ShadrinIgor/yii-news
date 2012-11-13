@@ -28,7 +28,7 @@
          $newObject = new $nameCLass;
 
          // $arrayOffer = Yii::app()->db->cache(1000)->createCommand()
-         $arrayOffer = Yii::app()->db->cache(1000)->createCommand()
+         $arrayOffer = Yii::app()->db->cache( $QueryParams->getCache() )->createCommand()
             ->select( $QueryParams->getFields() )
             ->from( $newObject->tableName() )
             ->where( $QueryParams->getConditions(), $QueryParams->getParams() )
