@@ -27,7 +27,8 @@
          $nameCLass = get_called_class();
          $newObject = new $nameCLass;
 
-         $arrayOffer = Yii::app()->db->createCommand()
+         // $arrayOffer = Yii::app()->db->cache(1000)->createCommand()
+         $arrayOffer = Yii::app()->db->cache(1000)->createCommand()
             ->select( $QueryParams->getFields() )
             ->from( $newObject->tableName() )
             ->where( $QueryParams->getConditions(), $QueryParams->getParams() )

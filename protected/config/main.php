@@ -37,6 +37,9 @@ return array(
 
 	// application components
 	'components'=>array(
+
+        'cache'=>array('class'=>'system.caching.CFileCache'),
+
         // CImageHandler
         'ih'=>array(
             'class'=>'CImageHandler',

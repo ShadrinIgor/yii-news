@@ -35,21 +35,20 @@ class Widget extends CWidget {
         $className =  strtolower( get_class($this) );
         $widgetName = isset(Yii::app()->getParams()->widgetList[ $className ])  ? strtolower( $className ) : strtolower( $className."_".$view );
 
-        echo $widgetName."*";
+        echo $widgetName." - ";
         if(isset(Yii::app()->getParams()->widgetList[$widgetName]) && $cache)$widgetParams = Yii::app()->getParams()->widgetList[ $widgetName ];
                 else $widgetParams = array('duration' => 3600, 'cacheID' => 'CDummyCache');
 
-        print_r( $widgetParams );
-
-
         if(($viewFile=$this->getViewFile($view))!==false)
         {
-            if($this->beginCache($widgetName, array('duration'=>$widgetParams['duration'], 'cacheID'=>$widgetParams['cacheID'], 'varyByRoute'=>false)))
+//            $this->beginCache($widgetName, array('duration'=>$widgetParams['duration'], 'cacheID'=>$widgetParams['cacheID'], 'varyByRoute'=>false));
+            if( $this->beginCache( $widgetName ) )
             {
-                $cacheFile = $this->renderFile($viewFile,$data,$return);
+                $this->renderFile( $viewFile, $data, $return );
                 $this->endCache();
-                return $cacheFile;
             }
+
+            //return $cacheFile;
         }
         else
             throw new CException(Yii::t('yii','{widget} cannot find the view "{view}".',
