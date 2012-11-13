@@ -6,7 +6,7 @@
  * Time: 16:00
  * Виджет для вывода одной новости
  */
-class fotoNewsWidget extends CWidget
+class fotoNewsWidget extends Widget
 {
     public function run()
     {

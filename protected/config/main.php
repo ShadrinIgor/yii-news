@@ -116,8 +116,8 @@ return array(
                     "2" => array( 200, 200 ),
                     "3" => array( 100, 100 )
                 )
-        )
-	),
+        ),
+
 
     /*
     * для кэширования виджетов, все что вам надо, это добавить массив с названием виджета, без прифекса _Widget
@@ -130,12 +130,17 @@ return array(
     *
     * что бы добавить свой тип кэширования, необходимо в компоненты добавить следующую строчку:
     * 'CFileCache' => array('class' => 'CFileCache')  т.е. 'cacheID' => array('class' => 'ClassName'),
-
-    'widgetList' => array(
-        'menuWidget' => array(
-            'duration' => 720,
-            'cacheID' => 'CDummyCache',
-        ),
-    ),
 */
+        'widgetList' => array(
+            'blocksNewsWidget' => array(
+                'duration' => 86400,
+                'cacheID' => 'CFileCache',
+            ),
+            'blocksnewswidget' => array(
+                'duration' => 86400,
+                'cacheID' => 'CFileCache',
+            ),
+        ),
+	),
+
 );

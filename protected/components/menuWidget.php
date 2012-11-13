@@ -6,7 +6,7 @@
  * Time: 16:00
  * Виджет для вывода одной новости
  */
-class menuWidget extends CWidget
+class menuWidget extends Widget
 {
     public $controller;
     public function run()

@@ -69,8 +69,7 @@ endif;
             foreach( $otherNews as $values )
             {
                 $this->widget('newsWidget', array(
-                'values'=>$values,
-                'controller'=> $controller
+                'values'=>$values
                 ));
             }
         ?>
