@@ -41,8 +41,9 @@ class Widget extends CWidget {
 
         if(($viewFile=$this->getViewFile($view))!==false)
         {
-//            $this->beginCache($widgetName, array('duration'=>$widgetParams['duration'], 'cacheID'=>$widgetParams['cacheID'], 'varyByRoute'=>false));
-            if( $this->beginCache( $widgetName ) )
+            //$this->beginCache($widgetName, array('duration'=>$widgetParams['duration'], 'cacheID'=>$widgetParams['cacheID'], 'varyByRoute'=>false));
+            echo $widgetName." - ".$widgetParams['duration']." - ".$widgetParams['cacheID']."<br/>";
+            if( $this->beginCache($widgetName, array('duration'=>3600) ) )
             {
                 $this->renderFile( $viewFile, $data, $return );
                 $this->endCache();
