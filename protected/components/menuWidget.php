@@ -11,13 +11,7 @@ class menuWidget extends Widget
     public $controller;
     public function run()
     {
-        $listNews = CatalogCid::fetchAll( DBQueryParamsClass::CreateParams()->setLimit( -1 ) );
-
         $curlManager = new CUrlManager();
-        $this->render("menu", array(
-                    'curlManager' => $curlManager,
-                    'listNews'    => $listNews,
-                    'controller'  => $this->controller
-        ));
+        $this->render("menu", array());
     }
 }

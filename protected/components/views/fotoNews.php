@@ -1,3 +1,23 @@
+<?php
+
+$queryParams = DBQueryParamsClass::CreateParams()
+    ->setConditions( "image!='' AND date> now()" )
+    ->setOrderBy( "pos DESC" )
+    ->setLimit( 10 )
+    ->setCache(0);
+
+$listNewsFoto = CatalogNews::fetchAll( $queryParams );
+
+$queryParams = DBQueryParamsClass::CreateParams()
+    ->setConditions( "image!='' AND date <=now()" )
+    ->setOrderBy( "date DESC, pos DESC" )
+    ->setLimit( 10 )
+    ->setCache(0);
+
+$listFoto = CatalogNews::fetchAll( $queryParams, array("catalog_cid", "catalog_country" ) );
+
+?>
+
 <div id="fotoNews">
     <h3>Анонсы</h3>
     <div class="FNBloks">

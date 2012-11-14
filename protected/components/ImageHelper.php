@@ -43,7 +43,7 @@ class ImageHelper
             // Если данное свойство у объекта существует и оно не пусто то выдаем его содержимое
             if( $itemObject->$propertyName != "" ) return $itemObject->$propertyName;
 
-            if( !file_exists( $imageFile ) )
+            if( !empty( $imageFile ) && !file_exists( $imageFile ) )
             {
                 $result = $itemObject->update( array( "image"=>"" ) );
                 $error = true;

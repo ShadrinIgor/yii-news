@@ -10,15 +10,7 @@ class blocksNewsWidget extends Widget
 {
     public function run()
     {
-        $listNews = CatalogNews::fetchAll(
-            DBQueryParamsClass::CreateParams()
-                ->setOrderBy("col DESC")
-                ->setLimit( 6 )
-            , array( "catalog_country", "catalog_cid" ));
-
-            $this->render('blocksNews', array(
-                'listNews'=>$listNews
-            ));
+            $this->render('blocksNews', array());
 
     }
 }

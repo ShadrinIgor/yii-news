@@ -11,8 +11,9 @@ class addressLineWidget extends CWidget
     public $links;
     public function run()
     {
-        $firstPage = array( Yii::t("page", "Главная")=>SiteHelper::createUrl("/") );
+        $firstPage = array( Yii::t("page", "Главная")=> "site/index" );
         $this->render("address", array(
+//            "links" => $this->links
             "links" => array_merge( $firstPage, $this->links )
         ));
     }
