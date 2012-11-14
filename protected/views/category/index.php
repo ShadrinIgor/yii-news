@@ -1,13 +1,15 @@
+<h1><?= $category->name ?></h1>
 <?php
-/* @var $this CategoryController */
 
-$this->breadcrumbs=array(
-	'Category',
+$listNews = CatalogNews::fetchAll(
+    DBQueryParamsClass::CreateParams()
+        ->setConditions("cid_id=:cid_id")
+        ->setParams( array(":cid_id" => $category->id ) )
+        ->setLimit(10)
 );
-?>
-<h1><?php echo $this->id . '/' . $this->action->id; ?></h1>
-
-<p>
-	You may change the content of this page by modifying
-	the file <tt><?php echo __FILE__; ?></tt>.
-</p>
+foreach( $listNews as $values )
+{
+    $this->widget('newsWidget', array(
+    'values'=>$values
+    ));
+}

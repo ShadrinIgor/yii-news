@@ -143,4 +143,9 @@ class SiteHelper
     {
         return Yii::app()->controller->renderDynamicViews( $view, $data, $return );
     }
+
+    static function checkedVaribal( $value, $type="string" )
+    {
+        return $value;
+    }
 }
