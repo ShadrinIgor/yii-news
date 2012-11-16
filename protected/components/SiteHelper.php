@@ -8,6 +8,18 @@
  */
 class SiteHelper
 {
+    /*
+     * Вункция возвращает правельный текст для alt и title
+     */
+    static function getStringForTitle( $value )
+    {
+        return str_replace( '"', "'", $value );
+//        /
+    }
+
+    /*
+     * Это часть необходимо для рендринга динамических блоков, типо rightColumn
+     */
     static function renderDinamicPartial( $view, $data=array(), $return=false )
     {
         $controller = Yii::app()->controller;
@@ -144,8 +156,21 @@ class SiteHelper
         return Yii::app()->controller->renderDynamicViews( $view, $data, $return );
     }
 
+
+    static function getParam( $field, $default_value = null, $type="string" )
+    {
+        $value = "";
+        if( !empty( $_GET[ $field ] ) )$value = $_GET[ $field ];
+        if( !empty( $_POST[ $field ] ) )$value = $_POST[ $field ];
+
+        if( empty( $value ) && !empty( $default_value ) )$value = $default_value;
+
+        return self::checkedVaribal( $value, $type );
+    }
+
     static function checkedVaribal( $value, $type="string" )
     {
+        if( $type == "int" )$value = abs( (int)$value );
         return $value;
     }
 }

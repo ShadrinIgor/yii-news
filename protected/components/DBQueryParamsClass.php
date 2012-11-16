@@ -34,7 +34,7 @@ class DBQueryParamsClass
 
     public function getConditions( )
     {
-        return $this->cache;
+        return $this->conditions;
     }
 
     public function setCache( $value )
@@ -45,7 +45,7 @@ class DBQueryParamsClass
 
     public function getCache( )
     {
-        return $this->conditions;
+        return $this->cache;
     }
 
     public function setFields( $value )

@@ -7,16 +7,15 @@
     ));
 ?>
 <div id="PageText" class="newsPage">
-
-    <h1><?= $newsData->name ?></h1>
     <?php Yii::app()->banners->getBannerByCategory( 1 ); ?>
+    <h1><?= $newsData->name ?></h1>
     <div class="CS_params">
         <?php if( $newsData->cid_id->id >0 ) : ?>Категория: <a href="#"><b><?= $newsData->cid_id->name; ?></b></a>&nbsp;<?php endif; ?>
         <?php if( $newsData->date ) : ?>Дата: <b><?= SiteHelper::getDateOnFormat( $newsData->date, "d.m.Y" )  ?></b><?php endif; ?>
     </div>
     <div id="CS_news"><div>статью посмотрели: <b><?= $newsData->col+1 ?></b> человек(а)</div></div>
 
-    <?php if( $newsData->image ) : ?><img src="<?= ImageHelper::getImage( $newsData->image, 2, $newsData ) ?>" style="float:left;margin:0px 3px 3px 0px" alt="<?= $newsData->name ?>" title="<?= $newsData->cid_id->name." - ". $newsData->name ?> :: Мировые новости" /><?php endif; ?>
+    <?php if( $newsData->image ) : ?><img src="<?= ImageHelper::getImage( $newsData->image, 2, $newsData ) ?>" style="float:left;margin:0px 3px 3px 0px" alt="<?= SiteHelper::getStringForTitle( $newsData->name ) ?>" title="<?= SiteHelper::getStringForTitle( $newsData->cid_id->name." - ". $newsData->name ) ?> :: Мировые новости" /><?php endif; ?>
     <?= $newsData->description; ?>
     <?php if( $newsData->tags ) :?><?= SiteHelper::getTags( $newsData->tags ); ?></div><?php endif; ?>
 

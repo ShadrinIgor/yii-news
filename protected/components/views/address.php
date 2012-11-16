@@ -5,7 +5,7 @@
             <?php
                 if( !is_array( $value ) ) echo SiteHelper::createUrl( $value );
                     else echo SiteHelper::createUrl( $value[0], $value[1] );
-            ?>" title="<?= $key ?>"><?= $key ?></a>
+            ?>" title="<?= SiteHelper::getStringForTitle( $key ) ?>"><?= $key ?></a>
         <span>... </span>
     <?php else : ?>
         <span><?= $value ?></span>

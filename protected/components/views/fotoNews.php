@@ -27,12 +27,12 @@ $listFoto = CatalogNews::fetchAll( $queryParams, array("catalog_cid", "catalog_c
             $title = "";
         ?>
             <div class="FN_item">
-                <div class="FNImage"><img src="<?= $values->image ?>" title="<?= $title." - ".$countryTitle.",".$cid ?>" alt="<?= $cid.",". $title." - ".$countryTitle ?>" /></div>
+                <div class="FNImage"><img src="<?= $values->image ?>" title="<?= SiteHelper::getStringForTitle( $title." - ".$countryTitle.",".$cid ) ?>" alt="<?= SiteHelper::getStringForTitle( $cid.",". $title." - ".$countryTitle ) ?>" /></div>
                 <div class="FN_text">
-                    <a href="<?= SiteHelper::createUrl("news/", array( "slug"=>$values->key_word, "id"=>$values->id )) ?>" title="<?= $title." - ".$countryTitle.",".$cid ?>"><?= $values->name ?></a>&nbsp;&nbsp;&nbsp;<font><?= SiteHelper::getDateOnFormat( $values->date, "d.m.Y" )  ?></font><br/>
+                    <a href="<?= SiteHelper::createUrl("news/", array( "slug"=>$values->key_word, "id"=>$values->id )) ?>" title="<?= SiteHelper::getStringForTitle( $title." - ".$countryTitle.",".$cid ) ?>"><?= $values->name ?></a>&nbsp;&nbsp;&nbsp;<font><?= SiteHelper::getDateOnFormat( $values->date, "d.m.Y" )  ?></font><br/>
 
-                    <?php if( $values->country->id > 0 ) : ?><a href="<?= SiteHelper::createUrl("category/", array( "country"=>$values->country->key_word, "slug"=>$values->cid_id->key_word, "id"=>$values->country->id )) ?>" title="<?= $countryTitle.",".$cid ?>" class="newsCid"><?= $values->country->name ?></a>,<?php endif; ?>
-                    <a href="<?= SiteHelper::createUrl("category/", array( "slug"=>$values->cid_id->key_word, "id"=>$values->country->id )) ?>" title="<?= $cid.",".$countryTitle ?>" class="newsCid"><?= $values->cid_id->name ?></a><br />
+                    <?php if( $values->country->id > 0 ) : ?><a href="<?= SiteHelper::createUrl("category/", array( "country"=>$values->country->key_word, "slug"=>$values->cid_id->key_word, "id"=>$values->country->id )) ?>" title="<?= SiteHelper::getStringForTitle( $countryTitle.",".$cid ) ?>" class="newsCid"><?= $values->country->name ?></a>,<?php endif; ?>
+                    <a href="<?= SiteHelper::createUrl("category/", array( "slug"=>$values->cid_id->key_word, "id"=>$values->country->id )) ?>" title="<?= SiteHelper::getStringForTitle( $cid.",".$countryTitle ) ?>" class="newsCid"><?= $values->cid_id->name ?></a><br />
                     <?= SiteHelper::getSubTextOnWorld( $values->description, 700 ) ?>
                     <div class="moreLink"><a href="<?= SiteHelper::createUrl("news/", array( "slug"=>$values->key_word, "id"=>$values->id )) ?>" title="подробнее">подробнее ...</a></div>
                 </div>
@@ -53,12 +53,12 @@ $listFoto = CatalogNews::fetchAll( $queryParams, array("catalog_cid", "catalog_c
          $title = "";
          ?>
          <div class="FN_item">
-             <div class="FNImage"><img src="<?= $values->image ?>" title="<?= $title." - ".$countryTitle.",".$cid ?>" alt="<?= $cid.",". $title." - ".$countryTitle ?>" /></div>
+             <div class="FNImage"><img src="<?= $values->image ?>" title="<?= SiteHelper::getStringForTitle( $title." - ".$countryTitle.",".$cid ) ?>" alt="<?= SiteHelper::getStringForTitle( $cid.",". $title." - ".$countryTitle ) ?>" /></div>
              <div class="FN_text">
-                 <a href="<?= SiteHelper::createUrl("news/", array( "slug"=>$values->key_word, "id"=>$values->id )) ?>" title="<?= $title." - ".$countryTitle.",".$cid ?>"><?= $values->name ?></a>&nbsp;&nbsp;&nbsp;<font><?= SiteHelper::getDateOnFormat( $values->date, "d.m.Y" )  ?></font><br/>
+                 <a href="<?= SiteHelper::createUrl("news/", array( "slug"=>$values->key_word, "id"=>$values->id )) ?>" title="<?= SiteHelper::getStringForTitle( $title." - ".$countryTitle.",".$cid ) ?>"><?= $values->name ?></a>&nbsp;&nbsp;&nbsp;<font><?= SiteHelper::getDateOnFormat( $values->date, "d.m.Y" )  ?></font><br/>
 
-                 <?php if( $values->country->id > 0 ) : ?><a href="<?= SiteHelper::createUrl("category/", array( "country"=>$values->country->key_word, "slug"=>$values->cid_id->key_word, "id"=>$values->country->id )) ?>" title="<?= $countryTitle.",".$cid ?>" class="newsCid"><?= $values->country->name ?></a>,<?php endif; ?>
-                 <a href="<?= SiteHelper::createUrl("category/", array( "slug"=>$values->cid_id->key_word, "id"=>$values->country->id )) ?>" title="<?= $cid.",".$countryTitle ?>" class="newsCid"><?= $values->cid_id->name ?></a><br />
+                 <?php if( $values->country->id > 0 ) : ?><a href="<?= SiteHelper::createUrl("category/", array( "country"=>$values->country->key_word, "slug"=>$values->cid_id->key_word, "id"=>$values->country->id )) ?>" title="<?= SiteHelper::getStringForTitle( $countryTitle.",".$cid ) ?>" class="newsCid"><?= $values->country->name ?></a>,<?php endif; ?>
+                 <a href="<?= SiteHelper::createUrl("category/", array( "slug"=>$values->cid_id->key_word, "id"=>$values->country->id )) ?>" title="<?= SiteHelper::getStringForTitle( $cid.",".$countryTitle ) ?>" class="newsCid"><?= $values->cid_id->name ?></a><br />
                  <?= SiteHelper::getSubTextOnWorld( $values->description, 700 ) ?>
                  <div class="moreLink"><a href="<?= SiteHelper::createUrl("news/", array( "slug"=>$values->key_word, "id"=>$values->id )) ?>" title="подробнее">подробнее ...</a></div>
              </div>

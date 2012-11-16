@@ -1,3 +1,5 @@
+<div id="PageText">
+    <?php Yii::app()->banners->getBannerByCategory( 1 ); ?>
 <h1><?= $category->name ?></h1>
 <?php
 
@@ -6,6 +8,7 @@ $listNews = CatalogNews::fetchAll(
         ->setConditions("cid_id=:cid_id")
         ->setParams( array(":cid_id" => $category->id ) )
         ->setLimit(10)
+        //->setPage(10)
 );
 foreach( $listNews as $values )
 {
@@ -13,3 +16,5 @@ foreach( $listNews as $values )
     'values'=>$values
     ));
 }
+?>
+</div>
