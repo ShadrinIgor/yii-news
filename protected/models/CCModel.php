@@ -34,6 +34,7 @@
             ->where( $QueryParams->getConditions(), $QueryParams->getParams() )
             ->order( $QueryParams->getOrderBy() )
             ->limit( $QueryParams->getLimit() )
+            ->offset( $QueryParams->getPage() )
             ->queryAll();
 
          if( !empty( $relationsTable ) )
