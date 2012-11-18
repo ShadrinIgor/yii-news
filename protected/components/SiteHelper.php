@@ -168,9 +168,80 @@ class SiteHelper
         return self::checkedVaribal( $value, $type );
     }
 
+    /*
+     * Проверка корректности входящих параметров
+     */
     static function checkedVaribal( $value, $type="string" )
     {
         if( $type == "int" )$value = abs( (int)$value );
         return $value;
+    }
+
+    /*
+     * Постраничное листание надо перенести в виджеты
+     */
+    static function paginator()
+    {
+        global $src,$p,$lang;
+
+        if( !$cid )$cid = $_SESSION["sql.cid"];
+        if( !$where )$where = $_SESSION["sql.sql"];
+        $dop_url = $_SESSION["sql.dop_url"];
+
+        $p = $_SESSION["key"]["p"];
+        if( !$p )$p=1;
+
+
+        $query = $_SESSION["sql.sql"];
+//echo $query."<Br/>";
+
+        $count = mysql_num_rows( mysql_query($query) );
+
+        if( !$action )$url =  NavigateUrl("", $_SESSION["page"]["id"] );
+        else $url =  NavigateUrl("", $action );
+
+        if( $_SESSION["url.dop"] )$url.=$_SESSION["url.dop"]."/";
+
+        $url.=( $_SESSION["key"][0] ) ? $_SESSION["key"][0]."/" : "0/";
+        $url.=( $_SESSION["key"][1] ) ? $_SESSION["key"][1]."/" : "0/";
+//   $url.=( $_SESSION["key"][2] ) ? $_SESSION["key"][2]."/" : "0/";
+//   $url.=( $_SESSION["key"][3] ) ? $_SESSION["key"][3]."/" : "0/";
+
+        if($count>$col)
+        {
+            $link="temp_".$link;
+            $not_link="temp_".$not_link;
+            $activ="temp_".$active;
+
+            $p=chek($p,1);
+
+            $finish=ceil($count/$col);
+            for($i=1;$i<=$finish;$i++)
+            {
+                $elem="";
+
+                if($i==$p)$elem=$activ($i);
+                else
+                {
+                    if((($i>($p-3))&&($i<($p+3)))||($i==1)||($i==$finish))
+                    {
+                        $elem.=$link($url."?p=".$i.$dop_url,$i);
+                        $space="";
+                    }
+                    else
+                    {
+                        if(!$space){$elem.=$not_link(" ... ");$space=1;}
+                    }
+                }
+
+                $c_cout.=$elem;
+            }
+
+            $cout= $_SESSION["s_lang_varibals"]["p_pages"].":".$c_cout;
+
+            $cout.="   ".$_SESSION["s_lang_varibals"]["p_vsego"]." : ".$count;
+
+            return $cout;
+        }
     }
 }
