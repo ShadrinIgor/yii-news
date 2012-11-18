@@ -22,12 +22,11 @@ class CategoryController extends Controller
 
             if( sizeof( $category ) >0 && $category[0]->id >0 )
             {
-                $page = SiteHelper::getParam( "p", 1, "int" );
                 $this->render('index',
                         array
                         (
                             "category"  => $category[0],
-                            "page"      => $page
+                            "page"      => SiteHelper::getParam( $_GET["p"], 1, "int" )
                         )
                     );
             }

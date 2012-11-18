@@ -245,7 +245,8 @@ img{	border:0px;}
 	background:#efefef;
 }
 
-.pageList{width: 100%;float:left;}
+.pageList{width: 100%;float:left;text-align: center;}
+.pageList a, .pageList b, .pageList font { padding-right: 3px; }
 
 /*#fotoNews .FN_item:hover { background:#efefef; }*/
 
