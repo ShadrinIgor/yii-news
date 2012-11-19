@@ -1,5 +1,14 @@
 <?php
-//if( $page >1 || $this->beginCache( "category_".$category->id."_".$page, array('duration'=>3600) ) ) :
+$cacheId = "category_";
+if( sizeof( $category )>0 )$cacheId .= "catid-".$category[0]->id;
+if( sizeof( $country )>0 )
+{
+    if( !empty( $cacheId ) )$cacheId.="_";
+    $cacheId .= "country-".$country[0]->id;
+}
+$cacheId.="_".$page;
+
+//if( $page >1 || $this->beginCache( $cacheId, array('duration'=>3600) ) ) :
 ?>
 
 <div id="PageText">
