@@ -20,8 +20,10 @@ class CatalogCountry extends CCModel
     protected $del; // integer 
     protected $lang_group; // integer 
     protected $id_lang; // integer 
-    protected $news; // integer
-    protected $key_word; // string
+    protected $news; // integer 
+    protected $key_word; // string 
+    protected $key_word2; // string 
+    protected $name2; // string 
 
     public function attributeNames()
     {
@@ -44,13 +46,14 @@ class CatalogCountry extends CCModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('news', 'required'),
-			array('col, cid, active, select, pos, user, del, lang_group, id_lang, news', 'numerical', 'integerOnly'=>true),
+			array('news, key_word, key_word2, name2', 'required'),
+			array('col, cid, active, select, pos, user, del, lang_group, id_lang', 'numerical', 'integerOnly'=>true),
 			array('name, path', 'length', 'max'=>25),
+			array('key_word, key_word2, name2', 'length', 'max'=>50),
 			array('dateadd, dateedit, metaData', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, col, cid, name, path, active, select, dateadd, dateedit, pos, metaData, user, del, lang_group, id_lang, news', 'safe', 'on'=>'search'),
+			array('id, col, cid, name, path, active, select, dateadd, dateedit, pos, metaData, user, del, lang_group, id_lang, news, key_word, key_word2, name2', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -62,7 +65,7 @@ class CatalogCountry extends CCModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'news0' => array(self::HAS_MANY, 'CatalogNews', 'news'),
+			'news0' => array(self::BELONGS_TO, 'CatalogNews', 'news'),
 		);
 	}
 
@@ -88,6 +91,9 @@ class CatalogCountry extends CCModel
 			'lang_group' => 'Lang Group',
 			'id_lang' => 'Id Lang',
 			'news' => 'News',
+			'key_word' => 'Key Word',
+			'key_word2' => 'Key Word2',
+			'name2' => 'Name2',
 		);
 	}
 
@@ -118,6 +124,9 @@ class CatalogCountry extends CCModel
 		$criteria->compare('lang_group',$this->lang_group);
 		$criteria->compare('id_lang',$this->id_lang);
 		$criteria->compare('news',$this->news);
+		$criteria->compare('key_word',$this->key_word,true);
+		$criteria->compare('key_word2',$this->key_word2,true);
+		$criteria->compare('name2',$this->name2,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

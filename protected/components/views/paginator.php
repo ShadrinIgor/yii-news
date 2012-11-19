@@ -12,6 +12,7 @@ if($count>$offset)
 
     for($i=1;$i<=$finish;$i++)
     {
+
         $elem="";
 
         if($i==$page)$elem='<b id="list_activ">'.$i.'</b>';
@@ -19,7 +20,8 @@ if($count>$offset)
         {
             if((($i>($page-3))&&($i<($page+3)))||($i==1)||($i==$finish))
             {
-                $elem.="<a href=\"".$url."?p=".$i."\">".$i."</a>";
+                if( empty( $url ) )$elem.="<a href=\"".$defaultUrl."?p=".$i."\">".$i."</a>";
+                    else $elem.="<a href=\"".SiteHelper::createUrl( $url[0], array_merge( $url[1], array( "page"=>$i ) ) ) ."\">".$i."</a>";
                 $space="";
             }
             else

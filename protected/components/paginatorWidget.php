@@ -12,14 +12,16 @@ class paginatorWidget extends CWidget
     public $page;
     public $offset;
     public $url;
+    public $defaultUrl;
     public function run()
     {
-        if( empty( $url ) )$this->url = Yii::app()->params["baseUrl"].Yii::app()->request->pathInfo;
+        $this->defaultUrl = Yii::app()->params["baseUrl"].Yii::app()->request->pathInfo;
         $this->render("paginator", array(
-                    'count'  => $this->count,
-                    'offset' => $this->offset,
-                    'page'   => $this->page,
-                    'url'    => $this->url
+                    'count'      => $this->count,
+                    'offset'     => $this->offset,
+                    'page'       => $this->page,
+                    'url'        => $this->url,
+                    'defaultUrl' => $this->defaultUrl
         ));
     }
 }

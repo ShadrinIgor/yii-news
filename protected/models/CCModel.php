@@ -27,7 +27,6 @@
          $nameCLass = get_called_class();
          $newObject = new $nameCLass;
 
-         // $arrayOffer = Yii::app()->db->cache(1000)->createCommand()
          $arrayOffer = Yii::app()->db->cache( $QueryParams->getCache() )->createCommand()
             ->select( $QueryParams->getFields() )
             ->from( $newObject->tableName() )
@@ -75,6 +74,27 @@
          }
 
          return $listOffer;
+     }
+
+     static function count( DBQueryParamsClass $QueryParams = null )
+     {
+         if( empty( $QueryParams ) )$QueryParams = DBQueryParamsClass::CreateParams()->setConditions( "del=0" );
+         elseif( $QueryParams->getConditions()!="" ) $QueryParams->setConditions( $QueryParams->getConditions()." AND del=0 " );
+         else$QueryParams->setConditions( "del=0 " );
+
+         $nameCLass = get_called_class();
+         $newObject = new $nameCLass;
+
+         $count = Yii::app()->db->cache( $QueryParams->getCache() )->createCommand()
+             ->select( "count(id)" )
+             ->from( $newObject->tableName() )
+             ->where( $QueryParams->getConditions(), $QueryParams->getParams() )
+             ->order( $QueryParams->getOrderBy() )
+             ->limit( $QueryParams->getLimit() )
+             ->offset( $QueryParams->getPage() )
+             ->queryScalar();
+
+         return $count>0 ? $count : 0;
      }
 
     /*

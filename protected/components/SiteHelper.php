@@ -157,15 +157,13 @@ class SiteHelper
     }
 
 
-    static function getParam( $field, $default_value = null, $type="string" )
+    static function getParam( $fieldValue, $default_value = null, $type="string" )
     {
         $value = "";
-        if( !empty( $_GET[ $field ] ) )$value = $_GET[ $field ];
-        if( !empty( $_POST[ $field ] ) )$value = $_POST[ $field ];
-
-        if( empty( $value ) && !empty( $default_value ) )$value = $default_value;
-
-        return self::checkedVaribal( $value, $type );
+        if( empty( $fieldValue ) && !empty( $_GET[ $fieldValue ] ) )$value = $_GET[ $fieldValue ];
+        if( empty( $fieldValue ) && !empty( $_POST[ $fieldValue ] ) )$value = $_POST[ $fieldValue ];
+        if( empty( $fieldValue ) && !empty( $default_value ) )$value = $default_value;
+        return self::checkedVaribal( $fieldValue, $type );
     }
 
     /*
