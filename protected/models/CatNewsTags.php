@@ -7,10 +7,17 @@ class CatNewsTags extends CCModel
 {
     protected $id; // integer 
     protected $date; // string 
-    protected $tag; // string 
+    protected $name; // string 
     protected $count_items; // integer 
     protected $tag_translate; // string 
     protected $cid_id; // string 
+    protected $del; // integer 
+
+/*
+* Поля - связи
+*/
+    protected $catNewsTagsRelations; //  CatNewsTagsRelation
+
 
     public function attributeNames()
     {
@@ -34,14 +41,14 @@ class CatNewsTags extends CCModel
 		// will receive user inputs.
 		return array(
 			array('tag_translate, cid_id', 'required'),
-			array('count_items', 'numerical', 'integerOnly'=>true),
-			array('tag', 'length', 'max'=>25),
+			array('count_items, del', 'numerical', 'integerOnly'=>true),
+			array('name', 'length', 'max'=>25),
 			array('tag_translate', 'length', 'max'=>50),
 			array('cid_id', 'length', 'max'=>150),
 			array('date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, date, tag, count_items, tag_translate, cid_id', 'safe', 'on'=>'search'),
+			array('id, date, name, count_items, tag_translate, cid_id, del', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,10 +72,11 @@ class CatNewsTags extends CCModel
 		return array(
 			'id' => 'ID',
 			'date' => 'Date',
-			'tag' => 'Tag',
+			'name' => 'Name',
 			'count_items' => 'Count Items',
 			'tag_translate' => 'Tag Translate',
 			'cid_id' => 'Cid',
+			'del' => 'Del',
 		);
 	}
 
@@ -85,10 +93,11 @@ class CatNewsTags extends CCModel
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('date',$this->date,true);
-		$criteria->compare('tag',$this->tag,true);
+		$criteria->compare('name',$this->name,true);
 		$criteria->compare('count_items',$this->count_items);
 		$criteria->compare('tag_translate',$this->tag_translate,true);
 		$criteria->compare('cid_id',$this->cid_id,true);
+		$criteria->compare('del',$this->del);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

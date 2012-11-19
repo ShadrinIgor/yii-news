@@ -3,12 +3,18 @@
 /**
  * This is the model class for table "cat_news_tags_relation".
    */
-class CatNewsTagsRelation extends CActiveRecord
+class CatNewsTagsRelation extends CCModel
 {
     protected $id; // integer 
     protected $news_id; // integer 
     protected $tag_id; // integer 
-    protected $tag; // string 
+    protected $name; // string 
+    protected $del; // integer 
+
+/*
+* Поля - связи
+*/
+
 
     public function attributeNames()
     {
@@ -31,11 +37,12 @@ class CatNewsTagsRelation extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('tag', 'required'),
-			array('tag', 'length', 'max'=>50),
+			array('name, del', 'required'),
+			array('del', 'numerical', 'integerOnly'=>true),
+			array('name', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, news_id, tag_id, tag', 'safe', 'on'=>'search'),
+			array('id, news_id, tag_id, name, del', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -47,8 +54,8 @@ class CatNewsTagsRelation extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'news' => array(self::HAS_MANY, 'CatalogNews', 'news_id'),
-			'tag0' => array(self::BELONGS_TO, 'CatNewsTags', 'tag_id'),
+			'tag' => array(self::BELONGS_TO, 'CatNewsTags', 'tag_id'),
+			'news' => array(self::BELONGS_TO, 'CatalogNews', 'news_id'),
 		);
 	}
 
@@ -61,7 +68,8 @@ class CatNewsTagsRelation extends CActiveRecord
 			'id' => 'ID',
 			'news_id' => 'News',
 			'tag_id' => 'Tag',
-			'tag' => 'Tag',
+			'name' => 'Name',
+			'del' => 'Del',
 		);
 	}
 
@@ -79,7 +87,8 @@ class CatNewsTagsRelation extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('news_id',$this->news_id);
 		$criteria->compare('tag_id',$this->tag_id);
-		$criteria->compare('tag',$this->tag,true);
+		$criteria->compare('name',$this->name,true);
+		$criteria->compare('del',$this->del);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -144,13 +144,12 @@
     {
         static $arrayHasOneRelation;
 
-        if( !in_array( $field, $this->getRelationFields() ) )
-
-            //echo $field."##<br/>";
+        if( !in_array( $field, $this->getRelationFields() ) && !is_array( $this->getRelationByKey( $field ) ) )
             return $this->$field;
         {
-            echo $field."<br/>";
             $relation = $this->getRelationByField( $field );
+            if( empty( $relation ) )$relation = $this->getRelationByKey( $field );
+
             if( !empty( $relation ) )
             {
                 if( ( $relation[0] == self::HAS_ONE || $relation[0] == self::BELONGS_TO ) && !is_object( $this->$field ) ) //
@@ -275,6 +274,14 @@
      {
          foreach( $this->relations() as $value )
              if( $value[2] == $fieldName )return $value;
+
+         return false;
+     }
+
+     public function getRelationByKey( $fieldKey )
+     {
+         foreach( $this->relations() as $key=>$value )
+             if( $key == $fieldKey )return $value;
 
          return false;
      }
