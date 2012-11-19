@@ -28,6 +28,10 @@
 <br/>
 <?php $this->widget( 'cosbuttonsWidget' ); ?>
 
+<?php
+echo sizeof( $newsData->list_tags )."*";
+?>
+
 <?php if( $newsData->people->id >0 ) : ?>
 <div class="centerBlock peopleBlock">
     <h3>Подробнее о <?= $newsData->people->name ?>"</h3>

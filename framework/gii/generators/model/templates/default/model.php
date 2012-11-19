@@ -21,6 +21,27 @@ class <?php echo $modelClass; ?> extends <?php echo $this->baseClass."\n"; ?>
     protected <?php echo '$'.$column->name."; // ".$column->type." \n"; ?>
 <?php endforeach; ?>
 
+/*
+* Поля - связи
+*/
+<?php foreach($relations as $name=>$relation):
+    if( strpos( $relation, "HAS_MANY" ) !== false )
+    {
+        $fieldParams = explode( ",", str_replace( array( "'", ")" ), "", $relation ) );
+        $fieldName = trim( $fieldParams[2] );
+        foreach($columns as $column):
+            if( $column->name == $fieldName )
+            {
+                $fieldName='';
+                break;
+            }
+        endforeach;
+
+        if( $fieldName )echo '    protected $'.$name."; // ".$fieldParams[1]."\n";
+    }
+endforeach; ?>
+
+
     public function attributeNames()
     {
     }

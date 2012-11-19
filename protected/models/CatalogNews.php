@@ -37,6 +37,11 @@ class CatalogNews extends CCModel
     protected $video; // integer 
     protected $tags_checked; // integer 
 
+/*
+* Поля - связи
+*/
+    protected $list_tags; //  CatNewsTagsRelation
+
     public function attributeNames()
     {
     }
@@ -80,9 +85,10 @@ class CatalogNews extends CCModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'people0' => array(self::BELONGS_TO, 'CatalogPeople', 'people'),
+			'list_tags' => array(self::HAS_MANY, 'CatNewsTagsRelation', 'news_id'),
 			'cid0' => array(self::BELONGS_TO, 'CatalogCid', 'cid_id'),
 			'country0' => array(self::BELONGS_TO, 'CatalogCountry', 'country'),
+			'people0' => array(self::BELONGS_TO, 'CatalogPeople', 'people'),
 		);
 	}
 

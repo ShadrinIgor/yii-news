@@ -145,8 +145,11 @@
         static $arrayHasOneRelation;
 
         if( !in_array( $field, $this->getRelationFields() ) )
+
+            //echo $field."##<br/>";
             return $this->$field;
         {
+            echo $field."<br/>";
             $relation = $this->getRelationByField( $field );
             if( !empty( $relation ) )
             {
@@ -162,20 +165,38 @@
                             $this->$field = $arrayHasOneRelation[ $key ];
                 }
 
+
                 if( ( $relation[0] == self::HAS_MANY || $relation[0] == self::MANY_MANY ) && !is_array( $this->$field ) )
                 {
-                    $leftCLass = get_called_class();
-                    $relationParams = RelationParamsClass::CreateParams()
-                                            ->setLeftClass( $leftCLass )
-                                            ->setRightClass( $relation[1] )
-                                            ->setLeftField( $field )
-                                            ->setLeftId( $this->id );
+                    // Проверяем существует ли связт по этому полю ( такое может быть при связи многие ко многим в и текущей таблице полем для связи является ID )
 
-                    $DBQueryParams = DBQueryParamsClass::CreateParams()
-                                            ->setOrderBy( "a.name" )
-                                            ->setOrderType( "ASC" );
+                    if( !$this->relations( $field ) )
+                    {
+                        $leftCLass = get_called_class();
+                        $relationParams = RelationParamsClass::CreateParams()
+                                                ->setLeftClass( $leftCLass )
+                                                ->setRightClass( $relation[1] )
+                                                ->setLeftField( $field )
+                                                ->setLeftId( $this->id );
 
-                    $this->$field = SiteHelper::getRelation( $relationParams, $DBQueryParams );
+                        $DBQueryParams = DBQueryParamsClass::CreateParams()
+                                                ->setOrderBy( "a.name" )
+                                                ->setOrderType( "ASC" );
+
+                        $this->$field = SiteHelper::getRelation( $relationParams, $DBQueryParams );
+                    }
+                        else
+                    {
+                        echo "&";
+                        $this->$field = $relation[1]::fetchAll
+                                        (
+                                            DBQueryParamsClass::CreateParams()
+                                                ->setConditions( $relation[2]."=:field_value" )
+                                                ->setParams( array( ":field_value"=>$this->id ) )
+                                                ->setOrderBy("name DESC")
+                                        );
+
+                    }
                 }
 
                 return $this->$field;
