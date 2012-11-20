@@ -186,13 +186,12 @@
                     }
                         else
                     {
-                        echo "&";
                         $this->$field = $relation[1]::fetchAll
                                         (
                                             DBQueryParamsClass::CreateParams()
                                                 ->setConditions( $relation[2]."=:field_value" )
                                                 ->setParams( array( ":field_value"=>$this->id ) )
-                                                ->setOrderBy("name DESC")
+                                                ->setOrderBy("name")
                                         );
 
                     }

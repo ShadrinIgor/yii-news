@@ -13,7 +13,7 @@ class DBQueryParamsClass
     private $orderType = 'ASC';
     private $page = null;
     private $cache = 1000; //
-    private $limit = -1;  // Если надо будет вывести все записи то необходимо выставить -1
+    private $limit = 10;  // Если надо будет вывести все записи то необходимо выставить -1
 
     static function CreateParams()
     {

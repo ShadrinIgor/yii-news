@@ -17,7 +17,7 @@
 
     <?php if( $newsData->image ) : ?><img src="<?= ImageHelper::getImage( $newsData->image, 2, $newsData ) ?>" style="float:left;margin:0px 3px 3px 0px" alt="<?= SiteHelper::getStringForTitle( $newsData->name ) ?>" title="<?= SiteHelper::getStringForTitle( $newsData->cid_id->name." - ". $newsData->name ) ?> :: Мировые новости" /><?php endif; ?>
     <?= $newsData->description; ?>
-    <?php if( $newsData->tags ) :?><?= SiteHelper::getTags( $newsData->tags ); ?></div><?php endif; ?>
+    <?php $this->widget( "tagsWidget", Array( "listTags"=>$newsData->list_tags ) ); ?>
 
 <div class="listImg">
     <?php foreach( $newsData->getImages() as $value  ) : ?>
@@ -27,10 +27,6 @@
 
 <br/>
 <?php $this->widget( 'cosbuttonsWidget' ); ?>
-
-<?php
-echo sizeof( $newsData->list_tags )."*";
-?>
 
 <?php if( $newsData->people->id >0 ) : ?>
 <div class="centerBlock peopleBlock">

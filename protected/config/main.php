@@ -60,12 +60,13 @@ return array(
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 
-                '<controller:(category)>/<slug:\w+>-<country:\w+>_<page:\d+>.html'=> '<controller>',
-                '<controller:(category)>/<slug:\w+>-<country:\w+>.html'=> '<controller>',
-                '<controller:(category)>/<slug:\w+>_<page:\d+>.html'=> '<controller>',
-                '<controller:(category)>/<slug:\w+>.html'=> '<controller>',
+                '<slug:\w+>-<country:\w+>_<controller:(category)>_<page:\d+>.html'=> '<controller>',
+                '<slug:\w+>-<country:\w+>_<controller:(category)>.html'=> '<controller>',
+                '<slug:\w+>_<controller:(category)>_<page:\d+>.html'=> '<controller>',
+                '<slug:\w+>_<controller:(category)>.html'=> '<controller>',
+                '<slug:\w+>_<controller:(tag)>.html'=> '<controller>',
 
-                '<controller:(news)>/<slug:\w+>_<id:\d+>.html'=> '<controller>',
+                '<slug:\w+>_<id:\d+>_<controller:(news)>.html'=> '<controller>',
 			),
 		),
 
