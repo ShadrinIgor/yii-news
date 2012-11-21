@@ -174,4 +174,9 @@ class SiteHelper
         if( $type == "int" )$value = abs( (int)$value );
         return $value;
     }
+
+    static function analizeText( $text )
+    {
+
+    }
 }

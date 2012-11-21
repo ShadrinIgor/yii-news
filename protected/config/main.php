@@ -109,6 +109,10 @@ return array(
         'banners'=>array(
             'class'     => 'ext.banners.BannerInit'
         ),
+
+        'textAnalysis'=>array(
+            'class'     => 'ext.textAnalysis.AnalysisInit'
+        ),
 	),
 
 	// application-level parameters that can be accessed
