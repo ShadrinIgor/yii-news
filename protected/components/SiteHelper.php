@@ -175,8 +175,4 @@ class SiteHelper
         return $value;
     }
 
-    static function analizeText( $text )
-    {
-
-    }
 }
