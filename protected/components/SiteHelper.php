@@ -175,4 +175,12 @@ class SiteHelper
         return $value;
     }
 
+    /*
+     * Проверка корректности Slug для ссылок
+     */
+    static function checkedSlugName()
+    {
+        $arrayReplace = array( '$', "_", "&", "?" );
+        return str_replace( $arrayReplace, "", $arrayReplace );
+    }
 }

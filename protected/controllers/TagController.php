@@ -10,7 +10,8 @@ class TagController extends Controller
 
         $tag =  ( !empty( $_GET["tag"] ) ) ? SiteHelper::checkedVaribal( $_GET["tag"] ) : "";
         if( empty( $tag ) )$error = true;
-
+echo $tag."*";
+        die;
         if( $error == false )
         {
             $category = CatalogCid::fetchAll(
