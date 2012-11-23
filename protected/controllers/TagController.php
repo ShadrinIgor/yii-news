@@ -13,7 +13,7 @@ class TagController extends Controller
 
         if( $error == false )
         {
-            $tag = CatNewsTagsRelation::fetch( $id );
+            $tag = CatNewsTags::fetch( $id );
             if( $tag->id == 0 )$error = true;
         }
 
@@ -24,7 +24,7 @@ class TagController extends Controller
                     array
                     (
                         "tag"  => $tag,
-                        "page"      => $page
+                        "page" => $page
                     )
                 );
         }

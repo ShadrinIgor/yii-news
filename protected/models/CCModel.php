@@ -114,7 +114,8 @@
                 ->where( 'id=:id AND del=0', array( "id" => (int)$id ) )
                 ->queryRow();
 
-            $object->setAttributesFromArray( $offer );
+            if( is_array( $offer ) )$object->setAttributesFromArray( $offer );
+                else return false;
         }
         return $object;
     }

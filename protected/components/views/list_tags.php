@@ -6,7 +6,7 @@
                 if( $i>0 )echo ", ";
                 $i++;
             ?>
-            <?= CHtml::link( $tag->tag_id->name, SiteHelper::createUrl( "tag/", array( "slug"=> SiteHelper::checkedSlugName( $tag->name ), "id"=>$tag->id) ), array( "title"=>$tag->tag_id->name )  ); ?>
+            <?= CHtml::link( $tag->tag_id->name, SiteHelper::createUrl( "tag/", array( "slug"=> SiteHelper::checkedSlugName( $tag->name ), "id"=>$tag->tag_id->id) ), array( "title"=>$tag->tag_id->name )  ); ?>
         <?php endforeach; ?>
     </div>
 <?php endif; ?>
