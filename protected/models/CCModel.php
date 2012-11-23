@@ -252,7 +252,8 @@
         }
 
         $sql = "UPDATE ".$this->tableName()." SET ".$sqlField." WHERE id='".$this->id."'";
-        Yii::app()->db->createCommand( $sql )->execute();
+        $coutUpdateItems = Yii::app()->db->createCommand( $sql )->execute();
+        if( $coutUpdateItems == 0 )echo "<br/>Запрос не затронул не одной записи ( ".$sql." )";
     }
 
     public function update( array $fields = array() )

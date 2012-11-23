@@ -8,36 +8,28 @@ class TagController extends Controller
         $error = false;
         $category = array();
 
-        $tag =  ( !empty( $_GET["tag"] ) ) ? SiteHelper::checkedVaribal( $_GET["tag"] ) : "";
-        if( empty( $tag ) )$error = true;
-echo $tag."*";
-        die;
+        $id =  ( !empty( $_GET["id"] ) ) ? SiteHelper::checkedVaribal( $_GET["id"], "int" ) : "";
+        if( empty( $id ) )$error = true;
+
         if( $error == false )
         {
-            $category = CatalogCid::fetchAll(
-                DBQueryParamsClass::CreateParams()
-                    ->setConditions( "key_word=:slug" )
-                    ->setParams( Array( ":slug"=>$cidSlug ) )
-                    ->setLimit(1)
-                    ->setCache(0) );
-
-
-            if( ( sizeof( $category ) >0 && $category[0]->id >0 ) || ( sizeof( $country ) >0 && $country[0]->id >0 ) )
-            {
-                $page = !empty( $_GET["page"] ) ? SiteHelper::getParam( $_GET["page"], 1, "int" ) : 1;
-                $this->render('index',
-                        array
-                        (
-                            "category"  => $category,
-                            "country"   => $country,
-                            "page"      => $page
-                        )
-                    );
-            }
-                else $error = true;
+            $tag = CatNewsTagsRelation::fetch( $id );
+            if( $tag->id == 0 )$error = true;
         }
 
-        if( $error == true )$this->redirect("/site/error");
+        if( $error == false )
+        {
+            $page = !empty( $_GET["page"] ) ? SiteHelper::getParam( $_GET["page"], 1, "int" ) : 1;
+            $this->render('index',
+                    array
+                    (
+                        "tag"  => $tag,
+                        "page"      => $page
+                    )
+                );
+        }
+
+        if( $error == true )$this->redirect("site/error");
 	}
 
 	// Uncomment the following methods and override them if needed

@@ -178,9 +178,9 @@ class SiteHelper
     /*
      * Проверка корректности Slug для ссылок
      */
-    static function checkedSlugName()
+    static function checkedSlugName( $slug )
     {
-        $arrayReplace = array( '$', "_", "&", "?" );
-        return str_replace( $arrayReplace, "", $arrayReplace );
+        $arrayReplace = array( '$', "_", "&", "?", "#" );
+        return str_replace( $arrayReplace, "", $slug );
     }
 }

@@ -12,6 +12,7 @@ class CatNewsTags extends CCModel
     protected $tag_translate; // string 
     protected $cid_id; // string 
     protected $del; // integer 
+    protected $checked; // integer 
 
 /*
 * Поля - связи
@@ -41,14 +42,14 @@ class CatNewsTags extends CCModel
 		// will receive user inputs.
 		return array(
 			array('tag_translate, cid_id', 'required'),
-			array('count_items, del', 'numerical', 'integerOnly'=>true),
+			array('count_items, del, checked', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>25),
 			array('tag_translate', 'length', 'max'=>50),
 			array('cid_id', 'length', 'max'=>150),
 			array('date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, date, name, count_items, tag_translate, cid_id, del', 'safe', 'on'=>'search'),
+			array('id, date, name, count_items, tag_translate, cid_id, del, checked', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -77,6 +78,7 @@ class CatNewsTags extends CCModel
 			'tag_translate' => 'Tag Translate',
 			'cid_id' => 'Cid',
 			'del' => 'Del',
+			'checked' => 'Checked',
 		);
 	}
 
@@ -98,6 +100,7 @@ class CatNewsTags extends CCModel
 		$criteria->compare('tag_translate',$this->tag_translate,true);
 		$criteria->compare('cid_id',$this->cid_id,true);
 		$criteria->compare('del',$this->del);
+		$criteria->compare('checked',$this->checked);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
