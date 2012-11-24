@@ -6,14 +6,15 @@
  */
 class DBQueryParamsClass
 {
-    private $conditions;
-    private $fields = "*";
-    private $params = array();
-    private $orderBy = 'id';
-    private $orderType = 'ASC';
-    private $page = null;
-    private $cache = 1000; //
-    private $limit = 10;  // Если надо будет вывести все записи то необходимо выставить -1
+    private $_conditions;
+    private $_fields;
+    private $_where = "";
+    private $_params = array();
+    private $_orderBy;
+    private $_orderType = 'ASC';
+    private $_page = null;
+    private $_cache = 1000; //
+    private $_limit = 10;  // Если надо будет вывести все записи то необходимо выставить -1
 
     static function CreateParams()
     {
@@ -28,90 +29,101 @@ class DBQueryParamsClass
 
     public function setConditions( $value )
     {
-        $this->conditions = $value;
+        $this->_conditions = $value;
         return $this;
     }
 
     public function getConditions( )
     {
-        return $this->conditions;
+        return $this->_conditions;
+    }
+
+    public function setWhere( $value )
+    {
+        $this->_where = $value;
+        return $this;
+    }
+
+    public function getWhere( )
+    {
+        return $this->_where;
     }
 
     public function setCache( $value )
     {
-        $this->cache = $value;
+        $this->_cache = $value;
         return $this;
     }
 
     public function getCache( )
     {
-        return $this->cache;
+        return $this->_cache;
     }
 
     public function setFields( $value )
     {
         $value = trim( $value );
         if( empty( $value ) )$value="*";
-        $this->fields = $value;
+        $this->_fields = $value;
         return $this;
     }
 
     public function getFields( )
     {
-        return $this->fields;
+        return $this->_fields;
     }
 
     public function setParams( $value )
     {
-        $this->params = $value;
+        $this->_params = $value;
         return $this;
     }
 
     public function getParams( )
     {
-        return $this->params;
+        return $this->_params;
     }
 
     public function setOrderBy( $value )
     {
-        $this->orderBy = $value;
+        $this->_orderBy = $value;
         return $this;
     }
 
     public function getOrderBy( )
     {
-        return $this->orderBy;
+        return $this->_orderBy;
     }
     public function setOrderType( $value )
     {
-        $this->orderType = $value;
+        $this->_orderType = $value;
         return $this;
     }
 
     public function getOrderType( )
     {
-        return $this->orderType;
+        return $this->_orderType;
     }
     public function setPage( $value )
     {
-        $this->page = $value;
+        $this->_page = $value;
         return $this;
     }
 
     public function getPage( )
     {
-        return $this->page;
+        return $this->_page;
     }
     public function setLimit( $value )
     {
-        $this->limit = $value;
-        //echo "set:".$value." - ".$this->limit."<br/>";
+        $this->_limit = $value;
+        //echo "set:".$value." - ".$this->_limit."<br/>";
         return $this;
     }
 
     public function getLimit( )
     {
-        //echo "get:".$this->limit."<br/>";
-        return $this->limit;
+        //echo "get:".$this->_limit."<br/>";
+        return $this->_limit;
     }
 }

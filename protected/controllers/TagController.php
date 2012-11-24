@@ -13,18 +13,54 @@ class TagController extends Controller
 
         if( $error == false )
         {
-            $tag = CatNewsTagsRelation::fetch( $id );
+            $tag = CatNewsTags::fetch( $id );
             if( $tag->id == 0 )$error = true;
         }
 
         if( $error == false )
         {
             $page = !empty( $_GET["page"] ) ? SiteHelper::getParam( $_GET["page"], 1, "int" ) : 1;
+
+            $offset = 10;
+            $conditions = "";
+            $params = array();
+
+            $links = array(
+                "Теги" => array( 'category/', array("slug"=> SiteHelper::checkedSlugName( $tag->tag_translate ) ) ),
+                $tag->name
+            );
+
+            $conditions = " a.id=:tag_id AND b.tag_id = a.id AND catalog_news_as.id=b.news_id ";
+            $params = array( ":tag_id"=>$tag->id,  );
+
+            $listNews = CatalogNews::fetchAll(
+                DBQueryParamsClass::CreateParams()
+                    ->setWhere( "catalog_news catalog_news_as, cat_news_tags a, cat_news_tags_relation b" )
+                    ->setConditions( $conditions )
+                    ->setParams( $params )
+                    ->setLimit( $offset )
+                    ->setPage( ( $page-1 )*$offset ) );
+
+            $countNews = CatalogNews::count(
+                DBQueryParamsClass::CreateParams()
+                    ->setWhere( "catalog_news catalog_news_as, cat_news_tags a, cat_news_tags_relation b" )
+                    ->setConditions( $conditions )
+                    ->setParams( $params )
+            );
+
+            if( !empty( $_GET["slug"] ) )$urlParams = array( "slug"=>$_GET["slug"] );
+            if( !empty( $_GET["id"] ) )$urlParams = array_merge( $urlParams, array( "country"=>$_GET["id"]  ));
+
             $this->render('index',
                     array
                     (
-                        "tag"  => $tag,
-                        "page"      => $page
+                        "listNews"   => $listNews,
+                        "countNews"  => $countNews,
+                        "tag"        => $tag,
+                        "page"       => $page,
+                        "links"      => $links,
+                        "offset"     => $offset,
+                        "urlParams"  => $urlParams,
                     )
                 );
         }
