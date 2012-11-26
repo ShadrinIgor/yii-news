@@ -20,16 +20,27 @@
      */
      static function fetchAll( DBQueryParamsClass $QueryParams = null, array $relationsTable = array(), $indexNumber = "index" )
      {
-         if( empty( $QueryParams ) )$QueryParams = DBQueryParamsClass::CreateParams()->setConditions( "del=0" );
-            elseif( $QueryParams->getConditions()!="" ) $QueryParams->setConditions( $QueryParams->getConditions()." AND del=0 " );
-                else$QueryParams->setConditions( "del=0 " );
-
          $nameCLass = get_called_class();
          $newObject = new $nameCLass;
 
+         $tableAlias = self::getTableAlias( $newObject->tableName() );
+         if( empty( $QueryParams ) )$QueryParams = DBQueryParamsClass::CreateParams()->setConditions( $tableAlias.".del=0" );
+            elseif( $QueryParams->getConditions()!="" ) $QueryParams->setConditions( $QueryParams->getConditions()." AND ".$tableAlias.".del=0 " );
+                else$QueryParams->setConditions( $tableAlias.".del=0 " );
+
+         // Выставляем сортировку по умолчанию
+         if( !$QueryParams->getLimit()  )$QueryParams->setOrderBy( $tableAlias.".id" );
+
+         // Выставляем поля по умолчанию
+         if( !$QueryParams->getFields() )$QueryParams->setFields( $tableAlias.".*" );
+
+         // Определяем параметр WHERE
+         if( $QueryParams->getWhere() )$dopWhere = $QueryParams->getWhere();
+                                  else $dopWhere = $newObject->tableName()." as ".$tableAlias;
+
          $arrayOffer = Yii::app()->db->cache( $QueryParams->getCache() )->createCommand()
             ->select( $QueryParams->getFields() )
-            ->from( $newObject->tableName() )
+            ->from( $dopWhere )
             ->where( $QueryParams->getConditions(), $QueryParams->getParams() )
             ->order( $QueryParams->getOrderBy() )
             ->limit( $QueryParams->getLimit() )
@@ -78,16 +89,21 @@
 
      static function count( DBQueryParamsClass $QueryParams = null )
      {
-         if( empty( $QueryParams ) )$QueryParams = DBQueryParamsClass::CreateParams()->setConditions( "del=0" );
-         elseif( $QueryParams->getConditions()!="" ) $QueryParams->setConditions( $QueryParams->getConditions()." AND del=0 " );
-         else$QueryParams->setConditions( "del=0 " );
-
          $nameCLass = get_called_class();
          $newObject = new $nameCLass;
+         $tableAlias = self::getTableAlias( $newObject->tableName() );
+
+         if( empty( $QueryParams ) )$QueryParams = DBQueryParamsClass::CreateParams()->setConditions( $tableAlias.".del=0" );
+            elseif( $QueryParams->getConditions()!="" ) $QueryParams->setConditions( $QueryParams->getConditions()." AND ".$tableAlias.".del=0 " );
+                else $QueryParams->setConditions( $tableAlias.".del=0 " );
+
+         // Определяем параметр WHERE
+         if( $QueryParams->getWhere() )$dopWhere = $QueryParams->getWhere();
+                                  else $dopWhere = $newObject->tableName()." as ".$tableAlias;
 
          $count = Yii::app()->db->cache( $QueryParams->getCache() )->createCommand()
-             ->select( "count(id)" )
-             ->from( $newObject->tableName() )
+             ->select( "count(".$tableAlias.".id)" )
+             ->from( $dopWhere )
              ->where( $QueryParams->getConditions(), $QueryParams->getParams() )
              ->order( $QueryParams->getOrderBy() )
              ->limit( $QueryParams->getLimit() )
@@ -312,6 +328,11 @@
 
         return false;
     }
+
+     static function getTableAlias( $table )
+     {
+         return $table."_as";
+     }
 
     public function getImages()
     {
