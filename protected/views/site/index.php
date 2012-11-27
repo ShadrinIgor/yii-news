@@ -13,10 +13,13 @@ $text = 'Наше бюро переводов ХХХХХХХХХ располо�
 Переводы, выполненные специалистами бюро переводов ХХХХХ, отличаются точностью и четкостью и максимальным сохранением стиля документа и его профессиональных особенностей.
 Выпущенный нами документ не нуждается в дополнительных правках и проверках.';
 
-print_r( Yii::app()->textAnalysis->getAnalysis( $text ) );
+//print_r( Yii::app()->textAnalysis->getAnalysis( $text ) );
 
+$newCriteria = new CDbCriteria( array(
+        "limit"     => 10
+) );
 
-foreach( CatalogNews::fetchAll( DBQueryParamsClass::CreateParams()->setLimit(10), array( "catalog_country", "catalog_cid" )) as $values )
+foreach( CatalogNews::fetchAll( $newCriteria, array( "catalog_country", "catalog_cid" )) as $values )
 {
     $this->widget('newsWidget', array(
         'values'=>$values

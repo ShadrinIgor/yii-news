@@ -18,34 +18,53 @@
      * @return array $arrayItemObject Возвращает массив объетов взятых из базе на основе переданных параметров
      * @return mixed $indexNumber По кокому принципу выставлять порядковые номера, по умолчанию INDEX выставляет от 0,1,2. Если указать ID то в качестве индексов будут выставленны ID записей
      */
-     static function fetchAll( DBQueryParamsClass $QueryParams = null, array $relationsTable = array(), $indexNumber = "index" )
+     static function fetchAll( $QueryParams = null, array $relationsTable = array(), $indexNumber = "index" )
      {
+         //
+         if( !is_a( $QueryParams, "DBQueryParamsClass" ) && !is_a( $QueryParams, "CDbCriteria" ) && !is_string( $QueryParams  ) )
+                return false;
+
          $nameCLass = get_called_class();
          $newObject = new $nameCLass;
 
          $tableAlias = self::getTableAlias( $newObject->tableName() );
-         if( empty( $QueryParams ) )$QueryParams = DBQueryParamsClass::CreateParams()->setConditions( $tableAlias.".del=0" );
-            elseif( $QueryParams->getConditions()!="" ) $QueryParams->setConditions( $QueryParams->getConditions()." AND ".$tableAlias.".del=0 " );
-                else$QueryParams->setConditions( $tableAlias.".del=0 " );
 
-         // Выставляем сортировку по умолчанию
-         if( !$QueryParams->getLimit()  )$QueryParams->setOrderBy( $tableAlias.".id" );
+         if( is_a( $QueryParams, "DBQueryParamsClass" )  )
+         {
+             if( empty( $QueryParams ) )$QueryParams = DBQueryParamsClass::CreateParams()->setConditions( $tableAlias.".del=0" );
+                elseif( $QueryParams->getConditions()!="" ) $QueryParams->setConditions( $QueryParams->getConditions()." AND ".$tableAlias.".del=0 " );
+                    else$QueryParams->setConditions( $tableAlias.".del=0 " );
 
-         // Выставляем поля по умолчанию
-         if( !$QueryParams->getFields() )$QueryParams->setFields( $tableAlias.".*" );
+             // Выставляем сортировку по умолчанию
+             if( !$QueryParams->getLimit()  )$QueryParams->setOrderBy( $tableAlias.".id" );
 
-         // Определяем параметр WHERE
-         if( $QueryParams->getWhere() )$dopWhere = $QueryParams->getWhere();
-                                  else $dopWhere = $newObject->tableName()." as ".$tableAlias;
+             // Выставляем поля по умолчанию
+             if( !$QueryParams->getFields() )$QueryParams->setFields( $tableAlias.".*" );
 
-         $arrayOffer = Yii::app()->db->cache( $QueryParams->getCache() )->createCommand()
-            ->select( $QueryParams->getFields() )
-            ->from( $dopWhere )
-            ->where( $QueryParams->getConditions(), $QueryParams->getParams() )
-            ->order( $QueryParams->getOrderBy() )
-            ->limit( $QueryParams->getLimit() )
-            ->offset( $QueryParams->getPage() )
-            ->queryAll();
+             // Определяем параметр WHERE
+             if( $QueryParams->getWhere() )$dopWhere = $QueryParams->getWhere();
+                                      else $dopWhere = $newObject->tableName()." as ".$tableAlias;
+
+             $arrayOffer = Yii::app()->db->cache( $QueryParams->getCache() )->createCommand()
+                ->select( "*" )
+                ->select( $QueryParams->getFields() )
+                ->from( $dopWhere )
+                ->where( $QueryParams->getConditions(), $QueryParams->getParams() )
+                ->order( $QueryParams->getOrderBy() )
+                ->limit( $QueryParams->getLimit() )
+                ->offset( $QueryParams->getPage() )
+                ->queryAll();
+         }
+
+         if( is_a( $QueryParams, "CDbCriteria" )  )
+         {
+             $builder = new \CDbCommandBuilder(\Yii::app()->db->getSchema());
+             $command = $builder->createFindCommand( $newObject->tableName(), $QueryParams);
+             $sql = $command->getText();
+
+             $arrayOffer = Yii::app()->db->createCommand( $sql )
+                 ->queryAll();
+         }
 
          if( !empty( $relationsTable ) )
          {
