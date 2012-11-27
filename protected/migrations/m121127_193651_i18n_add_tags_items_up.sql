@@ -1,0 +1,2 @@
+INSERT INTO `yii-news`.`i18n` (`id` ,`category` ,`message`) VALUES (NULL , 'page', 'Теги');
+INSERT INTO `yii-news`.`i18n_translate` (`id` ,`language` ,`translation`) VALUES ( (SELECT id FROM i18n WHERE category='page' AND message='Теги' ) , 'ru', 'Теги');

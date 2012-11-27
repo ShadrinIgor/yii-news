@@ -56,6 +56,8 @@ return array(
             'showScriptName' => false,
 			'rules'=>array(
                 ''=>'site/index',
+
+//                '<controller:(tag)>/<action:(list)>.html'=> '<controller><action>', // /<action:(Tags)>
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
@@ -64,6 +66,8 @@ return array(
                 '<slug:\w+>-<country:\w+>_<controller:(category)>.html'=> '<controller>',
                 '<slug:\w+>_<controller:(category)>_<page:\d+>.html'=> '<controller>',
                 '<slug:\w+>_<controller:(category)>.html'=> '<controller>',
+
+                '<slug:\w+>_<id:\d+><controller:(tag)>_<page:\d+>.html'=> '<controller>',
                 '<slug:\w+>_<id:\d+><controller:(tag)>.html'=> '<controller>',
 
                 '<slug:\w+>_<id:\d+>_<controller:(news)>.html'=> '<controller>',

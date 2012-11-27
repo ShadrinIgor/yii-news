@@ -13,6 +13,7 @@ class DBQueryParamsClass
     private $_orderBy;
     private $_orderType = 'ASC';
     private $_page = null;
+    private $_group;
     private $_cache = 1000; //
     private $_limit = 10;  // Если надо будет вывести все записи то необходимо выставить -1
 
@@ -25,6 +26,18 @@ class DBQueryParamsClass
     public function __construct()
     {
         return $this;
+    }
+
+
+    public function setGroup( $value )
+    {
+        $this->_group = $value;
+        return $this;
+    }
+
+    public function getGroup( )
+    {
+        return $this->_group;
     }
 
     public function setConditions( $value )

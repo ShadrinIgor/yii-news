@@ -26,7 +26,7 @@ class TagController extends Controller
             $params = array();
 
             $links = array(
-                "����" => array( 'category/', array("slug"=> SiteHelper::checkedSlugName( $tag->tag_translate ) ) ),
+                Yii::t( "page", "Теги") => array( 'tag/list', array( ) ),
                 $tag->name
             );
 
@@ -49,7 +49,7 @@ class TagController extends Controller
             );
 
             if( !empty( $_GET["slug"] ) )$urlParams = array( "slug"=>$_GET["slug"] );
-            if( !empty( $_GET["id"] ) )$urlParams = array_merge( $urlParams, array( "country"=>$_GET["id"]  ));
+            if( !empty( $_GET["id"] ) )$urlParams = array_merge( $urlParams, array( "id"=>$_GET["id"]  ));
 
             $this->render('index',
                     array
@@ -67,6 +67,30 @@ class TagController extends Controller
 
         if( $error == true )$this->redirect("site/error");
 	}
+
+    public function actionList()
+    {
+        $listTags = CatNewsTags::fetchAll(
+            DBQueryParamsClass::CreateParams()
+                ->setWhere( "cat_news_tags cat_news_tags_as, cat_news_tags_relation b" )
+                ->setConditions( "b.tag_id = cat_news_tags_as.id" )
+                ->setGroup( "b.tag_id" )
+                ->setOrderBy( " count(b.id) DESC" )
+                ->setLimit( 300 )
+        );
+
+        $links = array(
+            Yii::t( "page", "Теги")
+        );
+
+        $this->render('list',
+            array
+            (
+                "listTags"   => $listTags,
+                "links"      => $links,
+            )
+        );
+    }
 
 	// Uncomment the following methods and override them if needed
 	/*

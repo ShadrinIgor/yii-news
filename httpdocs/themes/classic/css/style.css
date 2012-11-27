@@ -681,3 +681,5 @@ h2{ margin-top: 10px; }
 .bigWord{ font-weight:bold; }
 .topBaner{ text-align: center }
 .greyText{ color: #AFAFAF;font-style: italic; }
+#listTags{font-size: 16px;line-height: 30px;text-align: center;}
+#listTags a { padding:0px 5px; }

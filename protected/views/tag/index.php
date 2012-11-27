@@ -21,7 +21,7 @@
         "count"   => $countNews,
         "offset"  => $offset,
         "page"    => $page,
-        "url"     => array( "category/", $urlParams )
+        "url"     => array( "tag/", $urlParams )
     ) );
     ?>
 </div>

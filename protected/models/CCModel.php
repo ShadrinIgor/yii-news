@@ -45,14 +45,18 @@
              if( $QueryParams->getWhere() )$dopWhere = $QueryParams->getWhere();
                                       else $dopWhere = $newObject->tableName()." as ".$tableAlias;
 
+             // Определяем параметр WHERE
+             if( $QueryParams->getFields() )$fields = $QueryParams->getFields();
+                                       else $fields = "*";
+
              $arrayOffer = Yii::app()->db->cache( $QueryParams->getCache() )->createCommand()
-                ->select( "*" )
-                ->select( $QueryParams->getFields() )
+                ->select( $fields )
                 ->from( $dopWhere )
                 ->where( $QueryParams->getConditions(), $QueryParams->getParams() )
                 ->order( $QueryParams->getOrderBy() )
                 ->limit( $QueryParams->getLimit() )
                 ->offset( $QueryParams->getPage() )
+                ->group( $QueryParams->getGroup() )
                 ->queryAll();
          }
 
