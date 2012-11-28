@@ -9,9 +9,10 @@
     <h1><?= Yii::t( "page", "Теги") ?></h1>
 
     <div id="listTags">
-        <?php foreach( $listTags as $tag )
+        <?php
+            foreach( $listTags as $tag )
             {
-                echo '<a href="'.SiteHelper::createUrl("tag/", array( "slug"=>$tag->tag_translate, "id"=>$tag->id )).'" title="'.$tag->name .' - тег новостей">'.$tag->name.'</a>';
+                echo '<a class="tag'.rand( 1, 6 ).'" href="'.SiteHelper::createUrl("tag/", array( "slug"=>$tag->tag_translate, "id"=>$tag->id )).'" title="'.$tag->name .' - тег новостей">'.$tag->name.'</a>';
             }
         ?>
     </div>

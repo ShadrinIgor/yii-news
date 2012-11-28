@@ -70,26 +70,30 @@ class TagController extends Controller
 
     public function actionList()
     {
-        $listTags = CatNewsTags::fetchAll(
-            DBQueryParamsClass::CreateParams()
-                ->setWhere( "cat_news_tags cat_news_tags_as, cat_news_tags_relation b" )
-                ->setConditions( "b.tag_id = cat_news_tags_as.id" )
-                ->setGroup( "b.tag_id" )
-                ->setOrderBy( " count(b.id) DESC" )
-                ->setLimit( 300 )
-        );
+        if( $this->beginCache( "list_tags", array('duration'=>3600*24) ) )
+        {
+            $listTags = CatNewsTags::fetchAll(
+                DBQueryParamsClass::CreateParams()
+                    ->setWhere( "cat_news_tags cat_news_tags_as, cat_news_tags_relation b" )
+                    ->setConditions( "b.tag_id = cat_news_tags_as.id" )
+                    ->setGroup( "b.tag_id" )
+                    ->setOrderBy( " count(b.id) DESC" )
+                    ->setLimit( 300 )
+            );
 
-        $links = array(
-            Yii::t( "page", "Теги")
-        );
+            $links = array(
+                Yii::t( "page", "Теги")
+            );
 
-        $this->render('list',
-            array
-            (
-                "listTags"   => $listTags,
-                "links"      => $links,
-            )
-        );
+            $this->render('list',
+                array
+                (
+                    "listTags"   => $listTags,
+                    "links"      => $links,
+                )
+            );
+            $this->endCache();
+        }
     }
 
 	// Uncomment the following methods and override them if needed
