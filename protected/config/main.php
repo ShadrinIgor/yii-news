@@ -70,6 +70,8 @@ return array(
                 '<slug:\w+>_<id:\d+><controller:(tag)>_<page:\d+>.html'=> '<controller>',
                 '<slug:\w+>_<id:\d+><controller:(tag)>.html'=> '<controller>',
 
+                '<slug:(about)>.html'=> array('page/index', 'urlSuffix' => '.html'),
+
                 '<slug:\w+>_<id:\d+>_<controller:(news)>.html'=> '<controller>',
 			),
 		),
