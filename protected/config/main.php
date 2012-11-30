@@ -57,6 +57,7 @@ return array(
 			'rules'=>array(
                 ''=>'site/index',
 
+                '<slug:[\w-]+>_<id:\d+>_<controller:(news)>.html'=> '<controller>',
 //                '<controller:(tag)>/<action:(list)>.html'=> '<controller><action>', // /<action:(Tags)>
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
@@ -69,11 +70,8 @@ return array(
 
                 '<slug:\w+>_<id:\d+><controller:(tag)>_<page:\d+>.html'=> '<controller>',
                 '<slug:\w+>_<id:\d+><controller:(tag)>.html'=> '<controller>',
-                '<slug:(investment|contacts|partnership|map|links)>.html'=> 'page',
 
-//                '<slug:(about)>.html'=> array('page/index', 'urlSuffix' => '.html'),
-
-                '<slug:\w+>_<id:\d+>_<controller:(news)>.html'=> '<controller>',
+                '<slug:\w+>.html'=> 'page',
 			),
 		),
 

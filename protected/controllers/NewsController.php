@@ -18,10 +18,16 @@ class NewsController extends Controller
                                     ->setOrderBy( 'date desc, col desc' )
                                     ->setLimit( 5 );
 
+            $links = array();
+            $links[ $newsData->cid_id->name ] = array( 'category/', array("slug"=>$newsData->cid_id->key_word) );
+            if( $newsData->country->id >0 )$links[ $newsData->country->name2 ] = array( 'category/', array("slug"=>$newsData->cid_id->key_word, "country"=>$newsData->country->key_word2) );
+
+
             $this->render('index',
                 array(
                     "otherNews"       => CatalogNews::fetchAll( $otherNewsParams, array( "catalog_country", "catalog_cid" )),
                     "newsData"        => $newsData,
+                    "links"           => $links
                 ));
         }
             else $this->redirect("/");

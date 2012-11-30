@@ -15,8 +15,6 @@ class PageController extends Controller
                         ->setConditions('key_word=:key_word')
                         ->setParams( array( ':key_word'=> $slug ) )
                     );
-            print_r( $page );
-            die;
         }
 
         if( !empty( $page[0] ) && $page[0]->id >0 )

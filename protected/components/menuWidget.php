@@ -11,7 +11,6 @@ class menuWidget extends Widget
     public $controller;
     public function run()
     {
-        $curlManager = new CUrlManager();
         $this->render("menu", array());
     }
 }

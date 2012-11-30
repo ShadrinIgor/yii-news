@@ -12,7 +12,7 @@ class newsWidget extends CWidget
     public function run()
     {
         $curlManager = new CUrlManager();
-        $url = $this->controller->createurl( "news/", array( "id"=>$this->values->id, "slug"=>$this->values->key_word ) );
+        $url = $this->controller->createurl( "news/", array( "id"=>$this->values->id, "slug"=> SiteHelper::checkedSlugName( $this->values->key_word ) ) );
         $this->render("news", array(
                     'values'      => $this->values,
                     'url'         => $url

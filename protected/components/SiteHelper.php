@@ -185,7 +185,10 @@ class SiteHelper
      */
     static function checkedSlugName( $slug )
     {
-        $arrayReplace = array( '$', "_", "&", "?", "#" );
-        return str_replace( $arrayReplace, "", $slug );
+        $arrayReplace = array( '$', "&", "?", "#" );
+        $arrayReplace = str_replace( $arrayReplace, "", $slug );
+
+        $arrayReplace = array( ' ', "_" );
+        return str_replace( $arrayReplace, "-", $slug );
     }
 }

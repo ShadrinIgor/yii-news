@@ -1,9 +1,6 @@
 <?php
     $this->widget('addressLineWidget', array(
-        'links'=>array(
-            $newsData->cid_id->name => array( 'category/', array("slug"=>$newsData->cid_id->key_word) ),
-            $newsData->name,
-        ),
+        'links'=>array_merge( $links, array( $newsData->name ) ),
     ));
 ?>
 <div id="PageText" class="newsPage">
