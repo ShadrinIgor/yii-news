@@ -71,6 +71,7 @@ return array(
                 '<slug:\w+>_<id:\d+><controller:(tag)>_<page:\d+>.html'=> '<controller>',
                 '<slug:\w+>_<id:\d+><controller:(tag)>.html'=> '<controller>',
 
+                '<controller:(week)>.html'=> '<controller>',
                 '<slug:\w+>.html'=> 'page',
 			),
 		),

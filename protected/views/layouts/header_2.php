@@ -22,7 +22,7 @@ end of facebook like -->
 </div>
 <div id="Menu">
     <div class="MSel">
-        <a title="мировые Новости недели, последние новости" href="http://world-news.uz/news_week/">Новости недели</a>
+        <a title="мировые Новости недели, последние новости" href="<?= SiteHelper::createUrl( "week/" ) ?>"">Новости недели</a>
         <a title="теги новостей" href="<?= SiteHelper::createUrl( "tag/list" ) ?>">Теги</a>
 
     </div>

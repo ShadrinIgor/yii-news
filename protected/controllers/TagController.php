@@ -6,7 +6,6 @@ class TagController extends Controller
 	{
         $this->layout = "/layouts/inner";
         $error = false;
-        $category = array();
 
         $id =  ( !empty( $_GET["id"] ) ) ? SiteHelper::checkedVaribal( $_GET["id"], "int" ) : "";
         if( empty( $id ) )$error = true;
@@ -22,9 +21,6 @@ class TagController extends Controller
             $page = !empty( $_GET["page"] ) ? SiteHelper::getParam( $_GET["page"], 1, "int" ) : 1;
 
             $offset = 10;
-            $conditions = "";
-            $params = array();
-
             $links = array(
                 Yii::t( "page", "Теги") => array( 'tag/list', array( ) ),
                 $tag->name
