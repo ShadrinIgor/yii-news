@@ -4,11 +4,11 @@
         <div class="BM_block">
             <div class="BML_title">О проекте</div>
             <ul>
-                <li><a href="<?= SiteHelper::createUrl("page/", array( "slug"=>"about" )) ?>" title="контакты">контакты</a></li>
-                <li><a href="http://www.world-news.uz/investment/" title="финансовым партнерам">финансовым партнерам</a></li>
-                <li><a href="http://www.world-news.uz/partnership/" title="информационным партнерам">информационным партнерам</a></li>
-                <li><a href="http://www.world-news.uz/map/" title="карта сайа">карта сайта</a></li>
-                <li><a href="http://www.world-news.uz/links/" title="ссылки">ссылки</a></li>
+                <li><a href="<?= SiteHelper::createUrl("page/", array( "slug"=>"contacts" )) ?>" title="контакты">контакты</a></li>
+                <li><a href="<?= SiteHelper::createUrl("page/", array( "slug"=>"investment" )) ?>" title="финансовым партнерам">финансовым партнерам</a></li>
+                <li><a href="<?= SiteHelper::createUrl("page/", array( "slug"=>"partnership" )) ?>" title="информационным партнерам">информационным партнерам</a></li>
+                <li><a href="<?= SiteHelper::createUrl("page/", array( "slug"=>"map" )) ?>" title="карта сайа">карта сайта</a></li>
+                <li><a href="<?= SiteHelper::createUrl("page/", array( "slug"=>"links" )) ?>" title="ссылки">ссылки</a></li>
             </ul>
         </div>
         <div class="BM_block">

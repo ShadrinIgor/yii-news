@@ -172,6 +172,11 @@ class SiteHelper
     static function checkedVaribal( $value, $type="string" )
     {
         if( $type == "int" )$value = abs( (int)$value );
+        if( $type == "string" )
+        {
+            $value = trim( strip_tags( $value ) );
+            $value = mysql_escape_string( $value );
+        }
         return $value;
     }
 

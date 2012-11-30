@@ -6,14 +6,29 @@ class PageController extends Controller
 	{
         $error = false;
         $this->layout = "/layouts/inner";
-echo "*";
-        $this->render('index',
-                array
-                (
-                )
-            );
 
-        if( $error == true )$this->redirect("site/error");
+        $slug = !empty( $_GET["slug"] ) ? $slug = SiteHelper::checkedVaribal( $_GET["slug"] ) : "";
+
+        if( !empty( $slug ) )
+        {
+            $page = CatalogPages::fetchAll( DBQueryParamsClass::CreateParams()
+                        ->setConditions('key_word=:key_word')
+                        ->setParams( array( ':key_word'=> $slug ) )
+                    );
+            print_r( $page );
+            die;
+        }
+
+        if( !empty( $page[0] ) && $page[0]->id >0 )
+        {
+            $this->render('index',
+                    array
+                    (
+                        "page"=>$page[0]
+                    )
+                );
+        }
+         else $this->redirect("site/error");
 	}
 
 	// Uncomment the following methods and override them if needed
