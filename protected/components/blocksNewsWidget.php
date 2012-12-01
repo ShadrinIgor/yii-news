@@ -10,7 +10,6 @@ class blocksNewsWidget extends Widget
 {
     public function run()
     {
-            $this->render('blocksNews', array());
-
+            $this->render('blocksNews', array( "type"=>$this->type ));
     }
 }

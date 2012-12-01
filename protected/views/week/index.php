@@ -5,7 +5,7 @@
 <div id="MLeft">
     <h1>Новости за неделю</h1>
 <?php
-    for( $i=0;$i<=$curent;$i++ ):
+    for( $i=$curent;$i>0;$i-- ):
         $day = date( "j", $startDate ) + $i;
         $monthYear = date( ".m.Y", $startDate );
 
