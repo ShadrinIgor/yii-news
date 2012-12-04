@@ -1,56 +1,3 @@
-<?php
-$cacheId = "category_";
-if( sizeof( $category )>0 )$cacheId .= "catid-".$category[0]->id;
-if( sizeof( $country )>0 )
-{
-    if( !empty( $cacheId ) )$cacheId.="_";
-    $cacheId .= "country-".$country[0]->id;
-}
-$cacheId.="_".$page;
-
-//if( $page >1 || $this->beginCache( $cacheId, array('duration'=>3600) ) ) :
-
-if( sizeof( $category )>0 )
-{
-    $conditions = "cid_id=:cid_id";
-    $params = array( ":cid_id" => $category[0]->id );
-    if( sizeof( $country )>0 )
-    {
-        $links = array(
-                        $category[0]->name => array( 'category/', array("slug"=>$category[0]->key_word) ),
-                        $country[0]->name,
-                      );
-    }
-        else
-    {
-        $links = array(
-            $category[0]->name,
-        );
-    }
-}
-
-if( sizeof( $country )>0 )
-{
-    if( !empty( $conditions ) )
-    {
-        $conditions.=" AND country=:country";
-        $params = array_merge( $params, array( ":country" => $country[0]->id ) );
-    }
-    else
-    {
-        $params = array( ":country" => $country[0]->id );
-        $conditions = "country=:country";
-    }
-
-    if( sizeof( $category ) ==0 )
-    {
-        $links = array(
-            $country[0]->name,
-        );
-    }
-}
-?>
-
 <div id="PageText">
     <?php
         $this->widget('addressLineWidget', array(
@@ -65,22 +12,22 @@ if( sizeof( $country )>0 )
         if( sizeof( $category )>0 )echo " ". $country[0]->name2;
             else echo $country[0]->name;
     ?></h1>
-<?php
 
-$offset = 10;
-$listNews = CatalogNews::fetchAll(
-    DBQueryParamsClass::CreateParams()
-        ->setConditions( $conditions )
-        ->setParams( $params )
-        ->setLimit( $offset )
-        ->setPage( ( $page-1 )*$offset )
-);
+<?php if( sizeof( $afishi ) >0  ) : ?>
+    <h2>Афиши и анонсы</h2>
+    <div class="topListNews cidListNews">
+        <div class="leftSlide prevStory03$num"></div>
+        <div class="newsBlock03" id="newsBlock$num">
+            <ul>
+                <?php foreach( $afishi as $afisha ):
+                    $this->widget( "newsWidget", array( "values"=>$afisha,"view"=>"newsCategoryAnonc" ) );
+                endforeach; ?>
+            </ul>
+        </div>
+        <div class="rightSlide nextStory03$num"></div>
+    </div>
+<?php endif;
 
-$countNews = CatalogNews::count(
-    DBQueryParamsClass::CreateParams()
-        ->setConditions( $conditions )
-        ->setParams( $params )
-);
 foreach( $listNews as $values )
 {
     $this->widget('newsWidget', array(

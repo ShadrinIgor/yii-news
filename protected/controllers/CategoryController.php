@@ -40,14 +40,79 @@ class CategoryController extends Controller
             if( ( sizeof( $category ) >0 && $category[0]->id >0 ) || ( sizeof( $country ) >0 && $country[0]->id >0 ) )
             {
                 $page = !empty( $_GET["page"] ) ? SiteHelper::getParam( $_GET["page"], 1, "int" ) : 1;
+                $cacheId = "category_";
+                if( sizeof( $category )>0 )$cacheId .= "catid-".$category[0]->id;
+                if( sizeof( $country )>0 )
+                {
+                    if( !empty( $cacheId ) )$cacheId.="_";
+                    $cacheId .= "country-".$country[0]->id;
+                }
+                $cacheId.="_".$page;
+
+//if( $page >1 || $this->beginCache( $cacheId, array('duration'=>3600) ) ) :
+
+                $conditions = "date<=:date";
+                $params = array( ":date"=>date("Y-m-d") );
+                if( sizeof( $category )>0 )
+                {
+                    $conditions .= " AND cid_id=:cid_id";
+                    $params =  array_merge( $params, array( ":cid_id" => $category[0]->id ) );
+                    if( sizeof( $country )>0 )
+                    {
+                        $links = array(
+                            $category[0]->name => array( 'category/', array("slug"=>$category[0]->key_word) ),
+                            $country[0]->name,
+                        );
+                    }
+                    else
+                    {
+                        $links = array(
+                            $category[0]->name,
+                        );
+                    }
+                }
+
+                if( sizeof( $country )>0 )
+                {
+                    $conditions.=" AND country=:country";
+                    $params = array_merge( $params, array( ":country" => $country[0]->id ) );
+
+                    if( sizeof( $category ) ==0 )
+                    {
+                        $links = array(
+                            $country[0]->name,
+                        );
+                    }
+                }
+
+                $offset = 10;
+                $listNews = CatalogNews::fetchAll(
+                    DBQueryParamsClass::CreateParams()
+                        ->setConditions( $conditions )
+                        ->setParams( $params )
+                        ->setLimit( $offset )
+                        ->setPage( ( $page-1 )*$offset )
+                        ->setOrderBy( "date DESC, col DESC" )
+                );
+
+                $countNews = CatalogNews::count(
+                    DBQueryParamsClass::CreateParams()
+                        ->setConditions( $conditions )
+                        ->setParams( $params )
+                );
+
                 $this->render('index',
                         array
                         (
+                            "listNews"  => $listNews,
+                            "countNews" => $countNews,
+                            "offset"    => $offset,
+                            "links"     => $links,
                             "category"  => $category,
                             "country"   => $country,
                             "afishi"    => CatalogNews::fetchAll( DBQueryParamsClass::CreateParams()
                                                     ->setConditions( "cid_id=:cid_id AND date>:date" )
-                                                    ->setParams( array( ":cid_id", "" ) )
+                                                    ->setParams( array( ":cid_id"=>$category[0]->id, ":date"=>date("Y-m-d") ) )
                                                     ->setLimit( 6 )
                                                 ),
                             "page"      => $page
