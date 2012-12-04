@@ -45,6 +45,11 @@ class CategoryController extends Controller
                         (
                             "category"  => $category,
                             "country"   => $country,
+                            "afishi"    => CatalogNews::fetchAll( DBQueryParamsClass::CreateParams()
+                                                    ->setConditions( "cid_id=:cid_id AND date>:date" )
+                                                    ->setParams( array( ":cid_id", "" ) )
+                                                    ->setLimit( 6 )
+                                                ),
                             "page"      => $page
                         )
                     );
