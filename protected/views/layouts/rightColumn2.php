@@ -3,7 +3,11 @@
     <br/>
     <div class="ML_block_big">
         <h2>Афиши и Анонсы</h2>
-
+        <?php $this->widget('blocksAnoncWidget'); ?>
+    </div>
+    <div class="ML_block_big">
+        <h2>Видео новости</h2>
+        <?php $this->widget('blocksNewsVideoWidget'); ?>
     </div>
 
     <div class="ML_block">

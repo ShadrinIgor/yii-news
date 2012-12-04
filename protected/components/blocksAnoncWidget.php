@@ -6,10 +6,10 @@
  * Time: 16:00
  * Виджет для вывода списка новостей
  */
-class blocksNewsWidget extends Widget
+class blocksAnoncWidget extends Widget
 {
     public function run()
     {
-            $this->render('blocksNews', array( ));
+            $this->render('blocksAnonc', array( ));
     }
 }
