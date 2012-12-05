@@ -160,8 +160,8 @@ img{	border:0px;}
 #TN_sep{ float:left;width:1px; background:#292927;height:80%; }
 .TopNews .firstNews{ border-right:1px solid #1E1D1B;padding-right: 10px;width: 47%; }
 
-.topListNews { overflow:hidden;overflow:hidden;padding: 0 0 10px;font-size:12px;line-height: 12px;border-top:1px solid #292927;border-bottom:1px solid #292927; }
-.topListNews .oneNews { margin-top:10px;width:180px;overflow:hidden;min-width:180px;height: 155px; }
+.topListNews { margin-bottom: 10px;overflow:hidden;overflow:hidden;padding: 0 0 10px;font-size:12px;line-height: 12px;border-top:1px solid #292927;border-bottom:1px solid #292927; }
+.topListNews .oneNews { width:180px;overflow:hidden;min-width:180px;height: 155px; }
 .topListNews .selNews { background:rgba( 255, 255, 255, 0.4  ); }
 .topListNews .popup
 {
@@ -180,7 +180,7 @@ img{	border:0px;}
 	margin-left: -30px;
 }
 
-.topListNews ul{ overflow:hidden;list-style:none;padding: 0;}
+.topListNews ul{ overflow:hidden;list-style:none;padding: 0;margin: 9px 0;}
 .topListNews li{ width:200px;display: inline;}
 .fotoNews .topListNews .oneNews  img{ width:100px; }
 .topListNews .oneNews b{ font-size:14px; }

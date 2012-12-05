@@ -179,4 +179,10 @@ return array(
         ),
 	),
 
+    'controllerMap'=>array(
+        'min'=>array(
+            'class'=>'ext.minScript.controllers.ExtMinScriptController',
+        ),
+    ),
+
 );

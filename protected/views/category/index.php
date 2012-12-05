@@ -16,8 +16,8 @@
 <?php if( sizeof( $afishi ) >0  ) : ?>
     <h2>Афиши и анонсы</h2>
     <div class="topListNews cidListNews">
-        <div class="leftSlide prevStory03$num"></div>
-        <div class="newsBlock03" id="newsBlock$num">
+        <div class="leftSlide prevStory031"></div>
+        <div class="newsBlock03" id="newsBlock1">
             <ul>
                 <?php foreach( $afishi as $afisha ):
                     $this->widget( "newsWidget", array( "values"=>$afisha,"view"=>"newsCategoryAnonc" ) );

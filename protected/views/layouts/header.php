@@ -16,8 +16,18 @@
     <link href="<?php echo $Theme->getBaseUrl() ?>/js/lightbox/lightbox.css" rel="stylesheet" type="text/css" />
 
     <?php
-       // Yii::app()->clientScript->registerScriptFile( $Theme->getBaseUrl()."/js/jquery/jquery.js" );
-    ///js/all.js
+
+        $cs=Yii::app()->clientScript;
+        $cs->coreScriptPosition=CClientScript::POS_HEAD;
+        $cs->scriptMap=array();
+        $baseUrl= Yii::app()->assetManager->basePath;
+        $cs->registerScriptFile($baseUrl.'/js/jquery/jquery.js');
+        $cs->registerScriptFile($baseUrl.'/js/jquery/jquery.easing.1.3.js');
+        $cs->registerScriptFile($baseUrl.'/js/functions.js');
+        $cs->registerScriptFile($baseUrl.'/js/lightbox/lightbox.js');
+
+//        $cs->registerCssFile($baseUrl.'/js/functions.js');
+
     ?>
     <!--script type="text/javascript" src="<?php echo $Theme->getBaseUrl() ?>/js/jquery/jquery.js"></script>
     <script type="text/javascript" src="<?php echo $Theme->getBaseUrl() ?>/js/jquery/jquery.easing.1.3.js"></script>

@@ -2,11 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <?php $this->renderPartial('//layouts/header'); ?>
-    <?php
-        $cs=Yii::app()->clientScript;
-        $cs->registerCSSFile($Theme->getBaseUrl()."/css/style_new.css");
-    ?>
-    <!--link href="<?php echo $Theme->getBaseUrl() ?>/css/style_new.css" rel="stylesheet" type="text/css" /-->
+    <link href="<?php echo $Theme->getBaseUrl() ?>/css/style_new.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <!-- facebook like -->
