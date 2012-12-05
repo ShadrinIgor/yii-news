@@ -16,8 +16,7 @@
     <link href="<?php echo $Theme->getBaseUrl() ?>/js/lightbox/lightbox.css" rel="stylesheet" type="text/css" />
 
     <?php
-        $cs = Yii::app()->clientScript
-                ->registerScriptFile( "functions.js" );
+       // Yii::app()->clientScript->registerScriptFile( $Theme->getBaseUrl()."/js/jquery/jquery.js" );
     ///js/all.js
     ?>
     <!--script type="text/javascript" src="<?php echo $Theme->getBaseUrl() ?>/js/jquery/jquery.js"></script>
