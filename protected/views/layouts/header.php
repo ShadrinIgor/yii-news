@@ -15,10 +15,15 @@
     <link href="<?php echo $Theme->getBaseUrl() ?>/css/b_style.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo $Theme->getBaseUrl() ?>/js/lightbox/lightbox.css" rel="stylesheet" type="text/css" />
 
-    <script type="text/javascript" src="<?php echo $Theme->getBaseUrl() ?>/js/jquery/jquery.js"></script>
+    <?php
+        $cs = Yii::app()->clientScript
+                ->registerScriptFile( "functions.js" );
+    ///js/all.js
+    ?>
+    <!--script type="text/javascript" src="<?php echo $Theme->getBaseUrl() ?>/js/jquery/jquery.js"></script>
     <script type="text/javascript" src="<?php echo $Theme->getBaseUrl() ?>/js/jquery/jquery.easing.1.3.js"></script>
     <script type="text/javascript" src="<?php echo $Theme->getBaseUrl() ?>/js/functions.js"></script>
-    <script type="text/javascript" src="<?php echo $Theme->getBaseUrl() ?>/js/lightbox/lightbox.js"></script>
+    <script type="text/javascript" src="<?php echo $Theme->getBaseUrl() ?>/js/lightbox/lightbox.js"></script-->
 
     <meta http-equiv="Cache-Control" content="public"/>
     <meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate"/>

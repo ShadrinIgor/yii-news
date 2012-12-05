@@ -106,6 +106,15 @@ return array(
 				),
 			),
 		),
+        'clientScript' => array(
+            'class' => 'ext.minScript.components.ExtMinScript',
+            'scriptMap'=>array(
+                'jquery.js'=>'/js/all.js',
+                'jquery.easing.1.3.js'=>'/js/all.js',
+                'functions.js'=>'/js/all.js',
+                'lightbox.js'=>'/js/all.js',
+                )
+        ),
 
         'messages'=>array(
             'class'            => 'DBCMessageSource',

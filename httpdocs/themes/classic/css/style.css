@@ -161,7 +161,7 @@ img{	border:0px;}
 .TopNews .firstNews{ border-right:1px solid #1E1D1B;padding-right: 10px;width: 47%; }
 
 .topListNews { overflow:hidden;overflow:hidden;padding: 0 0 10px;font-size:12px;line-height: 12px;border-top:1px solid #292927;border-bottom:1px solid #292927; }
-.topListNews .oneNews { margin-top:10px;width:180px;overflow:hidden;min-width:180px;height: 148px; }
+.topListNews .oneNews { margin-top:10px;width:180px;overflow:hidden;min-width:180px;height: 155px; }
 .topListNews .selNews { background:rgba( 255, 255, 255, 0.4  ); }
 .topListNews .popup
 {
@@ -223,7 +223,7 @@ img{	border:0px;}
 
 .prevStory01, .prevStory02, .nextStory01, .nextStory02{z-index: 1000;width:25px;height:25px;position: absolute;margin-left: 40%;cursor: pointer;background-size: 50px auto;}
 
-.newsBlock03{ width: 93%;float:left; overflow: hidden;height: 160px; }
+.newsBlock03{ width: 93%;float:left; overflow: hidden;height: 165px; }
 .cItem{ overflow:hidden;float:left;width:100%;margin-bottom:10px; }
 #MRight .cItem{padding-bottom: 5px;width:240px;border-bottom: 1px solid #9F9F9F;}
 .cItem img{ max-width:200px; }
