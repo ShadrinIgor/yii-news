@@ -71,7 +71,11 @@ return array(
                 '<slug:\w+>_<id:\d+><controller:(tag)>_<page:\d+>.html'=> '<controller>',
                 '<slug:\w+>_<id:\d+><controller:(tag)>.html'=> '<controller>',
 
-                '<controller:(week)>.html'=> '<controller>',
+                '<country:\w+>_<controller:(people)>.html'=> '<controller>',
+                '<category:\w+>_<controller:(people)>.html'=> '<controller>',
+                '<slug:\w+>_<controller:(people)>.html'=> '<controller>',
+                '<controller:(people)>_<page:\d+>.html'=> '<controller>',
+                '<controller:(week|people)>.html'=> '<controller>',
                 '<slug:\w+>.html'=> 'page',
 			),
 		),

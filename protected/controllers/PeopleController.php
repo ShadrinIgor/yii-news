@@ -6,25 +6,32 @@ class PeopleController extends Controller
 	{
         $this->layout = "/layouts/inner";
 
-        $otherNewsParams = DBQueryParamsClass::CreateParams()
-                                ->setConditions("country=:country AND cid_id=:cid AND id!=:id")
-                                ->setParams( array( ":country"=>$newsData->country->id, ":cid"=>$newsData->cid_id->id, ":id"=>$newsData->id ) )
-                                ->setOrderBy( 'date desc, col desc' )
-                                ->setLimit( 5 );
+        $page = !empty( $_GET["page"] ) ? SiteHelper::getParam( $_GET["page"], 1, "int" ) : 1;
+        $offset = 10;
+        $peoples = DBQueryParamsClass::CreateParams()
+                                ->setOrderBy( 'col desc, id desc' )
+                                ->setPage( ( $page-1 )*$offset )
+                                ->setLimit( $offset )
+                                ->setCache( 0 );
 
-        $links = array();
-        $links[ $newsData->cid_id->name ] = array( 'category/', array("slug"=>$newsData->cid_id->key_word) );
-        if( $newsData->country->id >0 )$links[ $newsData->country->name2 ] = array( 'category/', array("slug"=>$newsData->cid_id->key_word, "country"=>$newsData->country->key_word2) );
-
+        $links = array( Yii::t("page", "Люди"), );
+        //$links[ Yii::t("page", "Люди") ] = "";
 
         $this->render('index',
             array(
-                "peopleList"       =>  CatalogPeople::fetchAll( $otherNewsParams, array( "catalog_country", "catalog_cid" )),
-                "newsData"        => $newsData,
-                "links"           => $links
+                "peoples"       => CatalogPeople::fetchAll( $peoples, array("catalog_coutry", "catalog_people_cid")),
+                "count"         => CatalogPeople::count( $peoples),
+                "page"          => $page,
+                "offset"        => $offset,
+                "links"         => $links
             ));
 
 	}
+
+    public function actionList()
+    {
+        echo "&";
+    }
 
 	// Uncomment the following methods and override them if needed
 	/*
