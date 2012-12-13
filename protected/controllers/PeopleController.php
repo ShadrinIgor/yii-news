@@ -35,7 +35,6 @@ class PeopleController extends Controller
             }
         }
 
-
         $offset = 10;
         $peoples = DBQueryParamsClass::CreateParams()
                                 ->setConditions( $conditional )
@@ -50,7 +49,7 @@ class PeopleController extends Controller
         $this->render('index',
             array(
                 "peoples"           => CatalogPeople::fetchAll( $peoples, array("catalog_country", "catalog_people_cid")),
-                "count"             => CatalogPeople::count( $peoples),
+                "count"             => CatalogPeople::count( $peoples ),
                 "page"              => $page,
                 "offset"            => $offset,
                 "links"             => $links,

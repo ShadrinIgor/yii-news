@@ -129,8 +129,8 @@
              ->from( $dopWhere )
              ->where( $QueryParams->getConditions(), $QueryParams->getParams() )
              ->order( $QueryParams->getOrderBy() )
-             ->limit( $QueryParams->getLimit() )
-             ->offset( $QueryParams->getPage() )
+//             ->limit( $QueryParams->getLimit() )
+//             ->offset( $QueryParams->getPage() )
              ->queryScalar();
 
          return $count>0 ? $count : 0;
