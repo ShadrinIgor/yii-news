@@ -6,7 +6,7 @@
     ?>
     <?php Yii::app()->banners->getBannerByCategory( 1 ); ?>
 
-    <h1><?= Yii::t("page", "Люди") ?></h1>
+    <h1><?= $pageTitle ?></h1>
 
     <?php foreach( $peoples as $values ) : ?>
         <div class="cItem listItems">

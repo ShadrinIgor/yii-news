@@ -13,6 +13,8 @@ class PeopleController extends Controller
         $conditional=" 1=1 ";
         $params = array();
         $paginatorLinks = array();
+        $pageTitle = Yii::t("page", "Люди");
+
         if( !empty( $country ) )
         {
             $country = CatalogCountry::fetchByKeyWord( $country );
@@ -21,6 +23,7 @@ class PeopleController extends Controller
                 $conditional .= " AND country=:country_id";
                 $params = array_merge( $params, array( ":country_id"=>$country->id ) );
                 $paginatorLinks = array_merge( $paginatorLinks, array( "country"=>$country->key_word ) );
+                $pageTitle .= " ".$country->name2;
             }
         }
 
@@ -32,6 +35,7 @@ class PeopleController extends Controller
                 $conditional .= " AND cid_id=:category_id";
                 $params = array_merge( $params, array( ":category_id"=>$category->id ) );
                 $paginatorLinks = array_merge( $paginatorLinks, array( "category"=>$category->key_word ) );
+                $pageTitle = $category->name;
             }
         }
 
@@ -53,7 +57,8 @@ class PeopleController extends Controller
                 "page"              => $page,
                 "offset"            => $offset,
                 "links"             => $links,
-                "paginatorLinks"    => $paginatorLinks
+                "paginatorLinks"    => $paginatorLinks,
+                "pageTitle"         => $pageTitle
             ));
 
 	}
