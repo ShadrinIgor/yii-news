@@ -78,8 +78,8 @@ return array(
 
                 '<controller:(people)>-<category:\w+>_<page:\d+>.html'=> '<controller>',
                 '<controller:(people)>-<category:\w+>.html'=> '<controller>',
-
                 '<slug:\w+>_<controller:(people)>.html'=> '<controller>',
+
                 '<controller:(people)>_<page:\d+>.html'=> '<controller>',
                 '<controller:(week|people)>.html'=> '<controller>',
                 '<slug:\w+>.html'=> 'page',

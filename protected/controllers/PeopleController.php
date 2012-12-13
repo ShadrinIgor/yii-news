@@ -63,7 +63,7 @@ class PeopleController extends Controller
 
 	}
 
-    public function actionList()
+    public function actionDesc()
     {
         echo "&";
     }
