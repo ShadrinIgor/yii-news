@@ -136,6 +136,29 @@
          return $count>0 ? $count : 0;
      }
 
+     /*
+     * @desc Вытаскивает из базы значение по ID
+     * @param int $itemID Идентификатор записи в базе
+     * @return object $itemObect объет созданный на основе давнных полученных с базы
+     */
+     static function fetchByKeyWord( $keyWord )
+     {
+         $nameCLass = get_called_class();
+         $object =  new $nameCLass;
+         if( !empty( $keyWord ) )
+         {
+             $offer = Yii::app()->db->createCommand()
+                 ->select('*')
+                 ->from( $object->tableName() )
+                 ->where( 'key_word=:key_word AND del=0', array( ":key_word" => $keyWord ) )
+                 ->queryRow();
+
+             if( is_array( $offer ) )$object->setAttributesFromArray( $offer );
+             else return false;
+         }
+         return $object;
+     }
+
     /*
     * @desc Вытаскивает из базы значение по ID
     * @param int $itemID Идентификатор записи в базе

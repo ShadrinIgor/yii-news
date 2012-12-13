@@ -26,7 +26,7 @@
     "count"   => $count,
     "offset"  => $offset,
     "page"    => $page,
-    "url"     => array( "people/", array( ) )
+    "url"     => array( "people/", $paginatorLinks )
 ) );
     ?>
 </div>

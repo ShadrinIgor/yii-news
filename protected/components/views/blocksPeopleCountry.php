@@ -4,7 +4,7 @@
 
     $listCategory = DBQueryParamsClass::CreateParams()
         ->setConditions( "exists( SELECT id FROM catalog_people WHERE country = catalog_country_as.id )" )
-        ->setOrderBy("name DESC")
+        ->setOrderBy("name")
         ->setLimit( -1 );
 
     $cout = "";

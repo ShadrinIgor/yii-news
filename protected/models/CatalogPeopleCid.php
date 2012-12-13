@@ -25,7 +25,6 @@ class CatalogPeopleCid extends CCModel
 /*
 * Поля - связи
 */
-    protected $catalogPeoples; //  CatalogPeople
 
 
     public function attributeNames()
@@ -68,7 +67,6 @@ class CatalogPeopleCid extends CCModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'catalogPeoples' => array(self::HAS_MANY, 'CatalogPeople', 'cid_id'),
 		);
 	}
 

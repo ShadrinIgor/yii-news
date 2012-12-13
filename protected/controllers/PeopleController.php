@@ -6,24 +6,55 @@ class PeopleController extends Controller
 	{
         $this->layout = "/layouts/inner";
 
+        $country = !empty( $_GET["country"] ) ? SiteHelper::getParam( $_GET["country"] ) : "";
+        $category = !empty( $_GET["category"] ) ? SiteHelper::getParam( $_GET["category"] ) : "";
         $page = !empty( $_GET["page"] ) ? SiteHelper::getParam( $_GET["page"], 1, "int" ) : 1;
+
+        $conditional=" 1=1 ";
+        $params = array();
+        $paginatorLinks = array();
+        if( !empty( $country ) )
+        {
+            $country = CatalogCountry::fetchByKeyWord( $country );
+            if( $country->id >0 )
+            {
+                $conditional .= " AND country=:country_id";
+                $params = array_merge( $params, array( ":country_id"=>$country->id ) );
+                $paginatorLinks = array_merge( $paginatorLinks, array( "country"=>$country->key_word ) );
+            }
+        }
+
+        if( !empty( $category ) )
+        {
+            $category = CatalogPeopleCid::fetchByKeyWord( $category );
+            if( $category->id >0 )
+            {
+                $conditional .= " AND cid_id=:category_id";
+                $params = array_merge( $params, array( ":category_id"=>$category->id ) );
+                $paginatorLinks = array_merge( $paginatorLinks, array( "category"=>$category->key_word ) );
+            }
+        }
+
+
         $offset = 10;
         $peoples = DBQueryParamsClass::CreateParams()
+                                ->setConditions( $conditional )
+                                ->setParams( $params )
                                 ->setOrderBy( 'col desc, id desc' )
                                 ->setPage( ( $page-1 )*$offset )
                                 ->setLimit( $offset )
                                 ->setCache( 0 );
 
         $links = array( Yii::t("page", "Люди"), );
-        //$links[ Yii::t("page", "Люди") ] = "";
 
         $this->render('index',
             array(
-                "peoples"       => CatalogPeople::fetchAll( $peoples, array("catalog_coutry", "catalog_people_cid")),
-                "count"         => CatalogPeople::count( $peoples),
-                "page"          => $page,
-                "offset"        => $offset,
-                "links"         => $links
+                "peoples"           => CatalogPeople::fetchAll( $peoples, array("catalog_country", "catalog_people_cid")),
+                "count"             => CatalogPeople::count( $peoples),
+                "page"              => $page,
+                "offset"            => $offset,
+                "links"             => $links,
+                "paginatorLinks"    => $paginatorLinks
             ));
 
 	}

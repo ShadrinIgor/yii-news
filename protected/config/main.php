@@ -68,11 +68,17 @@ return array(
                 '<slug:\w+>_<controller:(category)>_<page:\d+>.html'=> '<controller>',
                 '<slug:\w+>_<controller:(category)>.html'=> '<controller>',
 
-                '<slug:\w+>_<id:\d+><controller:(tag)>_<page:\d+>.html'=> '<controller>',
+                '<slug:\w+>_<id:\d+><controller:(tag)>_<page:\d+>.html'=>'<controller>',
                 '<slug:\w+>_<id:\d+><controller:(tag)>.html'=> '<controller>',
 
-                '<country:\w+>_<controller:(people)>.html'=> '<controller>',
-                '<category:\w+>_<controller:(people)>.html'=> '<controller>',
+                '<country:\w+>-<controller:(people)>-<category:\w+>.html'=> '<controller>',
+
+                '<country:\w+>-<controller:(people)>_<page:\d+>.html'=> '<controller>',
+                '<country:\w+>-<controller:(people)>.html'=> '<controller>',
+
+                '<controller:(people)>-<category:\w+>_<page:\d+>.html'=> '<controller>',
+                '<controller:(people)>-<category:\w+>.html'=> '<controller>',
+
                 '<slug:\w+>_<controller:(people)>.html'=> '<controller>',
                 '<controller:(people)>_<page:\d+>.html'=> '<controller>',
                 '<controller:(week|people)>.html'=> '<controller>',
