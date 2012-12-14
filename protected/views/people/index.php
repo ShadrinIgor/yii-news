@@ -10,7 +10,7 @@
 
     <?php foreach( $peoples as $values ) : ?>
         <div class="cItem listItems">
-            <a title="<?= SiteHelper::getStringForTitle( $values->name  )?>" href="<?= SiteHelper::createUrl("people/", array("slug"=>$values->key_word )) ?>"><?= $values->name ?></a>
+            <a title="<?= SiteHelper::getStringForTitle( $values->name  )?>" href="<?= SiteHelper::createUrl("people/", array("slug"=>$values->key_word, "action"=>"desc" )) ?>"><?= $values->name ?></a>
             <div class="TN_img"><div class="count_shows">Просмотров <?= $values->col ?></div><img alt="<?= SiteHelper::getStringForTitle( $values->name  ) ?>" title="<?= SiteHelper::getStringForTitle( $values->name ); ?>" src="<?= ImageHelper::getImage( $values->image, 2, $values ) ?>" /></div>
             <?php if( $values->country->id>0 ) : ?><a class="newsCid" title="<?= SiteHelper::getStringForTitle( $values->country->name .", ". $values->cid_id->name ) ?>" href="<?= SiteHelper::createUrl( "category/", array( "slug" =>$values->cid_id->key_word, "country"=>$values->country->key_word2 ) ) ?>"><?= $values->country->name ?></a>,<?php endif; ?>
             <a class="newsCid" title="<?= SiteHelper::getStringForTitle( $values->cid_id->name .",". $values->country->name ) ?>" href="<?= SiteHelper::createUrl("category/", array( "slug"=>$values->cid_id->key_word ) ) ?>"><?= $values->cid_id->name ?></a><br/>

@@ -35,7 +35,7 @@ class PeopleController extends Controller
                 $conditional .= " AND cid_id=:category_id";
                 $params = array_merge( $params, array( ":category_id"=>$category->id ) );
                 $paginatorLinks = array_merge( $paginatorLinks, array( "category"=>$category->key_word ) );
-                $pageTitle = $category->name;
+                $pageTitle = $pageTitle.", ".$category->name;
             }
         }
 
