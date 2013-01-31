@@ -15,6 +15,8 @@ return array(
 	// preloading 'log' component
 	'preload'=>array('log'),
 
+    'defaultController'=>'site',
+
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
@@ -24,6 +26,7 @@ return array(
 	),
 
 	'modules'=>array(
+        'user','auth',
 		// uncomment the following to enable the Gii tool
 
 		'gii'=>array(
@@ -141,6 +144,10 @@ return array(
             'class'     => 'ext.banners.BannerInit'
         ),
 
+        'page'=>array(
+            'class'     => 'ext.page.PageInit'
+        ),
+
         'textAnalysis'=>array(
             'class'     => 'ext.textAnalysis.AnalysisInit'
         ),
@@ -159,7 +166,7 @@ return array(
                     "3" => array( 100, 100 )
                 )
         ),
-
+        "titleName"=>"Новостной портал Узбекистана",
 
     /*
     * для кэширования виджетов, все что вам надо, это добавить массив с названием виджета, без прифекса _Widget

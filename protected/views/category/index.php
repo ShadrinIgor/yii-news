@@ -7,10 +7,13 @@
     <?php Yii::app()->banners->getBannerByCategory( 1 ); ?>
 
 <h1><?php
-    echo sizeof( $category )>0 ? $category[0]->name : "";
+    $title = sizeof( $category )>0 ? $category[0]->name : "";
     if( sizeof( $country )>0 )
-        if( sizeof( $category )>0 )echo " ". $country[0]->name2;
-            else echo $country[0]->name;
+        if( sizeof( $category )>0 )$title .= " ". $country[0]->name2;
+            else $title .= $country[0]->name;
+
+        Yii::app()->page->title = $title;
+        echo $title;
     ?></h1>
 
 <?php if( sizeof( $afishi ) >0  ) : ?>

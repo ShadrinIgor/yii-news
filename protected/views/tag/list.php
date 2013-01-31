@@ -1,5 +1,6 @@
 <div id="PageText">
     <?php
+    Yii::app()->page->title = Yii::t( "page", "Теги");
     $this->widget('addressLineWidget', array(
         'links'=>$links,
     ));

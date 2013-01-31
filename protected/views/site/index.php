@@ -110,13 +110,52 @@ $ltext= preg_match_all( "/".$tag."/", $text, $r );
 print_r( $ltext );
 print_r( $r );*/
 
+if( $this->beginCache( "firstPage", array('duration'=>3600) ) ) :
+
 $newCriteria = new CDbCriteria( array(
-        "limit"     => 10
+        "limit"     => 15,
+        "order"     => "`date` DESC, `col` DESC"
 ) );
 
-foreach( CatalogNews::fetchAll( $newCriteria, array( "catalog_country", "catalog_cid" )) as $values )
-{
-    $this->widget('newsWidget', array(
-        'values'=>$values
-    ));
-}
+$newCriteria2 = new CDbCriteria( array(
+    "limit"     => 15,
+    "order"     => "`date` DESC, `col` DESC"
+) )
+
+?>
+
+
+<div id="MLeft">
+    <div class="MLBlock">
+    <?php
+        $i=1;
+        foreach( CatalogNews::fetchAll( $newCriteria2, array( "catalog_country", "catalog_cid" )) as $values )
+        {
+            $this->widget('newsWidget', array(
+                'values'=>$values,
+                'view'  =>"newsFirst",
+                'params'=>array("num"=>$i)
+            ));
+            $i++;
+        }
+    ?>
+    </div>
+    <div class="MLBlock">
+        <?php
+        $i=1;
+        foreach( CatalogNews::fetchAll( $newCriteria, array( "catalog_country", "catalog_cid" )) as $values )
+        {
+            $this->widget('newsWidget', array(
+                'values'=>$values,
+                'view'  =>"newsFirst",
+                'params'=>array("num"=>$i)
+            ));
+            $i++;
+        }
+        ?>
+    </div>
+</div>
+
+<?php
+    $this->endCache();
+endif;

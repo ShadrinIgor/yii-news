@@ -1,4 +1,7 @@
 <?php
+
+    Yii::app()->page->title = $newsData->name;
+
     $this->widget('addressLineWidget', array(
         'links'=>array_merge( $links, array( $newsData->name ) ),
     ));

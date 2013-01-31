@@ -27,6 +27,7 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
+        Yii::app()->page->title = "Первая страница";
 		$this->render('index', array( "controller"=>$this ));
 	}
 

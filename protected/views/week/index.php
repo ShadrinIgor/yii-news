@@ -1,9 +1,11 @@
 <?php
     $curent = date( "w" )-1;
     $startDate = time() - $curent*3600*24;
+    $pageTitle = "Новости за неделю";
+    Yii::app()->page->title = $pageTitle;
 ?>
 <div id="MLeft">
-    <h1>Новости за неделю</h1>
+    <h1><?= $pageTitle ?></h1>
 <?php
     for( $i=$curent;$i>0;$i-- ):
         $day = date( "j", $startDate ) + $i;

@@ -175,7 +175,6 @@ class SiteHelper
         if( $type == "string" )
         {
             $value = trim( strip_tags( $value ) );
-            $value = mysql_escape_string( $value );
         }
         return $value;
     }
