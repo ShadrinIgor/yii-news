@@ -26,6 +26,24 @@ class DefaultController extends Controller
 		}
 	}
 
+    public function actionRegistration()
+    {
+        $user =  new CatalogUsers( );
+        $user->scenario='register';
+        if( !empty( $_POST["CatalogUsers"] ) )
+        {
+            $user->setAttributes( $_POST["CatalogUsers"] );
+            //$user->name = $_POST["CatalogUsers"]["name"];
+            print_r( $user );
+            if($user->validate())
+            {
+                echo "Все круто";
+            }
+        }
+
+        $this->render( "registration", array( "form"=>$user ) );
+    }
+
 	/**
 	 * Displays the login page
 	 */

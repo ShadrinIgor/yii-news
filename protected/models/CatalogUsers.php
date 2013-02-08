@@ -6,21 +6,16 @@
 class CatalogUsers extends CCModel
 {
     protected $id; // integer 
-    protected $col; // integer 
     protected $cid; // integer 
     protected $name; // string 
     protected $active; // integer 
     protected $dateadd; // string 
     protected $dateedit; // string 
-    protected $pos; // integer 
-    protected $metaData; // string 
     protected $user; // integer 
-    protected $del; // integer 
-    protected $id_lang; // integer 
-    protected $password; // string 
-    protected $u_name; // string 
-    protected $u_surname; // string 
-    protected $u_fatchname; // string 
+    protected $password; // string
+    protected $password2; // string
+    protected $surname; // string 
+    protected $fatchname; // string 
     protected $email; // string 
     protected $country; // integer 
     protected $city; // integer 
@@ -53,18 +48,28 @@ class CatalogUsers extends CCModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, password, u_name, u_surname, u_fatchname, email, country, city, type, image', 'required'),
-			array('col, cid, active, pos, user, del, id_lang, country, city, type', 'numerical', 'integerOnly'=>true),
+
+			array('name, password, email', 'required'),
+            array('password2', 'required', 'on'=>'register'), //для регистрации
+            array('password', 'compare', 'compareAttribute'=>'password2', 'on'=>'register'),          //для регистрации
+
+			array('cid, active, user, type', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>35),
 			array('password, image', 'length', 'max'=>255),
-			array('u_name, email', 'length', 'max'=>50),
-			array('u_surname, u_fatchname', 'length', 'max'=>25),
-			array('dateadd, dateedit, metaData', 'safe'),
+			array('surname, fatchname', 'length', 'max'=>25),
+            array('email', 'email' ),
+            array('email', 'check_exists_email'),
+			array('name, password, email, dateadd, dateedit', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, col, cid, name, active, dateadd, dateedit, pos, metaData, user, del, id_lang, password, u_name, u_surname, u_fatchname, email, country, city, type, image', 'safe', 'on'=>'search'),
+			array('id, cid, name, active, dateadd, dateedit, user, password, surname, fatchname, email, country, city, type, image', 'safe', 'on'=>'search'),
 		);
 	}
+
+    public function check_exists_email($attribute,$params)
+    {
+        //
+    }
 
 	/**
 	 * @return array relational rules.
@@ -74,6 +79,8 @@ class CatalogUsers extends CCModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'country0' => array(self::BELONGS_TO, 'CatalogCountry', 'country'),
+			'city0' => array(self::BELONGS_TO, 'CatalogCity', 'city'),
 		);
 	}
 
@@ -84,21 +91,16 @@ class CatalogUsers extends CCModel
 	{
 		return array(
 			'id' => 'ID',
-			'col' => 'Col',
 			'cid' => 'Cid',
 			'name' => 'Name',
 			'active' => 'Active',
 			'dateadd' => 'Dateadd',
 			'dateedit' => 'Dateedit',
-			'pos' => 'Pos',
-			'metaData' => 'Meta Data',
 			'user' => 'User',
-			'del' => 'Del',
-			'id_lang' => 'Id Lang',
 			'password' => 'Password',
-			'u_name' => 'U Name',
-			'u_surname' => 'U Surname',
-			'u_fatchname' => 'U Fatchname',
+            'password2' => 'Password2',
+			'surname' => 'Surname',
+			'fatchname' => 'Fatchname',
 			'email' => 'Email',
 			'country' => 'Country',
 			'city' => 'City',
@@ -119,21 +121,15 @@ class CatalogUsers extends CCModel
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('col',$this->col);
 		$criteria->compare('cid',$this->cid);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('active',$this->active);
 		$criteria->compare('dateadd',$this->dateadd,true);
 		$criteria->compare('dateedit',$this->dateedit,true);
-		$criteria->compare('pos',$this->pos);
-		$criteria->compare('metaData',$this->metaData,true);
 		$criteria->compare('user',$this->user);
-		$criteria->compare('del',$this->del);
-		$criteria->compare('id_lang',$this->id_lang);
 		$criteria->compare('password',$this->password,true);
-		$criteria->compare('u_name',$this->u_name,true);
-		$criteria->compare('u_surname',$this->u_surname,true);
-		$criteria->compare('u_fatchname',$this->u_fatchname,true);
+		$criteria->compare('surname',$this->surname,true);
+		$criteria->compare('fatchname',$this->fatchname,true);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('country',$this->country);
 		$criteria->compare('city',$this->city);
