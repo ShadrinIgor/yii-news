@@ -28,20 +28,23 @@ class DefaultController extends Controller
 
     public function actionRegistration()
     {
-        $user =  new CatalogUsers( );
-        $user->scenario='register';
-        if( !empty( $_POST["CatalogUsers"] ) )
+        $user =  new CatalogUsersRegistration(  );
+        if( !empty( $_POST["CatalogUsersRegistration"] ) )
         {
-            $user->setAttributes( $_POST["CatalogUsers"] );
-            //$user->name = $_POST["CatalogUsers"]["name"];
-            print_r( $user );
+            $user->setAttributes( $_POST["CatalogUsersRegistration"] );
             if($user->validate())
             {
                 echo "Все круто";
             }
         }
 
-        $this->render( "registration", array( "form"=>$user ) );
+        $arrayCountry = array();
+        $listCoutnry = CatalogCountry::fetchAll();
+        foreach( $listCoutnry as $key=>$data )
+            $arrayCountry[ $data->id ] = $data->name;
+
+        $title = "Регистрация";
+        $this->render( "registration", array( "form"=>$user, "arrayCountry"=>$arrayCountry, "title"=>$title ) );
     }
 
 	/**

@@ -3,7 +3,7 @@
 /**
  * This is the model class for table "catalog_users".
    */
-class CatalogUsers extends CCModel
+class CatalogUsersRegistration extends CCModel
 {
     protected $id; // integer 
     protected $cid; // integer 
@@ -49,9 +49,8 @@ class CatalogUsers extends CCModel
 		// will receive user inputs.
 		return array(
 
-			array('name, password, email', 'required'),
-            array('surname', 'required'), //для регистрации
-            array('password', 'compare', 'compareAttribute'=>'password2', 'on'=>'register'),          //для регистрации
+			array('name, password, password2, email', 'required'),
+            array('password', 'compare', 'compareAttribute'=>'password2'),          //для регистрации
 
 			array('cid, active, user, type', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>35),
@@ -87,27 +86,27 @@ class CatalogUsers extends CCModel
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
-	public function attributeLabels()
-	{
-		return array(
-			'id' => 'ID',
-			'cid' => 'Cid',
-			'name' => 'Имя',
-			'active' => 'Active',
-			'dateadd' => 'Dateadd',
-			'dateedit' => 'Dateedit',
-			'user' => 'User',
-			'password' => 'Пароль',
+    public function attributeLabels()
+    {
+        return array(
+            'id' => 'ID',
+            'cid' => 'Cid',
+            'name' => 'Имя',
+            'active' => 'Active',
+            'dateadd' => 'Dateadd',
+            'dateedit' => 'Dateedit',
+            'user' => 'User',
+            'password' => 'Пароль',
             'password2' => 'Подтверждение пароля',
-			'surname' => 'Фамилия',
-			'fatchname' => 'Отчество',
-			'email' => 'Email',
-			'country' => 'Страна',
-			'city' => 'Город',
-			'type' => 'Type',
-			'image' => 'Image',
-		);
-	}
+            'surname' => 'Фамилия',
+            'fatchname' => 'Отчество',
+            'email' => 'Email',
+            'country' => 'Страна',
+            'city' => 'Город',
+            'type' => 'Type',
+            'image' => 'Image',
+        );
+    }
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.

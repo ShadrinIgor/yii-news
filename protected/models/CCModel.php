@@ -20,15 +20,10 @@
      */
      static function fetchAll( $QueryParams = null, array $relationsTable = array(), $indexNumber = "index" )
      {
-         //
-         if( !is_a( $QueryParams, "DBQueryParamsClass" ) && !is_a( $QueryParams, "CDbCriteria" ) && !is_string( $QueryParams  ) )
-                return false;
-
          $nameCLass = get_called_class();
          $newObject = new $nameCLass;
 
          $tableAlias = self::getTableAlias( $newObject->tableName() );
-
          if( is_a( $QueryParams, "DBQueryParamsClass" )  )
          {
              if( empty( $QueryParams ) )$QueryParams = DBQueryParamsClass::CreateParams()->setConditions( $tableAlias.".del=0" );
@@ -59,16 +54,23 @@
                 ->group( $QueryParams->getGroup() )
                 ->queryAll();
          }
+            elseif( is_a( $QueryParams, "CDbCriteria" )  )
+             {
+                 $builder = new \CDbCommandBuilder(\Yii::app()->db->getSchema());
+                 $command = $builder->createFindCommand( $newObject->tableName(), $QueryParams);
+                 $sql = $command->getText();
 
-         if( is_a( $QueryParams, "CDbCriteria" )  )
-         {
-             $builder = new \CDbCommandBuilder(\Yii::app()->db->getSchema());
-             $command = $builder->createFindCommand( $newObject->tableName(), $QueryParams);
-             $sql = $command->getText();
-
-             $arrayOffer = Yii::app()->db->createCommand( $sql )
-                 ->queryAll();
-         }
+                 $arrayOffer = Yii::app()->db->createCommand( $sql )
+                     ->queryAll();
+             }
+                else
+                {
+                    $arrayOffer = Yii::app()->db->cache( 1000 )->createCommand()
+                        ->from( $newObject->tableName() )
+                        ->where( "del=:del", array( ":del"=>0 ) )
+                        ->order( "name" )
+                        ->queryAll();
+                }
 
          if( !empty( $relationsTable ) )
          {

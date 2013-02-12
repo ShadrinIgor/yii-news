@@ -20,7 +20,7 @@
         $cs=Yii::app()->clientScript;
         $cs->coreScriptPosition=CClientScript::POS_HEAD;
         $cs->scriptMap=array();
-        $baseUrl= Yii::app()->assetManager->basePath;
+        $baseUrl=$Theme->getBaseUrl();
         $cs->registerScriptFile($baseUrl.'/js/jquery/jquery.js');
         $cs->registerScriptFile($baseUrl.'/js/jquery/jquery.easing.1.3.js');
         $cs->registerScriptFile($baseUrl.'/js/functions.js');

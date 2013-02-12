@@ -692,3 +692,13 @@ h2{ margin-top: 10px; }
 .tag5{font-size:20px;}
 .tag6{font-size:10px;color:#89bce4;}
 #MLeft .MLBlock{ width:50%;float:left; }
+.errorSummary{border-left: 5px solid #ff0000;padding:5px 5px 5px 10px;border-radius: 25px;}
+.errorSummary p{padding-left: 22px;}
+.errorSummary li{color:#ff0000;font-style: italic;}
+.tableForm input.error{ border:1px solid rgb(248, 85, 85);box-shadow:0px 0px 5px #af0000; }
+.tableForm th{text-align: left;border-right:1px solid #afafaf;font-weight: normal;}
+.tableForm th, .tableForm td { border-bottom:1px solid #afafaf; }
+.tableForm th{ border-bottom:1px solid #afafaf;box-shadow: 2px 2px 7px #afafaf; }
+.tableForm .trNoBorder th, .tableForm .trNoBorder td{border: 0px;}
+.tableForm input{width: 200px;}
+.tableForm select{width: 202px;}

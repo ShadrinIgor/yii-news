@@ -1,40 +1,41 @@
 <?php echo CHtml::form(); ?>
+<h1><?= $title ?></h1>
 <?php echo CHtml::errorSummary($form); ?><br>
 
-<table border="0" width="400" cellpadding="10" cellspacing="10">
+<table border="0" width="400" cellpadding="10" cellspacing="10" class="tableForm">
     <tr>
-        <td width="150"><?php echo CHtml::activeLabel($form, 'email'); ?>*</td>
+        <th width="150"><?php echo CHtml::activeLabel($form, 'email'); ?>*</th>
         <td><?php echo CHtml::activeTextField($form, 'email') ?></td>
     </tr>
     <tr>
-        <td><?php echo CHtml::activeLabel($form, 'password'); ?>*</td>
+        <th><?php echo CHtml::activeLabel($form, 'password'); ?>*</th>
         <td><?php echo CHtml::activePasswordField($form, 'password') ?></td>
     </tr>
     <tr>
-        <td><?php echo CHtml::activeLabel($form, 'password2'); ?>*</td>
+        <th><?php echo CHtml::activeLabel($form, 'password2'); ?>*</th>
         <td><?php echo CHtml::activePasswordField($form, 'password2') ?></td>
     </tr>
     <tr>
-        <td width="150"><?php echo CHtml::activeLabel($form, 'name'); ?>*</td>
+        <th width="150"><?php echo CHtml::activeLabel($form, 'name'); ?>*</th>
         <td><?php echo CHtml::activeTextField($form, 'name') ?></td>
     </tr>
     <tr>
-        <td width="150"><?php echo CHtml::activeLabel($form, 'surname'); ?></td>
+        <th width="150"><?php echo CHtml::activeLabel($form, 'surname'); ?></th>
         <td><?php echo CHtml::activeTextField($form, 'surname') ?></td>
     </tr>
     <tr>
-        <td width="150"><?php echo CHtml::activeLabel($form, 'fatchname'); ?></td>
+        <th width="150"><?php echo CHtml::activeLabel($form, 'fatchname'); ?></th>
         <td><?php echo CHtml::activeTextField($form, 'fatchname') ?></td>
     </tr>
     <tr>
-        <td width="150"><?php echo CHtml::activeLabel($form, 'country'); ?></td>
-        <td><?php //echo CHtml::activeTextField($form, 'country') ?></td>
+        <th width="150"><?php echo CHtml::activeLabel($form, 'country'); ?></th>
+        <td><?php echo CHtml::dropDownList('country', ( !empty( $form->country ) ? $form->country : "" ), $arrayCountry, array('empty' => ' --- --- --- ', 'class'=>"countryList")); ?></td>
     </tr>
     <tr>
-        <td width="150"><?php echo CHtml::activeLabel($form, 'city'); ?></td>
-        <td><?php //echo CHtml::activeTextField($form, 'city') ?></td>
+        <th width="150"><?php echo CHtml::activeLabel($form, 'city'); ?></th>
+        <td><?php echo CHtml::dropDownList('city', ( !empty( $form->city ) ? $form->city : "" ), array(), array('empty' => ' - выберите страну - ', 'class'=>"cityList")); ?></td>
     </tr>
-    <tr>
+    <tr class="trNoBorder">
         <td></td>
         <td><?php echo CHtml::submitButton('Зарегистрироваться'); ?></td>
     </tr>
