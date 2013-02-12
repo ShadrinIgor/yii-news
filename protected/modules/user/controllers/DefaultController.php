@@ -2,6 +2,21 @@
 
 class DefaultController extends Controller
 {
+    public function actions(){
+
+//        Yii::import('application.extensions.kcaptcha.KCaptchaAction');
+//        Yii::app()->session->remove(KCaptchaAction::SESSION_KEY);
+
+        return array(
+            'captcha'=>array(
+                'class' => 'application.extensions.kcaptcha.KCaptchaAction',
+                'maxLength' => 6,
+                'minLength' => 5,
+                'foreColor' => array(mt_rand(0, 100), mt_rand(0, 100),mt_rand(0, 100)),
+                'backColor' => array(mt_rand(200, 210), mt_rand(210, 220),mt_rand(220, 230))
+            )
+        );
+    }
 	/**
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
@@ -34,6 +49,8 @@ class DefaultController extends Controller
             $user->setAttributes( $_POST["CatalogUsersRegistration"] );
             if($user->validate())
             {
+                $user->image=CUploadedFile::getInstance($user,'image');
+                $user->image->saveAs('path/to/localFile');
                 echo "Все круто";
             }
         }

@@ -137,17 +137,21 @@ class CCaptcha extends CWidget
 			return;
 
 		$js.="
-$(document).on('click', '$selector', function(){
-	$.ajax({
-		url: ".CJSON::encode($url).",
-		dataType: 'json',
-		cache: false,
-		success: function(data) {
-			$('#$id').attr('src', data['url']);
-			$('body').data('{$this->captchaAction}.hash', [data['hash1'], data['hash2']]);
-		}
-	});
-	return false;
+$(document).ready( function()
+{
+    $( '$selector' ).click( function ()
+    {
+        $.ajax({
+            url: ".CJSON::encode($url).",
+            dataType: 'json',
+            cache: false,
+            success: function(data) {
+                $('#$id').attr('src', data['url']);
+                $('body').data('{$this->captchaAction}.hash', [data['hash1'], data['hash2']]);
+            }
+        });
+        return false;
+    })
 });
 ";
 		$cs->registerScript('Yii.CCaptcha#'.$id,$js);

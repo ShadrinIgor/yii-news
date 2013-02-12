@@ -20,7 +20,9 @@ class CatalogUsers extends CCModel
     protected $country; // integer 
     protected $city; // integer 
     protected $type; // integer 
-    protected $image; // string 
+    protected $image; // string
+    protected $country_other; //string
+    protected $captcha; //string
 
 /*
 * Поля - связи
@@ -68,7 +70,7 @@ class CatalogUsers extends CCModel
 
     public function check_exists_email($attribute,$params)
     {
-        //
+        $this->addErrors( array(  "0"=>"Полный пипец".$this->email ) );
     }
 
 	/**
@@ -105,7 +107,9 @@ class CatalogUsers extends CCModel
 			'country' => 'Страна',
 			'city' => 'Город',
 			'type' => 'Type',
-			'image' => 'Image',
+			'image' => 'Фото',
+            'country_other' => 'Другой город',
+            'captcha' => 'Код с картинки',
 		);
 	}
 

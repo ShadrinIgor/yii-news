@@ -27,11 +27,16 @@ $(document).ready(  function ()
     {
         $(".countryList").change( function()
         {
-            $(".cityList").load( "http://yii-news/ajax/site/ListCity/?country="+$(".countryList").val() );
+            $(".cityList").load( "http://yii-news/ajax/site/ListCity/?country="+$(".countryList").val(), function()
+                {
+                    $(".cityList").trigger("liszt:updated");
+                });
         })
     }
-})
 
+    if( $("#validateForm").length>0 )$("#validateForm").validationEngine();
+    if( $(".chzn-select").length>0 )$('.chzn-select').chosen({no_results_text:'Нет результатов по'});
+})
 
 function closeFotoNews( divObj )
 {

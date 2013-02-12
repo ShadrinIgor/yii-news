@@ -43,54 +43,6 @@
         </div>
         <div id="counters">
 
-            <!-- Yandex.Metrika informer -->
-            <a href="http://metrika.yandex.ru/stat/?id=11298340&from=informer"
-               target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/11298340/3_0_FFFFFCFF_F5F5DCFF_0_pageviews"
-                                                   style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:11298340,type:0,lang:'ru'});return false}catch(e){}"/></a>
-            <!-- /Yandex.Metrika informer -->
-
-            <!-- Yandex.Metrika counter -->
-            <div style="display:none;"><script type="text/javascript">
-                (function(w, c) {
-                    (w[c] = w[c] || []).push(function() {
-                        try {
-                            w.yaCounter11298340 = new Ya.Metrika({id:11298340, enableAll: true});
-                        }
-                        catch(e) { }
-                    });
-                })(window, "yandex_metrika_callbacks");
-            </script></div>
-            <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer"></script>
-            <noscript><div><img src="//mc.yandex.ru/watch/11298340" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-            <!-- /Yandex.Metrika counter -->
-
-            <!-- START WWW.UZ TOP-RATING --><SCRIPT language="javascript" type="text/javascript">
-            <!--
-            top_js="1.0";top_r="id=26579&r="+escape(document.referrer)+"&pg="+escape(window.location.href);document.cookie="smart_top=1; path=/"; top_r+="&c="+(document.cookie?"Y":"N")
-            //-->
-        </SCRIPT>
-            <SCRIPT language="javascript1.1" type="text/javascript">
-                <!--
-                top_js="1.1";top_r+="&j="+(navigator.javaEnabled()?"Y":"N")
-                //-->
-            </SCRIPT>
-            <SCRIPT language="javascript1.2" type="text/javascript">
-                <!--
-                top_js="1.2";top_r+="&wh="+screen.width+'x'+screen.height+"&px="+
-                        (((navigator.appName.substring(0,3)=="Mic"))?screen.colorDepth:screen.pixelDepth)
-                //-->
-            </SCRIPT>
-            <SCRIPT language="javascript1.3" type="text/javascript">
-                <!--
-                top_js="1.3";
-                //-->
-            </SCRIPT>
-            <SCRIPT language="JavaScript" type="text/javascript">
-                <!--
-                top_rat="&col=E6CC85&t=000000&p=F5F2DF";top_r+="&js="+top_js+"";document.write('<a href="http://www.uz/rus/toprating/cmd/stat/id/26579" target=_top><img src="http://www.uz/plugins/top_rating/count/cnt.png?'+top_r+top_rat+'" width=88 height=31 border=0 alt="Топ рейтинг www.uz"></a>')//-->
-            </SCRIPT><NOSCRIPT><A href="http://www.uz/rus/toprating/cmd/stat/id/26579" target=_top><IMG height=31 src="http://www.uz/plugins/top_rating/count/nojs_cnt.png?id=26579&col=E6CC85&t=000000&p=F5F2DF" width=88 border=0 alt="Топ рейтинг www.uz"></A></NOSCRIPT><!-- END WWW.UZ TOP-RATING -->
-
-
         </div>
     </div>
 
