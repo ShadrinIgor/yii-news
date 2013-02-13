@@ -53,6 +53,17 @@
                 ->offset( $QueryParams->getPage() )
                 ->group( $QueryParams->getGroup() )
                 ->queryAll();
+
+/*             echo Yii::app()->db->cache( $QueryParams->getCache() )->createCommand()
+                 ->select( $fields )
+                 ->from( $dopWhere )
+                 ->where( $QueryParams->getConditions(), $QueryParams->getParams() )
+                 ->order( $QueryParams->getOrderBy() )
+                 ->limit( $QueryParams->getLimit() )
+                 ->offset( $QueryParams->getPage() )
+                 ->group( $QueryParams->getGroup() )
+                 ->getText();*/
+
          }
             elseif( is_a( $QueryParams, "CDbCriteria" )  )
              {
@@ -63,14 +74,20 @@
                  $arrayOffer = Yii::app()->db->createCommand( $sql )
                      ->queryAll();
              }
-                else
-                {
-                    $arrayOffer = Yii::app()->db->cache( 1000 )->createCommand()
-                        ->from( $newObject->tableName() )
-                        ->where( "del=:del", array( ":del"=>0 ) )
-                        ->order( "name" )
-                        ->queryAll();
-                }
+                 elseif( is_string( $QueryParams ) )
+                 {
+                     $arrayOffer = Yii::app()->db->cache( $QueryParams->getCache() )
+                            ->createCommand( $QueryParams )
+                            ->queryAll();;
+                 }
+                    else
+                    {
+                        $arrayOffer = Yii::app()->db->cache( 1000 )->createCommand()
+                            ->from( $newObject->tableName() )
+                            ->where( "del=:del", array( ":del"=>0 ) )
+                            ->order( "name" )
+                            ->queryAll();
+                    }
 
          if( !empty( $relationsTable ) )
          {
@@ -305,18 +322,33 @@
         // TODO если есть сохранение сериазиваного масива в поле kesh у объекта, то обновлятять или ощищать kesh
         if( $this->validate() == false )return false;
 
+        $sqlColumns = "";
         $sqlField = "";
-        foreach( $this->attributeLabels() as $key => $value )
+        foreach( $this->getSafeAtributes() as $key => $value )
         {
-            if( $key=="id" )continue;
+            $value = trim( $value );
+            if( $value=="id" )continue;
             if( !empty( $sqlField ) )$sqlField.=",";
 
-            if( in_array( $key, $this->getRelationFields() ) && is_object( $this->$key ) )
-                     $sqlField .= "`".$key."`='".$this->$key->id."'";
-                else $sqlField .= "`".$key."`='".$this->$key."'";
+            if( $this->id<0 )
+            {
+                if( in_array( $value, $this->getRelationFields() ) && is_object( $this->$value ) )
+                         $sqlField .= "`".$value."`='".$this->$value->id."'";
+                    else $sqlField .= "`".$value."`='".$this->$value."'";
+            }
+                else
+            {
+                if( !empty( $sqlColumns ) )$sqlColumns .= ",";
+
+                $sqlColumns .= "`".trim( $value )."`";
+                $sqlField .= "'".$this->$value."'";
+            }
         }
 
-        $sql = "UPDATE ".$this->tableName()." SET ".$sqlField." WHERE id='".$this->id."'";
+        if( $this->id>0 )$sql = "UPDATE ".$this->tableName()." SET ".$sqlField." WHERE id='".$this->id."'";
+                    else $sql = "INSERT INTO ".$this->tableName()."(".$sqlColumns.") VALUES( ".$sqlField.")";
+
+        echo $sql;
         $coutUpdateItems = Yii::app()->db->createCommand( $sql )->execute();
         if( $coutUpdateItems == 0 )echo "<br/>Запрос не затронул не одной записи ( ".$sql." )";
     }
@@ -329,6 +361,15 @@
         if( Yii::app()->db->createCommand()->update( $this->tableName(), $fields, "id=:id", array( ":id"=>$this->id ) ) )return true;
                     else return false;
     }
+
+     private function getSafeAtributes()
+     {
+         foreach( $this->rules() as $key=>$value )
+         {
+             if( $value[1] == "safe" )
+                 return explode( ",", $value[0] );
+         }
+     }
 
      /*
      * @desc Возврощает описание одной связи по полю

@@ -130,13 +130,11 @@ class DBQueryParamsClass
     public function setLimit( $value )
     {
         $this->_limit = $value;
-        //echo "set:".$value." - ".$this->_limit."<br/>";
         return $this;
     }
 
     public function getLimit( )
     {
-        //echo "get:".$this->_limit."<br/>";
         return $this->_limit;
     }
 }

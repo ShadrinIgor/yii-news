@@ -47,11 +47,20 @@ class DefaultController extends Controller
         if( !empty( $_POST["CatalogUsersRegistration"] ) )
         {
             $user->setAttributes( $_POST["CatalogUsersRegistration"] );
-            if($user->validate())
+            if($user->validate() == true && !$user->hasErrors() )
             {
-                $user->image=CUploadedFile::getInstance($user,'image');
-                $user->image->saveAs('path/to/localFile');
-                echo "Все круто";
+                echo "&&".$user->hasErrors();
+                print_r( $user->getErrors() );
+                if( $user->image )
+                {
+                    $user->image = CUploadedFile::getInstance($user,'image');
+                    $user->image->saveAs('path/to/localFile');
+                }
+
+                $user->password = md5( $user->password );
+                $user->save();
+
+                //$this->redirect( $this->createUrl( "user/default/Registration/" ) );
             }
         }
 

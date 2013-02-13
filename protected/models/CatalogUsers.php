@@ -13,8 +13,7 @@ class CatalogUsers extends CCModel
     protected $dateedit; // string 
     protected $user; // integer 
     protected $password; // string
-    protected $password2; // string
-    protected $surname; // string 
+    protected $surname; // string
     protected $fatchname; // string 
     protected $email; // string 
     protected $country; // integer 
@@ -22,7 +21,6 @@ class CatalogUsers extends CCModel
     protected $type; // integer 
     protected $image; // string
     protected $country_other; //string
-    protected $captcha; //string
 
 /*
 * Поля - связи
@@ -52,8 +50,6 @@ class CatalogUsers extends CCModel
 		return array(
 
 			array('name, password, email', 'required'),
-            array('surname', 'required'), //для регистрации
-            array('password', 'compare', 'compareAttribute'=>'password2', 'on'=>'register'),          //для регистрации
 
 			array('cid, active, user, type', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>35),
@@ -61,16 +57,20 @@ class CatalogUsers extends CCModel
 			array('surname, fatchname', 'length', 'max'=>25),
             array('email', 'email' ),
             array('email', 'check_exists_email'),
-			array('name, password, email, dateadd, dateedit, password2', 'safe'),
+			array('name, password, email, dateadd, dateedit', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, cid, name, active, dateadd, dateedit, user, password, surname, fatchname, email, country, city, type, image', 'safe', 'on'=>'search'),
+			array('name, password, surname, fatchname, email, country, city, image', 'safe', 'on'=>'search'),
 		);
 	}
 
     public function check_exists_email($attribute,$params)
     {
-        $this->addErrors( array(  "0"=>"Полный пипец".$this->email ) );
+        if( !$this->hasErrors() )
+        {
+            $exists = CatalogUsers::fetchAll( DBQueryParamsClass::CreateParams()->setConditions("email='".$this->email."'" ) );
+            if( sizeof( $exists )>0 )$this->addErrors( array(  "0"=>"Указанный Email:".$this->email.", уже зарегистрирован в системе" ) );
+        }
     }
 
 	/**

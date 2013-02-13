@@ -22,7 +22,7 @@
 <table border="0" width="400" cellpadding="10" cellspacing="10" class="tableForm">
     <tr>
         <th width="150"><?php echo CHtml::activeLabel($form, 'email'); ?><font class="redColor">*</font></th>
-        <td><?php echo CHtml::activeTextField($form, 'email', array( 'class'=>'validate[required,,custom[email]]' )) ?></td>
+        <td><?php echo CHtml::activeTextField($form, 'email', array( 'class'=>'validate[required,custom[email]]' )) ?></td>
     </tr>
     <tr>
         <th><?php echo CHtml::activeLabel($form, 'password'); ?><font class="redColor">*</font></th>

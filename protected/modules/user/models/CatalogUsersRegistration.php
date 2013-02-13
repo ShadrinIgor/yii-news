@@ -5,6 +5,8 @@
    */
 class CatalogUsersRegistration extends CatalogUsers
 {
+    protected $password2; // string
+    protected $captcha; //string
  	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -22,17 +24,15 @@ class CatalogUsersRegistration extends CatalogUsers
              *   авторизованным пользователям код можно не вводить
                 'allowEmpty'=>!Yii::app()->user->isGuest || !CCaptcha::checkRequirements(),
              */
-
 			array('cid, active, user, type', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>35),
 			array('password, image', 'length', 'max'=>255),
 			array('surname, fatchname', 'length', 'max'=>25),
             array('email', 'email', 'checkMX'=>true ),
             array('email', 'check_exists_email'),
-			array('name, password, email, dateadd, dateedit, password2', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, cid, name, active, dateadd, dateedit, user, password, surname, fatchname, email, country, city, type, image', 'safe', 'on'=>'search'),
+            array('name, password, surname, fatchname, email, country, city, image', 'safe'),
 		);
 	}
 }
