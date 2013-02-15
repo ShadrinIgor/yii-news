@@ -3,11 +3,11 @@
 /**
  * This is the model class for table "notifications_items".
    */
-class NotificationsItems extends CCModel
+class NotificationsItems extends CActiveRecord
 {
     protected $id; // integer 
     protected $notification_id; // integer 
-    protected $type_id; // integer 
+    protected $type; // string 
     protected $subject; // string 
     protected $mesage; // string 
     protected $template; // string 
@@ -39,12 +39,12 @@ class NotificationsItems extends CCModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('notification_id, type_id, subject, mesage', 'required'),
+			array('notification_id, type, subject, mesage', 'required'),
+			array('type, mesage, template, copy_sender', 'length', 'max'=>25),
 			array('subject', 'length', 'max'=>50),
-			array('mesage, template, copy_sender', 'length', 'max'=>25),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, notification_id, type_id, subject, mesage, template, copy_sender', 'safe', 'on'=>'search'),
+			array('id, notification_id, type, subject, mesage, template, copy_sender', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,7 +57,6 @@ class NotificationsItems extends CCModel
 		// class name for the relations automatically generated below.
 		return array(
 			'notification' => array(self::BELONGS_TO, 'Notifications', 'notification_id'),
-			'type' => array(self::BELONGS_TO, 'NotificationsType', 'type_id'),
 		);
 	}
 
@@ -69,7 +68,7 @@ class NotificationsItems extends CCModel
 		return array(
 			'id' => 'ID',
 			'notification_id' => 'Notification',
-			'type_id' => 'Type',
+			'type' => 'Type',
 			'subject' => 'Subject',
 			'mesage' => 'Mesage',
 			'template' => 'Template',
@@ -90,7 +89,7 @@ class NotificationsItems extends CCModel
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('notification_id',$this->notification_id);
-		$criteria->compare('type_id',$this->type_id);
+		$criteria->compare('type',$this->type,true);
 		$criteria->compare('subject',$this->subject,true);
 		$criteria->compare('mesage',$this->mesage,true);
 		$criteria->compare('template',$this->template,true);
