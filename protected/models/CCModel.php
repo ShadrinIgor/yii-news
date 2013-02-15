@@ -11,6 +11,7 @@
      const HAS_MANY='CHasManyRelation';     // связь между таблицами А и В один-ко-многим, значит у А есть много В
      const MANY_MANY='CManyManyRelation';   // эта связь соответствует типу связи многие-ко-многим в БД
 
+     public $errors = array();
      /*
      * @desc Вытаскивает из базы список значений по параметрам
      * @param DBQueryParamsClass $QueryParams
@@ -348,9 +349,13 @@
         if( $this->id>0 )$sql = "UPDATE ".$this->tableName()." SET ".$sqlField." WHERE id='".$this->id."'";
                     else $sql = "INSERT INTO ".$this->tableName()."(".$sqlColumns.") VALUES( ".$sqlField.")";
 
-        echo $sql;
         $coutUpdateItems = Yii::app()->db->createCommand( $sql )->execute();
-        if( $coutUpdateItems == 0 )echo "<br/>Запрос не затронул не одной записи ( ".$sql." )";
+        if( $coutUpdateItems == 0 )
+        {
+            $this->addError( "NO_EXECUTE", "<br/>Запрос не затронул не одной записи ( ".$sql." )" );
+            return false;
+        }
+            else return true;
     }
 
     public function update( array $fields = array() )

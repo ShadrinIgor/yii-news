@@ -151,6 +151,10 @@ return array(
         'textAnalysis'=>array(
             'class'     => 'ext.textAnalysis.AnalysisInit'
         ),
+
+        'notifications'=>array(
+            'class'     => 'ext.notification.initFavorites'
+        ),
 	),
 
 	// application-level parameters that can be accessed

@@ -9,6 +9,76 @@
 class SiteHelper
 {
     /*
+     * Функция делает транслит руских слов в названии файлов
+     */
+    static function checkedUploadFileName( $fileName )
+    {
+        $rus=array("а","б","в","г","д","е","ё","ж","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ц","ш","щ","ь","ъ","э","ю","я"," ",".","-","(",")","j","w");
+        $eng=array("a","b","v","g","d","e","e","sh","z","i","i","k","l","m","n","o","p","r","s","t","u","f","h","c","sh","sch","","","e","yu","ya","_",".","_","(",")","j","w");
+        $text=strtolower($fileName);
+
+        $str="";
+        for($n=0;$n<strlen($text);$n++)
+        {
+            for($i=0;$i<sizeof($rus);$i++)
+            {
+                if($text[$n]==$rus[$i])
+                {
+                    $str.=$eng[$i];
+                    break;
+                }
+
+                if($text[$n]==$eng[$i])
+                {
+                    $str.=$eng[$i];
+                    break;
+                }
+
+                if(intval($text[$n]))
+                {
+                    $str.=$text[$n];
+                    break;
+                }
+            }
+        }
+
+        $ar=explode(".",$str);
+        $type=$ar[sizeof($ar)-1];
+
+        $rn=rand(1,999);
+        $str=$rn.$ar[0].".".$type;
+
+        return $str;
+    }
+
+    /*
+     *  Функция выводит путь для хранения картинок
+     */
+    static function getImagePath( $tableName, $id )
+    {
+        $imagePath = "f/";
+        $imagePath .= $tableName."/";
+        @mkdir( $imagePath );
+
+        $imagePath .= date("Y")."/";
+        @mkdir( $imagePath );
+
+        $imagePath .= date("m")."/";
+        @mkdir( $imagePath );
+
+        $imagePath .= date("d")."/";
+        @mkdir( $imagePath );
+
+        if( !empty( $id ) )
+        {
+            $imagePath .=$id."/";
+            @mkdir( $imagePath );
+        }
+
+        return $imagePath;
+    }
+
+    /*
      * Вункция возвращает правельный текст для alt и title
      */
     static function getStringForTitle( $value )

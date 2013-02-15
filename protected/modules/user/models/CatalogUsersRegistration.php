@@ -30,6 +30,8 @@ class CatalogUsersRegistration extends CatalogUsers
 			array('surname, fatchname', 'length', 'max'=>25),
             array('email', 'email', 'checkMX'=>true ),
             array('email', 'check_exists_email'),
+            array('password', 'passwordHashMD5'),
+            array('image', 'uploadImage'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
             array('name, password, surname, fatchname, email, country, city, image', 'safe'),

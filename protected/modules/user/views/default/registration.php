@@ -11,10 +11,6 @@
     $cs->registerCssFile($baseUrl.'/js/chosen/chosen.css');
 ?>
 
-<!--
-<link rel="stylesheet" href="/bitrix/templates/Embassy Alliance/css/validationEngine.jquery.css" type="text/css" media="screen" charset="utf-8" />
--->
-
 <?php echo CHtml::form('','post',array('enctype'=>'multipart/form-data', 'id'=>'validateForm')); ?>
 <h1><?= $title ?></h1>
 <?php echo CHtml::errorSummary($form); ?><br>

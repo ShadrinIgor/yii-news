@@ -57,6 +57,7 @@ class CatalogUsers extends CCModel
 			array('surname, fatchname', 'length', 'max'=>25),
             array('email', 'email' ),
             array('email', 'check_exists_email'),
+            array('image', 'uploadImage'),
 			array('name, password, email, dateadd, dateedit', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -70,6 +71,26 @@ class CatalogUsers extends CCModel
         {
             $exists = CatalogUsers::fetchAll( DBQueryParamsClass::CreateParams()->setConditions("email='".$this->email."'" ) );
             if( sizeof( $exists )>0 )$this->addErrors( array(  "0"=>"Указанный Email:".$this->email.", уже зарегистрирован в системе" ) );
+        }
+    }
+
+    public function passwordHashMD5($attribute,$params)
+    {
+        if( !$this->hasErrors() )
+        {
+            $this->password = md5( $this->password ) ;
+        }
+    }
+
+    public function uploadImage($attribute,$params)
+    {
+        echo "Проверяем картинку";
+        print_r( $this );
+        if( !$this->hasErrors() && !empty( $this->image ) )
+        {
+            echo $this->image."*";
+            $ImageObj = CUploadedFile::getInstance($this,'image');
+            $ImageObj->saveAs( SiteHelper::getImagePath( $this->tableName(), $this->id ) );
         }
     }
 
