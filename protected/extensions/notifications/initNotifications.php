@@ -44,7 +44,6 @@ class initNotifications extends CApplicationComponent
             {
                 for( $i=0;$i<sizeof( $notificationMessage );$i++ )
                 {
-                    echo $notificationMessage[$i]->type."*";
                     if( $notificationMessage[$i]->type == "info"  )
                     {
                         $NItem = new NotificationsItems();

@@ -49,7 +49,7 @@ class DefaultController extends Controller
             $user->setAttributes( $_POST["CatalogUsersRegistration"] );
             if( $user->save() )
             {
-                echo "Ура";
+                Yii::app()->notifications->send( "registration", array( "mail", "info" ), 1 );
                 //$this->redirect( $this->createUrl( "user/default/Registration/" ) );
             }
         }
