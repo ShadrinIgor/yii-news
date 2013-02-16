@@ -3,16 +3,17 @@
 /**
  * This is the model class for table "notifications".
    */
-class Notifications extends CCModel
+class Notifications extends CActiveRecord
 {
     protected $id; // integer 
     protected $key; // string 
     protected $name; // string 
+    protected $del; // integer 
 
 /*
 * Поля - связи
 */
-    protected $notificationsItems; //  NotificationsItems
+    protected $notificationsMessages; //  NotificationsMessages
 
 
     public function attributeNames()
@@ -37,10 +38,11 @@ class Notifications extends CCModel
 		// will receive user inputs.
 		return array(
 			array('key, name', 'required'),
+			array('del', 'numerical', 'integerOnly'=>true),
 			array('key, name', 'length', 'max'=>25),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, key, name', 'safe', 'on'=>'search'),
+			array('id, key, name, del', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -52,7 +54,7 @@ class Notifications extends CCModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'notificationsItems' => array(self::HAS_MANY, 'NotificationsItems', 'notification_id'),
+			'notificationsMessages' => array(self::HAS_MANY, 'NotificationsMessages', 'notification_id'),
 		);
 	}
 
@@ -65,6 +67,7 @@ class Notifications extends CCModel
 			'id' => 'ID',
 			'key' => 'Key',
 			'name' => 'Name',
+			'del' => 'Del',
 		);
 	}
 
@@ -82,6 +85,7 @@ class Notifications extends CCModel
 		$criteria->compare('id',$this->id);
 		$criteria->compare('key',$this->key,true);
 		$criteria->compare('name',$this->name,true);
+		$criteria->compare('del',$this->del);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

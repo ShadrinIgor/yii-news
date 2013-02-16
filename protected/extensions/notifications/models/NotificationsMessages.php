@@ -1,15 +1,17 @@
 <?php
 
 /**
- * This is the model class for table "notifications_items".
+ * This is the model class for table "notifications_messages".
    */
-class NotificationsItems extends CActiveRecord
+class NotificationsMessages extends CActiveRecord
 {
     protected $id; // integer 
     protected $notification_id; // integer 
-    protected $message_id; // integer 
-    protected $user_id; // integer 
-    protected $date; // integer 
+    protected $type; // string 
+    protected $subject; // string 
+    protected $mesage; // string 
+    protected $template; // string 
+    protected $copy_sender; // string 
     protected $del; // integer 
 
 /*
@@ -27,7 +29,7 @@ class NotificationsItems extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'notifications_items';
+		return 'notifications_messages';
 	}
 
 	/**
@@ -38,11 +40,13 @@ class NotificationsItems extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('notification_id, message_id, user_id', 'required'),
-			array('notification_id, message_id, user_id, date, del', 'numerical', 'integerOnly'=>true),
+			array('notification_id, type, subject, mesage', 'required'),
+			array('del', 'numerical', 'integerOnly'=>true),
+			array('type, mesage, template, copy_sender', 'length', 'max'=>25),
+			array('subject', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, notification_id, message_id, user_id, date, del', 'safe', 'on'=>'search'),
+			array('id, notification_id, type, subject, mesage, template, copy_sender, del', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -54,6 +58,7 @@ class NotificationsItems extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'notification' => array(self::BELONGS_TO, 'Notifications', 'notification_id'),
 		);
 	}
 
@@ -65,9 +70,11 @@ class NotificationsItems extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'notification_id' => 'Notification',
-			'message_id' => 'Message',
-			'user_id' => 'User',
-			'date' => 'Date',
+			'type' => 'Type',
+			'subject' => 'Subject',
+			'mesage' => 'Mesage',
+			'template' => 'Template',
+			'copy_sender' => 'Copy Sender',
 			'del' => 'Del',
 		);
 	}
@@ -85,9 +92,11 @@ class NotificationsItems extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('notification_id',$this->notification_id);
-		$criteria->compare('message_id',$this->message_id);
-		$criteria->compare('user_id',$this->user_id);
-		$criteria->compare('date',$this->date);
+		$criteria->compare('type',$this->type,true);
+		$criteria->compare('subject',$this->subject,true);
+		$criteria->compare('mesage',$this->mesage,true);
+		$criteria->compare('template',$this->template,true);
+		$criteria->compare('copy_sender',$this->copy_sender,true);
 		$criteria->compare('del',$this->del);
 
 		return new CActiveDataProvider($this, array(

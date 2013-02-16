@@ -13,7 +13,7 @@ class initNotifications extends CApplicationComponent
         Yii::import("ext.notifications.models.*");
     }
 
-    public function send( $key, $type, array $arrayParams = array() )
+    public function send( $key, $types, array $arrayParams = array() )
     {
         $notification = Notifications::fetchAll(
                 DBQueryParamsClass::CreateParams()
@@ -23,12 +23,21 @@ class initNotifications extends CApplicationComponent
 
         if( !empty( $notification ) && sizeof( $notification )>0 )
         {
+            $sqlType = "";
+            // Если типы заданы масивом то формирум параметр для запроса
+            if( !empty( $types ) )
+            {
+                if( is_array( $types ))$sqlType = "'".implode( "','", $types )."'";
+                                  else $sqlType = $types;
+            }
+
             $notificationItems = NotificationsItems::fetchAll(
                 DBQueryParamsClass::CreateParams()
-                    ->setConditions( "notification_id=:notification_id" )
-                    ->setParams( array( ":notification_id"=>$notification->id ) )
+                    ->setConditions( "notification_id=:notification_id AND type=:type" )
+                    ->setParams( array( ":notification_id"=>$notification->id, ":type"=>$sqlType ) )
             );
 
+            //print_r)
             if( !empty( $notificationItems ) && sizeof( $notificationItems )>0 )
             {
                 for( $i=0;$i<sizeof( $notificationItems );$i++ )
