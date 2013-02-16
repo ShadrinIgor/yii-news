@@ -3,7 +3,7 @@
 /**
  * This is the model class for table "notifications_messages".
    */
-class NotificationsMessages extends CActiveRecord
+class NotificationsMessages extends CCModel
 {
     protected $id; // integer 
     protected $notification_id; // integer 
@@ -13,6 +13,7 @@ class NotificationsMessages extends CActiveRecord
     protected $template; // string 
     protected $copy_sender; // string 
     protected $del; // integer 
+    protected $send_from; // string 
 
 /*
 * Поля - связи
@@ -42,11 +43,11 @@ class NotificationsMessages extends CActiveRecord
 		return array(
 			array('notification_id, type, subject, mesage', 'required'),
 			array('del', 'numerical', 'integerOnly'=>true),
-			array('type, mesage, template, copy_sender', 'length', 'max'=>25),
+			array('type, mesage, template, copy_sender, send_from', 'length', 'max'=>25),
 			array('subject', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, notification_id, type, subject, mesage, template, copy_sender, del', 'safe', 'on'=>'search'),
+			array('id, notification_id, type, subject, mesage, template, copy_sender, del, send_from', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -76,6 +77,7 @@ class NotificationsMessages extends CActiveRecord
 			'template' => 'Template',
 			'copy_sender' => 'Copy Sender',
 			'del' => 'Del',
+			'send_from' => 'Send From',
 		);
 	}
 
@@ -98,6 +100,7 @@ class NotificationsMessages extends CActiveRecord
 		$criteria->compare('template',$this->template,true);
 		$criteria->compare('copy_sender',$this->copy_sender,true);
 		$criteria->compare('del',$this->del);
+		$criteria->compare('send_from',$this->send_from,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

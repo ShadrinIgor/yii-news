@@ -3,7 +3,7 @@
 /**
  * This is the model class for table "notifications_items".
    */
-class NotificationsItems extends CActiveRecord
+class NotificationsItems extends CCModel
 {
     protected $id; // integer 
     protected $notification_id; // integer 
@@ -39,7 +39,7 @@ class NotificationsItems extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('notification_id, message_id, user_id', 'required'),
-			array('notification_id, message_id, user_id, date, del', 'numerical', 'integerOnly'=>true),
+			array('date, del', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, notification_id, message_id, user_id, date, del', 'safe', 'on'=>'search'),
@@ -54,6 +54,9 @@ class NotificationsItems extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'user' => array(self::BELONGS_TO, 'CatalogUsers', 'user_id'),
+			'notification' => array(self::BELONGS_TO, 'Notifications', 'notification_id'),
+			'message' => array(self::BELONGS_TO, 'NotificationsMessages', 'message_id'),
 		);
 	}
 

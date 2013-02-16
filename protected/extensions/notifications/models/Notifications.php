@@ -3,7 +3,7 @@
 /**
  * This is the model class for table "notifications".
    */
-class Notifications extends CActiveRecord
+class Notifications extends CCModel
 {
     protected $id; // integer 
     protected $key; // string 

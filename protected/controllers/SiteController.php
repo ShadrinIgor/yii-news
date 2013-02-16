@@ -27,6 +27,7 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
+        Yii::app()->notifications->send( "registration", array( "mail", "info" ), 1 );
         Yii::app()->page->title = "Первая страница";
 		$this->render('index', array( "controller"=>$this ));
 	}

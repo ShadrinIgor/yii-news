@@ -153,7 +153,7 @@ return array(
         ),
 
         'notifications'=>array(
-            'class'     => 'ext.notification.initFavorites'
+            'class'     => 'ext.notifications.initNotifications'
         ),
 	),
 
