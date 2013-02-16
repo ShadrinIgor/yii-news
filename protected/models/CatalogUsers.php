@@ -12,19 +12,22 @@ class CatalogUsers extends CCModel
     protected $dateadd; // string 
     protected $dateedit; // string 
     protected $user; // integer 
-    protected $password; // string
-    protected $surname; // string
+    protected $password; // string 
+    protected $surname; // string 
     protected $fatchname; // string 
     protected $email; // string 
     protected $country; // integer 
     protected $city; // integer 
     protected $type; // integer 
-    protected $image; // string
-    protected $country_other; //string
+    protected $image; // string 
+    protected $country_other; // string 
+    protected $del; // integer 
+    protected $secret_key; // string 
 
 /*
 * Поля - связи
 */
+    protected $notificationsItems; //  NotificationsItems
 
 
     public function attributeNames()
@@ -104,6 +107,7 @@ class CatalogUsers extends CCModel
 		return array(
 			'country0' => array(self::BELONGS_TO, 'CatalogCountry', 'country'),
 			'city0' => array(self::BELONGS_TO, 'CatalogCity', 'city'),
+			'notificationsItems' => array(self::HAS_MANY, 'NotificationsItems', 'user_id'),
 		);
 	}
 
@@ -131,6 +135,7 @@ class CatalogUsers extends CCModel
 			'image' => 'Фото',
             'country_other' => 'Другой город',
             'captcha' => 'Код с картинки',
+            'secret_key' => 'Секретный ключ',
 		);
 	}
 
@@ -160,6 +165,9 @@ class CatalogUsers extends CCModel
 		$criteria->compare('city',$this->city);
 		$criteria->compare('type',$this->type);
 		$criteria->compare('image',$this->image,true);
+		$criteria->compare('country_other',$this->country_other,true);
+		$criteria->compare('del',$this->del);
+		$criteria->compare('secret_key',$this->secret_key,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
