@@ -7,7 +7,7 @@ class CatalogUsersConfirm extends CCModel
 {
     protected $id; // integer 
     protected $user_id; // integer 
-    protected $confirm_key; // string
+    protected $confirm_key; // string 
     protected $date; // integer 
 
 /*
@@ -36,15 +36,24 @@ class CatalogUsersConfirm extends CCModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, confurm_key, date', 'required'),
+			array('user_id, confirm_key, date', 'required'),
 			array('date', 'numerical', 'integerOnly'=>true),
-			array('confurm_key', 'length', 'max'=>25),
+			array('confirm_key', 'length', 'max'=>25),
+            array('user_id', 'checked_exists_user'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, user_id, confurm_key, date', 'safe', 'on'=>'search'),
+			array('id, user_id, confirm_key, date', 'safe', 'on'=>'search'),
 		);
 	}
 
+    public function checked_exists_user($attribute,$params)
+    {
+        if( !$this->hasErrors() && !empty( $this->user_id ) && $this->user_id->id>0  )
+        {
+            $exists = CatalogUsers::fetch( $this->user_id->id );
+            if( sizeof( $exists )>0 )$this->addErrors( array(  "0"=>"Указан не существующий ID пользоватлея" ) );
+        }
+    }
 	/**
 	 * @return array relational rules.
 	 */
@@ -65,7 +74,7 @@ class CatalogUsersConfirm extends CCModel
 		return array(
 			'id' => 'ID',
 			'user_id' => 'User',
-			'confurm_key' => 'Confurm Key',
+			'confirm_key' => 'Confirm Key',
 			'date' => 'Date',
 		);
 	}
@@ -83,7 +92,7 @@ class CatalogUsersConfirm extends CCModel
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('user_id',$this->user_id);
-		$criteria->compare('confurm_key',$this->confurm_key,true);
+		$criteria->compare('confirm_key',$this->confirm_key,true);
 		$criteria->compare('date',$this->date);
 
 		return new CActiveDataProvider($this, array(

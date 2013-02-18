@@ -27,6 +27,7 @@ class CatalogUsers extends CCModel
 /*
 * Поля - связи
 */
+    protected $catalogUsersConfirms; //  CatalogUsersConfirm
     protected $notificationsItems; //  NotificationsItems
 
 
@@ -72,8 +73,8 @@ class CatalogUsers extends CCModel
     {
         if( !$this->hasErrors() )
         {
-            $exists = CatalogUsers::fetchAll( DBQueryParamsClass::CreateParams()->setConditions("email='".$this->email."'" ) );
-            if( sizeof( $exists )>0 )$this->addErrors( array(  "0"=>"Указанный Email:".$this->email.", уже зарегистрирован в системе" ) );
+            $exists = CatalogUsers::fetchAll( DBQueryParamsClass::CreateParams()->setCache(0)->setConditions("email='".$this->email."'" ) );
+            if( sizeof( $exists )>0 )$this->addErrors( array(  "0"=>"Email:".$this->email.", уже зарегистрирован в системе" ) );
         }
     }
 
@@ -87,11 +88,8 @@ class CatalogUsers extends CCModel
 
     public function uploadImage($attribute,$params)
     {
-        echo "Проверяем картинку";
-        print_r( $this );
         if( !$this->hasErrors() && !empty( $this->image ) )
         {
-            echo $this->image."*";
             $ImageObj = CUploadedFile::getInstance($this,'image');
             $ImageObj->saveAs( SiteHelper::getImagePath( $this->tableName(), $this->id ) );
         }
@@ -107,6 +105,7 @@ class CatalogUsers extends CCModel
 		return array(
 			'country0' => array(self::BELONGS_TO, 'CatalogCountry', 'country'),
 			'city0' => array(self::BELONGS_TO, 'CatalogCity', 'city'),
+			'catalogUsersConfirms' => array(self::HAS_MANY, 'CatalogUsersConfirm', 'user_id'),
 			'notificationsItems' => array(self::HAS_MANY, 'NotificationsItems', 'user_id'),
 		);
 	}

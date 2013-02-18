@@ -49,8 +49,14 @@ class DefaultController extends Controller
             $user->setAttributes( $_POST["CatalogUsersRegistration"] );
             if( $user->save() )
             {
-                Yii::app()->notifications->send( "registration", array( "mail", "info" ), 1 );
-                //$this->redirect( $this->createUrl( "user/default/Registration/" ) );
+/*                $confim = new CatalogUsersConfirm();
+                $confim->user_id = $user->id;
+                $confim->date = time();
+                $confim->confirm_key = substr( md5( $user->email.time() ), 0, 8 );
+                $confim->save();*/
+
+                Yii::app()->notifications->send( "registration_confirm", array( "mail" ), $user->id );
+                //$this->redirect( $this->createUrl( "default/Registration/" ) );
             }
         }
 

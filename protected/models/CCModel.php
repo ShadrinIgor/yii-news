@@ -350,9 +350,11 @@
                     else $sql = "INSERT INTO ".$this->tableName()."(".$sqlColumns.") VALUES( ".$sqlField.")";
 
         $coutUpdateItems = Yii::app()->db->createCommand( $sql )->execute();
+        if( !$this->id )$this->id = Yii::app()->db->getLastInsertID();
+
         if( $coutUpdateItems == 0 )
         {
-            $this->addError( "NO_EXECUTE", "<br/>Запрос не затронул не одной записи ( ".$sql." )" );
+            $this->addError( "NO_EXECUTE", "Запрос не затронул не одной записи ( ".$sql." )" );
             return false;
         }
             else return true;
