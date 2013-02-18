@@ -51,7 +51,7 @@ class CatalogUsersConfirm extends CCModel
         if( !$this->hasErrors() && !empty( $this->user_id ) && $this->user_id->id>0  )
         {
             $exists = CatalogUsers::fetch( $this->user_id->id );
-            if( sizeof( $exists )>0 )$this->addErrors( array(  "0"=>"Указан не существующий ID пользоватлея" ) );
+            if( sizeof( $exists )==0 )$this->addErrors( array(  "0"=>"Указан не существующий ID пользоватлея" ) );
         }
     }
 	/**

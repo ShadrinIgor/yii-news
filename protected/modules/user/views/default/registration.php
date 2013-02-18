@@ -14,7 +14,7 @@
 <?php echo CHtml::form('','post',array('enctype'=>'multipart/form-data', 'id'=>'validateForm')); ?>
 <h1><?= $title ?></h1>
 <?php echo CHtml::errorSummary($form); ?><br>
-
+<?php if(!empty($okMessage) ) : ?><div class="messageSummary"><p><?= $okMessage ?></p></div><?php endif;?>
 <table border="0" width="400" cellpadding="10" cellspacing="10" class="tableForm">
     <tr>
         <th width="150"><?php echo CHtml::activeLabel($form, 'email'); ?><font class="redColor">*</font></th>

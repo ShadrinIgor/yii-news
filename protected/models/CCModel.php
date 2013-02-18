@@ -130,6 +130,25 @@
          return $listOffer;
      }
 
+     static function findByAttributes( array $params )
+    {
+        $conditional = "";
+        $param = array();
+        foreach( $params as $key=>$value )
+        {
+            if( !empty( $conditional ) )$conditional.=" AND ";
+            $conditional .= "`".$key."`=:".$key;
+            $arrayKey = ":".$key;
+            $param = array_merge( $param, array( $arrayKey=>$value ) );
+        }
+
+        $DBQueryParams = DBQueryParamsClass::CreateParams()
+                        ->setConditions( $conditional )
+                        ->setParams( $params );
+
+        return self::fetchAll( $DBQueryParams );
+    }
+
      static function count( DBQueryParamsClass $QueryParams = null )
      {
          $nameCLass = get_called_class();
@@ -342,6 +361,8 @@
                 if( !empty( $sqlColumns ) )$sqlColumns .= ",";
 
                 $sqlColumns .= "`".trim( $value )."`";
+
+                if( is_object( $this->$value ) ) $this->$value =  $this->$value->id;
                 $sqlField .= "'".$this->$value."'";
             }
         }
@@ -349,7 +370,15 @@
         if( $this->id>0 )$sql = "UPDATE ".$this->tableName()." SET ".$sqlField." WHERE id='".$this->id."'";
                     else $sql = "INSERT INTO ".$this->tableName()."(".$sqlColumns.") VALUES( ".$sqlField.")";
 
-        $coutUpdateItems = Yii::app()->db->createCommand( $sql )->execute();
+        try
+        {
+            $coutUpdateItems = Yii::app()->db->createCommand( $sql )->execute();
+        }
+        catch(Exception $e) // в случае возникновения ошибки при выполнении одного из запросов выбрасывается исключение
+        {
+            echo "Произошла ошибка запроса";
+        }
+
         if( !$this->id )$this->id = Yii::app()->db->getLastInsertID();
 
         if( $coutUpdateItems == 0 )

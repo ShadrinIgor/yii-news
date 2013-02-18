@@ -49,14 +49,14 @@ class DefaultController extends Controller
             $user->setAttributes( $_POST["CatalogUsersRegistration"] );
             if( $user->save() )
             {
-/*                $confim = new CatalogUsersConfirm();
+                $confim = new CatalogUsersConfirm();
                 $confim->user_id = $user->id;
                 $confim->date = time();
                 $confim->confirm_key = substr( md5( $user->email.time() ), 0, 8 );
-                $confim->save();*/
+                $confim->save();
 
                 Yii::app()->notifications->send( "registration_confirm", array( "mail" ), $user->id );
-                //$this->redirect( $this->createUrl( "default/Registration/" ) );
+                $this->redirect( $this->createUrl( "default/Registration/successfully/" ) );
             }
         }
 
@@ -66,7 +66,11 @@ class DefaultController extends Controller
             $arrayCountry[ $data->id ] = $data->name;
 
         $title = "Регистрация";
-        $this->render( "registration", array( "form"=>$user, "arrayCountry"=>$arrayCountry, "title"=>$title ) );
+
+        if( isset( $_GET["successfully"] ) )$okMessage = "<b>Регистрация сохраненна.</b><br/>В течении нескольких минут к Вам на почту придет письмо для подтверждения Email";
+                                       else $okMessage=null;
+
+        $this->render( "registration", array( "form"=>$user, "arrayCountry"=>$arrayCountry, "title"=>$title, "okMessage"=>$okMessage ) );
     }
 
 	/**
@@ -74,25 +78,19 @@ class DefaultController extends Controller
 	 */
 	public function actionLogin()
 	{
-		$model=new LoginForm;
+        $user =  new CatalogUsersAuth();
 
-		// if it is ajax validation request
-		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
+        if( !empty( $_POST["CatalogUsersAuth"] ) )
+        {
+            $user->setAttributes( $_POST["CatalogUsersAuth"] );
+            if( $user->validate() )
+            {
+                $this->redirect( $this->createUrl( "default/room/" ) );
+            }
+        }
 
-		// collect user input data
-		if(isset($_POST['LoginForm']))
-		{
-			$model->attributes=$_POST['LoginForm'];
-			// validate user input and redirect to the previous page if valid
-			if($model->validate() && $model->login())
-				$this->redirect(Yii::app()->user->returnUrl);
-		}
-		// display the login form
-		$this->render('login',array('model'=>$model));
+        $this->render('login',array('form'=>$user));
+
 	}
 
 	/**
