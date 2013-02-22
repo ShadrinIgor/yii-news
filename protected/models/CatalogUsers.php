@@ -5,7 +5,7 @@
    */
 class CatalogUsers extends CCModel
 {
-    protected $id; // integer 
+    protected $id; // integer
     protected $cid; // integer 
     protected $name; // string 
     protected $active; // integer 
@@ -62,7 +62,7 @@ class CatalogUsers extends CCModel
             array('email', 'email' ),
             array('email', 'check_exists_email'),
             array('image', 'uploadImage'),
-			array('name, password, email, dateadd, dateedit', 'safe'),
+			array('name, password, email, dateadd, dateedit, type, active', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('name, password, surname, fatchname, email, country, city, image', 'safe', 'on'=>'search'),
@@ -73,7 +73,19 @@ class CatalogUsers extends CCModel
     {
         if( !$this->hasErrors() )
         {
-            $exists = CatalogUsers::fetchAll( DBQueryParamsClass::CreateParams()->setCache(0)->setConditions("email='".$this->email."'" ) );
+            $conditions = "email=:email";
+            $params = array( ":email"=> $this->email );
+            if( $this->id >0 )
+            {
+                $conditions .= " AND id !=:id";
+                $params = array_merge( $params, array( ":id"=>$this->id ) );
+            }
+
+            $dbCriterii = DBQueryParamsClass::CreateParams()
+                ->setConditions( $conditions )
+                ->setParams( $params );
+
+            $exists = CatalogUsers::fetchAll( $dbCriterii );
             if( sizeof( $exists )>0 )$this->addErrors( array(  "0"=>"Email:".$this->email.", уже зарегистрирован в системе" ) );
         }
     }
@@ -172,4 +184,18 @@ class CatalogUsers extends CCModel
 			'criteria'=>$criteria,
 		));
 	}
+
+    // описываем событие onRegistration
+    public function onRegistration($event)
+    {
+        if($this->hasEventHandler('onRegistration'))
+            $this->raiseEvent('onRegistration', $event);
+    }
+
+    // описываем событие onRegistrationConfirm
+    public function onRegistrationConfirm($event)
+    {
+        if($this->hasEventHandler('onRegistrationConfirm'))
+            $this->raiseEvent('onRegistrationConfirm', $event);
+    }
 }

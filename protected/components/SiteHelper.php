@@ -8,6 +8,29 @@
  */
 class SiteHelper
 {
+    /**
+     * Навещивает обработчики событий
+     * @static
+     * @param CComponent $object
+     * @return object
+     *
+     */
+    public static function attacheHandlers(CComponent &$object) {
+        $config = SiteHelper::getEventsConfig();
+        foreach($config as $event=>$handlers) {
+            if(!method_exists(get_class($object), $event))
+                continue;
+
+            foreach($handlers as $handler)
+                $object->attachEventHandler( $event, $handler );
+               // $object->$event = $handler;
+        }
+    }
+
+    public static function getEventsConfig() {
+        return require(Yii::getPathOfAlias('configPath').DIRECTORY_SEPARATOR.'handlers.php');
+    }
+
     /*
      * Функция делает транслит руских слов в названии файлов
      */

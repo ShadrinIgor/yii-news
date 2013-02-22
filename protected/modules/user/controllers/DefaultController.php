@@ -43,19 +43,14 @@ class DefaultController extends Controller
 
     public function actionRegistration()
     {
-        $user =  new CatalogUsersRegistration(  );
+        $user =  new CatalogUsersRegistration();
+
         if( !empty( $_POST["CatalogUsersRegistration"] ) )
         {
             $user->setAttributes( $_POST["CatalogUsersRegistration"] );
             if( $user->save() )
             {
-                $confim = new CatalogUsersConfirm();
-                $confim->user_id = $user->id;
-                $confim->date = time();
-                $confim->confirm_key = substr( md5( $user->email.time() ), 0, 8 );
-                $confim->save();
-
-                Yii::app()->notifications->send( "registration_confirm", array( "mail" ), $user->id );
+                $user->onRegistration( new CModelEvent($user) );
                 $this->redirect( $this->createUrl( "default/Registration/successfully/" ) );
             }
         }
@@ -71,6 +66,27 @@ class DefaultController extends Controller
                                        else $okMessage=null;
 
         $this->render( "registration", array( "form"=>$user, "arrayCountry"=>$arrayCountry, "title"=>$title, "okMessage"=>$okMessage ) );
+    }
+
+    public function actionConfirm()
+    {
+        $error = true;
+        $errorMessage = null;
+        $sekretKey = SiteHelper::checkedVaribal( $_GET["confirm_key"], "string" );
+        if( !empty( $sekretKey ) )
+        {
+            $registrationConfirm = CatalogUsersConfirm::findByAttributes( array( "confirm_key"=>$sekretKey ) );
+            if( sizeof($registrationConfirm)>0 )
+            {
+                $user = $registrationConfirm[0]->user_id;
+                $user->onRegistrationConfirm( new CModelEvent( $user ) );
+                $error = false;
+            }
+                else $error = true;
+        }
+            else $error = true;
+
+        $this->render( "confirm", array( "error"=>$error, "error_message" => $errorMessage ) );
     }
 
 	/**

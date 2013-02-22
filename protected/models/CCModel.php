@@ -12,6 +12,7 @@
      const MANY_MANY='CManyManyRelation';   // эта связь соответствует типу связи многие-ко-многим в БД
 
      public $errors = array();
+     public $isNewAdded;
      /*
      * @desc Вытаскивает из базы список значений по параметрам
      * @param DBQueryParamsClass $QueryParams
@@ -148,6 +149,22 @@
 
         return self::fetchAll( $DBQueryParams );
     }
+
+     public function delete( )
+     {
+         if( $this->id >0 )
+         {
+             $nameCLass = get_called_class();
+             $newObject = new $nameCLass;
+             $tableAlias = self::getTableAlias( $newObject->tableName() );
+
+             $count = Yii::app()->db->createCommand("DELETE FROM ".$newObject->tableName()." WHERE id='".$this->id."'")
+                 ->execute();
+
+             return $count>0 ? true : false;
+         }
+            else return false;
+     }
 
      static function count( DBQueryParamsClass $QueryParams = null )
      {
@@ -344,6 +361,7 @@
 
         $sqlColumns = "";
         $sqlField = "";
+        $sqlUpdateField = "";
         foreach( $this->getSafeAtributes() as $key => $value )
         {
             $value = trim( $value );
@@ -358,18 +376,24 @@
             }
                 else
             {
-                if( !empty( $sqlColumns ) )$sqlColumns .= ",";
+                if( !empty( $sqlColumns ) )
+                {
+                    $sqlColumns .= ",";
+                    $sqlUpdateField .= ",";
+                }
 
                 $sqlColumns .= "`".trim( $value )."`";
 
                 if( is_object( $this->$value ) ) $this->$value =  $this->$value->id;
                 $sqlField .= "'".$this->$value."'";
+                $sqlUpdateField .= "`".trim( $value )."`='".$this->$value."'";
             }
         }
 
-        if( $this->id>0 )$sql = "UPDATE ".$this->tableName()." SET ".$sqlField." WHERE id='".$this->id."'";
+        if( $this->id>0 )$sql = "UPDATE ".$this->tableName()." SET ".$sqlUpdateField." WHERE id='".$this->id."'";
                     else $sql = "INSERT INTO ".$this->tableName()."(".$sqlColumns.") VALUES( ".$sqlField.")";
 
+        $coutUpdateItems = null;
         try
         {
             $coutUpdateItems = Yii::app()->db->createCommand( $sql )->execute();
@@ -379,7 +403,12 @@
             echo "Произошла ошибка запроса";
         }
 
-        if( !$this->id )$this->id = Yii::app()->db->getLastInsertID();
+        if( !$this->id )
+        {
+            $this->isNewAdded = true;
+            $this->id = Yii::app()->db->getLastInsertID();
+        }
+            else $this->isNewAdded = false;
 
         if( $coutUpdateItems == 0 )
         {
@@ -465,7 +494,8 @@
     }
 
     public function attributeNames()
-    {}
+    {
+    }
 
     public function tableName()
     {}

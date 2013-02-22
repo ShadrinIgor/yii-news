@@ -34,7 +34,8 @@ class CatalogUsersRegistration extends CatalogUsers
             array('image', 'uploadImage'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-            array('name, password, surname, fatchname, email, country, city, image', 'safe'),
+            array('name, password, surname, fatchname, email, country, city, image, country_other', 'safe'),
 		);
 	}
+
 }
