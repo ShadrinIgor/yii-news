@@ -131,7 +131,7 @@
          return $listOffer;
      }
 
-     static function findByAttributes( array $params )
+     static function findByAttributes( array $params, $cache = null )
     {
         $conditional = "";
         $param = array();
@@ -145,6 +145,7 @@
 
         $DBQueryParams = DBQueryParamsClass::CreateParams()
                         ->setConditions( $conditional )
+                        ->setCache( $cache )
                         ->setParams( $params );
 
         return self::fetchAll( $DBQueryParams );

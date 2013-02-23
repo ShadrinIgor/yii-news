@@ -10,8 +10,7 @@ class UserIdentity extends CUserIdentity
     private $_id;
     public function authenticate()
     {
-
-        $arrRecord=CatalogUsers::findByAttributes(array('email'=>$this->username));
+        $arrRecord=CatalogUsers::findByAttributes(array('email'=>$this->username), 0);
         if( !empty( $arrRecord ) && sizeof( $arrRecord )>0 )$record = $arrRecord[0];
             else $record = null;
 
@@ -21,11 +20,16 @@ class UserIdentity extends CUserIdentity
             $this->errorCode=self::ERROR_PASSWORD_INVALID;
         else
         {
-            $this->_id=$record->id;
-            $this->setState('title', $record->name);
-            $this->errorCode=self::ERROR_NONE;
+            if( $record->active == 1 )
+            {
+                $this->_id=$record->id;
+                $this->setState('title', $record->name);
+                $this->errorCode=self::ERROR_NONE;
+            }
+                else $this->errorCode=self::ERROR_UNKNOWN_IDENTITY;
         }
-        return !$this->errorCode;
+
+        return $this->errorCode;
     }
 
     public function getId()

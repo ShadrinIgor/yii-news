@@ -22,7 +22,8 @@ class CatalogUsers extends CCModel
     protected $image; // string 
     protected $country_other; // string 
     protected $del; // integer 
-    protected $secret_key; // string 
+    protected $secret_key; // string
+    protected $last_visit; //integer
 
 /*
 * Поля - связи
@@ -62,7 +63,7 @@ class CatalogUsers extends CCModel
             array('email', 'email' ),
             array('email', 'check_exists_email'),
             array('image', 'uploadImage'),
-			array('name, password, email, dateadd, dateedit, type, active', 'safe'),
+			array('name, password, email, dateadd, dateedit, type, active, last_visit', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('name, password, surname, fatchname, email, country, city, image', 'safe', 'on'=>'search'),
@@ -147,6 +148,7 @@ class CatalogUsers extends CCModel
             'country_other' => 'Другой город',
             'captcha' => 'Код с картинки',
             'secret_key' => 'Секретный ключ',
+            'last_visit' => 'Дата последнего визита'
 		);
 	}
 
@@ -197,5 +199,11 @@ class CatalogUsers extends CCModel
     {
         if($this->hasEventHandler('onRegistrationConfirm'))
             $this->raiseEvent('onRegistrationConfirm', $event);
+    }
+
+    public function onLogin( $event )
+    {
+        if($this->hasEventHandler('onLogin'))
+            $this->raiseEvent('onLogin', $event);
     }
 }

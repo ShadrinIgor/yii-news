@@ -719,3 +719,13 @@ h2{ margin-top: 10px; }
 
 .messageSummary{border-left: 5px solid #0000ff;padding:5px 5px 5px 10px;border-radius: 25px;}
 .messageSummary p{padding-left: 22px;color:#0000ff;}
+#loginForm
+{
+    background: -moz-linear-gradient(#cfcfcf, #fff);
+    background: -ms-linear-gradient(#cfcfcf, #fff);
+    background: -o-linear-gradient(#cfcfcf, #fff);
+    background: -webkit-linear-gradient(#cfcfcf, #fff);
+    border:1px solid #afafaf;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px #afafaf;
+}

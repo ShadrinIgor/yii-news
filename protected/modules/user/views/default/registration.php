@@ -11,7 +11,14 @@
     $cs->registerCssFile($baseUrl.'/js/chosen/chosen.css');
 ?>
 
+<div id="PageText">
+    <?php
+    $this->widget('addressLineWidget', array(
+        'links'=>array( "Регистрация" ),
+    ));
+?>
 <?php echo CHtml::form('','post',array('enctype'=>'multipart/form-data', 'id'=>'validateForm')); ?>
+    <?php Yii::app()->banners->getBannerByCategory( 1 ); ?>
 <h1><?= $title ?></h1>
 <?php echo CHtml::errorSummary($form); ?><br>
 <?php if(!empty($okMessage) ) : ?><div class="messageSummary"><p><?= $okMessage ?></p></div><?php endif;?>
@@ -69,3 +76,4 @@
     </tr>
 </table>
 <?php echo CHtml::endForm(); ?>
+</div>

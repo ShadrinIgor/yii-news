@@ -12,7 +12,7 @@ $cs->registerCssFile($baseUrl.'/css/jquery/validationEngine.jquery.css');
 <div id="PageText">
     <?php
     $this->widget('addressLineWidget', array(
-        'links'=>array( "Авторизация" ),
+        'links'=>array( "Востановление пароля" ),
     ));
     ?>
     <?php Yii::app()->banners->getBannerByCategory( 1 ); ?>
@@ -23,10 +23,6 @@ $cs->registerCssFile($baseUrl.'/css/jquery/validationEngine.jquery.css');
         <tr>
             <th width="150"><?php echo CHtml::activeLabel($form, 'email'); ?><font class="redColor">*</font></th>
             <td><?php echo CHtml::activeTextField($form, 'email', array( 'class'=>'validate[required,custom[email]]' )) ?></td>
-        </tr>
-        <tr>
-            <th><?php echo CHtml::activeLabel($form, 'password'); ?><font class="redColor">*</font></th>
-            <td><?php echo CHtml::activePasswordField($form, 'password', array( 'class'=>'validate[required]' )) ?></td>
         </tr>
         <tr>
             <td></td>

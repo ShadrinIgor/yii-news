@@ -27,16 +27,23 @@ class CatalogUsersAuth extends CatalogUsers
     {
         if( !$this->hasErrors() )
         {
-/*            $user = CatalogUsers::findByAttributes(array("email"=>$this->email, "password"=>md5( $this->password )));
-            if( empty($user) || sizeof( $user ) ==0 )$this->addErrors( array(  "0"=>"Вы ввели неверный EMAIL или ПАРОЛЬ" ) );
-                else
-                {*/
             $identity=new UserIdentity($this->email,$this->password);
-            if($identity->authenticate())
+            $errorCode = $identity->authenticate();
+
+            if( $errorCode == 0 )
                 Yii::app()->user->login($identity);
             else
-                $this->addErrors( array( "0"=>"Вы ввели неверный EMAIL или ПАРОЛЬ" ) );
-//                }
+            {
+                switch( $errorCode )
+                {
+                    case 1:
+                    case 2: $error = "Вы ввели неверный EMAIL или ПАРОЛЬ";break;
+                    case 100 :$error = "Ваш аккаунт не активный, Вы не подтвердили регистрацию";break;
+                    default : $error = "Вы ввели неверный EMAIL или ПАРОЛЬ";
+                }
+                $this->addErrors( array( "0"=>$error ) );
+            }
         }
     }
+
 }

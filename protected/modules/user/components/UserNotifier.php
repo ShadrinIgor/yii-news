@@ -32,4 +32,17 @@ class UserNotifier {
         // Отправляем письмо для подтверждения Email
         Yii::app()->notifications->send( "registration_successfully", array( "mail" ), $user->id );
     }
+
+    static function updateDateVisit( $event )
+    {
+        $user = $event->sender;
+        $user->last_visit = time();
+        $user->save();
+    }
+
+    static function lostPassword( $event )
+    {
+
+
+    }
 }

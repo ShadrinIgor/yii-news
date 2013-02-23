@@ -101,13 +101,34 @@ class DefaultController extends Controller
             $user->setAttributes( $_POST["CatalogUsersAuth"] );
             if( $user->validate() )
             {
+                $user->onLogin( new CModelEvent( $user ) );
                 $this->redirect( $this->createUrl( "default/room/" ) );
             }
         }
 
         $this->render('login',array('form'=>$user));
-
 	}
+
+
+    /**
+     * Displays the lost password page
+     */
+    public function actionLost()
+    {
+        $user =  new CatalogUsersLost();
+
+        if( !empty( $_POST["CatalogUsersLost"] ) )
+        {
+            $user->setAttributes( $_POST["CatalogUsersLost"] );
+            if( $user->validate() )
+            {
+                $user->onLostPassword( new CModelEvent( $user ) );
+                $this->redirect( $this->createUrl( "default/room/" ) );
+            }
+        }
+
+        $this->render('lost',array('form'=>$user));
+    }
 
 	/**
 	 * Logs out the current user and redirect to homepage.
