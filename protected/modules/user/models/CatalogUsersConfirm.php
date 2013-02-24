@@ -8,7 +8,9 @@ class CatalogUsersConfirm extends CCModel
     protected $id; // integer 
     protected $user_id; // integer 
     protected $confirm_key; // string 
-    protected $date; // integer 
+    protected $date; // integer
+    protected $type; // enum ( registration, lostpassword )
+
 
 /*
 * Поля - связи
@@ -42,7 +44,7 @@ class CatalogUsersConfirm extends CCModel
             array('user_id', 'checked_exists_user'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, user_id, confirm_key, date', 'safe', 'on'=>'search'),
+			array('id, user_id, confirm_key, date, type', 'safe', 'on'=>'search'),
 		);
 	}
 

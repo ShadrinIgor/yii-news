@@ -3,8 +3,10 @@
 /**
  * This is the model class for table "catalog_users".
    */
-class CatalogUsersLost extends CatalogUsers
+class CatalogUsersLostConfirm extends CatalogUsers
 {
+    protected $password2; // string
+
  	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -14,15 +16,16 @@ class CatalogUsersLost extends CatalogUsers
 		// will receive user inputs.
 		return array(
 
-			array('email', 'required'),
-            array('email', 'check_exists_params'),
+			array('password, password2', 'required'),
+            array('password', 'compare', 'compareAttribute'=>'password2'),
+            array('password', 'check_passwords'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-            array('email', 'safe'),
+            array('password, password2', 'safe'),
 		);
 	}
 
-    public function check_exists_params($attribute,$params)
+    public function check_passwords($attribute,$params)
     {
         if( !$this->hasErrors() )
         {

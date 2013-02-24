@@ -19,7 +19,7 @@ $cs->registerCssFile($baseUrl.'/css/jquery/validationEngine.jquery.css');
     <?php echo CHtml::form('','post',array( 'id'=>'validateForm')); ?>
     <h1>Авторизация</h1>
     <?php echo CHtml::errorSummary($form); ?><br>
-    <table id="loginForm">
+    <table id="loginForm" align="center">
         <tr>
             <th width="150"><?php echo CHtml::activeLabel($form, 'email'); ?><font class="redColor">*</font></th>
             <td><?php echo CHtml::activeTextField($form, 'email', array( 'class'=>'validate[required,custom[email]]' )) ?></td>

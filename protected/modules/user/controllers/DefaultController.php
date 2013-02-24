@@ -109,7 +109,6 @@ class DefaultController extends Controller
         $this->render('login',array('form'=>$user));
 	}
 
-
     /**
      * Displays the lost password page
      */
@@ -122,12 +121,38 @@ class DefaultController extends Controller
             $user->setAttributes( $_POST["CatalogUsersLost"] );
             if( $user->validate() )
             {
-                $user->onLostPassword( new CModelEvent( $user ) );
-                $this->redirect( $this->createUrl( "default/room/" ) );
+                $userByEmail = CatalogUsers::findByAttributes( array("email"=>$user->email) );
+                $user->onLostPassword( new CModelEvent( $userByEmail[0] ) );
+                $this->redirect( $this->createUrl( "default/lost/successfully/" ) );
             }
         }
 
-        $this->render('lost',array('form'=>$user));
+        if( isset( $_GET["successfully"] ) )$okMessage = "<b>Запрос на востановление пароля сохранен.</b><br/>В течении нескольких минут к Вам на почту придет письмо для подтверждения запроса";
+                                       else $okMessage=null;
+
+        $this->render('lost',array('form'=>$user, "okMessage"=>$okMessage ));
+    }
+
+
+    /**
+     * Displays the lost password page
+     */
+    public function actionLostConfirm()
+    {
+        $user =  new CatalogUsersLost();
+
+        if( !empty( $_POST["CatalogUsersLostConfirm"] ) )
+        {
+            $user->setAttributes( $_POST["CatalogUsersLostConfirm"] );
+            if( $user->validate() )
+            {
+                $userByEmail = CatalogUsers::findByAttributes( array("email"=>$user->email) );
+                $user->onLostPassword( new CModelEvent( $userByEmail[0] ) );
+                $this->redirect( $this->createUrl( "default/lost/" ) );
+            }
+        }
+
+        $this->render('lostconfirm',array('form'=>$user));
     }
 
 	/**

@@ -11,23 +11,26 @@ $cs->registerCssFile($baseUrl.'/css/jquery/validationEngine.jquery.css');
 <div id="PageText">
     <?php
     $this->widget('addressLineWidget', array(
-        'links'=>array( "Востановление пароля" ),
+        'links'=>array( "Смена пароля" ),
     ));
     ?>
     <?php Yii::app()->banners->getBannerByCategory( 1 ); ?>
     <?php echo CHtml::form('','post',array( 'id'=>'validateForm')); ?>
-    <h1>Востановление пароля</h1>
+    <h1>Смена пароля</h1>
     <?php echo CHtml::errorSummary($form); ?><br/>
-    <?php if(!empty($okMessage) ) : ?><div class="messageSummary"><p><?= $okMessage ?></p></div><?php endif;?>
     <table id="loginForm" align="center">
         <tr>
-            <th width="150"><?php echo CHtml::activeLabel($form, 'email'); ?><font class="redColor">*</font></th>
-            <td><?php echo CHtml::activeTextField($form, 'email', array( 'class'=>'validate[required,custom[email]]' )) ?></td>
+            <th><?php echo CHtml::activeLabel($form, 'password'); ?><font class="redColor">*</font></th>
+            <td><?php echo CHtml::activePasswordField($form, 'password', array( 'class'=>'validate[required]' )) ?></td>
+        </tr>
+        <tr>
+            <th><?php echo CHtml::activeLabel($form, 'password2'); ?><font class="redColor">*</font></th>
+            <td><?php echo CHtml::activePasswordField($form, 'password2', array( 'class'=>'validate[required]' )) ?></td>
         </tr>
         <tr>
             <td></td>
             <td align="center">
-                <?php echo CHtml::submitButton('Отправить запрос'); ?>
+                <?php echo CHtml::submitButton('Сохранить'); ?>
             </td>
         </tr>
     </table>

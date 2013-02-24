@@ -13,6 +13,12 @@
 
      public $errors = array();
      public $isNewAdded;
+
+     function __construct()
+     {
+         SiteHelper::attacheHandlers( $this );
+     }
+
      /*
      * @desc Вытаскивает из базы список значений по параметрам
      * @param DBQueryParamsClass $QueryParams

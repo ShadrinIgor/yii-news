@@ -206,4 +206,12 @@ class CatalogUsers extends CCModel
         if($this->hasEventHandler('onLogin'))
             $this->raiseEvent('onLogin', $event);
     }
+
+    public function onLostPassword( $event )
+    {
+        if($this->hasEventHandler('onLostPassword'))
+            $this->raiseEvent('onLostPassword', $event);
+    }
+
+
 }
