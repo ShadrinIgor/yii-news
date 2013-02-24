@@ -17,5 +17,9 @@ return array(
         array('UserNotifier', 'lostPassword'),
     ),
 
+    'onLostPasswordConfirm'=>array(
+        array('UserNotifier', 'lostPasswordConfirm'),
+    ),
+
 
 );

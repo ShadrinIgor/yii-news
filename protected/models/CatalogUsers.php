@@ -213,5 +213,11 @@ class CatalogUsers extends CCModel
             $this->raiseEvent('onLostPassword', $event);
     }
 
+    public function onLostPasswordConfirm( $event )
+    {
+        if($this->hasEventHandler('onLostPasswordConfirm'))
+            $this->raiseEvent('onLostPasswordConfirm', $event);
+    }
+
 
 }

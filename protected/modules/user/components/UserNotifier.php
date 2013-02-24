@@ -80,4 +80,9 @@ class UserNotifier {
         // Отправляем письмо для подтверждения Email
         Yii::app()->notifications->send( "lostpassword_request", array( "mail" ), $user->id );
     }
+
+    static function lostPasswordConfirm( $event )
+    {
+        $user = $event->sender;
+    }
 }
