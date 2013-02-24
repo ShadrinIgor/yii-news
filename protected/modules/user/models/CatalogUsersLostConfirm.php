@@ -29,22 +29,19 @@ class CatalogUsersLostConfirm extends CatalogUsers
     {
         if( !$this->hasErrors() )
         {
-            $userList = CatalogUsers::findByAttributes( array( "email"=>$this->email ), 0 );
-
-            if( !empty($userList) && sizeof( $userList )==1 )
+            $key = ( !empty( $_GET["key"] ) ) ? SiteHelper::checkedVaribal( $_GET["key"], "string" ) : "";
+            $confirm = CatalogUsersConfirm::findByAttributes( array( "confirm_key"=>$key ) );
+            if( !empty($confirm) && sizeof( $confirm )==1 )
             {
-                // Если в базе уже сужествует запросы на востановление, до удаляем его
-                $existConfirm = CatalogUsersConfirm::findByAttributes( array( "user_id"=>$userList[0]->id, "type"=>"lostpassword" ) );
-                if( sizeof( $existConfirm )>0 )$existConfirm[0]->delete();
-
-                if( $userList[0]->active == 0 )$error = "Ваш аккаунт не активировн";
+                if( $this->active == 0 )$error = "Ваш аккаунт не активировн";
             }
-                else $error = "Вы ввели не существующий EMAIL";
+                else $error = "Указан не верный ключ";
 
             if( !empty( $error ) )
             {
                 $this->addErrors( array( "0"=>$error ) );
             }
+                else $confirm[0]->delete();
         }
     }
 

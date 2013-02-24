@@ -12,7 +12,7 @@ class UserNotifier {
         $confim->confirm_key = substr( md5( $user->email.time() ), 0, 8 );
         $confim->type = "registration";
         $confim->save();
-        if( sizeof( $confim )>0 )
+        if( $confim->hasErrors() && sizeof( $confim )>0 )
         {
             $errors = "Ошибка сохранение подтвержджения регистрации: ";
             foreach( $confim->getErrors() as $data )
@@ -83,6 +83,25 @@ class UserNotifier {
 
     static function lostPasswordConfirm( $event )
     {
-        $user = $event->sender;
+        $userSender = $event->sender;
+        $user = CatalogUsers::fetch( $userSender->id );
+        $user->password = md5( $userSender->password );
+        $user->save();
+
+        if( $user->hasErrors() && sizeof( $user )>0 )
+        {
+            $errors = "Ошибка сохранение нового пароля: ";
+            foreach( $user->getErrors() as $data )
+            {
+                foreach( $data as $key=>$value )
+                {
+                    $errors .= $value.", ";
+                }
+            }
+            throw new Exception( $errors );
+        }
+
+        // Отправляем письмо уведомления о смене пароля
+        Yii::app()->notifications->send( "lostpassword_save", array( "mail" ), $user->id );
     }
 }

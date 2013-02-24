@@ -139,20 +139,39 @@ class DefaultController extends Controller
      */
     public function actionLostConfirm()
     {
-        $user =  new CatalogUsersLost();
+        $error = false;
+        $user =  new CatalogUsersLostConfirm();
 
-        if( !empty( $_POST["CatalogUsersLostConfirm"] ) )
+        if( !isset( $_GET["successfully"] ) )
+        {
+            $key = ( !empty( $_GET["key"] ) ) ? SiteHelper::checkedVaribal( $_GET["key"], "string" ) : "";
+            if( !empty( $key ) )
+            {
+                $lostConfirm = CatalogUsersConfirm::findByAttributes( array( "confirm_key"=>$key, "type"=>"lostpassword" ) );
+                if( empty( $lostConfirm ) || sizeof( $lostConfirm ) == 0 )$error = true;
+            }
+                else $error = true;
+        }
+
+        if( empty( $error ) && !empty( $_POST["CatalogUsersLostConfirm"] ) )
         {
             $user->setAttributes( $_POST["CatalogUsersLostConfirm"] );
-            if( $user->validate() )
+            $confirm = CatalogUsersConfirm::findByAttributes( array( "confirm_key"=>$key ) );
+            $userDB = CatalogUsersLostConfirm::fetch( $confirm[0]->user_id->id );
+            $userDB->password = $user->password;
+            $userDB->password2 = $user->password2;
+
+            if( $userDB->validate() )
             {
-                $userByEmail = CatalogUsers::findByAttributes( array("email"=>$user->email) );
-                $user->onLostPassword( new CModelEvent( $userByEmail[0] ) );
-                $this->redirect( $this->createUrl( "default/lost/" ) );
+                $userDB->onLostPasswordConfirm( new CModelEvent( $userDB ) );
+                $this->redirect( $this->createUrl( "default/lostconfirm/successfully/" ) );
             }
         }
 
-        $this->render('lostconfirm',array('form'=>$user));
+        if( isset( $_GET["successfully"] ) )$okMessage = "<b>Новый пароль успешно сохранен.</b><br/>Вы можете авторизоваться используя новый пароль";
+                                       else $okMessage=null;
+
+        $this->render('lostconfirm',array('form'=>$user, "error"=>$error, "okMessage"=>$okMessage));
     }
 
 	/**
@@ -163,4 +182,4 @@ class DefaultController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
-}
+};
