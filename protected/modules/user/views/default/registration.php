@@ -17,7 +17,7 @@
         'links'=>array( "Регистрация" ),
     ));
 ?>
-<?php echo CHtml::form('','post',array('enctype'=>'multipart/form-data', 'id'=>'validateForm')); ?>
+<?php echo CHtml::form('user/default/registration/','post',array('enctype'=>'multipart/form-data', 'id'=>'validateForm')); ?>
     <?php Yii::app()->banners->getBannerByCategory( 1 ); ?>
 <h1><?= $title ?></h1>
 <?php echo CHtml::errorSummary($form); ?><br>

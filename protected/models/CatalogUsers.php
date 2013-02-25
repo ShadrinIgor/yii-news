@@ -83,6 +83,7 @@ class CatalogUsers extends CCModel
             }
 
             $dbCriterii = DBQueryParamsClass::CreateParams()
+                ->setCache(0)
                 ->setConditions( $conditions )
                 ->setParams( $params );
 
@@ -101,10 +102,12 @@ class CatalogUsers extends CCModel
 
     public function uploadImage($attribute,$params)
     {
+        $this->image = CUploadedFile::getInstance($this,'image');
         if( !$this->hasErrors() && !empty( $this->image ) )
         {
-            $ImageObj = CUploadedFile::getInstance($this,'image');
-            $ImageObj->saveAs( SiteHelper::getImagePath( $this->tableName(), $this->id ) );
+            $fileName = SiteHelper::getImagePath( $this->tableName(), $this->id ).rand( 1000, 99999 ).".jpg";
+            $this->image->saveAs( $fileName );
+            $this->image = $fileName;
         }
     }
 
@@ -218,6 +221,4 @@ class CatalogUsers extends CCModel
         if($this->hasEventHandler('onLostPasswordConfirm'))
             $this->raiseEvent('onLostPasswordConfirm', $event);
     }
-
-
 }

@@ -14,36 +14,43 @@ class UserNotifier {
         $confim->save();
         if( $confim->hasErrors() && sizeof( $confim )>0 )
         {
-            $errors = "Ошибка сохранение подтвержджения регистрации: ";
+            $errors = "Ошибка сохранение запис для подтвержджения регистрации: ";
             foreach( $confim->getErrors() as $data )
-            {
-                foreach( $data as $key=>$value )
-                {
-                    $errors .= $value.", ";
-                }
-            }
+                foreach( $data as $key=>$value )$errors .= $value.", ";
+
             throw new Exception( $errors );
         }
-
-        // Отправляем письмо для подтверждения Email
-        Yii::app()->notifications->send( "registration_confirm", array( "mail" ), $user->id );
+            else
+        {
+            // Отправляем письмо для подтверждения Email
+            Yii::app()->notifications->send( "registration_confirm", array( "mail" ), $user->id );
+        }
     }
 
     static function registrationConfirm( $event )
     {
-        $user = $event->sender;
-
-        // Удаляем запись в базе о необходимости подтверждения
-        $confirm = CatalogUsersConfirm::findByAttributes( array("user_id"=>$user->id, "type"=>"registration") );
-        if( sizeof( $confirm )>0 )
-            $confirm[0]->delete();
-
+        $confirm = CatalogUsersConfirm::findByAttributes( array("confirm_key"=> SiteHelper::checkedVaribal( $_GET["confirm_key"], "string" ), "type"=>"registration"), 0 );
+        $user = $confirm[0]->user_id;
         // Изменяем статус пользователя
         $user->active = 1;
         $user->save();
+        if( $user->hasErrors() && sizeof( $user )>0 )
+        {
+            $errors = "Ошибка сохранение подтвержджения регистрации: ";
+            foreach( $user->getErrors() as $data )
+                foreach( $data as $key=>$value )$errors .= $value.", ";
 
-        // Отправляем письмо для подтверждения Email
-        Yii::app()->notifications->send( "registration_successfully", array( "mail" ), $user->id );
+            throw new Exception( $errors );
+        }
+            else
+        {
+            // Удаляем запись в базе о необходимости подтверждения
+            if( sizeof( $confirm )>0 )$confirm[0]->delete();
+
+            // Отправляем письмо для подтверждения Email
+            Yii::app()->notifications->send( "registration_successfully", array( "mail" ), $user->id );
+        }
+
     }
 
     static function updateDateVisit( $event )
@@ -68,17 +75,15 @@ class UserNotifier {
         {
             $errors = "Ошибка сохранение подтвержджения востановление пароля: ";
             foreach( $confim->getErrors() as $data )
-            {
-                foreach( $data as $key=>$value )
-                {
-                    $errors .= $value.", ";
-                }
-            }
+                foreach( $data as $key=>$value )$errors .= $value.", ";
+
             throw new Exception( $errors );
         }
-
-        // Отправляем письмо для подтверждения Email
-        Yii::app()->notifications->send( "lostpassword_request", array( "mail" ), $user->id );
+            else
+        {
+            // Отправляем письмо для подтверждения Email
+            Yii::app()->notifications->send( "lostpassword_request", array( "mail" ), $user->id );
+        }
     }
 
     static function lostPasswordConfirm( $event )
@@ -92,16 +97,14 @@ class UserNotifier {
         {
             $errors = "Ошибка сохранение нового пароля: ";
             foreach( $user->getErrors() as $data )
-            {
-                foreach( $data as $key=>$value )
-                {
-                    $errors .= $value.", ";
-                }
-            }
+                foreach( $data as $key=>$value )$errors .= $value.", ";
+
             throw new Exception( $errors );
         }
-
-        // Отправляем письмо уведомления о смене пароля
-        Yii::app()->notifications->send( "lostpassword_save", array( "mail" ), $user->id );
+            else
+        {
+            // Отправляем письмо уведомления о смене пароля
+            Yii::app()->notifications->send( "lostpassword_save", array( "mail" ), $user->id );
+        }
     }
 }
