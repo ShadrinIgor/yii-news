@@ -94,6 +94,36 @@ class DefaultController extends Controller
 	 */
 	public function actionLogin()
 	{
+        // ---
+        // Авторизация через соц сети
+        // ---
+        $service = Yii::app()->request->getQuery('service');
+        if (isset($service)) {
+            $authIdentity = Yii::app()->eauth->getIdentity($service);
+            $authIdentity->redirectUrl = Yii::app()->user->returnUrl;
+            $authIdentity->cancelUrl = $this->createAbsoluteUrl('user/default/login/');
+
+            if ($authIdentity->authenticate()) {
+                $identity = new ServiceUserIdentity($authIdentity);
+
+                // Успешный вход
+                if ($identity->authenticate()) {
+                    Yii::app()->user->login($identity);
+
+                    // Специальный редирект с закрытием popup окна
+                    $authIdentity->redirect();
+                }
+                else {
+                    // Закрываем popup окно и перенаправляем на cancelUrl
+                    $authIdentity->cancel();
+                }
+            }
+
+            // Что-то пошло не так, перенаправляем на страницу входа
+            $this->redirect(array('user/default/login/'));
+        }
+        // ---
+
         $user =  new CatalogUsersAuth();
 
         if( !empty( $_POST["CatalogUsersAuth"] ) )

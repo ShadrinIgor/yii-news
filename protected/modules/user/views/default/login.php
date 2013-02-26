@@ -21,17 +21,31 @@ $cs->registerCssFile($baseUrl.'/css/jquery/validationEngine.jquery.css');
     <?php echo CHtml::errorSummary($form); ?><br>
     <table id="loginForm" align="center">
         <tr>
-            <th width="150"><?php echo CHtml::activeLabel($form, 'email'); ?><font class="redColor">*</font></th>
-            <td><?php echo CHtml::activeTextField($form, 'email', array( 'class'=>'validate[required,custom[email]]' )) ?></td>
+            <td colspan="2" align="center">
+                <table>
+                <tr>
+                    <th width="150"><?php echo CHtml::activeLabel($form, 'email'); ?><font class="redColor">*</font></th>
+                    <td><?php echo CHtml::activeTextField($form, 'email', array( 'class'=>'validate[required,custom[email]]' )) ?></td>
+                </tr>
+                <tr>
+                    <th><?php echo CHtml::activeLabel($form, 'password'); ?><font class="redColor">*</font></th>
+                    <td><?php echo CHtml::activePasswordField($form, 'password', array( 'class'=>'validate[required]' )) ?></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td align="left">
+                        <?php echo CHtml::submitButton('Авторизоватся'); ?>
+                    </td>
+                </tr>
+                </table>
+            </td>
         </tr>
         <tr>
-            <th><?php echo CHtml::activeLabel($form, 'password'); ?><font class="redColor">*</font></th>
-            <td><?php echo CHtml::activePasswordField($form, 'password', array( 'class'=>'validate[required]' )) ?></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td align="center">
-                <?php echo CHtml::submitButton('Авторизоватся'); ?>
+            <td colspan="2" align="center">
+                <h4>Если у Вас есть аккаунт, то авторизуйтесь через него?</h4>
+                <?php
+                    $this->widget('ext.eauth.EAuthWidget', array('action' => 'default/login'));
+                ?>
             </td>
         </tr>
     </table>

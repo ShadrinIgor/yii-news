@@ -25,6 +25,8 @@ body
 a { text-decoration:none;color:#095c9c; }
 a:hover { text-decoration:underline; }
 h1{margin: 0px 0px 3px 0px;text-align: center; }
+h4{margin-bottom: 10px;}
+
 img{	border:0px;}
 
 .bold{ font-weight:bold; }
@@ -735,3 +737,7 @@ h2{ margin-top: 10px; }
 }
 
 #loginForm th{border-right: 1px solid #9f9f9f;border-bottom: 1px solid #9f9f9f;}
+
+.services ul.auth-services{ margin: 0px;padding: 0px; }
+.services .auth-services li{ margin: 0px; }
+.services .auth-services li a.auth-link{ width: 40px; }

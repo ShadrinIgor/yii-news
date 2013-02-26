@@ -45,13 +45,14 @@ class EAuthWidget extends CWidget {
 		
 		// EAuth component
 		$component = Yii::app()->{$this->component};
-		
+
 		// Some default properties from component configuration
 		if (!isset($this->services))
 			$this->services = $component->getServices();
+
 		if (!isset($this->popup))
 			$this->popup = $component->popup;
-		
+
 		// Set the current route, if it is not set.
 		if (!isset($this->action))
 			$this->action = Yii::app()->urlManager->parseUrl(Yii::app()->request);
