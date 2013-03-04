@@ -110,9 +110,10 @@ return array(
                 'twitter' => array(
                     // register your app here: https://dev.twitter.com/apps/new
                     'class' => 'TwitterOAuthService',
-                    'key' => '...',
-                    'secret' => '...',
+                    'key' => 'fZOlqQCLbHGmQ5I7Swt0w',
+                    'secret' => 'FbxAxumTvWBXItYhR2K7wWQAdlaZyjeZn2svkp2PJW8',
                 ),
+/*
                 'google_oauth' => array(
                     // register your app here: https://code.google.com/apis/console/
                     'class' => 'GoogleOAuthService',
@@ -120,41 +121,42 @@ return array(
                     'client_secret' => '...',
                     'title' => 'Google (OAuth)',
                 ),
+*/
                 'facebook' => array(
                     // register your app here: https://developers.facebook.com/apps/
                     'class' => 'FacebookOAuthService',
-                    'client_id' => '...',
-                    'client_secret' => '...',
+                    'client_id' => '428081060609322',
+                    'client_secret' => '2a900f700e80f38e0a77b700c6134f5e',
                 ),
                 'linkedin' => array(
                     // register your app here: https://www.linkedin.com/secure/developer
                     'class' => 'LinkedinOAuthService',
-                    'key' => '...',
-                    'secret' => '...',
+                    'key' => '0ceu3iv6hcs3',
+                    'secret' => 'dlSpylUztNZ5BvJm',
                 ),
                 'github' => array(
                     // register your app here: https://github.com/settings/applications
                     'class' => 'GitHubOAuthService',
-                    'client_id' => '...',
-                    'client_secret' => '...',
+                    'client_id' => '5aa1eb3c4e716ddf0731',
+                    'client_secret' => 'bb636f402cc8155223e7a15a266eb2efb0eefb49',
                 ),
                 'vkontakte' => array(
                     // register your app here: http://vkontakte.ru/editapp?act=create&site=1
                     'class' => 'VKontakteOAuthService',
-                    'client_id' => '...',
-                    'client_secret' => '...',
+                    'client_id' => '3463515',
+                    'client_secret' => '9ibyCqnBBzqpMK8P41OU',
                 ),
                 'mailru' => array(
                     // register your app here: http://api.mail.ru/sites/my/add
                     'class' => 'MailruOAuthService',
-                    'client_id' => '...',
-                    'client_secret' => '...',
+                    'client_id' => '700152',
+                    'client_secret' => 'a65b90c87b21cfd93eb8ecf9bb6f0496',
                 ),
                 'moikrug' => array(
                     // register your app here: https://oauth.yandex.ru/client/my
                     'class' => 'MoikrugOAuthService',
-                    'client_id' => '...',
-                    'client_secret' => '...',
+                    'client_id' => '813f1019ee444c10bcc8f355e74ef174',
+                    'client_secret' => '6e34781039ad4731a943a201707f0659',
                 ),
                 'odnoklassniki' => array(
                     // register your app here: http://www.odnoklassniki.ru/dk?st.cmd=appsInfoMyDevList&st._aid=Apps_Info_MyDev
@@ -238,7 +240,7 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
-        'baseUrl' => 'http://yii-news/',
+        'baseUrl' => 'http://world-news.uz/',
         'images' => array(
             "default" => array(
                     "1" => array( 800, 800 ),

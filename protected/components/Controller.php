@@ -15,6 +15,9 @@ class Controller extends CController
 	 */
 	public $menu=array();
 
+    public $listJsFiles=array();
+    public $listCssFiles=array();
+
 	/**
 	 * @var array the breadcrumbs of the current page. The value of this property will
 	 * be assigned to {@link CBreadcrumbs::links}. Please refer to {@link CBreadcrumbs::links}
@@ -79,5 +82,39 @@ class Controller extends CController
         else
             throw new CException(Yii::t('yii','{controller} cannot find the requested view "{view}".',
                 array('{controller}'=>get_class($this), '{view}'=>$view)));
+    }
+
+    public function getJsFiles( $cs )
+    {
+        foreach( $this->listJsFiles as $key=>$file )
+        {
+            $cs->registerScriptFile( $file );
+        }
+
+        /*
+         Yii::app()->clientScript->registerScriptFile(
+    Yii::app()->assetManager->publish(
+        Yii::getPathOfAlias('ext.myExtension.assets').'/main.js'
+    ),
+    CClientScript::POS_END
+);
+         */
+    }
+
+    public function getCssFiles( $cs )
+    {
+        foreach( $this->listJsFiles as $key=>$file )
+        {
+            $cs->registerScriptFile( $file );
+        }
+
+        /*
+         Yii::app()->clientScript->registerScriptFile(
+    Yii::app()->assetManager->publish(
+        Yii::getPathOfAlias('ext.myExtension.assets').'/main.js'
+    ),
+    CClientScript::POS_END
+);
+         */
     }
 }

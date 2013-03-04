@@ -1,13 +1,9 @@
 <?php
-$cs=Yii::app()->clientScript;
-$cs->scriptMap=array();
 $baseUrl=$Theme->getBaseUrl();
-$cs->registerScriptFile($baseUrl.'/js/jquery/jquery.js');
-$cs->registerScriptFile($baseUrl.'/js/jquery/jquery.validationEngine-ru.js');
-$cs->registerScriptFile($baseUrl.'/js/jquery/jquery.validationEngine.js');
-$cs->registerCssFile($baseUrl.'/css/jquery/validationEngine.jquery.css');
+$this->listJsFiles[] = $baseUrl.'/js/jquery/jquery.validationEngine-ru.js';
+$this->listJsFiles[] = $baseUrl.'/js/jquery/jquery.validationEngine.js';
+$this->listCssFiles[] = $baseUrl.'/css/jquery/validationEngine.jquery.css';
 ?>
-
 
 <div id="PageText">
     <?php
