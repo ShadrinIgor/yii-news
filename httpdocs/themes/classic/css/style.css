@@ -741,3 +741,5 @@ h2{ margin-top: 10px; }
 .services ul.auth-services{ margin: 0px;padding: 0px; }
 .services .auth-services li{ margin: 0px; }
 .services .auth-services li a.auth-link{ width: 40px; }
+
+.services {float: left;margin: 0px 0px 0px 55px;}

@@ -9,7 +9,7 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 
-require_once dirname(dirname(__FILE__)).'/EOAuth2Service.php';
+require_once dirname(dirname(__FILE__)) . '/EOAuth2Service.php';
 
 /**
  * Moikrug provider class.

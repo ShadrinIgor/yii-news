@@ -10,7 +10,7 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 
-require_once dirname(dirname(__FILE__)).'/EOAuthService.php';
+require_once dirname(dirname(__FILE__)) . '/EOAuthService.php';
 
 /**
  * LinkedIn provider class.

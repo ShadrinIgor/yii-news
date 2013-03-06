@@ -107,13 +107,13 @@ return array(
                 'yandex' => array(
                     'class' => 'YandexOpenIDService',
                 ),
+/*
                 'twitter' => array(
                     // register your app here: https://dev.twitter.com/apps/new
                     'class' => 'TwitterOAuthService',
                     'key' => 'fZOlqQCLbHGmQ5I7Swt0w',
                     'secret' => 'FbxAxumTvWBXItYhR2K7wWQAdlaZyjeZn2svkp2PJW8',
                 ),
-/*
                 'google_oauth' => array(
                     // register your app here: https://code.google.com/apis/console/
                     'class' => 'GoogleOAuthService',
@@ -128,12 +128,14 @@ return array(
                     'client_id' => '428081060609322',
                     'client_secret' => '2a900f700e80f38e0a77b700c6134f5e',
                 ),
+/*
                 'linkedin' => array(
                     // register your app here: https://www.linkedin.com/secure/developer
                     'class' => 'LinkedinOAuthService',
                     'key' => '0ceu3iv6hcs3',
                     'secret' => 'dlSpylUztNZ5BvJm',
                 ),
+*/
                 'github' => array(
                     // register your app here: https://github.com/settings/applications
                     'class' => 'GitHubOAuthService',
@@ -152,18 +154,20 @@ return array(
                     'client_id' => '700152',
                     'client_secret' => 'a65b90c87b21cfd93eb8ecf9bb6f0496',
                 ),
+/*
                 'moikrug' => array(
                     // register your app here: https://oauth.yandex.ru/client/my
                     'class' => 'MoikrugOAuthService',
                     'client_id' => '813f1019ee444c10bcc8f355e74ef174',
                     'client_secret' => '6e34781039ad4731a943a201707f0659',
                 ),
+*/
                 'odnoklassniki' => array(
                     // register your app here: http://www.odnoklassniki.ru/dk?st.cmd=appsInfoMyDevList&st._aid=Apps_Info_MyDev
                     'class' => 'OdnoklassnikiOAuthService',
-                    'client_id' => '...',
-                    'client_public' => '...',
-                    'client_secret' => '...',
+                    'client_id' => '163432192',
+                    'client_public' => 'CBAIMOLKABABABABA',
+                    'client_secret' => '5B642CA15C5B5F93AEE463E0',
                     'title' => 'Odnokl.',
                 ),
             ),
